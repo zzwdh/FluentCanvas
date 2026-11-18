@@ -1,67 +1,50 @@
 using System;
 using System.IO;
+using System.Text;
 using Newtonsoft.Json;
 
 namespace FluentCanvas.Helpers
 {
-    /// <summary>
-    /// Persists the settings payload.
-    /// Packaged builds store the file inside the WinRT <c>ApplicationData.LocalFolder</c>;
-    /// unpackaged builds store it in the local per-user folder.
-    /// </summary>
     internal static class SettingsStorage
     {
-        private const string SettingsFileName = "Settings.json";
-
-        public static string FilePath => Path.Combine(StorageHelper.UserDataFolder, SettingsFileName);
-
-        public static string Read()
+        private static readonly JsonSerializerSettings JsonOptions = new()
         {
-            try
+            NullValueHandling = NullValueHandling.Ignore,
+            CheckAdditionalContent = true
+        };
+
+        // The file used by the original UI is authoritative. Some older MSIX
+        // installations also have a (possibly older) LocalSettings snapshot.
+        public static Settings Read(string path, Func<string> readLegacy)
+        {
+            Exception invalid = null;
+            foreach (string candidate in new[] { path, path + ".bak" })
             {
-                var path = FilePath;
-                return File.Exists(path) ? File.ReadAllText(path) : null;
+                try
+                {
+                    return Parse(File.ReadAllText(candidate));
+                }
+                catch (FileNotFoundException) { }
+                catch (DirectoryNotFoundException) { }
+                catch (JsonException ex) { invalid = ex; }
             }
-            catch (Exception ex)
-            {
-                LogHelper.WriteLogToFile($"SettingsStorage | Read failed: {ex.Message}", LogHelper.LogType.Error);
-                return null;
-            }
+
+            var legacy = readLegacy?.Invoke();
+            if (legacy != null)
+                return Parse(legacy);
+            if (invalid != null)
+                throw new InvalidDataException("设置文件损坏。原文件已保留。", invalid);
+            return null;
         }
 
-        public static void Write(string json)
-        {
-            try
-            {
-                File.WriteAllText(FilePath, json);
-            }
-            catch (Exception ex)
-            {
-                LogHelper.WriteLogToFile($"SettingsStorage | Write failed: {ex.Message}", LogHelper.LogType.Error);
-            }
-        }
+        private static Settings Parse(string json) =>
+            JsonConvert.DeserializeObject<Settings>(json, JsonOptions)
+                ?? throw new JsonSerializationException("设置内容为空。");
 
-        public static Settings Deserialize(string json)
+        public static void Write(string path, Settings settings)
         {
-            if (string.IsNullOrWhiteSpace(json))
-            {
-                return null;
-            }
-
-            try
-            {
-                return JsonConvert.DeserializeObject<Settings>(json);
-            }
-            catch (Exception ex)
-            {
-                LogHelper.WriteLogToFile($"SettingsStorage | Deserialize failed: {ex.Message}", LogHelper.LogType.Error);
-                return null;
-            }
-        }
-
-        public static string Serialize(Settings settings)
-        {
-            return JsonConvert.SerializeObject(settings, Formatting.Indented);
+            var bytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(settings, Formatting.Indented));
+            AtomicFile.Write(path, stream => stream.Write(bytes), path + ".bak");
         }
     }
 }

@@ -40,8 +40,6 @@ namespace FluentCanvas.Services
 
         public void ShowNotification(string notice) => Window?.ShellShowNotification(notice);
 
-        public void SetRunAtStartup(bool enabled) => Window?.ShellSetRunAtStartup(enabled);
-
         public void ExitApplication() => Window?.ShellExitApplication();
 
         public void RestartApplication() => Window?.ShellRestartApplication();

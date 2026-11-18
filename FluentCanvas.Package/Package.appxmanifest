@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
@@ -6,16 +6,16 @@
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
   IgnorableNamespaces="uap desktop rescap">
 
-  <Identity Name="FluentCanvas" Publisher="CN=FluentCanvas" Version="5.0.1.0" />
+  <Identity Name="FluentCanvas.LocalTest" Publisher="CN=FluentCanvas Local Test" Version="5.0.2.0" />
 
   <Properties>
     <DisplayName>FluentCanvas</DisplayName>
-    <PublisherDisplayName>FluentCanvas</PublisherDisplayName>
+    <PublisherDisplayName>FluentCanvas Local Test</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19044.0" MaxVersionTested="10.0.26100.0" />
   </Dependencies>
 
   <Resources>
@@ -44,7 +44,7 @@
             </uap:SupportedFileTypes>
           </uap:FileTypeAssociation>
         </uap:Extension>
-        <desktop:Extension Category="windows.startupTask" Executable="FluentCanvas\FluentCanvas.exe" EntryPoint="Windows.FullTrustApplication">
+        <desktop:Extension Category="windows.startupTask" Executable="FluentCanvas.exe" EntryPoint="Windows.FullTrustApplication">
           <desktop:StartupTask TaskId="FluentCanvasStartup" Enabled="false" DisplayName="FluentCanvas" />
         </desktop:Extension>
       </Extensions>

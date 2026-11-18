@@ -124,7 +124,9 @@
                                     Text="启动选项" />
                             </GroupBox.Header>
                             <ikw:SimpleStackPanel Spacing="5">
-                                <ikw:SimpleStackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="StoreUpdateMessage"
+                                    Visibility="Collapsed" Text="商店版的更新由 Microsoft Store 管理。" TextWrapping="Wrap" />
+                                <ikw:SimpleStackPanel x:Name="AutoUpdateBlock" Orientation="Horizontal">
                                     <ikw:SimpleStackPanel Width="50">
                                         <ui:ToggleSwitch
                                             Name="ToggleSwitchIsAutoUpdate"
@@ -215,11 +217,12 @@
                                     <ikw:SimpleStackPanel Width="50">
                                         <ui:ToggleSwitch
                                             Name="ToggleSwitchRunAtStartup"
+                                            AutomationProperties.Name="开机时运行"
                                             OffContent="关"
                                             OnContent="开"
                                             Toggled="ToggleSwitchRunAtStartup_Toggled" />
                                     </ikw:SimpleStackPanel>
-                                    <TextBlock
+                                    <TextBlock x:Name="StartupStateText"
                                         Margin="0,0,14,0"
                                         VerticalAlignment="Center"
                                         FontSize="14"
@@ -1670,7 +1673,7 @@
                                 <TextBlock
                                     FontWeight="Bold"
                                     Foreground="{DynamicResource RedBrush}"
-                                    Text="请注意自动删除功能将会删除自动保存目录下所有后缀名为 .icstk / .icart 和 .png 的文件！"
+                                    Text="仅清理 FluentCanvas 各个 Auto Saved 子目录中的过期笔迹、截图和演示位置记录。"
                                     TextWrapping="Wrap" />
                                 <ikw:SimpleStackPanel
                                     Margin="0,5,0,0"
@@ -1720,6 +1723,10 @@
                                         Foreground="{DynamicResource SettingsPageForeground}"
                                         Text="4.X.X.X" />
                                 </ikw:SimpleStackPanel>
+                                <Button HorizontalAlignment="Left" Content="打开诊断信息" Click="OpenDiagnostics_Click" />
+                                <CheckBox x:Name="ErrorUploads" Content="向 Sentry 发送应用错误"
+                                          Loaded="ErrorUploads_Loaded" Click="ErrorUploads_Click"
+                                          ToolTip="错误报告包含异常类型、调用方法、应用版本及系统版本。" />
                                 <TextBlock
                                     Foreground="{DynamicResource SettingsPageAnnotationForeground}"
                                     Text="* 使用和分发本软件前，请您应当且务必知晓相关开源协议，且您应当知晓本软件基于 https://github.com/WXRIW/Ink-Canvas 修改而成。"

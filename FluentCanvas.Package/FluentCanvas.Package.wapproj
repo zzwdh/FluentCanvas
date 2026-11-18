@@ -4,14 +4,6 @@
     <VisualStudioVersion>15.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|x86">
-      <Configuration>Debug</Configuration>
-      <Platform>x86</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x86">
-      <Configuration>Release</Configuration>
-      <Platform>x86</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
@@ -36,19 +28,29 @@
   <PropertyGroup>
     <ProjectGuid>{C2E08DA0-0CB3-4F49-AD2E-E7B8BE59429B}</ProjectGuid>
     <TargetPlatformVersion>10.0.26100.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.19044.0</TargetPlatformMinVersion>
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <EntryPointProjectUniqueName>..\FluentCanvas\FluentCanvas.csproj</EntryPointProjectUniqueName>
     <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
     <GenerateAppInstallerFile>false</GenerateAppInstallerFile>
-    <AppxBundle>Never</AppxBundle>
-    <UapAppxPackageBuildMode>SideloadOnly</UapAppxPackageBuildMode>
+    <AppxBundle Condition="'$(StoreManifest)' == ''">Never</AppxBundle>
+    <AppxBundle Condition="'$(StoreManifest)' != ''">Always</AppxBundle>
+    <AppxBundlePlatforms Condition="'$(StoreManifest)' != ''">x64|arm64</AppxBundlePlatforms>
+    <UapAppxPackageBuildMode Condition="'$(StoreManifest)' != ''">StoreUpload</UapAppxPackageBuildMode>
+    <WinUISDKReferences>false</WinUISDKReferences>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <UapAppxPackageBuildMode Condition="'$(UapAppxPackageBuildMode)' == ''">SideloadOnly</UapAppxPackageBuildMode>
     <NoWarn>$(NoWarn);NU1701;NU1702</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <AppxManifest Include="Package.appxmanifest">
+    <AppxManifest Include="Package.appxmanifest" Condition="'$(StoreManifest)' == ''">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <AppxManifest Include="$(StoreManifest)" Condition="'$(StoreManifest)' != ''">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Content Include="..\LICENSE"><Link>LICENSE</Link></Content>
+    <Content Include="..\docs\store\THIRD-PARTY.md;..\docs\store\PRIVACY.zh-CN.md"><Link>docs\store\%(Filename)%(Extension)</Link></Content>
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />
@@ -104,8 +106,25 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
   </ItemGroup>
+  <Target Name="RequireStoreIdentity" BeforeTargets="PrepareForBuild" Condition="'$(UapAppxPackageBuildMode)' != 'SideloadOnly'">
+    <Error Condition="'$(StoreManifest)' == '' or !Exists('$(StoreManifest)')" Text="Provide the Partner Center identity through eng/Build-Packages.ps1 -Mode Store -StoreIdentity &lt;json file&gt;." />
+    <XmlPeek XmlInputPath="$(StoreManifest)" Query="/*[local-name()='Package']/*[local-name()='Identity']/@Name">
+      <Output TaskParameter="Result" PropertyName="_StoreIdentityName" />
+    </XmlPeek>
+    <XmlPeek XmlInputPath="$(StoreManifest)" Query="/*[local-name()='Package']/*[local-name()='Identity']/@Publisher">
+      <Output TaskParameter="Result" PropertyName="_StorePublisher" />
+    </XmlPeek>
+    <XmlPeek XmlInputPath="$(StoreManifest)" Query="/*[local-name()='Package']/*[local-name()='Properties']/*[local-name()='PublisherDisplayName']/text()">
+      <Output TaskParameter="Result" PropertyName="_StorePublisherName" />
+    </XmlPeek>
+    <XmlPeek XmlInputPath="$(StoreManifest)" Query="/*[local-name()='Package']/*[local-name()='Properties']/*[local-name()='DisplayName']/text()">
+      <Output TaskParameter="Result" PropertyName="_StoreDisplayName" />
+    </XmlPeek>
+    <Error Condition="'$(_StoreIdentityName)' == '' or '$(_StorePublisher)' == '' or '$(_StorePublisherName)' == '' or '$(_StoreDisplayName)' == '' or '$(_StoreIdentityName)' == 'FluentCanvas.LocalTest' or '$(_StorePublisher)' == 'CN=FluentCanvas Local Test' or ('$(_StoreIdentityName)' == 'FluentCanvas' and '$(_StorePublisher)' == 'CN=FluentCanvas')" Text="Store manifests require a real Partner Center identity." />
+  </Target>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
   <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260804001" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4948" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>

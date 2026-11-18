@@ -1,4 +1,4 @@
-﻿using FluentCanvas.Helpers;
+using FluentCanvas.Helpers;
 using System;
 using System.Diagnostics;
 using System.Timers;
@@ -21,8 +21,11 @@ namespace FluentCanvas
             timerKillProcess.Interval = 5000;
             timerCheckAutoFold.Elapsed += timerCheckAutoFold_Elapsed;
             timerCheckAutoFold.Interval = 1500;
-            timerCheckAutoUpdateWithSilence.Elapsed += timerCheckAutoUpdateWithSilence_Elapsed;
-            timerCheckAutoUpdateWithSilence.Interval = 1000 * 60 * 60;
+            if (!App.IsPackaged)
+            {
+                timerCheckAutoUpdateWithSilence.Elapsed += timerCheckAutoUpdateWithSilence_Elapsed;
+                timerCheckAutoUpdateWithSilence.Interval = 1000 * 60 * 60;
+            }
         }
 
         private void TimerKillProcess_Elapsed(object sender, ElapsedEventArgs e)

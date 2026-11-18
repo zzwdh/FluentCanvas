@@ -61,15 +61,16 @@ namespace FluentCanvas
 
             try
             {
-                if (File.Exists("Log.txt"))
+                var logPath = Path.Combine(StorageHelper.UserDataFolder, LogHelper.LogFile);
+                if (File.Exists(logPath))
                 {
-                    FileInfo fileInfo = new FileInfo("Log.txt");
+                    FileInfo fileInfo = new FileInfo(logPath);
                     long fileSizeInKB = fileInfo.Length / 1024;
                     if (fileSizeInKB > 512)
                     {
                         try
                         {
-                            File.Delete("Log.txt");
+                            File.Delete(logPath);
                             LogHelper.WriteLogToFile("The Log.txt file has been successfully deleted. Original file size: " + fileSizeInKB + " KB", LogHelper.LogType.Info);
                         }
                         catch (Exception ex)
@@ -93,7 +94,7 @@ namespace FluentCanvas
             Microsoft.Win32.SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
             try
             {
-                if (File.Exists("SpecialVersion.ini")) SettingsPanel.SpecialVersionReset();
+                if (File.Exists(Path.Combine(AppContext.BaseDirectory, "SpecialVersion.ini"))) SettingsPanel.SpecialVersionReset();
             }
             catch (Exception ex)
             {
@@ -173,8 +174,11 @@ namespace FluentCanvas
 
         #region Definations and Loading
 
-        public static Settings Settings = new Settings();
-        public static string settingsFileName = "Settings.json";
+        public static Settings Settings
+        {
+            get => Locator.Get<ISettingsService>().Model;
+            private set => Locator.Get<ISettingsService>().Model = value;
+        }
         bool isLoaded = false;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -189,25 +193,7 @@ namespace FluentCanvas
             LogHelper.WriteLogToFile("FluentCanvas Loaded", LogHelper.LogType.Event);
             isLoaded = true;
             RegisterGlobalHotkeys();
-            OpenActivationFile();
-        }
-
-        private void OpenActivationFile()
-        {
-            var filePath = App.TakePendingActivationFile();
-            if (string.IsNullOrEmpty(filePath) || !File.Exists(filePath))
-            {
-                return;
-            }
-
-            try
-            {
-                LoadInkCanvasFile(filePath);
-            }
-            catch (Exception ex)
-            {
-                LogHelper.WriteLogToFile($"Failed to open activated file '{filePath}': {ex}", LogHelper.LogType.Error);
-            }
+            ((App)Application.Current).EnableFileActivation(this);
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

@@ -1,66 +1,42 @@
-﻿using System;
+using System;
 using System.IO;
-using System.Windows;
 
 namespace FluentCanvas.Helpers
 {
-    internal class DelAutoSavedFiles
+    internal static class DelAutoSavedFiles
     {
+        private static readonly string[] AutoSaveFolders =
+        {
+            "Auto Saved - Annotation Strokes", "Auto Saved - BlackBoard Strokes",
+            "Auto Saved - Presentations", "Auto Saved - Screenshots", "Auto Saved - PPT Screenshots"
+        };
+
         public static void DeleteFilesOlder(string directoryPath, int daysThreshold)
         {
-            string[] extensionsToDel = { ".icstk", ".icart", ".png" };
-            if (Directory.Exists(directoryPath))
-            {
-                // 获取目录中的所有子目录
-                string[] subDirectories = Directory.GetDirectories(directoryPath, "*", SearchOption.AllDirectories);
-                foreach (string subDirectory in subDirectories)
-                {
-                    try
-                    {
-                        // 获取子目录下的所有文件
-                        string[] files = Directory.GetFiles(subDirectory);
-                        foreach (string filePath in files)
-                        {
-                            // 获取文件的创建日期
-                            DateTime creationDate = File.GetCreationTime(filePath);
-                            // 获取文件的扩展名
-                            string fileExtension = Path.GetExtension(filePath);
-                            // 如果文件的创建日期早于指定天数且是要删除的扩展名，则删除文件
-                            if (creationDate < DateTime.Now.AddDays(-daysThreshold))
-                            {
-                                if (Array.Exists(extensionsToDel, ext => ext.Equals(fileExtension, StringComparison.OrdinalIgnoreCase))
-                                    || Path.GetFileName(filePath).Equals("Position", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    File.Delete(filePath);
-                                }
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        LogHelper.WriteLogToFile("DelAutoSavedFiles | 处理文件时出错: " + ex.ToString(), LogHelper.LogType.Error);
-                    }
-                }
+            if (string.IsNullOrWhiteSpace(directoryPath) || !Path.IsPathFullyQualified(directoryPath) || daysThreshold <= 0)
+                return;
 
+            var cutoff = DateTime.UtcNow.AddDays(-Math.Min(daysThreshold, 36500));
+            var options = new EnumerationOptions { RecurseSubdirectories = true, AttributesToSkip = FileAttributes.ReparsePoint };
+            foreach (string name in AutoSaveFolders)
+            {
+                var folder = new DirectoryInfo(Path.Combine(directoryPath, name));
                 try
-                { // 递归删除空文件夹
-                    DeleteEmptyFolders(directoryPath);
-                }
-                catch (Exception ex)
                 {
-                    LogHelper.WriteLogToFile("DelAutoSavedFiles | 处理文件时出错: " + ex.ToString(), LogHelper.LogType.Error);
+                    if (!folder.Exists || (folder.Attributes & FileAttributes.ReparsePoint) != 0) continue;
+                    foreach (var file in folder.EnumerateFiles("*", options))
+                    {
+                        if (file.CreationTimeUtc >= cutoff || file.LastWriteTimeUtc >= cutoff) continue;
+                        if (file.Extension.Equals(".icstk", StringComparison.OrdinalIgnoreCase) ||
+                            file.Extension.Equals(".icart", StringComparison.OrdinalIgnoreCase) ||
+                            file.Extension.Equals(".png", StringComparison.OrdinalIgnoreCase) ||
+                            file.Name.Equals("Position", StringComparison.OrdinalIgnoreCase))
+                            file.Delete();
+                    }
                 }
-            }
-        }
-
-        private static void DeleteEmptyFolders(string directoryPath)
-        {
-            foreach (string dir in Directory.GetDirectories(directoryPath))
-            {
-                DeleteEmptyFolders(dir);
-                if (Directory.GetFiles(dir).Length == 0 && Directory.GetDirectories(dir).Length == 0)
+                catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
                 {
-                    Directory.Delete(dir, false);
+                    LogHelper.WriteLogToFile($"Auto save cleanup: {ex.Message}", LogHelper.LogType.Error);
                 }
             }
         }

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net11.0-windows</TargetFramework>
+    <RuntimeFrameworkVersion>11.0.0</RuntimeFrameworkVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../FluentCanvas/Helpers/AtomicFile.cs;../../FluentCanvas/Helpers/InkActivation.cs;../../FluentCanvas/Helpers/SettingsStorage.cs;../../FluentCanvas/Helpers/DelAutoSavedFiles.cs;../../FluentCanvas/Services/ISettingsService.cs;../../FluentCanvas/Services/LocalSettingsService.cs;../../FluentCanvas/Resources/Settings.cs" Link="%(Filename)%(Extension)" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+</Project>

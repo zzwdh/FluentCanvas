@@ -1,70 +1,28 @@
-name: .NET Build
-
+name: Build Windows MSIX
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  workflow_dispatch:
 
 jobs:
-
-  build:
+  package:
     runs-on: windows-latest
-
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - platform: x86
-            rid: win-x86
-          - platform: x64
-            rid: win-x64
-          - platform: ARM64
-            rid: win-arm64
-
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-
-    # 安装 .NET 10 SDK
-    - name: Install .NET SDK
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '10.0.x'
-
-    # 添加 MSBuild.exe 到环境变量: https://github.com/microsoft/setup-msbuild
-    - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v2
-
-    # 编译主程序（含 FluentCanvas.InkAnalyzerCore）
-    - name: Build app (${{ matrix.platform }})
-      run: msbuild "FluentCanvas\FluentCanvas.csproj" /restore /t:Build /p:Configuration=Release /p:Platform=${{ matrix.platform }}
-
-    # 生成 MSIX（需要 Visual Studio 的 Windows Application Packaging 组件）
-    - name: Build MSIX (${{ matrix.platform }})
-      run: msbuild "FluentCanvas.Package\FluentCanvas.Package.wapproj" /restore /t:Build /p:Configuration=Release /p:Platform=${{ matrix.platform }}
-
-    # 生成单文件免安装版本（unpackaged / PublishSingleFile）
-    - name: Publish unpackaged single-file (${{ matrix.rid }})
-      run: dotnet publish "FluentCanvas\FluentCanvas.csproj" -c Release -p:Platform=${{ matrix.platform }} -p:PublishProfile=unpackaged-${{ matrix.rid }}
-
-    # 上传编译成品
-    - name: Upload app artifact (${{ matrix.platform }})
-      uses: actions/upload-artifact@v4
-      with:
-        name: FluentCanvas (${{ matrix.platform }})
-        path: FluentCanvas/bin/${{ matrix.platform }}/Release
-
-    - name: Upload MSIX artifact (${{ matrix.platform }})
-      uses: actions/upload-artifact@v4
-      with:
-        name: FluentCanvas MSIX (${{ matrix.platform }})
-        path: FluentCanvas.Package/AppPackages
-
-    - name: Upload unpackaged single-file artifact (${{ matrix.rid }})
-      uses: actions/upload-artifact@v4
-      with:
-        name: FluentCanvas unpackaged (${{ matrix.rid }})
-        path: FluentCanvas/bin/publish/unpackaged/${{ matrix.rid }}
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: Test document reliability
+        run: dotnet run --project tests/Document.Tests/Document.Tests.csproj -c Release
+      - name: Test settings and activation
+        run: dotnet run --project tests/Lifecycle.Tests/Lifecycle.Tests.csproj -c Release
+      - name: Build and inspect x64 and ARM64 packages
+        shell: pwsh
+        run: ./eng/Build-Packages.ps1 -Mode Local
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FluentCanvas-local-MSIX
+          path: artifacts/packages/Local/
+          if-no-files-found: error

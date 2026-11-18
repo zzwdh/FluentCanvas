@@ -3,6 +3,7 @@ using FluentCanvas.Services;
 using iNKORE.UI.WPF.Modern.Controls;
 using Microsoft.Windows.AppLifecycle;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
@@ -15,44 +16,30 @@ namespace FluentCanvas
     /// </summary>
     public partial class App : Application
     {
-        private AppInstance appInstance;
-        private static string pendingActivationFile;
+        private readonly Queue<string> activationFiles = new();
+        private MainWindow activationWindow;
+        private bool openingFiles;
 
-        public static string[] StartArgs = null;
+        public static string[] StartArgs = Array.Empty<string>();
         public static string RootPath =>
             Helpers.StorageHelper.UserDataFolder + System.IO.Path.DirectorySeparatorChar;
 
-        public static string TakePendingActivationFile()
+        private static string[] GetActivationFiles(AppActivationArguments args, string[] fallback = null)
         {
-            var filePath = pendingActivationFile;
-            pendingActivationFile = null;
-            return filePath;
-        }
-
-        private static string FindInkFile(string[] args)
-        {
-            if (args == null)
+            if (args?.Kind == ExtendedActivationKind.File && args.Data is IFileActivatedEventArgs fileArgs)
             {
-                return null;
+                return InkActivation.SelectFiles(fileArgs.Files.OfType<global::Windows.Storage.IStorageFile>()
+                    .Select(file => file.Path));
             }
 
-            return args.FirstOrDefault(arg =>
-                arg != null &&
-                (arg.EndsWith(".icart", StringComparison.OrdinalIgnoreCase) ||
-                 arg.EndsWith(".icstk", StringComparison.OrdinalIgnoreCase)));
-        }
-
-        private static string FindInkFile(IActivatedEventArgs args)
-        {
-            if (args is IFileActivatedEventArgs fileArgs)
+            if (fallback != null)
             {
-                return fileArgs.Files
-                    .OfType<global::Windows.Storage.IStorageFile>()
-                    .Select(file => file.Path)
-                    .FirstOrDefault();
+                var files = InkActivation.SelectFiles(fallback);
+                if (files.Length > 0) return files;
             }
-
-            return null;
+            if (args?.Kind == ExtendedActivationKind.Launch && args.Data is ILaunchActivatedEventArgs launch)
+                return InkActivation.FromCommandLine(launch.Arguments);
+            return Array.Empty<string>();
         }
 
         public static bool IsPackaged
@@ -73,78 +60,108 @@ namespace FluentCanvas
 
         public App()
         {
+            ErrorReporting.Initialize();
+            Exit += (_, _) => ErrorReporting.Close();
             this.Startup += new StartupEventHandler(App_Startup);
             this.DispatcherUnhandledException += App_DispatcherUnhandledException;
         }
 
         private void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
+            ErrorReporting.Capture(e.Exception);
             FluentCanvas.MainWindow.ShowNewMessage("抱歉，出现未预期的异常，可能导致 FluentCanvas 画板运行不稳定。\n建议保存墨迹后重启应用。", true);
             LogHelper.NewLog(e.Exception.ToString());
             e.Handled = true;
         }
 
-        void App_Startup(object sender, StartupEventArgs e)
+        private async void App_Startup(object sender, StartupEventArgs e)
         {
-            InstallHelper.RunStartupTasks();
-
-            LogHelper.NewLog(string.Format("FluentCanvas Starting (Version: {0})", Assembly.GetExecutingAssembly().GetName().Version.ToString()));
-
-            try
+            if (e.Args.Length == 1 && e.Args[0] == "--verify-sentry")
             {
-                var currentInstance = AppInstance.GetCurrent();
-                appInstance = AppInstance.FindOrRegisterForKey("FluentCanvas");
-                if (!appInstance.IsCurrent && !Array.Exists(e.Args, arg => arg == "-m"))
-                {
-                    LogHelper.NewLog("Detected existing instance");
-                    appInstance.RedirectActivationToAsync(currentInstance.GetActivatedEventArgs()).AsTask().GetAwaiter().GetResult();
-                    LogHelper.NewLog("FluentCanvas automatically closed");
-                    Shutdown();
-                    return;
-                }
-
-                appInstance.Activated += AppInstance_Activated;
-            }
-            catch (Exception ex)
-            {
-                LogHelper.WriteLogToFile(
-                    $"Windows App SDK app lifecycle unavailable; running without single-instance redirection: {ex.Message}",
-                    LogHelper.LogType.Error);
+                Environment.ExitCode = ErrorReporting.VerifyDelivery();
+                Shutdown(Environment.ExitCode);
+                return;
             }
 
             StartArgs = e.Args;
-            pendingActivationFile = FindInkFile(e.Args);
+            AppActivationArguments activation = null;
+            bool redirecting = false;
+            try
+            {
+                var current = AppInstance.GetCurrent();
+                // Subscribe before publishing the key: a second launch can arrive
+                // while the first window is still being constructed.
+                current.Activated += AppInstance_Activated;
+                activation = current.GetActivatedEventArgs();
+                var primary = AppInstance.FindOrRegisterForKey("FluentCanvas");
+                if (!primary.IsCurrent && !Array.Exists(e.Args, arg => arg == "-m"))
+                {
+                    redirecting = true;
+                    await primary.RedirectActivationToAsync(activation);
+                    Shutdown();
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLogToFile($"Windows App SDK activation failed: {ex}", LogHelper.LogType.Error);
+                if (redirecting)
+                {
+                    System.Windows.MessageBox.Show("无法将文件发送到已打开的 FluentCanvas。请使用画板中的打开按钮重试。", "FluentCanvas");
+                    Shutdown(1);
+                    return;
+                }
+            }
 
+            foreach (var path in GetActivationFiles(activation, e.Args))
+                activationFiles.Enqueue(path);
+
+            InstallHelper.RunStartupTasks();
+            LogHelper.NewLog($"FluentCanvas Starting (Version: {Assembly.GetExecutingAssembly().GetName().Version})");
             ServiceRegistration.RegisterServices();
             Locator.Initialize();
 
-            var mainWindow = new MainWindow();
-            this.MainWindow = mainWindow;
-            mainWindow.Show();
+            MainWindow = new MainWindow();
+            MainWindow.Show();
         }
 
         private void AppInstance_Activated(object sender, AppActivationArguments args)
         {
-            var activatedFile = args.Kind == ExtendedActivationKind.File
-                ? FindInkFile(args.Data as IActivatedEventArgs)
-                : null;
-
+            var files = GetActivationFiles(args);
             Dispatcher.BeginInvoke(() =>
             {
-                if (Current.MainWindow == null)
+                foreach (var file in files)
+                    activationFiles.Enqueue(file);
+                if (activationWindow == null)
                     return;
 
-                if (Current.MainWindow.WindowState == WindowState.Minimized)
-                    Current.MainWindow.WindowState = WindowState.Normal;
-
-                Current.MainWindow.Show();
-                Current.MainWindow.Activate();
-
-                if (!string.IsNullOrEmpty(activatedFile) && Current.MainWindow is MainWindow mainWindow)
-                {
-                    mainWindow.LoadInkCanvasFile(activatedFile);
-                }
+                if (activationWindow.WindowState == WindowState.Minimized)
+                    activationWindow.WindowState = WindowState.Normal;
+                activationWindow.Show();
+                activationWindow.Activate();
+                OpenPendingFiles();
             });
+        }
+
+        internal void EnableFileActivation(MainWindow window)
+        {
+            activationWindow = window;
+            OpenPendingFiles();
+        }
+
+        private void OpenPendingFiles()
+        {
+            if (openingFiles) return;
+            openingFiles = true;
+            try
+            {
+                while (activationFiles.TryDequeue(out var file))
+                    activationWindow.LoadInkCanvasFile(file);
+            }
+            finally
+            {
+                openingFiles = false;
+            }
         }
 
         private void ScrollViewer_PreviewMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e)

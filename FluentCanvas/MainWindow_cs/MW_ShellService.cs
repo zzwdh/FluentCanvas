@@ -51,18 +51,6 @@ namespace FluentCanvas
 
         internal void ShellShowNotification(string notice) => ShowNotificationAsync(notice);
 
-        internal async void ShellSetRunAtStartup(bool enabled)
-        {
-            if (enabled)
-            {
-                await StartAutomaticallyCreate("FluentCanvas");
-            }
-            else
-            {
-                await StartAutomaticallyDel("FluentCanvas");
-            }
-        }
-
         internal void ShellExitApplication()
         {
             CloseIsFromButton = true;
@@ -71,10 +59,16 @@ namespace FluentCanvas
 
         internal void ShellRestartApplication()
         {
-            Process.Start(System.Windows.Forms.Application.ExecutablePath, "-m");
-
-            CloseIsFromButton = true;
-            Application.Current.Shutdown();
+            try
+            {
+                var reason = Microsoft.Windows.AppLifecycle.AppInstance.Restart(string.Empty);
+                ShellShowNotification($"重启未完成（{reason}）。请保存后手动重开应用。");
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLogToFile($"Restart failed: {ex}", LogHelper.LogType.Error);
+                ShellShowNotification("重启失败。请保存后手动重开应用。");
+            }
         }
 
         internal void ShellSetEdgeGestureUtil(bool enabled)

@@ -1,4 +1,4 @@
-﻿using FluentCanvas.Helpers;
+using FluentCanvas.Helpers;
 using System.Windows;
 
 namespace FluentCanvas
@@ -7,6 +7,7 @@ namespace FluentCanvas
     {
         private async void AutoUpdate()
         {
+            if (App.IsPackaged) return;
             AvailableLatestVersion = await AutoUpdateHelper.CheckForUpdates();
 
             if (AvailableLatestVersion != null)

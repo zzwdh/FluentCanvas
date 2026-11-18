@@ -1,91 +1,47 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using Microsoft.Win32;
-using System.Windows;
+using Windows.ApplicationModel;
 
 namespace FluentCanvas
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         private const string StartupTaskId = "FluentCanvasStartup";
         private const string RunKeyPath = @"Software\Microsoft\Windows\CurrentVersion\Run";
 
-        public static async Task<bool> StartAutomaticallyCreate(string exeName)
+        internal static async Task<StartupTaskState> GetStartupState(bool? enable = null)
         {
             if (App.IsPackaged)
             {
-                try
-                {
-                    var task = await global::Windows.ApplicationModel.StartupTask.GetAsync(StartupTaskId);
-                    var state = await task.RequestEnableAsync();
-                    return state == global::Windows.ApplicationModel.StartupTaskState.Enabled;
-                }
-                catch (Exception ex)
-                {
-                    Helpers.LogHelper.WriteLogToFile($"StartupTask enable failed: {ex}", Helpers.LogHelper.LogType.Error);
-                    return false;
-                }
-            }
-
-            try
-            {
-                using RegistryKey key = Registry.CurrentUser.CreateSubKey(RunKeyPath);
-                key.SetValue(exeName, $"\"{Environment.ProcessPath}\"");
-                return true;
-            }
-            catch (Exception) { }
-            return false;
-        }
-
-        public static async Task<bool> StartAutomaticallyDel(string exeName)
-        {
-            if (App.IsPackaged)
-            {
-                try
-                {
-                    var task = await global::Windows.ApplicationModel.StartupTask.GetAsync(StartupTaskId);
+                var task = await StartupTask.GetAsync(StartupTaskId);
+                if (enable == true && task.State == StartupTaskState.Disabled)
+                    return await task.RequestEnableAsync();
+                if (enable == false && task.State == StartupTaskState.Enabled)
                     task.Disable();
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    Helpers.LogHelper.WriteLogToFile($"StartupTask disable failed: {ex}", Helpers.LogHelper.LogType.Error);
-                    return false;
-                }
+                return task.State;
             }
 
-            try
+            const string name = "FluentCanvas";
+            string command = $"\"{Environment.ProcessPath}\"";
+            using var key = enable == true
+                ? Registry.CurrentUser.CreateSubKey(RunKeyPath)
+                : Registry.CurrentUser.OpenSubKey(RunKeyPath, writable: enable == false);
+            var existing = key?.GetValue(name) as string;
+            bool owned = string.Equals(existing, command, StringComparison.OrdinalIgnoreCase);
+            if (enable == true)
             {
-                using RegistryKey key = Registry.CurrentUser.OpenSubKey(RunKeyPath, true);
-                key?.DeleteValue(exeName, false);
-                return true;
+                if (existing != null && !owned)
+                    throw new InvalidOperationException("同名启动项属于其他安装位置。");
+                key.SetValue(name, command);
+                return StartupTaskState.Enabled;
             }
-            catch (Exception) { }
-            return false;
-        }
-
-        public static bool StartAutomaticallyIsEnabled(string exeName)
-        {
-            if (App.IsPackaged)
+            if (enable == false && owned)
             {
-                try
-                {
-                    var task = Task.Run(() => global::Windows.ApplicationModel.StartupTask.GetAsync(StartupTaskId).AsTask()).GetAwaiter().GetResult();
-                    return task.State == global::Windows.ApplicationModel.StartupTaskState.Enabled;
-                }
-                catch
-                {
-                    return false;
-                }
+                key.DeleteValue(name, false);
+                return StartupTaskState.Disabled;
             }
-
-            try
-            {
-                using RegistryKey key = Registry.CurrentUser.OpenSubKey(RunKeyPath);
-                return key?.GetValue(exeName) != null;
-            }
-            catch (Exception) { }
-            return false;
+            return owned ? StartupTaskState.Enabled : StartupTaskState.Disabled;
         }
     }
 }

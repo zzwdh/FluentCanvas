@@ -14,12 +14,14 @@ namespace FluentCanvas
             {
                 if (!ViewModel.Settings.Load())
                 {
-                    SettingsPanel.ResetToSuggestion();
+                    SetSettingsToRecommendation();
+                    SaveSettingsToFile();
                 }
             }
             catch (Exception ex)
             {
                 LogHelper.WriteLogToFile(ex.ToString(), LogHelper.LogType.Error);
+                ShowNotificationAsync("无法读取设置，已保留原文件。");
             }
 
             if (Settings.Startup == null) Settings.Startup = new Startup();
@@ -61,7 +63,7 @@ namespace FluentCanvas
                 BoardToggleSwitchEnableNibMode.IsOn = false;
                 BoundsWidth = Settings.Advanced.FingerModeBoundsWidth;
             }
-            if (Settings.Startup.IsAutoUpdate)
+            if (isStartup && !App.IsPackaged && Settings.Startup.IsAutoUpdate)
             {
                 AutoUpdate();
             }

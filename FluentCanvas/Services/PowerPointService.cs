@@ -2,6 +2,7 @@ using FluentCanvas.Helpers;
 using Microsoft.Office.Interop.PowerPoint;
 using System;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Timers;
 using Windows.Win32;
 
@@ -89,14 +90,38 @@ namespace FluentCanvas.Services
                 return false;
             }
 
+            // PowerPoint can be running on its start screen or serving a
+            // hidden automation document. Neither has an active presentation.
+            Presentation presentation;
+            try
+            {
+                presentation = application.ActivePresentation;
+            }
+            catch (COMException ex) when (ex.HResult == unchecked((int)0x80048240))
+            {
+                return false;
+            }
+            if (presentation == null) return false;
+            var slides = presentation.Slides;
+            var count = slides.Count;
+            var name = presentation.Name;
+
             Application = application;
-            Presentation = application.ActivePresentation;
-            Slides = Presentation.Slides;
-            SlideCount = Slides.Count;
-            PresentationName = Presentation.Name;
+            Presentation = presentation;
+            Slides = slides;
+            SlideCount = count;
+            PresentationName = name;
             CurrentShowPosition = -1;
 
-            Subscribe();
+            try
+            {
+                Subscribe();
+            }
+            catch
+            {
+                Disconnect();
+                throw;
+            }
             LogHelper.WriteLogToFile($"PowerPoint connected: {PresentationName} ({SlideCount} slides)", LogHelper.LogType.Event);
 
             Connected?.Invoke(this, EventArgs.Empty);
@@ -110,11 +135,11 @@ namespace FluentCanvas.Services
                 return;
             }
 
+            subscribed = true;
             Application.PresentationClose += OnPresentationClose;
             Application.SlideShowBegin += OnSlideShowBegin;
             Application.SlideShowNextSlide += OnSlideShowNextSlide;
             Application.SlideShowEnd += OnSlideShowEnd;
-            subscribed = true;
         }
 
         public void Disconnect()

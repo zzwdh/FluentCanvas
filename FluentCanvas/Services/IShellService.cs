@@ -30,8 +30,6 @@ namespace FluentCanvas.Services
 
         void ShowNotification(string notice);
 
-        void SetRunAtStartup(bool enabled);
-
         void ExitApplication();
 
         void RestartApplication();

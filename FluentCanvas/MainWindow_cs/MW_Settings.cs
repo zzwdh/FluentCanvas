@@ -108,7 +108,7 @@ namespace FluentCanvas
 
         private void ToggleSwitchEnableMultiTouchMode_Toggled(object sender, RoutedEventArgs e)
         {
-            //if (!isLoaded) return;
+
             if (sender == ToggleSwitchEnableMultiTouchMode)
             {
                 BoardToggleSwitchEnableMultiTouchMode.IsOn = ToggleSwitchEnableMultiTouchMode.IsOn;
@@ -266,9 +266,19 @@ namespace FluentCanvas
             SaveSettingsToFile();
         }
 
-        public static void SaveSettingsToFile()
+        public static bool SaveSettingsToFile()
         {
-            SettingsStorage.Write(SettingsStorage.Serialize(Settings));
+            try
+            {
+                Locator.Get<ISettingsService>().Save();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLogToFile($"Settings save failed: {ex}", LogHelper.LogType.Error);
+                ShowNewMessage("设置未能保存。请检查用户数据目录是否可写。", true);
+                return false;
+            }
         }
     }
 }

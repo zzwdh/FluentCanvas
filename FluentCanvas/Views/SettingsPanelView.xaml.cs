@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using Windows.ApplicationModel;
 
 namespace FluentCanvas.Views
 {
@@ -20,9 +21,39 @@ namespace FluentCanvas.Views
         public SettingsPanelView()
         {
             InitializeComponent();
+            IsVisibleChanged += (_, _) =>
+            {
+                if (IsVisible) RefreshStartupState();
+            };
         }
 
         public override string ViewName => nameof(SettingsPanelView);
+
+        private async void OpenDiagnostics_Click(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            button.IsEnabled = false;
+            try
+            {
+                using var process = Process.Start(new ProcessStartInfo(Environment.ProcessPath, "--diagnostics")
+                {
+                    UseShellExecute = false
+                });
+                await process.WaitForExitAsync();
+            }
+            catch (Exception ex) { MainWindow.ShowNewMessage($"打开诊断信息失败：{ex.Message}", true); }
+            finally { button.IsEnabled = true; }
+        }
+
+        private void ErrorUploads_Loaded(object sender, RoutedEventArgs e) =>
+            ErrorUploads.IsChecked = ErrorReporting.Enabled;
+
+        private void ErrorUploads_Click(object sender, RoutedEventArgs e)
+        {
+            try { ErrorReporting.SetEnabled(ErrorUploads.IsChecked == true); }
+            catch (Exception ex) { MainWindow.ShowNewMessage($"更新错误上报设置失败：{ex.Message}", true); }
+            ErrorUploads.IsChecked = ErrorReporting.Enabled;
+        }
 
         public bool IsPanelVisible => IsViewVisible;
 
@@ -96,10 +127,51 @@ namespace FluentCanvas.Views
             MainWindow.SaveSettingsToFile();
         }
 
+        private bool readingStartupState;
+
         private void ToggleSwitchRunAtStartup_Toggled(object sender, RoutedEventArgs e)
         {
-            if (!Shell.IsHostLoaded) return;
-            Shell.SetRunAtStartup(ToggleSwitchRunAtStartup.IsOn);
+            if (Shell.IsHostLoaded && !readingStartupState)
+                RefreshStartupState(ToggleSwitchRunAtStartup.IsOn);
+        }
+
+        private async void RefreshStartupState(bool? enable = null)
+        {
+            if (readingStartupState) return;
+            readingStartupState = true;
+            ToggleSwitchRunAtStartup.IsEnabled = false;
+            try
+            {
+                StartupTaskState state;
+                try
+                {
+                    state = await MainWindow.GetStartupState(enable);
+                }
+                catch (Exception) when (enable.HasValue)
+                {
+                    Shell.ShowNotification("开机启动更改失败，请检查 Windows 启动应用设置。");
+                    state = await MainWindow.GetStartupState();
+                }
+                ToggleSwitchRunAtStartup.IsOn = state is StartupTaskState.Enabled or StartupTaskState.EnabledByPolicy;
+                ToggleSwitchRunAtStartup.IsEnabled = state is StartupTaskState.Disabled or StartupTaskState.Enabled;
+                StartupStateText.Text = state switch
+                {
+                    StartupTaskState.DisabledByUser => "开机时运行（请在 Windows 启动应用设置中启用）",
+                    StartupTaskState.DisabledByPolicy => "开机时运行（系统策略已禁止）",
+                    StartupTaskState.EnabledByPolicy => "开机时运行（系统策略已启用）",
+                    _ => "开机时运行"
+                };
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLogToFile($"Startup task state unavailable: {ex}", LogHelper.LogType.Error);
+                StartupStateText.Text = "无法读取开机启动状态";
+                ToggleSwitchRunAtStartup.IsOn = false;
+            }
+            finally
+            {
+                readingStartupState = false;
+            }
         }
 
         private void ToggleSwitchFoldAtStartup_Toggled(object sender, RoutedEventArgs e)
@@ -520,35 +592,39 @@ namespace FluentCanvas.Views
 
         private void BtnResetToSuggestion_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                Shell.IsHostLoaded = false;
-                MainWindow.SetSettingsToRecommendation();
-                MainWindow.SaveSettingsToFile();
-                Shell.ReloadSettings();
-                Shell.IsHostLoaded = true;
-                ToggleSwitchRunAtStartup.IsOn = true;
-            }
-            catch { }
-            Shell.ShowNotification("设置已重置为默认推荐设置~");
+            ApplyRecommendedSettings(false);
         }
 
         private async void SpecialVersionResetToSuggestion_Click()
         {
             await Task.Delay(1000);
+            ApplyRecommendedSettings(true);
+        }
+
+        private void ApplyRecommendedSettings(bool specialVersion)
+        {
+            var previouslyLoaded = Shell.IsHostLoaded;
+            Shell.IsHostLoaded = false;
             try
             {
-                Shell.IsHostLoaded = false;
                 MainWindow.SetSettingsToRecommendation();
-                SettingsModel.Automation.AutoDelSavedFiles = true;
-                SettingsModel.Automation.AutoDelSavedFilesDaysThreshold = 15;
-                SettingsModel.Appearance.IsEnableDisPlayFloatBarText = true;
-                SetAutoSavedStrokesLocationToDiskDButton_Click(null, null);
-                MainWindow.SaveSettingsToFile();
-                Shell.ReloadSettings();
-                Shell.IsHostLoaded = true;
+                if (specialVersion)
+                {
+                    SettingsModel.Automation.AutoDelSavedFiles = true;
+                    SettingsModel.Automation.AutoDelSavedFilesDaysThreshold = 15;
+                    SettingsModel.Appearance.IsEnableDisPlayFloatBarText = true;
+                    SettingsModel.Automation.AutoSavedStrokesLocation = @"D:\FluentCanvas";
+                }
+                if (MainWindow.SaveSettingsToFile())
+                {
+                    Shell.ReloadSettings();
+                    Shell.ShowNotification("已保存推荐设置。");
+                }
             }
-            catch { }
+            finally
+            {
+                Shell.IsHostLoaded = previouslyLoaded;
+            }
         }
 
         private void ToggleSwitchIsSpecialScreen_OnToggled(object sender, RoutedEventArgs e)
@@ -668,16 +744,11 @@ namespace FluentCanvas.Views
         public void LoadFromSettings()
         {
             // Startup
-            try
-            {
-                ToggleSwitchRunAtStartup.IsOn = MainWindow.StartAutomaticallyIsEnabled("FluentCanvas");
-            }
-            catch (Exception ex)
-            {
-                LogHelper.WriteLogToFile(ex.ToString(), LogHelper.LogType.Error);
-            }
+            RefreshStartupState();
+            StoreUpdateMessage.Visibility = App.IsPackaged ? Visibility.Visible : Visibility.Collapsed;
+            AutoUpdateBlock.Visibility = App.IsPackaged ? Visibility.Collapsed : Visibility.Visible;
             ToggleSwitchIsAutoUpdate.IsOn = SettingsModel.Startup.IsAutoUpdate;
-            IsAutoUpdateWithSilenceBlock.Visibility = SettingsModel.Startup.IsAutoUpdate ? Visibility.Visible : Visibility.Collapsed;
+            IsAutoUpdateWithSilenceBlock.Visibility = !App.IsPackaged && SettingsModel.Startup.IsAutoUpdate ? Visibility.Visible : Visibility.Collapsed;
             ToggleSwitchIsAutoUpdateWithSilence.IsOn = SettingsModel.Startup.IsAutoUpdateWithSilence;
             AutoUpdateTimePeriodBlock.Visibility = SettingsModel.Startup.IsAutoUpdateWithSilence ? Visibility.Visible : Visibility.Collapsed;
             AutoUpdateWithSilenceTimeComboBox.InitializeAutoUpdateWithSilenceTimeComboBoxOptions(AutoUpdateWithSilenceStartTimeComboBox, AutoUpdateWithSilenceEndTimeComboBox);

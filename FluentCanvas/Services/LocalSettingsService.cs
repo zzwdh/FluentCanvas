@@ -1,38 +1,29 @@
 using FluentCanvas.Helpers;
+using System.IO;
 
 namespace FluentCanvas.Services
 {
-    /// <summary>
-    /// File-based settings storage used by the unpackaged build.
-    /// The file lives under the local per-user folder.
-    /// </summary>
-    public sealed class LocalSettingsService : ISettingsService
+    public class LocalSettingsService : ISettingsService
     {
+        private static string FilePath => Path.Combine(StorageHelper.UserDataFolder, "Settings.json");
+
         public Settings Model { get; set; } = new Settings();
+
+        protected virtual string ReadLegacySettings() => null;
 
         public bool Load()
         {
-            var loaded = SettingsStorage.Deserialize(SettingsStorage.Read());
+            var loaded = SettingsStorage.Read(FilePath, ReadLegacySettings);
             if (loaded == null)
-            {
-                Model = new Settings();
                 return false;
-            }
-
+            loaded.Automation.AutoSavedStrokesLocation =
+                NormalizeStorageLocation(loaded.Automation.AutoSavedStrokesLocation);
             Model = loaded;
-            Model.Automation.AutoSavedStrokesLocation =
-                StorageHelper.NormalizeStorageLocation(Model.Automation.AutoSavedStrokesLocation);
             return true;
         }
 
-        public void Save()
-        {
-            SettingsStorage.Write(SettingsStorage.Serialize(Model));
-        }
+        public void Save() => SettingsStorage.Write(FilePath, Model);
 
-        public string NormalizeStorageLocation(string location)
-        {
-            return StorageHelper.NormalizeStorageLocation(location);
-        }
+        public string NormalizeStorageLocation(string location) => StorageHelper.NormalizeStorageLocation(location);
     }
 }

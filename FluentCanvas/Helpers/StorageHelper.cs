@@ -12,6 +12,10 @@ namespace FluentCanvas.Helpers
     {
         private static string userDataFolder;
 
+        internal static string UserDataPath => App.IsPackaged
+            ? global::Windows.Storage.ApplicationData.Current.LocalFolder.Path
+            : Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FluentCanvas");
+
         /// <summary>Folder for settings, logs and other mutable per-user state.</summary>
         public static string UserDataFolder
         {
@@ -22,26 +26,9 @@ namespace FluentCanvas.Helpers
                     return userDataFolder;
                 }
 
-                if (App.IsPackaged)
-                {
-                    try
-                    {
-                        userDataFolder = global::Windows.Storage.ApplicationData.Current.LocalFolder.Path;
-                    }
-                    catch (Exception ex)
-                    {
-                        LogHelper.WriteLogToFile($"StorageHelper | ApplicationData unavailable: {ex.Message}", LogHelper.LogType.Error);
-                    }
-                }
-
-                if (string.IsNullOrEmpty(userDataFolder))
-                {
-                    userDataFolder = Path.Combine(
-                        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                        "FluentCanvas");
-                }
-
-                EnsureDirectory(userDataFolder);
+                var folder = UserDataPath;
+                Directory.CreateDirectory(folder);
+                userDataFolder = folder;
                 return userDataFolder;
             }
         }
@@ -99,7 +86,7 @@ namespace FluentCanvas.Helpers
         /// </summary>
         public static string NormalizeStorageLocation(string configured)
         {
-            if (!string.IsNullOrEmpty(configured) &&
+            if (!string.IsNullOrEmpty(configured) && Path.IsPathFullyQualified(configured) &&
                 IsDriveAvailable(configured) &&
                 EnsureDirectory(configured))
             {

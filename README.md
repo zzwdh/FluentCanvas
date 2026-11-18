@@ -22,8 +22,7 @@
 ## 👀 前言
 使用和分发本软件（原名 Ink-Canvas-For-Annotation）前，请您应当且务必知晓相关开源协议，本软件基于 https://github.com/WXRIW/Ink-Canvas 修改而成。对于墨迹功能的相关 issue 提出，可以优先查阅 https://github.com/WXRIW/Ink-Canvas/issues 。
 
-[直接下载](https://github.com/InkCanvas/Ink-Canvas-Artistry/releases/latest "Latest Releases")
-——正式分发使用 MSIX 安装包；免安装版本为单文件 `FluentCanvas.exe`，首次运行时会自动注册文件关联与启动项。
+当前工程提供 Windows x64 和 ARM64 的自包含 MSIX。安装测试、签名、商店身份和构建命令见[构建与发布](docs/RELEASE.md)。上方截图来自项目历史版本。本次验收和截图见[验证记录](docs/VERIFICATION.md)。
 
 ## 🔧 特性
 Support Active Pen (支持压感)
@@ -47,8 +46,9 @@ Support Active Pen (支持压感)
 若因安装了最新版本的 WPS 而导致无法在 WPS 软件内进入 PPT 模式，可以尝试卸载 WPS 后，并清除电脑垃圾、注册表垃圾、删除电脑上所有带 "kingsoft" 名称的文件夹，重新安装 WPS 2021 后，（以上步骤可能有多余步骤），经测试在 WPS 内可以正常进入 PPT 模式。
 
 ### **安装后**程序无法正常启动？
-本软件需要 Windows 10 2004（内部版本 19041）或更高版本。MSIX 安装包与免安装单文件版本均已包含所需的 .NET 与 Windows App SDK 运行时，无需单独安装。
-如果仍无法运行，请检查你的电脑上是否安装了 `Microsoft Office`。若没有，请安装后重试
+本版 MSIX 最低安装版本为 Windows 10 内部版本 19044，包含 .NET Desktop Runtime 和 Windows App SDK。PowerPoint 放映集成需要桌面版 Office，日常白板及批注可以独立使用。
+
+桌面控件采用 [iNKORE.UI.WPF.Modern](https://github.com/iNKORE-NET/UI.WPF.Modern)，由 iNKORE Studios 和该项目全体贡献者开发。完整归属说明见[第三方声明](docs/store/THIRD-PARTY.md)。
 
 ### 我该在何处提出功能需求和错误报告？
 

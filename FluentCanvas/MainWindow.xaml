@@ -853,6 +853,7 @@
                             Height="55"
                             Padding="0"
                             BorderThickness="0"
+                            AutomationProperties.Name="上一页"
                             Click="BtnWhiteBoardSwitchPrevious_Click"
                             IsEnabledChanged="Element_IsEnabledChanged">
                             <Border
@@ -911,6 +912,7 @@
                             Height="55"
                             Padding="0"
                             BorderThickness="0"
+                            AutomationProperties.Name="下一页"
                             Click="BtnWhiteBoardSwitchNext_Click"
                             IsEnabledChanged="Element_IsEnabledChanged">
                             <Border
@@ -959,6 +961,7 @@
                             Margin="5,0,0,0"
                             Padding="0"
                             BorderThickness="0"
+                            AutomationProperties.Name="切换白板与桌面批注"
                             Click="ImageBlackboard_Click">
                             <Border
                                 Width="55"
@@ -1264,6 +1267,7 @@
                             Height="55"
                             Padding="0"
                             BorderThickness="0"
+                            AutomationProperties.Name="选择"
                             Click="SymbolIconSelect_Click">
                             <Border
                                 x:Name="BoardSelect"
@@ -1311,6 +1315,7 @@
                             Height="55"
                             Padding="0"
                             BorderThickness="0"
+                            AutomationProperties.Name="画笔"
                             Click="PenIcon_Click">
                             <Border
                                 x:Name="BoardPen"
@@ -1886,6 +1891,7 @@
                             Height="55"
                             Padding="0"
                             BorderThickness="0"
+                            AutomationProperties.Name="橡皮擦"
                             Click="BoardEraserIcon_Click">
                             <Border
                                 x:Name="BoardEraser"
@@ -1967,6 +1973,7 @@
                             Height="55"
                             Padding="0"
                             BorderThickness="0"
+                            AutomationProperties.Name="按笔画擦除"
                             Click="BoardEraserIconByStrokes_Click">
                             <Border
                                 x:Name="BoardEraserByStrokes"
@@ -2300,6 +2307,7 @@
                             Height="55"
                             Padding="0"
                             BorderThickness="0"
+                            AutomationProperties.Name="撤销"
                             Click="SymbolIconUndo_Click">
                             <Border
                                 x:Name="BoardUndo"
@@ -2340,6 +2348,7 @@
                             Height="55"
                             Padding="0"
                             BorderThickness="0"
+                            AutomationProperties.Name="重做"
                             Click="SymbolIconRedo_Click">
                             <Border
                                 x:Name="BoardRedo"
@@ -2538,6 +2547,7 @@
                                                         Height="45"
                                                         Padding="0"
                                                         BorderThickness="0"
+                                                        AutomationProperties.Name="保存作品"
                                                         Click="SymbolIconSaveStrokes_Click">
                                                         <ikw:SimpleStackPanel
                                                             Width="40"
@@ -2562,6 +2572,7 @@
                                                         Height="45"
                                                         Padding="0"
                                                         BorderThickness="0"
+                                                        AutomationProperties.Name="打开作品"
                                                         Click="SymbolIconOpenInkCanvasFile_Click">
                                                         <ikw:SimpleStackPanel
                                                             Width="40"
@@ -2660,6 +2671,7 @@
                                                         Height="45"
                                                         Padding="0"
                                                         BorderThickness="0"
+                                                        AutomationProperties.Name="设置"
                                                         Click="SymbolIconSettings_Click">
                                                         <ikw:SimpleStackPanel
                                                             Width="40"
@@ -2757,6 +2769,7 @@
                             Height="55"
                             Padding="0"
                             BorderThickness="0"
+                            AutomationProperties.Name="切换白板与桌面批注"
                             Click="ImageBlackboard_Click">
                             <Border
                                 Width="60"
@@ -2878,6 +2891,7 @@
                             Height="55"
                             Padding="0"
                             BorderThickness="0"
+                            AutomationProperties.Name="上一页"
                             Click="BtnWhiteBoardSwitchPrevious_Click"
                             IsEnabled="{Binding ElementName=BtnWhiteBoardSwitchPrevious, Path=IsEnabled}"
                             Opacity="{Binding ElementName=BtnWhiteBoardSwitchPrevious, Path=Opacity}">
@@ -2937,6 +2951,7 @@
                             Height="55"
                             Padding="0"
                             BorderThickness="0"
+                            AutomationProperties.Name="下一页"
                             Click="BtnWhiteBoardSwitchNext_Click">
                             <Border
                                 Width="60"
@@ -3105,6 +3120,7 @@
                             Height="32"
                             Padding="0"
                             BorderThickness="0"
+                            AutomationProperties.Name="画笔"
                             Click="PenIcon_Click">
                             <ikw:SimpleStackPanel
                                 Name="Pen_Icon"
@@ -3693,6 +3709,7 @@
                                 Height="32"
                                 Padding="0"
                                 BorderThickness="0"
+                                AutomationProperties.Name="橡皮擦"
                                 Click="EraserIcon_Click">
                                 <ikw:SimpleStackPanel
                                     Name="Eraser_Icon"
@@ -3730,6 +3747,7 @@
                                 Height="32"
                                 Padding="0"
                                 BorderThickness="0"
+                                AutomationProperties.Name="按笔画擦除"
                                 Click="EraserIconByStrokes_Click">
                                 <ikw:SimpleStackPanel
                                     Name="EraserByStrokes_Icon"
@@ -3767,6 +3785,7 @@
                                 Height="32"
                                 Padding="0"
                                 BorderThickness="0"
+                                AutomationProperties.Name="选择"
                                 Click="SymbolIconSelect_Click">
                                 <ikw:SimpleStackPanel
                                     Name="SymbolIconSelect"
@@ -4117,6 +4136,7 @@
                                 Height="32"
                                 Padding="0"
                                 BorderThickness="0"
+                                AutomationProperties.Name="撤销"
                                 Click="SymbolIconUndo_Click">
                                 <ikw:SimpleStackPanel
                                     HorizontalAlignment="Center"
@@ -4149,6 +4169,7 @@
                                 Height="32"
                                 Padding="0"
                                 BorderThickness="0"
+                                AutomationProperties.Name="重做"
                                 Click="SymbolIconRedo_Click">
                                 <ikw:SimpleStackPanel
                                     HorizontalAlignment="Center"
@@ -4221,6 +4242,7 @@
                                 Margin="1,0,0,0"
                                 Padding="0"
                                 BorderThickness="0"
+                                AutomationProperties.Name="切换白板与桌面批注"
                                 Click="ImageBlackboard_Click">
                                 <Border
                                     Margin="0,2"
@@ -4425,6 +4447,7 @@
                                                     Height="45"
                                                     Padding="0"
                                                     BorderThickness="0"
+                                                    AutomationProperties.Name="保存作品"
                                                     Click="SymbolIconSaveStrokes_Click">
                                                     <ikw:SimpleStackPanel
                                                         Width="40"
@@ -4449,6 +4472,7 @@
                                                     Height="45"
                                                     Padding="0"
                                                     BorderThickness="0"
+                                                    AutomationProperties.Name="打开作品"
                                                     Click="SymbolIconOpenInkCanvasFile_Click">
                                                     <ikw:SimpleStackPanel
                                                         Width="40"
@@ -4547,6 +4571,7 @@
                                                     Height="45"
                                                     Padding="0"
                                                     BorderThickness="0"
+                                                    AutomationProperties.Name="设置"
                                                     Click="SymbolIconSettings_Click">
                                                     <ikw:SimpleStackPanel
                                                         Width="40"
