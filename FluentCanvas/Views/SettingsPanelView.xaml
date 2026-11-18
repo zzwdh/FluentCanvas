@@ -1727,7 +1727,7 @@
                                 </ikw:SimpleStackPanel>
                                 <Button HorizontalAlignment="Left" Content="打开诊断信息" Click="OpenDiagnostics_Click" />
                                 <CheckBox x:Name="ErrorUploads" Content="向 Sentry 发送应用错误"
-                                          Loaded="ErrorUploads_Loaded" Click="ErrorUploads_Click"
+                                          Loaded="ErrorUploads_Loaded" Checked="ErrorUploads_Changed" Unchecked="ErrorUploads_Changed"
                                           ToolTip="错误报告包含异常类型、调用方法、应用版本及系统版本。" />
                                 <TextBlock
                                     Foreground="{DynamicResource SettingsPageAnnotationForeground}"

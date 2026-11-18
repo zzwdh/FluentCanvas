@@ -49,11 +49,14 @@ namespace FluentCanvas.Views
         private void ErrorUploads_Loaded(object sender, RoutedEventArgs e) =>
             ErrorUploads.IsChecked = ErrorReporting.Enabled;
 
-        private void ErrorUploads_Click(object sender, RoutedEventArgs e)
+        private void ErrorUploads_Changed(object sender, RoutedEventArgs e)
         {
-            try { ErrorReporting.SetEnabled(ErrorUploads.IsChecked == true); }
+            var checkbox = (CheckBox)sender;
+            var requested = checkbox.IsChecked == true;
+            if (requested == ErrorReporting.Enabled) return;
+            try { ErrorReporting.SetEnabled(requested); }
             catch (Exception ex) { MainWindow.ShowNewMessage($"更新错误上报设置失败：{ex.Message}", true); }
-            ErrorUploads.IsChecked = ErrorReporting.Enabled;
+            checkbox.IsChecked = ErrorReporting.Enabled;
         }
 
         public bool IsPanelVisible => IsViewVisible;
