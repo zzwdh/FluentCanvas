@@ -38,12 +38,7 @@ Support Active Pen (支持压感)
 考虑是由于`Microsoft Office`未激活导致的，请自行激活
 
 ### 放映后画板程序不会切换到PPT模式？
-如果你曾经安装过`WPS`且在卸载后发现此问题则是由于暂时未确定的问题所导致，可以尝试重新安装WPS
-> “您好，关于您反馈的情况我们已经反馈技术同学进一步分析哈，辛苦您可以留意后续WPS版本更新哈~” --回复自WPS客服
-
-另外，处在保护（只读）模式的PPT不会被识别
-
-若因安装了最新版本的 WPS 而导致无法在 WPS 软件内进入 PPT 模式，可以尝试卸载 WPS 后，并清除电脑垃圾、注册表垃圾、删除电脑上所有带 "kingsoft" 名称的文件夹，重新安装 WPS 2021 后，（以上步骤可能有多余步骤），经测试在 WPS 内可以正常进入 PPT 模式。
+请在桌面版 Microsoft PowerPoint 中打开演示文稿并开始放映，再检查 FluentCanvas 的放映设置。诊断时请记录 Office 版本、文稿是否处于受保护视图，以及白板能否独立书写。本版已检查 PowerPoint 未运行和无可用演示窗口时的行为。实际放映和翻页的验收范围见[验证记录](docs/VERIFICATION.md)。
 
 ### **安装后**程序无法正常启动？
 本版 MSIX 最低安装版本为 Windows 10 内部版本 19044，包含 .NET Desktop Runtime 和 Windows App SDK。PowerPoint 放映集成需要桌面版 Office，日常白板及批注可以独立使用。

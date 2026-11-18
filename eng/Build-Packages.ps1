@@ -54,7 +54,7 @@ $env:DOTNET_GENERATE_ASPNET_CERTIFICATE = 'false'
 $stage = Join-Path $root ('artifacts/build/' + [guid]::NewGuid().ToString('N'))
 $results = New-Item -ItemType Directory -Force (Join-Path $stage 'results')
 $innerPackages = New-Item -ItemType Directory (Join-Path $stage 'inner')
-$architectures = @($Architecture | Select-Object -Unique)
+$architectures = @($Architecture | ForEach-Object { $_.ToLowerInvariant() } | Select-Object -Unique)
 Push-Location $root
 try {
     $selected = & $DotnetPath --version

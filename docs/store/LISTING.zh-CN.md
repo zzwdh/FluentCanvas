@@ -6,7 +6,7 @@
 
 ## 详细介绍
 
-FluentCanvas 面向课堂板书、屏幕演示和习题讲解。通过浮动工具栏选择画笔，在屏幕上标出重点；切换到白板后可以分多页书写。支持笔画擦除、选择、撤销和重做。作品可以保存在本地，并通过文件关联重新打开。安装桌面版 PowerPoint 时，还可配合幻灯片放映进行批注。
+FluentCanvas 面向课堂板书、屏幕演示和习题讲解。通过浮动工具栏选择画笔，在屏幕上标出重点；切换到白板后可以分多页书写。支持笔画擦除、选择、撤销和重做。作品可以保存在本地，并通过文件关联重新打开。
 
 ## 本版更新
 
@@ -18,7 +18,13 @@ FluentCanvas 面向课堂板书、屏幕演示和习题讲解。通过浮动工�
 
 面向桌面 Windows，安装下限为内部版本 19044；使用受支持的 Windows 版本。普通鼠标可用于板书，压感功能需要兼容数位笔与驱动。无账号登录要求。分类建议为教育；搜索词可选「白板、板书、桌面批注、墨迹、课堂、演示」。
 
-开始菜单图标、启动画面、方形和宽幅图块见 `FluentCanvas.Package/Assets`。产品图标原稿见 `Images/FluentCanvas.png`。商店新版本截图见验证记录；仓库原有的 Screenshot1–3 仅供历史对照。填写商品名称时使用 Partner Center 已保留的名称。
+| 商品素材 | 文件与说明 |
+| --- | --- |
+| 商店图标 | [300 × 300 PNG](../../FluentCanvas.Package/Assets/Square150x150Logo.scale-200.png) |
+| 桌面截图 | [3050 × 1668 PNG，几何课堂白板](screenshots/whiteboard-x64.png)。配图说明可填写「在白板中打开几何讲义，用可编辑的笔迹标注图形。」 |
+| 审核参考 | [WinUI 3 诊断窗口实图](screenshots/diagnostics-x64.jpg)。单窗截图供审核人员识别诊断入口。 |
+
+开始菜单图标、启动画面和宽幅图块随 MSIX 提供。填写商品名称时使用 Partner Center 已保留的名称。[Microsoft Store 图片要求](https://learn.microsoft.com/windows/apps/publish/publish-your-app/screenshots-and-images)
 
 ## 受限能力说明
 

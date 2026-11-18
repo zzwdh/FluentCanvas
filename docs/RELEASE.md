@@ -38,6 +38,8 @@ Add-AppxPackage -Path (Get-ChildItem ./*.msixbundle).FullName
 ./eng/Test-WindowsSandbox.ps1 -Msix $x64PackagePath -Certificate $publicCertificatePath -Wack
 ```
 
+升级检查可先运行 `./eng/New-UpgradeFixture.ps1 -Msix $x64PackagePath`，再将输出的 MSIX 和 CER 路径分别传给沙盒脚本的 `-UpgradeFixture` 与 `-FixtureCertificate`。该样本将本地测试包版本设为 5.0.1.0，以验证 Windows 对同一包身份的就地升级。验收还应单独覆盖已有真实商店版本的迁移。
+
 ## 商店提交包
 
 1. 在 Partner Center 的产品身份页复制真实的 Name、Publisher、PublisherDisplayName 与已保留的显示名称。从 `eng/StoreIdentity.example.json` 复制一份 JSON，填写这四项。核对 5.0.2.0 高于该产品所有既有包；需要调版本时同步清单和程序集。
