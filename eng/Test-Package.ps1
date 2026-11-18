@@ -14,6 +14,23 @@ function Read-PackageText([string]$name) {
     $reader = [IO.StreamReader]::new($archive.GetEntry($name).Open())
     try { $reader.ReadToEnd() } finally { $reader.Dispose() }
 }
+function Get-WebViewContractTypes([string]$file, [switch]$Definitions) {
+    $inputStream = $archive.GetEntry($file).Open()
+    $memory = [IO.MemoryStream]::new()
+    try {
+        $inputStream.CopyTo($memory)
+        $memory.Position = 0
+        $reader = [PEReader]::new($memory)
+        try {
+            $metadata = [Reflection.Metadata.PEReaderExtensions]::GetMetadataReader($reader)
+            $handles = if ($Definitions) { $metadata.TypeDefinitions } else { $metadata.TypeReferences }
+            foreach ($handle in $handles) {
+                $type = if ($Definitions) { $metadata.GetTypeDefinition($handle) } else { $metadata.GetTypeReference($handle) }
+                if ($metadata.GetString($type.Namespace) -ceq 'Microsoft.Web.WebView2.Core') { $metadata.GetString($type.Name) }
+            }
+        } finally { $reader.Dispose() }
+    } finally { $inputStream.Dispose(); $memory.Dispose() }
+}
 try {
     [xml]$xml = Read-PackageText 'AppxManifest.xml'
     $manifest = $xml.Package
@@ -25,12 +42,17 @@ try {
     $association = $app.Extensions.Extension | Where-Object Category -eq 'windows.fileTypeAssociation'
     if (Compare-Object @('.icart','.icstk') @($association.FileTypeAssociation.SupportedFileTypes.FileType)) { throw 'Document associations do not match.' }
     $required = @($app.Executable,'resources.pri','FluentCanvas.dll','Sentry.dll','coreclr.dll','hostfxr.dll','hostpolicy.dll','PresentationFramework.dll',
-        'Microsoft.UI.Xaml.dll','Microsoft.WindowsAppRuntime.dll','Microsoft.UI.Xaml.Controls.pri','LICENSE','docs/store/THIRD-PARTY.md','docs/store/PRIVACY.zh-CN.md')
+        'Microsoft.UI.Xaml.dll','Microsoft.UI.Xaml.winmd','Microsoft.Web.WebView2.Core.winmd','Microsoft.WindowsAppRuntime.dll','Microsoft.UI.Xaml.Controls.pri','LICENSE','docs/store/THIRD-PARTY.md','docs/store/PRIVACY.zh-CN.md')
     $files = [Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
     foreach ($entry in $archive.Entries) { $null = $files.Add($entry.FullName.Replace('\','/')) }
     foreach ($file in $required) {
         if (!$files.Contains($file.Replace('\','/'))) { throw "Missing $file in $Package" }
     }
+    $references = @(Get-WebViewContractTypes 'Microsoft.UI.Xaml.winmd' | Sort-Object -Unique)
+    $definitions = @(Get-WebViewContractTypes 'Microsoft.Web.WebView2.Core.winmd' -Definitions)
+    $missing = @($references | Where-Object { $_ -cnotin $definitions })
+    if (!$references.Count -or $missing.Count) { throw "Missing or unresolved WinUI WebView2 metadata references: $($missing -join ', ')." }
+    Write-Host "Resolved all $($references.Count) WinUI WebView2 type references in the shipped contract."
     $config = Read-PackageText 'FluentCanvas.runtimeconfig.json' | ConvertFrom-Json
     foreach ($framework in 'Microsoft.NETCore.App','Microsoft.WindowsDesktop.App') {
         $included = @($config.runtimeOptions.includedFrameworks | Where-Object name -eq $framework)

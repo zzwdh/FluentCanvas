@@ -30,6 +30,9 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\FluentCanvas.InkAnalyzerCore\FluentCanvas.InkAnalyzerCore.csproj" />
+		<!-- The app-local WinUI contract references WebView2 types. Publish the matching restored contract alongside it. -->
+		<Content Include="$(PkgMicrosoft_Web_WebView2)\lib\Microsoft.Web.WebView2.Core.winmd" Link="Microsoft.Web.WebView2.Core.winmd"
+		         CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
