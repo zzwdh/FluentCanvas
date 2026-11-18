@@ -230,49 +230,20 @@ namespace FluentCanvas.Helpers
                     return;
                 }
 
-                string InstallCommand = $"\"{setupFilePath}\" /SILENT";
-                if (isInSilence) InstallCommand += " /VERYSILENT";
+                var start = new ProcessStartInfo(setupFilePath) { UseShellExecute = false };
+                start.ArgumentList.Add("/SILENT");
+                if (isInSilence) start.ArgumentList.Add("/VERYSILENT");
+                using var installer = Process.Start(start);
+                if (installer == null) return;
 
-                LogHelper.WriteLogToFile($"AutoUpdate | Executing install command: {InstallCommand}");
-                ExecuteCommandLine(InstallCommand);
+                LogHelper.WriteLogToFile("AutoUpdate | Installer started. Shutting down the application.");
+                Application.Current.Dispatcher.Invoke(() => Application.Current.Shutdown());
             }
             catch (Exception ex)
             {
                 LogHelper.WriteLogToFile($"AutoUpdate | Error installing update: {ex.Message}", LogHelper.LogType.Error);
             }
         }
-
-        private static void ExecuteCommandLine(string command)
-        {
-            try
-            {
-                ProcessStartInfo processStartInfo = new ProcessStartInfo
-                {
-                    FileName = "cmd.exe",
-                    Arguments = $"/c {command}",
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true
-                };
-
-                using (Process process = new Process { StartInfo = processStartInfo })
-                {
-                    process.Start();
-                    LogHelper.WriteLogToFile($"AutoUpdate | Started process for command: {command}");
-                    Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        LogHelper.WriteLogToFile($"AutoUpdate | Shutting down application for update.");
-                        Application.Current.Shutdown();
-                    });
-                }
-            }
-            catch (Exception ex)
-            {
-                LogHelper.WriteLogToFile($"AutoUpdate | Error executing command line '{command}': {ex.Message}", LogHelper.LogType.Error);
-            }
-        }
-
         public static void DeleteUpdatesFolder()
         {
             try

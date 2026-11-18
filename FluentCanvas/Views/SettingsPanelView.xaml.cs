@@ -21,6 +21,7 @@ namespace FluentCanvas.Views
         public SettingsPanelView()
         {
             InitializeComponent();
+            if (App.IsPackaged) ExternalProcessSettings.Visibility = Visibility.Collapsed;
             IsVisibleChanged += (_, _) =>
             {
                 if (IsVisible) RefreshStartupState();

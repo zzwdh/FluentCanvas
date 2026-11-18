@@ -200,14 +200,7 @@ namespace FluentCanvas
 
             // Automation (shell)
             StartOrStoptimerCheckAutoFold();
-            if (Settings.Automation.IsAutoKillEasiNote || Settings.Automation.IsAutoKillPptService)
-            {
-                timerKillProcess.Start();
-            }
-            else
-            {
-                timerKillProcess.Stop();
-            }
+            ShellRestartKillProcessTimer();
 
             ViewboxFloatingBarMarginAnimation();
         }

@@ -1477,53 +1477,55 @@
                                         Foreground="{DynamicResource SettingsPageForeground}"
                                         Text="进入PPT 放映时自动收纳至侧边栏" />
                                 </ikw:SimpleStackPanel>
-                                <Line
-                                    Margin="0,4,0,4"
-                                    HorizontalAlignment="Center"
-                                    Stroke="{DynamicResource SettingsPageBorderBrush}"
-                                    StrokeThickness="1"
-                                    X1="0"
-                                    X2="400"
-                                    Y1="0"
-                                    Y2="0" />
-                                <ikw:SimpleStackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                                    <ikw:SimpleStackPanel Width="50">
-                                        <ui:ToggleSwitch
-                                            Name="ToggleSwitchAutoKillPptService"
-                                            FontWeight="Bold"
-                                            IsOn="False"
-                                            OffContent="关"
-                                            OnContent="开"
-                                            Toggled="ToggleSwitchAutoKillPptService_Toggled" />
+                                <StackPanel x:Name="ExternalProcessSettings">
+                                    <Line
+                                        Margin="0,4,0,4"
+                                        HorizontalAlignment="Center"
+                                        Stroke="{DynamicResource SettingsPageBorderBrush}"
+                                        StrokeThickness="1"
+                                        X1="0"
+                                        X2="400"
+                                        Y1="0"
+                                        Y2="0" />
+                                    <ikw:SimpleStackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                        <ikw:SimpleStackPanel Width="50">
+                                            <ui:ToggleSwitch
+                                                Name="ToggleSwitchAutoKillPptService"
+                                                FontWeight="Bold"
+                                                IsOn="False"
+                                                OffContent="关"
+                                                OnContent="开"
+                                                Toggled="ToggleSwitchAutoKillPptService_Toggled" />
+                                        </ikw:SimpleStackPanel>
+                                        <TextBlock
+                                            Margin="0,0,14,0"
+                                            VerticalAlignment="Center"
+                                            FontSize="14"
+                                            Foreground="{DynamicResource SettingsPageForeground}"
+                                            Text="自动查杀希沃“PPT 小工具”" />
                                     </ikw:SimpleStackPanel>
                                     <TextBlock
-                                        Margin="0,0,14,0"
-                                        VerticalAlignment="Center"
-                                        FontSize="14"
-                                        Foreground="{DynamicResource SettingsPageForeground}"
-                                        Text="自动查杀希沃“PPT 小工具”" />
-                                </ikw:SimpleStackPanel>
-                                <TextBlock
-                                    Foreground="{DynamicResource SettingsPageAnnotationForeground}"
-                                    Text="# 请注意，查杀 PPT 小工具会导致希沃课堂授课助手无法使用，直接进入希沃课堂授课助手安装目录删除 Office.dll 文件即可进入 PPT 放映时不会启动希沃的 PPT 工具栏。"
-                                    TextWrapping="Wrap" />
-                                <ikw:SimpleStackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                                    <ikw:SimpleStackPanel Width="50">
-                                        <ui:ToggleSwitch
-                                            Name="ToggleSwitchAutoKillEasiNote"
-                                            FontWeight="Bold"
-                                            IsOn="False"
-                                            OffContent="关"
-                                            OnContent="开"
-                                            Toggled="ToggleSwitchAutoKillEasiNote_Toggled" />
+                                        Foreground="{DynamicResource SettingsPageAnnotationForeground}"
+                                        Text="# 请注意，查杀 PPT 小工具会导致希沃课堂授课助手无法使用，直接进入希沃课堂授课助手安装目录删除 Office.dll 文件即可进入 PPT 放映时不会启动希沃的 PPT 工具栏。"
+                                        TextWrapping="Wrap" />
+                                    <ikw:SimpleStackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                        <ikw:SimpleStackPanel Width="50">
+                                            <ui:ToggleSwitch
+                                                Name="ToggleSwitchAutoKillEasiNote"
+                                                FontWeight="Bold"
+                                                IsOn="False"
+                                                OffContent="关"
+                                                OnContent="开"
+                                                Toggled="ToggleSwitchAutoKillEasiNote_Toggled" />
+                                        </ikw:SimpleStackPanel>
+                                        <TextBlock
+                                            Margin="0,0,14,0"
+                                            VerticalAlignment="Center"
+                                            FontSize="14"
+                                            Foreground="{DynamicResource SettingsPageForeground}"
+                                            Text="自动查杀 希沃白板5" />
                                     </ikw:SimpleStackPanel>
-                                    <TextBlock
-                                        Margin="0,0,14,0"
-                                        VerticalAlignment="Center"
-                                        FontSize="14"
-                                        Foreground="{DynamicResource SettingsPageForeground}"
-                                        Text="自动查杀 希沃白板5" />
-                                </ikw:SimpleStackPanel>
+                                </StackPanel>
                                 <Line
                                     Margin="0,4,0,4"
                                     HorizontalAlignment="Center"

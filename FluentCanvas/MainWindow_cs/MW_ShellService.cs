@@ -39,7 +39,7 @@ namespace FluentCanvas
 
         internal void ShellRestartKillProcessTimer()
         {
-            if (Settings.Automation.IsAutoKillEasiNote || Settings.Automation.IsAutoKillPptService)
+            if (!App.IsPackaged && (Settings.Automation.IsAutoKillEasiNote || Settings.Automation.IsAutoKillPptService))
             {
                 timerKillProcess.Start();
             }

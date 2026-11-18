@@ -98,6 +98,11 @@ try {
         Run $DotnetPath (@('restore') + $argsCommon + @($sources | Where-Object { $_ }))
         Run $DotnetPath (@('publish') + $argsCommon + @('-c','Release','--no-restore','--self-contained','true',
             "-p:PublishProfile=$rid","-p:ManifestTool=$(Join-Path $WindowsSdkBin 'mt.exe')",'-o',$layout.FullName))
+        $embeddedManifest = Join-Path $stage "$arch-executable.manifest"
+        Run (Join-Path $WindowsSdkBin 'mt.exe') @('-nologo',"-inputresource:$(Join-Path $layout 'FluentCanvas.exe');#1","-out:$embeddedManifest")
+        [xml]$native = Get-Content -LiteralPath $embeddedManifest -Raw
+        $dpi = $native.GetElementsByTagName('dpiAwareness','http://schemas.microsoft.com/SMI/2016/WindowsSettings')
+        if ($dpi.Count -ne 1 -or $dpi.Item(0).InnerText -ne 'PerMonitorV2') { throw 'Executable manifest missing PerMonitorV2 DPI awareness.' }
         $appVersion = [version](Get-Item -LiteralPath (Join-Path $layout 'FluentCanvas.exe')).VersionInfo.FileVersion
         if ($appVersion -ne $version) { throw "Executable $appVersion and package $version differ." }
         $manifest.Package.Identity.SetAttribute('ProcessorArchitecture', $arch)

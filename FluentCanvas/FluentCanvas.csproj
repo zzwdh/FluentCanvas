@@ -11,7 +11,8 @@
 		<UseWPF>true</UseWPF>
 		<ApplicationIcon>Resources\FluentCanvas.ico</ApplicationIcon>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
-		<ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+		<!-- WPF and WinUI share the native process manifest; WinForms does not own application startup. -->
+		<NoWarn>$(NoWarn);WFO0003</NoWarn>
 		<Platforms>x64;ARM64</Platforms>
 		<PlatformTarget Condition="'$(Platform)' == 'x64'">x64</PlatformTarget>
 		<PlatformTarget Condition="'$(Platform)' == 'ARM64'">ARM64</PlatformTarget>
