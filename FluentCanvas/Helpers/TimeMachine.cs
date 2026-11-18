@@ -9,7 +9,7 @@ namespace FluentCanvas.Helpers
 {
     public class TimeMachine
     {
-        private readonly List<TimeMachineHistory> _currentStrokeHistory = new List<TimeMachineHistory>();
+        private List<TimeMachineHistory> _currentStrokeHistory = new List<TimeMachineHistory>();
 
         private int _currentIndex = -1;
 
@@ -110,10 +110,20 @@ namespace FluentCanvas.Helpers
 
         public bool ImportTimeMachineHistory(TimeMachineHistory[] sourceHistory)
         {
-            _currentStrokeHistory.Clear();
-            _currentStrokeHistory.AddRange(sourceHistory);
+            var previous = _currentStrokeHistory;
+            int previousIndex = _currentIndex;
+            _currentStrokeHistory = new List<TimeMachineHistory>(sourceHistory);
             _currentIndex = _currentStrokeHistory.Count - 1;
-            NotifyUndoRedoState();
+            try
+            {
+                NotifyUndoRedoState();
+            }
+            catch
+            {
+                _currentStrokeHistory = previous;
+                _currentIndex = previousIndex;
+                throw;
+            }
             return true;
         }
 

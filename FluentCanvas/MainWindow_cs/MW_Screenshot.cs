@@ -1,4 +1,4 @@
-﻿using FluentCanvas.Helpers;
+using FluentCanvas.Helpers;
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -26,8 +26,8 @@ namespace FluentCanvas
 
                 StorageHelper.EnsureDirectory(Path.GetDirectoryName(savePath));
 
-                var bitmap = GetScreenshotBitmap();
-                bitmap.Save(savePath, ImageFormat.Png);
+                using var bitmap = GetScreenshotBitmap();
+                AtomicFile.Write(savePath, stream => bitmap.Save(stream, ImageFormat.Png));
 
                 if (Settings.Automation.IsAutoSaveStrokesAtScreenshot)
                 {
@@ -52,10 +52,10 @@ namespace FluentCanvas
         {
             try
             {
-                var bitmap = GetScreenshotBitmap();
+                using var bitmap = GetScreenshotBitmap();
                 string savePath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
                 string fileName = DateTime.Now.ToString("u").Replace(':', '-') + ".png";
-                bitmap.Save(savePath + @"\" + fileName, ImageFormat.Png);
+                AtomicFile.Write(Path.Combine(savePath, fileName), stream => bitmap.Save(stream, ImageFormat.Png));
                 ShowNotificationAsync("截图成功保存至【桌面" + @"\" + fileName + "】");
                 if (Settings.Automation.IsAutoSaveStrokesAtScreenshot) SaveInkCanvasFile(false, false);
             }
@@ -83,8 +83,8 @@ namespace FluentCanvas
 
                 StorageHelper.EnsureDirectory(Path.GetDirectoryName(savePath));
 
-                var bitmap = GetScreenshotBitmap();
-                bitmap.Save(savePath, ImageFormat.Png);
+                using var bitmap = GetScreenshotBitmap();
+                AtomicFile.Write(savePath, stream => bitmap.Save(stream, ImageFormat.Png));
 
                 if (Settings.Automation.IsAutoSaveStrokesAtScreenshot)
                 {

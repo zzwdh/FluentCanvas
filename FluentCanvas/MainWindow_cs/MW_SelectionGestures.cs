@@ -1,4 +1,4 @@
-﻿using FluentCanvas.Helpers;
+using FluentCanvas.Helpers;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -146,10 +146,7 @@ namespace FluentCanvas
                     PngBitmapEncoder encoder = new PngBitmapEncoder();
                     encoder.Frames.Add(BitmapFrame.Create(renderTarget));
 
-                    using (FileStream fileStream = new FileStream(saveFileDialog.FileName, FileMode.Create))
-                    {
-                        encoder.Save(fileStream);
-                    }
+                    Helpers.AtomicFile.Write(saveFileDialog.FileName, encoder.Save);
                 }
             }
         }

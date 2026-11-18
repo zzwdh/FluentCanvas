@@ -1,10 +1,11 @@
-﻿using FluentCanvas.Helpers;
+using FluentCanvas.Helpers;
 using FluentCanvas.Services;
 using FluentCanvas.ViewModels;
 using FluentCanvas.Views;
 using Microsoft.Office.Interop.PowerPoint;
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -225,24 +226,25 @@ namespace FluentCanvas
                     if (Directory.Exists(Settings.Automation.AutoSavedStrokesLocation + @"\Auto Saved - Presentations\" + presentation.Name + "_" + presentation.Slides.Count))
                     {
                         LogHelper.WriteLogToFile("Found saved strokes", LogHelper.LogType.Trace);
-                        FileInfo[] files = new DirectoryInfo(Settings.Automation.AutoSavedStrokesLocation + @"\Auto Saved - Presentations\" + presentation.Name + "_" + presentation.Slides.Count).GetFiles();
+                        var directory = new DirectoryInfo(Path.Combine(Settings.Automation.AutoSavedStrokesLocation,
+                            "Auto Saved - Presentations", presentation.Name + "_" + presentation.Slides.Count));
                         int count = 0;
-                        foreach (FileInfo file in files)
+                        // Current autosaves take precedence over old raw ISF files named .icart.
+                        foreach (var file in directory.EnumerateFiles().OrderBy(f =>
+                            f.Extension.Equals(".icstk", StringComparison.OrdinalIgnoreCase) ? 0 : 1))
                         {
-                            if (file.Name != "Position")
+                            if (!file.Extension.Equals(".icstk", StringComparison.OrdinalIgnoreCase) &&
+                                !file.Extension.Equals(".icart", StringComparison.OrdinalIgnoreCase)) continue;
+                            if (!int.TryParse(Path.GetFileNameWithoutExtension(file.Name), out int i) ||
+                                i <= 0 || i > presentation.Slides.Count || memoryStreams[i] != null) continue;
+                            try
                             {
-                                int i = -1;
-                                try
-                                {
-                                    i = int.Parse(System.IO.Path.GetFileNameWithoutExtension(file.Name));
-                                    memoryStreams[i] = new MemoryStream(File.ReadAllBytes(file.FullName));
-                                    memoryStreams[i].Position = 0;
-                                    count++;
-                                }
-                                catch (Exception ex)
-                                {
-                                    LogHelper.WriteLogToFile(string.Format("Failed to load strokes on Slide {0}\n{1}", i, ex.ToString()), LogHelper.LogType.Error);
-                                }
+                                memoryStreams[i] = CanvasDocument.ReadSlideInk(file.FullName);
+                                count++;
+                            }
+                            catch (Exception ex)
+                            {
+                                LogHelper.WriteLogToFile($"Failed to load strokes on Slide {i}\n{ex}", LogHelper.LogType.Error);
                             }
                         }
                         LogHelper.WriteLogToFile(string.Format("Loaded {0} saved strokes", count.ToString()));
@@ -347,36 +349,13 @@ namespace FluentCanvas
                     {
                         try
                         {
-                            string baseFilePath = folderPath + @"\" + i.ToString("0000");
-                            string icartFilePath = baseFilePath + ".icart";
-                            string icstkFilePath = baseFilePath + ".icstk";
-
-                            if (memoryStreams[i].Length > 8)
-                            {
-                                byte[] srcBuf = new byte[memoryStreams[i].Length];
-                                int byteLength = memoryStreams[i].Read(srcBuf, 0, srcBuf.Length);
-
-                                if (File.Exists(icartFilePath))
-                                {
-                                    File.WriteAllBytes(icartFilePath, srcBuf);
-                                    LogHelper.WriteLogToFile(string.Format("Saved strokes for Slide {0} as .icart, size={1}, byteLength={2}", i.ToString(), memoryStreams[i].Length, byteLength));
-                                }
-                                else
-                                {
-                                    File.WriteAllBytes(icstkFilePath, srcBuf);
-                                    LogHelper.WriteLogToFile(string.Format("Saved strokes for Slide {0} as .icstk, size={1}, byteLength={2}", i.ToString(), memoryStreams[i].Length, byteLength));
-                                }
-                            }
-                            else
-                            {
-                                File.Delete(icartFilePath);
-                                File.Delete(icstkFilePath);
-                            }
+                            string path = Path.Combine(folderPath, i.ToString("0000") + ".icstk");
+                            // WriteTo includes the entire stream even after the slide was displayed.
+                            AtomicFile.Write(path, memoryStreams[i].WriteTo);
                         }
                         catch (Exception ex)
                         {
-                            LogHelper.WriteLogToFile(string.Format("Failed to save strokes for Slide {0}\n{1}", i, ex.ToString()), LogHelper.LogType.Error);
-                            File.Delete(folderPath + @"\" + i.ToString("0000") + ".icstk");
+                            LogHelper.WriteLogToFile($"Failed to save strokes for Slide {i}\n{ex}", LogHelper.LogType.Error);
                         }
                     }
                 }
@@ -440,7 +419,9 @@ namespace FluentCanvas
                     {
                         if (memoryStreams[Wn.View.CurrentShowPosition] != null && memoryStreams[Wn.View.CurrentShowPosition].Length > 0)
                         {
-                            inkCanvas.Strokes.Add(new StrokeCollection(memoryStreams[Wn.View.CurrentShowPosition]));
+                            var saved = memoryStreams[Wn.View.CurrentShowPosition];
+                            saved.Position = 0;
+                            inkCanvas.Strokes.Add(new StrokeCollection(saved));
                         }
                         currentShowPosition = Wn.View.CurrentShowPosition;
                     }
