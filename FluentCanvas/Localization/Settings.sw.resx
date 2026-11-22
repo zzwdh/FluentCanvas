@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotateOnSlideShow" xml:space="preserve"><value>Fungua hali ya maelezo onyesho la slaidi linapoanza</value></data>
+  <data name="App" xml:space="preserve"><value>Programu</value></data>
+  <data name="Appearance" xml:space="preserve"><value>Mwonekano</value></data>
+  <data name="Apply" xml:space="preserve"><value>Tekeleza</value></data>
+  <data name="AutosaveLocation" xml:space="preserve"><value>Mahali pa hifadhi otomatiki</value></data>
+  <data name="AutosaveRetention" xml:space="preserve"><value>Siku za kuhifadhi faili za hifadhi otomatiki</value></data>
+  <data name="BoardScale" xml:space="preserve"><value>Ukubwa wa vidhibiti vya ubao mweupe (%)</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Ghairi</value></data>
+  <data name="CaptureOnClear" xml:space="preserve"><value>Piga picha ya skrini kiotomatiki kabla ya kufuta</value></data>
+  <data name="CaptureSlide" xml:space="preserve"><value>Piga picha ya skrini kiotomatiki slaidi inapobadilika</value></data>
+  <data name="ChangeFailed" xml:space="preserve"><value>Imeshindikana kubadilisha mpangilio. Jaribu tena.</value></data>
+  <data name="ChooseFolder" xml:space="preserve"><value>Chagua folda…</value></data>
+  <data name="ChooseFolderFailed" xml:space="preserve"><value>Imeshindikana kuchagua folda: {0}</value></data>
+  <data name="CleanAutosaves" xml:space="preserve"><value>Ondoa faili za hifadhi otomatiki zilizopitwa na muda programu inapoanza</value></data>
+  <data name="ConnectionFailed" xml:space="preserve"><value>Imeshindikana kuunganisha na FluentCanvas. Pakia mipangilio upya kisha ujaribu tena.</value></data>
+  <data name="Copied" xml:space="preserve"><value>Imenakiliwa</value></data>
+  <data name="CopyDiagnostics" xml:space="preserve"><value>Nakili taarifa za uchunguzi</value></data>
+  <data name="CopyFailed" xml:space="preserve"><value>Imeshindikana kunakili. Jaribu tena.</value></data>
+  <data name="Dark" xml:space="preserve"><value>Nyeusi</value></data>
+  <data name="DateFolders" xml:space="preserve"><value>Panga picha za skrini kwenye folda kulingana na tarehe</value></data>
+  <data name="DetectPowerPoint" xml:space="preserve"><value>Tambua maonyesho ya slaidi ya PowerPoint</value></data>
+  <data name="Diagnostics" xml:space="preserve"><value>Uchunguzi</value></data>
+  <data name="DiagnosticsAndPrivacy" xml:space="preserve"><value>Uchunguzi na faragha</value></data>
+  <data name="DiagnosticsComponents" xml:space="preserve"><value>Turubai  WPF
+Dirisha la uchunguzi  WinUI 3</value></data>
+  <data name="DiagnosticsTitle" xml:space="preserve"><value>FluentCanvas · Uchunguzi</value></data>
+  <data name="DirectoryNotWritable" xml:space="preserve"><value>Imeshindikana kuandika kwenye folda iliyochaguliwa.</value></data>
+  <data name="DirectoryTimeout" xml:space="preserve"><value>Folda iliyochaguliwa haikujibu. Angalia muunganisho kisha ujaribu tena.</value></data>
+  <data name="EnableWps" xml:space="preserve"><value>Maonyesho ya slaidi ya WPS (ya majaribio, yanahitaji programu jalizi ya eneo-kazi)</value></data>
+  <data name="Exit" xml:space="preserve"><value>Ondoka</value></data>
+  <data name="ExitApp" xml:space="preserve"><value>Ondoka kwenye FluentCanvas</value></data>
+  <data name="FingerEraserScale" xml:space="preserve"><value>Kizidishi cha ukubwa wa kifutio katika hali ya kidole</value></data>
+  <data name="FingerEraserThreshold" xml:space="preserve"><value>Kizidishi cha kizingiti cha kifutio cha eneo katika hali ya kidole</value></data>
+  <data name="FingerTouchWidth" xml:space="preserve"><value>Kizingiti cha upana wa mguso katika hali ya kidole</value></data>
+  <data name="FoldAtStartup" xml:space="preserve"><value>Kunja upau wa zana kwenye ukingo wa skrini programu inapoanza</value></data>
+  <data name="FoldInSlideShow" xml:space="preserve"><value>Kunja upau wa zana kiotomatiki wakati wa onyesho la slaidi</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>Tumia lugha ya Windows</value></data>
+  <data name="GlobalHotkeys" xml:space="preserve"><value>Njia za mkato za jumla</value></data>
+  <data name="Guide" xml:space="preserve"><value>Mwongozo wa mtumiaji</value></data>
+  <data name="GuideCanvas" xml:space="preserve"><value>Njia za mkato za turubai</value></data>
+  <data name="GuideCapture" xml:space="preserve"><value>Hifadhi picha ya skrini kwenye eneo-kazi</value></data>
+  <data name="GuideClear" xml:space="preserve"><value>Futa turubai au ondoa uteuzi wa sasa</value></data>
+  <data name="GuideEraser" xml:space="preserve"><value>Badilisha hadi kifutio au badili kati ya kufuta eneo na kufuta mstari mzima</value></data>
+  <data name="GuideGlobal" xml:space="preserve"><value>Njia chaguomsingi za mkato za jumla</value></data>
+  <data name="GuideIntro" xml:space="preserve"><value>Njia za mkato za jumla hufanya kazi hata programu nyingine au onyesho la slaidi likiwa amilifu. Zibadilishe au suluhisha migongano katika sehemu ya Njia za mkato za jumla kwenye Mipangilio.</value></data>
+  <data name="GuideLine" xml:space="preserve"><value>Chagua zana ya mstari</value></data>
+  <data name="GuideNextKeys" xml:space="preserve"><value>↓ / → / Page Down / N / Nafasi</value></data>
+  <data name="GuidePen" xml:space="preserve"><value>Badilisha hadi kalamu au onyesha au ficha paleti ya rangi</value></data>
+  <data name="GuidePointer" xml:space="preserve"><value>Acha kuandika kisha rudi kwenye kiashiria</value></data>
+  <data name="GuideRedo" xml:space="preserve"><value>Rudia</value></data>
+  <data name="GuideSelect" xml:space="preserve"><value>Badilisha hadi zana ya kuteua</value></data>
+  <data name="GuideSlides" xml:space="preserve"><value>Njia za mkato za onyesho la slaidi dirisha la maelezo likiwa amilifu</value></data>
+  <data name="GuideTitle" xml:space="preserve"><value>FluentCanvas · Mwongozo wa mtumiaji</value></data>
+  <data name="GuideTools" xml:space="preserve"><value>Onyesha au ficha zana katika upau unaoelea</value></data>
+  <data name="GuideUndo" xml:space="preserve"><value>Tendua</value></data>
+  <data name="GuideWheel" xml:space="preserve"><value>Gurudumu la kipanya chini au juu</value></data>
+  <data name="GuideWheelSlides" xml:space="preserve"><value>Slaidi inayofuata au iliyotangulia</value></data>
+  <data name="HotkeyApplyName" xml:space="preserve"><value>Tekeleza njia ya mkato ya jumla ya {0}</value></data>
+  <data name="HotkeyBoard" xml:space="preserve"><value>Badilisha kati ya ubao mweupe na maelezo ya eneo-kazi</value></data>
+  <data name="HotkeyCapture" xml:space="preserve"><value>Piga picha ya skrini</value></data>
+  <data name="HotkeyClear" xml:space="preserve"><value>Futa turubai au ondoa uteuzi</value></data>
+  <data name="HotkeyConflict" xml:space="preserve"><value>Tayari inatumika na kitendo au programu nyingine.</value></data>
+  <data name="HotkeyDisabled" xml:space="preserve"><value>Imezimwa</value></data>
+  <data name="HotkeyDraw" xml:space="preserve"><value>Badilisha hadi kalamu</value></data>
+  <data name="HotkeyEndSlides" xml:space="preserve"><value>Maliza onyesho la slaidi</value></data>
+  <data name="HotkeyHint" xml:space="preserve"><value>Ingiza mchanganyiko wenye kitufe cha kurekebisha, kama Ctrl+Shift+B. Ili kuzima njia ya mkato, futa yaliyomo kwenye sehemu yake na uchague Tekeleza.</value></data>
+  <data name="HotkeyInputName" xml:space="preserve"><value>Njia ya mkato ya jumla ya {0}</value></data>
+  <data name="HotkeyInvalid" xml:space="preserve"><value>Njia ya mkato si halali. Tumia mchanganyiko kama Ctrl+Shift+B.</value></data>
+  <data name="HotkeyLimit" xml:space="preserve"><value>Kikomo cha njia za mkato za jumla kimefikiwa.</value></data>
+  <data name="HotkeyModifier" xml:space="preserve"><value>Ingiza mchanganyiko wenye kitufe cha kurekebisha, kama Ctrl+Shift+B.</value></data>
+  <data name="HotkeyPointer" xml:space="preserve"><value>Rudi kwenye kiashiria</value></data>
+  <data name="HotkeyResetName" xml:space="preserve"><value>Rejesha njia chaguomsingi ya mkato ya jumla ya {0}</value></data>
+  <data name="HotkeySaveFailed" xml:space="preserve"><value>Imeshindikana kuhifadhi njia ya mkato.</value></data>
+  <data name="HotkeyTools" xml:space="preserve"><value>Onyesha au ficha vikundi vya zana</value></data>
+  <data name="HotkeyUnavailable" xml:space="preserve"><value>Imeshindikana kusajili njia hizi za mkato za jumla: {0}. Zibadilishe katika Mipangilio.</value></data>
+  <data name="HotkeyUnknown" xml:space="preserve"><value>Njia hii ya mkato ya jumla haitambuliki.</value></data>
+  <data name="HotkeyUnknownKey" xml:space="preserve"><value>Windows haitambui kitufe hiki.</value></data>
+  <data name="HotkeyWindowsError" xml:space="preserve"><value>Windows imeshindwa kusajili njia ya mkato ({0}).</value></data>
+  <data name="InstallationMethod" xml:space="preserve"><value>Usakinishaji  {0}</value></data>
+  <data name="InvalidSession" xml:space="preserve"><value>Kipindi cha mipangilio si halali.</value></data>
+  <data name="InvalidValue" xml:space="preserve"><value>Thamani ya mpangilio si halali.</value></data>
+  <data name="Language" xml:space="preserve"><value>Lugha ya kuonyesha</value></data>
+  <data name="LanguageRestart" xml:space="preserve"><value>Anzisha FluentCanvas upya ili kutumia lugha iliyochaguliwa.</value></data>
+  <data name="Light" xml:space="preserve"><value>Nyepesi</value></data>
+  <data name="MoreOptions" xml:space="preserve"><value>Chaguo zaidi</value></data>
+  <data name="MultiTouch" xml:space="preserve"><value>Ruhusu kuandika kwa vidole kadhaa ubadilishaji otomatiki ukizimwa</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>Slaidi inayofuata</value></data>
+  <data name="NibEraserScale" xml:space="preserve"><value>Kizidishi cha ukubwa wa kifutio katika hali ya ncha ya kalamu</value></data>
+  <data name="NibEraserThreshold" xml:space="preserve"><value>Kizidishi cha kizingiti cha kifutio cha eneo katika hali ya ncha ya kalamu</value></data>
+  <data name="NibMode" xml:space="preserve"><value>Tumia hali ya ncha ya kalamu</value></data>
+  <data name="NibTouchWidth" xml:space="preserve"><value>Kizingiti cha upana wa mguso katika hali ya ncha ya kalamu</value></data>
+  <data name="Off" xml:space="preserve"><value>Imezimwa</value></data>
+  <data name="On" xml:space="preserve"><value>Imewashwa</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>Imeshindikana kufungua Mipangilio. Jaribu tena.</value></data>
+  <data name="PenCursor" xml:space="preserve"><value>Onyesha kishale cha kalamu</value></data>
+  <data name="PenWidth" xml:space="preserve"><value>Unene wa kalamu</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>Slaidi iliyotangulia</value></data>
+  <data name="QuadInfrared" xml:space="preserve"><value>Tumia skrini ya mguso ya infrared yenye pande nne</value></data>
+  <data name="RecognizeShapes" xml:space="preserve"><value>Tambua maumbo yaliyochorwa kwa mkono</value></data>
+  <data name="Reload" xml:space="preserve"><value>Pakia mipangilio upya</value></data>
+  <data name="ReportingStartFailed" xml:space="preserve"><value>Imeshindikana kuanzisha kuripoti hitilafu.</value></data>
+  <data name="ResetDefault" xml:space="preserve"><value>Rejesha chaguomsingi</value></data>
+  <data name="Restart" xml:space="preserve"><value>Anzisha upya</value></data>
+  <data name="RestartApp" xml:space="preserve"><value>Anzisha FluentCanvas upya</value></data>
+  <data name="RunAtStartup" xml:space="preserve"><value>Anzisha unapoingia kwenye Windows</value></data>
+  <data name="SaveBeforeExit" xml:space="preserve"><value>Nakala rudufu ya kurasa za ubao mweupe na vidokezo ambavyo havijahifadhiwa itaundwa kabla ya kuendelea.</value></data>
+  <data name="SavedApplyFailed" xml:space="preserve"><value>Mpangilio umehifadhiwa, lakini haukuweza kutumika kwenye ubao wa sasa. Hifadhi kazi yako na uanzishe FluentCanvas upya.</value></data>
+  <data name="SaveFailed" xml:space="preserve"><value>Imeshindikana kuhifadhi mpangilio.</value></data>
+  <data name="SaveInkOnCapture" xml:space="preserve"><value>Hifadhi mwandiko pamoja na picha za skrini</value></data>
+  <data name="SaveSlideInk" xml:space="preserve"><value>Hifadhi mwandiko wa kila slaidi kiotomatiki</value></data>
+  <data name="Saving" xml:space="preserve"><value>Kuhifadhi</value></data>
+  <data name="SendErrors" xml:space="preserve"><value>Tuma hitilafu za programu kwa Sentry</value></data>
+  <data name="SettingsExited" xml:space="preserve"><value>Dirisha la mipangilio limefungwa bila kutarajiwa. Jaribu tena.</value></data>
+  <data name="SettingUnavailable" xml:space="preserve"><value>Mpangilio huu hauwezi kubadilishwa.</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>Mwongozo wa njia za mkato</value></data>
+  <data name="Slides" xml:space="preserve"><value>Maonyesho ya slaidi</value></data>
+  <data name="SpecialTouchScreen" xml:space="preserve"><value>Tumia urekebishaji maalum wa skrini ya mguso</value></data>
+  <data name="Standalone" xml:space="preserve"><value>Toleo linalojitegemea</value></data>
+  <data name="Startup" xml:space="preserve"><value>Kuanzisha</value></data>
+  <data name="StartupChangeFailed" xml:space="preserve"><value>Imeshindikana kubadilisha hali ya kuanzisha. Angalia mipangilio ya programu za kuanzisha katika Windows.</value></data>
+  <data name="StartupDisabledByUser" xml:space="preserve"><value>Unaweza kuwasha chaguo hili katika mipangilio ya programu za kuanzisha katika Windows.</value></data>
+  <data name="StartupNotEnabled" xml:space="preserve"><value>Kuanzisha kiotomatiki hakujawashwa katika Windows.</value></data>
+  <data name="StartupPolicyDisabled" xml:space="preserve"><value>Shirika lako limezima kipengee hiki cha kuanzisha.</value></data>
+  <data name="StartupPolicyEnabled" xml:space="preserve"><value>Shirika lako limewasha kipengee hiki cha kuanzisha.</value></data>
+  <data name="StartupUnreadable" xml:space="preserve"><value>Imeshindikana kusoma hali ya kuanzisha katika Windows.</value></data>
+  <data name="StoreAutoDownload" xml:space="preserve"><value>Tafuta na upakue masasisho kiotomatiki programu inapoanza</value></data>
+  <data name="StoreAvailable" xml:space="preserve"><value>Sasisho linapatikana kutoka Microsoft Store.</value></data>
+  <data name="StoreBackingUp" xml:space="preserve"><value>Inahifadhi nakala rudufu ya kazi ambayo haijahifadhiwa…</value></data>
+  <data name="StoreBackupAndUpdate" xml:space="preserve"><value>Hifadhi nakala rudufu na usasishe</value></data>
+  <data name="StoreBackupFailed" xml:space="preserve"><value>Imeshindikana kuhifadhi nakala rudufu ya kazi. Angalia mahali pa kuhifadhi kisha ujaribu tena.</value></data>
+  <data name="StoreBackupLocation" xml:space="preserve"><value>
+Mahali pa nakala rudufu: {0}</value></data>
+  <data name="StoreBackupStateChanged" xml:space="preserve"><value>Ubao mweupe au onyesho la slaidi limebadilika wakati wa kuhifadhi nakala rudufu. Jaribu tena.</value></data>
+  <data name="StoreBoardBusy" xml:space="preserve"><value>Ubao mweupe una shughuli. Subiri shughuli ya sasa ikamilike kisha ujaribu tena.</value></data>
+  <data name="StoreCanceled" xml:space="preserve"><value>Sasisho limeghairiwa.</value></data>
+  <data name="StoreCheck" xml:space="preserve"><value>Tafuta masasisho</value></data>
+  <data name="StoreChecking" xml:space="preserve"><value>Inatafuta masasisho ya Microsoft Store…</value></data>
+  <data name="StoreCompleted" xml:space="preserve"><value>Microsoft Store imekamilisha sasisho.</value></data>
+  <data name="StoreDeferred" xml:space="preserve"><value>Unaweza kutafuta na kusakinisha sasisho baadaye.</value></data>
+  <data name="StoreDownloadHint" xml:space="preserve"><value>Upakuaji wa kiotomatiki unafuata mipangilio ya masasisho na mtandao ya Microsoft Store. Store husimamia usakinishaji.</value></data>
+  <data name="StoreDownloading" xml:space="preserve"><value>Microsoft Store inapakua sasisho ({0:P0})…</value></data>
+  <data name="StoreFinishing" xml:space="preserve"><value>Inasubiri Microsoft Store ikamilishe sasisho…</value></data>
+  <data name="StoreInstallConfirmation" xml:space="preserve"><value>Ungependa kusakinisha sasisho la Microsoft Store?</value></data>
+  <data name="StoreInstallHint" xml:space="preserve"><value>Nakala rudufu za mbao nyeupe na maelezo ambayo hayajahifadhiwa zitawekwa kwenye folda katika mahali pa kuhifadhi. Uhariri utasimamishwa wakati wa kusasisha, na usakinishaji unaweza kufunga programu.</value></data>
+  <data name="StoreInstalling" xml:space="preserve"><value>Microsoft Store inasakinisha sasisho…</value></data>
+  <data name="StoreLater" xml:space="preserve"><value>Baadaye</value></data>
+  <data name="StoreLowBattery" xml:space="preserve"><value>Betri ina chaji kidogo. Unganisha kifaa kwenye umeme kisha ujaribu tena.</value></data>
+  <data name="StoreNeedsWifi" xml:space="preserve"><value>Unganisha kwenye Wi-Fi kisha ujaribu tena.</value></data>
+  <data name="StoreNonStorePackage" xml:space="preserve"><value>Sakinisha FluentCanvas kutoka Microsoft Store ili kuikadiria au kupokea masasisho ya Store.</value></data>
+  <data name="StoreNoUpdate" xml:space="preserve"><value>Hakuna masasisho ya Microsoft Store yanayopatikana.</value></data>
+  <data name="StoreOpeningRating" xml:space="preserve"><value>Dirisha la ukadiriaji la Store linafunguliwa…</value></data>
+  <data name="StoreRate" xml:space="preserve"><value>Kadiria na andika ukaguzi</value></data>
+  <data name="StoreRatingClosed" xml:space="preserve"><value>Dirisha la ukadiriaji limefungwa.</value></data>
+  <data name="StoreRatingUpdated" xml:space="preserve"><value>Microsoft Store imesasisha ukadiriaji wako.</value></data>
+  <data name="StoreRequestFailed" xml:space="preserve"><value>Microsoft Store imeshindwa kutimiza ombi (0x{0:X8}). Jaribu tena baadaye.</value></data>
+  <data name="StoreRequesting" xml:space="preserve"><value>Inaomba Microsoft Store isakinishe sasisho…</value></data>
+  <data name="StoreResumeEditing" xml:space="preserve"><value>
+Funga Mipangilio ili uendelee kuhariri ubao mweupe.</value></data>
+  <data name="StoreSlidesActive" xml:space="preserve"><value>Maliza onyesho la slaidi na uhifadhi maelezo yako kabla ya kusakinisha sasisho.</value></data>
+  <data name="StoreSlidesUnsaved" xml:space="preserve"><value>Maelezo ya onyesho la slaidi hayajahifadhiwa. Angalia mahali pa kuhifadhi kisha ujaribu tena.</value></data>
+  <data name="StoreStandalone" xml:space="preserve"><value>Hili ni toleo linalojitegemea. Ukadiriaji na masasisho ya kiotomatiki hupatikana katika toleo la Microsoft Store.</value></data>
+  <data name="StoreUpdateFailed" xml:space="preserve"><value>Microsoft Store imeshindwa kukamilisha sasisho ({0}).</value></data>
+  <data name="StoreUpdateUnavailable" xml:space="preserve"><value>Microsoft Store haiwezi kusasisha usakinishaji huu.</value></data>
+  <data name="StoreUpdating" xml:space="preserve"><value>Microsoft Store inasasisha FluentCanvas.</value></data>
+  <data name="SwitchGestures" xml:space="preserve"><value>Badilisha ishara kiotomatiki kati ya hali za ubao na maelezo</value></data>
+  <data name="Theme" xml:space="preserve"><value>Mandhari ya programu</value></data>
+  <data name="ToolbarLabels" xml:space="preserve"><value>Onyesha lebo kwenye upau wa zana</value></data>
+  <data name="ToolbarScale" xml:space="preserve"><value>Ukubwa wa upau wa zana unaoelea (%)</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>Dirisha la zana halikufunguka. Jaribu tena.</value></data>
+  <data name="TouchCalibration" xml:space="preserve"><value>Urekebishaji wa skrini ya mguso na kifutio</value></data>
+  <data name="TouchMultiplier" xml:space="preserve"><value>Kizidishi cha ukubwa wa mguso wa skrini maalum</value></data>
+  <data name="TwoFingerRotation" xml:space="preserve"><value>Ruhusu kuzungusha turubai kwa vidole viwili</value></data>
+  <data name="WhiteboardAndInk" xml:space="preserve"><value>Ubao mweupe na mwandiko</value></data>
+  <data name="WhiteboardBackground" xml:space="preserve"><value>Tumia mandharinyuma meupe kwenye ubao</value></data>
+  <data name="WindowTitle" xml:space="preserve"><value>FluentCanvas · Mipangilio</value></data>
+  <data name="FileAssociations" xml:space="preserve"><value>Programu chaguomsingi ya .icart na .icstk</value></data>
+  <data name="FileAssociationsConfirm" xml:space="preserve"><value>Utumie nakala hii kwa uhusishaji wa faili? Eneo lililosajiliwa litabadilishwa kuwa {0}. Chagua programu chaguomsingi katika Mipangilio ya Windows.</value></data>
+  <data name="WindowsStartupSettings" xml:space="preserve"><value>Programu za kuanza za Windows</value></data>
+  <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>Zima ishara za mguso kwenye kingo katika hali ya skrini nzima</value></data>
+</root>

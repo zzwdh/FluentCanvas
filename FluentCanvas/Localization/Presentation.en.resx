@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>Couldn't switch the PowerPoint annotation page: {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>Presentation settings - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>Couldn't end the {0} slideshow.</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>This presentation contains hidden slides. Unhide them?</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>Imported legacy annotations for {0} slides.</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>FluentCanvas found older annotations saved by filename and slide number. Check that they belong to this presentation and that the slides are still in the original order. Copy them to this presentation's annotation folder?</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>The previous slideshow ended on slide {0}. Go to that slide?</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>This presentation uses automatic advance or rehearsed timings. Advance slides manually instead?</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>Couldn't open PowerPoint slide navigation.</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>Next slide</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>Couldn't advance to the next slide in {0}.</value></data>
+  <data name="No" xml:space="preserve"><value>No</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>The PowerPoint operation failed: {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>Slideshow position {0} · Slide {1} in the deck</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>Previous slide</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>Couldn't go to the previous slide in {0}.</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>Couldn't read saved annotations for slide {0}. The original file was kept.</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>Couldn't save the PowerPoint annotations. They are still available in this session.</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>PowerPoint annotations were saved to the local recovery folder.</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>Couldn't save the PowerPoint annotations or slideshow position: {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>Couldn't locate the current slideshow window.</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS couldn't complete the slideshow command.</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>The WPS add-in didn't acknowledge the slideshow command.</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>Couldn't send the slideshow command to the WPS add-in.</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>Yes</value></data>
+</root>

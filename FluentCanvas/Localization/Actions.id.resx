@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Ready" xml:space="preserve"><value>Siap</value></data>
+  <data name="Hours" xml:space="preserve"><value>Jam</value></data>
+  <data name="Minutes" xml:space="preserve"><value>Menit</value></data>
+  <data name="Seconds" xml:space="preserve"><value>Detik</value></data>
+  <data name="Start" xml:space="preserve"><value>Mulai</value></data>
+  <data name="Reset" xml:space="preserve"><value>Atur ulang</value></data>
+  <data name="Compact" xml:space="preserve"><value>Ringkas</value></data>
+  <data name="FullScreen" xml:space="preserve"><value>Layar penuh</value></data>
+  <data name="TimeRemaining" xml:space="preserve"><value>Waktu tersisa</value></data>
+  <data name="TimeRemainingProgress" xml:space="preserve"><value>Progres hitung mundur</value></data>
+  <data name="Paused" xml:space="preserve"><value>Dijeda</value></data>
+  <data name="CountdownEndsAt" xml:space="preserve"><value>Perkiraan selesai pukul {0:HH:mm:ss}</value></data>
+  <data name="TimeUp" xml:space="preserve"><value>Waktu habis</value></data>
+  <data name="TimeUpAlarmFailed" xml:space="preserve"><value>Waktu habis. Alarm tidak dapat diputar.</value></data>
+  <data name="TimeRemainingSpoken" xml:space="preserve"><value>Waktu tersisa: {0} jam, {1} menit, {2} detik</value></data>
+  <data name="Pause" xml:space="preserve"><value>Jeda</value></data>
+  <data name="Resume" xml:space="preserve"><value>Lanjutkan</value></data>
+  <data name="Expand" xml:space="preserve"><value>Perluas</value></data>
+  <data name="ExitFullScreen" xml:space="preserve"><value>Keluar dari layar penuh</value></data>
+  <data name="RosterLoading" xml:space="preserve"><value>Memuat daftar…</value></data>
+  <data name="ParticipantCount" xml:space="preserve"><value>Jumlah peserta</value></data>
+  <data name="DrawCount" xml:space="preserve"><value>Jumlah dipilih</value></data>
+  <data name="StartDraw" xml:space="preserve"><value>Undi</value></data>
+  <data name="EditRoster" xml:space="preserve"><value>Edit daftar</value></data>
+  <data name="DrawOne" xml:space="preserve"><value>Undi satu orang</value></data>
+  <data name="DrawResult" xml:space="preserve"><value>Hasil</value></data>
+  <data name="RosterReadFailed" xml:space="preserve"><value>Daftar tidak dapat dibaca. Undian akan menggunakan nomor.</value></data>
+  <data name="RosterLoaded" xml:space="preserve"><value>Jumlah orang dalam daftar: {0}</value></data>
+  <data name="RosterUsingNumbers" xml:space="preserve"><value>Pengundian berdasarkan nomor</value></data>
+  <data name="InvalidRulesSkipped" xml:space="preserve"><value> · Aturan tidak valid dilewati: {0}</value></data>
+  <data name="Drawing" xml:space="preserve"><value>Sedang mengundi…</value></data>
+  <data name="SingleDrawResult" xml:space="preserve"><value>Hasil: {0}</value></data>
+  <data name="MultipleDrawResult" xml:space="preserve"><value>Jumlah orang terpilih: {0}</value></data>
+  <data name="DrawAgain" xml:space="preserve"><value>Undi lagi</value></data>
+  <data name="NamesPerLine" xml:space="preserve"><value>Masukkan satu nama per baris</value></data>
+  <data name="RulesPerLine" xml:space="preserve"><value>Masukkan satu aturan penggantian per baris</value></data>
+  <data name="Roster" xml:space="preserve"><value>Daftar</value></data>
+  <data name="ImportRoster" xml:space="preserve"><value>Impor nama</value></data>
+  <data name="ReplacementRules" xml:space="preserve"><value>Aturan penggantian</value></data>
+  <data name="ImportReplacementRules" xml:space="preserve"><value>Impor aturan</value></data>
+  <data name="ReplacementRuleExample" xml:space="preserve"><value>Contoh: Muhammad--&gt;Mamat. Kosongkan bagian kanan untuk mengecualikan nama.</value></data>
+  <data name="RosterAndRules" xml:space="preserve"><value>Daftar dan aturan penggantian</value></data>
+  <data name="Save" xml:space="preserve"><value>Simpan</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Batal</value></data>
+  <data name="RosterSaved" xml:space="preserve"><value>Daftar disimpan</value></data>
+  <data name="RosterEditFailed" xml:space="preserve"><value>Daftar tidak dapat diedit: {0}</value></data>
+  <data name="RosterImportFailed" xml:space="preserve"><value>Impor gagal: {0}</value></data>
+  <data name="InvalidReplacementRule" xml:space="preserve"><value>Periksa aturan. Gunakan “nama asli--&gt;nama tampilan” di setiap baris.</value></data>
+  <data name="RosterSaveTooLarge" xml:space="preserve"><value>Ukuran setiap file daftar maksimal 2 MB.</value></data>
+  <data name="RosterLocked" xml:space="preserve"><value>Jendela lain sedang menyimpan daftar. Coba lagi sebentar.</value></data>
+  <data name="RosterChanged" xml:space="preserve"><value>Jendela lain telah mengubah daftar. Buka kembali editor untuk memuat versi terbaru.</value></data>
+  <data name="RosterReadTooLarge" xml:space="preserve"><value>Ukuran file daftar melebihi 2 MB.</value></data>
+  <data name="ReplacementRulesChanged" xml:space="preserve"><value>Proses lain telah mengubah aturan penggantian.</value></data>
+  <data name="RosterRollbackFailed" xml:space="preserve"><value>Daftar tidak dapat disimpan dan aturan lama tidak dapat dipulihkan. Buka kembali editor untuk memeriksa kedua file.</value></data>
+  <data name="SavingBeforeClose" xml:space="preserve"><value>Dokumen sedang disimpan. Tunggu hingga selesai sebelum menutup aplikasi.</value></data>
+  <data name="CloseUnsavedWork" xml:space="preserve"><value>Tutup FluentCanvas? Perubahan yang belum disimpan akan hilang.</value></data>
+  <data name="ConfirmClose" xml:space="preserve"><value>Anda yakin ingin menutup FluentCanvas?</value></data>
+  <data name="CancelClosing" xml:space="preserve"><value>Batalkan penutupan FluentCanvas?</value></data>
+  <data name="StartupEntryInUse" xml:space="preserve"><value>Entri startup ini digunakan oleh instalasi lain.</value></data>
+  <data name="AutoFoldInk" xml:space="preserve"><value>Tinta dihapus dan bilah alat dirapatkan ke tepi. Kembali ke mode anotasi dan pilih Urungkan untuk memulihkan tinta.</value></data>
+  <data name="InsertImageFailed" xml:space="preserve"><value>Gambar tidak dapat disisipkan. Periksa file dan coba lagi.</value></data>
+  <data name="InsertVideoFailed" xml:space="preserve"><value>Video tidak dapat disisipkan. Periksa file dan coba lagi.</value></data>
+  <data name="CanvasChangedDuringImport" xml:space="preserve"><value>Kanvas berganti saat impor. Sisipkan kembali file di halaman yang diinginkan.</value></data>
+  <data name="OpenToolFailed" xml:space="preserve"><value>Jendela alat tidak dapat dibuka.</value></data>
+  <data name="OpenDrawOneFailed" xml:space="preserve"><value>Jendela undian satu orang tidak dapat dibuka.</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>Pengaturan tidak dapat dibuka.</value></data>
+  <data name="ScreenshotSaved" xml:space="preserve"><value>Tangkapan layar disimpan ke {0}</value></data>
+  <data name="ScreenshotPathFailed" xml:space="preserve"><value>Tangkapan layar tidak dapat disimpan. Periksa lokasi penyimpanan di Pengaturan.</value></data>
+  <data name="ScreenshotFailed" xml:space="preserve"><value>Tangkapan layar tidak dapat disimpan.</value></data>
+  <data name="SlideCaptureObscured" xml:space="preserve"><value>Peragaan slide tidak dapat ditangkap karena jendelanya tersembunyi atau tertutup.</value></data>
+  <data name="SlideScreenshotFailed" xml:space="preserve"><value>Tangkapan layar peragaan slide tidak dapat disimpan. Periksa lokasi penyimpanan.</value></data>
+  <data name="DocumentSaved" xml:space="preserve"><value>Tinta dan objek disimpan ke {0}</value></data>
+  <data name="DocumentSaveFailed" xml:space="preserve"><value>Dokumen tidak dapat disimpan. Periksa lokasi penyimpanan dan coba lagi.</value></data>
+  <data name="CanvasChangedDuringBackup" xml:space="preserve"><value>Kanvas berubah saat pencadangan. Coba bersihkan lagi.</value></data>
+  <data name="BackupFailed" xml:space="preserve"><value>Pencadangan gagal</value></data>
+  <data name="BackupFailedPrompt" xml:space="preserve"><value>Pencadangan gagal. Kanvas dipertahankan.</value></data>
+  <data name="CanvasChangedWhileOpening" xml:space="preserve"><value>Kanvas berganti saat dokumen dibuka. Buka kembali di halaman yang diinginkan.</value></data>
+  <data name="UnsavedBoardPrompt" xml:space="preserve"><value>Papan tulis memiliki perubahan yang belum disimpan.</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>Buka dokumen</value></data>
+  <data name="CanvasChangedDuringSave" xml:space="preserve"><value>Kanvas berubah saat penyimpanan. Buka kembali dokumen.</value></data>
+  <data name="DocumentOpenFailed" xml:space="preserve"><value>Dokumen tidak dapat dibuka. Periksa file dan coba lagi.</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>Sembunyikan otomatis</value></data>
+  <data name="Pinned" xml:space="preserve"><value>Disematkan</value></data>
+  <data name="RemoveAsymptotes" xml:space="preserve"><value>Hapus asimtot?</value></data>
+  <data name="SavingBeforeRestart" xml:space="preserve"><value>Dokumen sedang disimpan. Tunggu hingga selesai sebelum memulai ulang.</value></data>
+  <data name="RestartFailed" xml:space="preserve"><value>Aplikasi tidak dapat dimulai ulang. Simpan pekerjaan Anda, lalu buka kembali FluentCanvas.</value></data>
+  <data name="PngImage" xml:space="preserve"><value>Gambar PNG</value></data>
+  <data name="SelectionExportFailed" xml:space="preserve"><value>Pilihan tidak dapat diekspor. Pilih area yang lebih kecil atau periksa lokasi penyimpanan.</value></data>
+  <data name="CloneToBoard" xml:space="preserve"><value>Salin ke papan tulis</value></data>
+  <data name="CloneToNewPage" xml:space="preserve"><value>Salin ke halaman baru</value></data>
+  <data name="EasiNoteAutomaticallyClosed" xml:space="preserve"><value>EasiNote 5 ditutup secara otomatis.</value></data>
+  <data name="Retry" xml:space="preserve"><value>Coba lagi</value></data>
+  <data name="ClearWithoutBackup" xml:space="preserve"><value>Bersihkan tanpa cadangan</value></data>
+  <data name="SaveAndOpen" xml:space="preserve"><value>Simpan dan buka</value></data>
+  <data name="OpenWithoutSaving" xml:space="preserve"><value>Buang perubahan dan buka</value></data>
+</root>

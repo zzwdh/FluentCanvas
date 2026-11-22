@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="WindowTitle" xml:space="preserve"><value>ไวท์บอร์ด FluentCanvas</value></data>
+  <data name="Undo" xml:space="preserve"><value>เลิกทำ</value></data>
+  <data name="Redo" xml:space="preserve"><value>ทำซ้ำ</value></data>
+  <data name="Select" xml:space="preserve"><value>เลือก</value></data>
+  <data name="Pen" xml:space="preserve"><value>ปากกา</value></data>
+  <data name="Eraser" xml:space="preserve"><value>ยางลบ</value></data>
+  <data name="EraseStrokes" xml:space="preserve"><value>ลบทีละเส้น</value></data>
+  <data name="ExpandToolbar" xml:space="preserve"><value>ขยายแถบเครื่องมือลอย</value></data>
+  <data name="CollapseToolbar" xml:space="preserve"><value>ซ่อนแถบเครื่องมือลอย</value></data>
+  <data name="ToggleToolbar" xml:space="preserve"><value>ขยายหรือย่อแถบเครื่องมือลอย</value></data>
+  <data name="ToolbarDrag" xml:space="preserve"><value>ลากเพื่อย้ายแถบเครื่องมือ</value></data>
+  <data name="ToolbarDragOrToggle" xml:space="preserve"><value>ลากเพื่อย้ายแถบเครื่องมือ คลิกเพื่อขยายหรือย่อ</value></data>
+  <data name="ExpandFromLeft" xml:space="preserve"><value>ขยายแถบเครื่องมือลอยจากด้านซ้าย</value></data>
+  <data name="ExpandFromRight" xml:space="preserve"><value>ขยายแถบเครื่องมือลอยจากด้านขวา</value></data>
+  <data name="SaveInk" xml:space="preserve"><value>บันทึก</value></data>
+  <data name="SaveDocument" xml:space="preserve"><value>บันทึกภาพวาด</value></data>
+  <data name="OpenInk" xml:space="preserve"><value>เปิด</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>เปิดภาพวาด</value></data>
+  <data name="Playback" xml:space="preserve"><value>เล่นซ้ำ</value></data>
+  <data name="ReplayInk" xml:space="preserve"><value>เล่นเส้นหมึกซ้ำ</value></data>
+  <data name="ExportImage" xml:space="preserve"><value>บันทึกเป็นรูปภาพ</value></data>
+  <data name="PenTip" xml:space="preserve"><value>หัวปากกา</value></data>
+  <data name="NibMode" xml:space="preserve"><value>โหมดหัวปากกา</value></data>
+  <data name="Opacity" xml:space="preserve"><value>ความทึบ</value></data>
+  <data name="InsertVideo" xml:space="preserve"><value>แทรกวิดีโอ</value></data>
+  <data name="InsertImage" xml:space="preserve"><value>แทรกรูปภาพ</value></data>
+  <data name="Width" xml:space="preserve"><value>ความกว้าง</value></data>
+  <data name="TouchSelectionHint" xml:space="preserve"><value>สัมผัส: ใช้หนึ่งนิ้วลาก ใช้สองนิ้วซูมหรือหมุน</value></data>
+  <data name="MouseSelectionHint" xml:space="preserve"><value>เมาส์: ลากเพื่อย้าย เลื่อนล้อเมาส์เพื่อซูม</value></data>
+  <data name="ParabolaWithFocus" xml:space="preserve"><value>พาราโบลาพร้อมจุดโฟกัส</value></data>
+  <data name="HyperbolaWithFoci" xml:space="preserve"><value>ไฮเพอร์โบลาพร้อมจุดโฟกัส</value></data>
+  <data name="EllipseWithFoci" xml:space="preserve"><value>วงรีพร้อมจุดโฟกัส</value></data>
+  <data name="PickOne" xml:space="preserve"><value>สุ่มหนึ่งคน</value></data>
+  <data name="Countdown" xml:space="preserve"><value>นับถอยหลัง</value></data>
+  <data name="TimerShort" xml:space="preserve"><value>จับเวลา</value></data>
+  <data name="ClickToClear" xml:space="preserve"><value>คลิกเพื่อล้าง</value></data>
+  <data name="PointBasedPenTip" xml:space="preserve"><value>ปลายเส้นเรียวตามตำแหน่ง</value></data>
+  <data name="DottedLine" xml:space="preserve"><value>เส้นจุด</value></data>
+  <data name="MultiFingerInk" xml:space="preserve"><value>วาดด้วยหลายนิ้ว</value></data>
+  <data name="More" xml:space="preserve"><value>เพิ่มเติม</value></data>
+  <data name="MoreTools" xml:space="preserve"><value>เครื่องมือเพิ่มเติม</value></data>
+  <data name="MoreFeatures" xml:space="preserve"><value>ฟีเจอร์เพิ่มเติม</value></data>
+  <data name="MoreSettings" xml:space="preserve"><value>การตั้งค่าเพิ่มเติม</value></data>
+  <data name="Tools" xml:space="preserve"><value>เครื่องมือ</value></data>
+  <data name="PinShapes" xml:space="preserve"><value>ปักหมุดแถบเครื่องมือรูปทรง</value></data>
+  <data name="Off" xml:space="preserve"><value>ปิด</value></data>
+  <data name="On" xml:space="preserve"><value>เปิด</value></data>
+  <data name="NoTaper" xml:space="preserve"><value>ปลายเส้นไม่เรียว</value></data>
+  <data name="HorizontalParabola" xml:space="preserve"><value>พาราโบลาแนวนอน</value></data>
+  <data name="Board" xml:space="preserve"><value>กระดาน</value></data>
+  <data name="ColorBlack" xml:space="preserve"><value>ดำ</value></data>
+  <data name="ColorWhite" xml:space="preserve"><value>ขาว</value></data>
+  <data name="ColorRed" xml:space="preserve"><value>แดง</value></data>
+  <data name="ColorPink" xml:space="preserve"><value>ชมพู</value></data>
+  <data name="ColorOrange" xml:space="preserve"><value>ส้ม</value></data>
+  <data name="ColorYellow" xml:space="preserve"><value>เหลือง</value></data>
+  <data name="ColorGreen" xml:space="preserve"><value>เขียว</value></data>
+  <data name="ColorCyan" xml:space="preserve"><value>ฟ้าอมเขียว</value></data>
+  <data name="ColorBlue" xml:space="preserve"><value>น้ำเงิน</value></data>
+  <data name="ColorPurple" xml:space="preserve"><value>ม่วง</value></data>
+  <data name="BlackPen" xml:space="preserve"><value>ปากกาสีดำ</value></data>
+  <data name="WhitePen" xml:space="preserve"><value>ปากกาสีขาว</value></data>
+  <data name="RedPen" xml:space="preserve"><value>ปากกาสีแดง</value></data>
+  <data name="PinkPen" xml:space="preserve"><value>ปากกาสีชมพู</value></data>
+  <data name="OrangePen" xml:space="preserve"><value>ปากกาสีส้ม</value></data>
+  <data name="YellowPen" xml:space="preserve"><value>ปากกาสีเหลือง</value></data>
+  <data name="GreenPen" xml:space="preserve"><value>ปากกาสีเขียว</value></data>
+  <data name="CyanPen" xml:space="preserve"><value>ปากกาสีฟ้าอมเขียว</value></data>
+  <data name="BluePen" xml:space="preserve"><value>ปากกาสีน้ำเงิน</value></data>
+  <data name="Canvas" xml:space="preserve"><value>พื้นที่วาด</value></data>
+  <data name="DrawShape" xml:space="preserve"><value>วาดรูปทรง</value></data>
+  <data name="AddPage" xml:space="preserve"><value>เพิ่มหน้า</value></data>
+  <data name="Arrow" xml:space="preserve"><value>ลูกศร</value></data>
+  <data name="EndSlideShow" xml:space="preserve"><value>จบการนำเสนอสไลด์ PowerPoint</value></data>
+  <data name="ScreenCaptureShort" xml:space="preserve"><value>จับภาพ</value></data>
+  <data name="ScreenCapture" xml:space="preserve"><value>ภาพหน้าจอ</value></data>
+  <data name="Rectangle" xml:space="preserve"><value>สี่เหลี่ยมผืนผ้า</value></data>
+  <data name="CloneMode" xml:space="preserve"><value>โหมดทำสำเนา</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>คู่มือแป้นพิมพ์ลัด</value></data>
+  <data name="LightPalette" xml:space="preserve"><value>สว่าง</value></data>
+  <data name="DarkPalette" xml:space="preserve"><value>มืด</value></data>
+  <data name="AreaEraserShort" xml:space="preserve"><value>พื้นที่</value></data>
+  <data name="Ink" xml:space="preserve"><value>หมึก</value></data>
+  <data name="StrokeEraserShort" xml:space="preserve"><value>เส้น</value></data>
+  <data name="InkRecognition" xml:space="preserve"><value>การรู้จำเส้นหมึก</value></data>
+  <data name="InkOptions" xml:space="preserve"><value>ตัวเลือกหมึก</value></data>
+  <data name="RotateLeft" xml:space="preserve"><value>หมุนซ้าย</value></data>
+  <data name="Annotate" xml:space="preserve"><value>เขียนคำอธิบายประกอบ</value></data>
+  <data name="ParallelLines" xml:space="preserve"><value>เส้นขนาน</value></data>
+  <data name="SwitchBoard" xml:space="preserve"><value>สลับระหว่างไวท์บอร์ดและคำอธิบายประกอบบนเดสก์ท็อป</value></data>
+  <data name="SwitchPenPalette" xml:space="preserve"><value>สลับชุดสีปากกา</value></data>
+  <data name="ClearAndMouseShort" xml:space="preserve"><value>ล้าง</value></data>
+  <data name="Clear" xml:space="preserve"><value>ล้าง</value></data>
+  <data name="ClearAnnotations" xml:space="preserve"><value>ล้างคำอธิบายประกอบ</value></data>
+  <data name="ClearAndMouse" xml:space="preserve"><value>ล้างคำอธิบายประกอบแล้วสลับเป็นโหมดเมาส์</value></data>
+  <data name="Delete" xml:space="preserve"><value>ลบ</value></data>
+  <data name="PreviousPage" xml:space="preserve"><value>หน้าก่อนหน้า</value></data>
+  <data name="Settings" xml:space="preserve"><value>การตั้งค่า</value></data>
+  <data name="Video" xml:space="preserve"><value>วิดีโอ</value></data>
+  <data name="DocumentCamera" xml:space="preserve"><value>กล้องส่องเอกสาร</value></data>
+  <data name="Gestures" xml:space="preserve"><value>ท่าทางสัมผัส</value></data>
+  <data name="GestureFeatures" xml:space="preserve"><value>การควบคุมด้วยท่าทาง</value></data>
+  <data name="GestureOptions" xml:space="preserve"><value>ตัวเลือกท่าทางสัมผัส</value></data>
+  <data name="Mouse" xml:space="preserve"><value>เมาส์</value></data>
+  <data name="MouseMode" xml:space="preserve"><value>โหมดเมาส์</value></data>
+  <data name="VerticalParabola" xml:space="preserve"><value>พาราโบลาแนวตั้ง</value></data>
+  <data name="FlipVertical" xml:space="preserve"><value>พลิกแนวตั้ง</value></data>
+  <data name="Hyperbola" xml:space="preserve"><value>ไฮเพอร์โบลา</value></data>
+  <data name="TwoFingerGestures" xml:space="preserve"><value>ท่าทางสองนิ้ว</value></data>
+  <data name="TwoFingerZoom" xml:space="preserve"><value>ซูมด้วยสองนิ้ว</value></data>
+  <data name="TwoFingerRotate" xml:space="preserve"><value>หมุนด้วยสองนิ้ว</value></data>
+  <data name="TwoFingerPan" xml:space="preserve"><value>เลื่อนด้วยสองนิ้ว</value></data>
+  <data name="FlipHorizontal" xml:space="preserve"><value>พลิกแนวนอน</value></data>
+  <data name="RotateRight" xml:space="preserve"><value>หมุนขวา</value></data>
+  <data name="Tetrahedron" xml:space="preserve"><value>ทรงสี่หน้า</value></data>
+  <data name="SpeedBasedPenTip" xml:space="preserve"><value>ปลายเส้นเรียวตามความเร็ว</value></data>
+  <data name="RandomPicker" xml:space="preserve"><value>สุ่มรายชื่อ</value></data>
+  <data name="RandomPickerShort" xml:space="preserve"><value>สุ่ม</value></data>
+  <data name="PickOnePerson" xml:space="preserve"><value>สุ่มเลือกหนึ่งคน</value></data>
+  <data name="Image" xml:space="preserve"><value>รูปภาพ</value></data>
+  <data name="Shapes" xml:space="preserve"><value>รูปทรง</value></data>
+  <data name="ShapesHint" xml:space="preserve"><value>รูปทรง (กดปุ่มในแถวแรกค้างไว้เพื่อวาดต่อเนื่อง)</value></data>
+  <data name="Exit" xml:space="preserve"><value>ออก</value></data>
+  <data name="Ellipse" xml:space="preserve"><value>วงรี</value></data>
+  <data name="NextPage" xml:space="preserve"><value>หน้าถัดไป</value></data>
+  <data name="DashedLine" xml:space="preserve"><value>เส้นประ</value></data>
+  <data name="DashedCircle" xml:space="preserve"><value>วงกลมเส้นประ</value></data>
+  <data name="Colors" xml:space="preserve"><value>สี</value></data>
+  <data name="SendToBoard" xml:space="preserve"><value>ส่งไปยังกระดาน</value></data>
+  <data name="PageNumber" xml:space="preserve"><value>หมายเลขหน้า</value></data>
+  <data name="CenteredRectangle" xml:space="preserve"><value>วาดสี่เหลี่ยมผืนผ้าจากจุดศูนย์กลาง</value></data>
+  <data name="CenteredEllipse" xml:space="preserve"><value>วาดวงรีจากจุดศูนย์กลาง</value></data>
+  <data name="Hide" xml:space="preserve"><value>ซ่อน</value></data>
+  <data name="Highlighter" xml:space="preserve"><value>ปากกาเน้นข้อความ</value></data>
+  <data name="RedHighlighter" xml:space="preserve"><value>ปากกาเน้นข้อความสีแดง</value></data>
+  <data name="OrangeHighlighter" xml:space="preserve"><value>ปากกาเน้นข้อความสีส้ม</value></data>
+  <data name="YellowHighlighter" xml:space="preserve"><value>ปากกาเน้นข้อความสีเหลือง</value></data>
+  <data name="CyanHighlighter" xml:space="preserve"><value>ปากกาเน้นข้อความสีฟ้าอมเขียว</value></data>
+  <data name="BlueHighlighter" xml:space="preserve"><value>ปากกาเน้นข้อความสีน้ำเงิน</value></data>
+  <data name="PurpleHighlighter" xml:space="preserve"><value>ปากกาเน้นข้อความสีม่วง</value></data>
+  <data name="Circle" xml:space="preserve"><value>วงกลม</value></data>
+  <data name="CircleEraserShort" xml:space="preserve"><value>วงกลม</value></data>
+  <data name="Cylinder" xml:space="preserve"><value>ทรงกระบอก</value></data>
+  <data name="Cone" xml:space="preserve"><value>ทรงกรวย</value></data>
+  <data name="RepeatShapeHint" xml:space="preserve"><value>กดค้างไว้เพื่อวาดรูปทรงนี้ต่อเนื่อง</value></data>
+  <data name="Cuboid" xml:space="preserve"><value>ทรงสี่เหลี่ยมมุมฉาก</value></data>
+  <data name="Line" xml:space="preserve"><value>เส้นตรง</value></data>
+  <data name="Guide" xml:space="preserve"><value>คู่มือ</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>ซ่อนอัตโนมัติ</value></data>
+  <data name="Axis1" xml:space="preserve"><value>แกนพิกัด 1</value></data>
+  <data name="Axis2" xml:space="preserve"><value>แกนพิกัด 2</value></data>
+  <data name="Axis3" xml:space="preserve"><value>แกนพิกัด 3</value></data>
+  <data name="Axis4" xml:space="preserve"><value>แกนพิกัด 4</value></data>
+  <data name="Axis5" xml:space="preserve"><value>แกนพิกัด 5</value></data>
+  <data name="CurrentTool" xml:space="preserve"><value>เครื่องมือปัจจุบัน</value></data>
+  <data name="CurrentColor" xml:space="preserve"><value>สีปัจจุบัน</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>ตาม Windows</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>เปิดหน้าต่างเครื่องมือไม่ได้ ตรวจสอบว่าไฟล์แอปพลิเคชันครบถ้วน</value></data>
+  <data name="ProcessPathMissing" xml:space="preserve"><value>ไม่พบไฟล์เรียกใช้แอปพลิเคชัน</value></data>
+  <data name="ToolStartFailed" xml:space="preserve"><value>เริ่มหน้าต่างเครื่องมือไม่ได้</value></data>
+  <data name="UnexpectedError" xml:space="preserve"><value>เกิดข้อผิดพลาดที่ไม่คาดคิด บันทึกภาพวาดแล้วเริ่ม FluentCanvas ใหม่</value></data>
+  <data name="ActivationFailed" xml:space="preserve"><value>ส่งไฟล์ไปยังหน้าต่าง FluentCanvas ที่เปิดอยู่ไม่ได้ เปิดไฟล์จากแถบเครื่องมือแล้วลองอีกครั้ง</value></data>
+  <data name="SettingsSaveFailed" xml:space="preserve"><value>บันทึกการตั้งค่าไม่ได้ ตรวจสอบสิทธิ์เขียนข้อมูลในโฟลเดอร์ข้อมูลผู้ใช้</value></data>
+  <data name="SettingsReadFailed" xml:space="preserve"><value>อ่านการตั้งค่าไม่ได้ ไฟล์ต้นฉบับยังคงอยู่</value></data>
+  <data name="TriangleVariants" xml:space="preserve"><value>ตัวเลือกสามเหลี่ยม</value></data>
+  <data name="Triangle" xml:space="preserve"><value>สามเหลี่ยมอิสระ</value></data>
+  <data name="RightTriangle" xml:space="preserve"><value>สามเหลี่ยมมุมฉาก</value></data>
+  <data name="IsoscelesTriangle" xml:space="preserve"><value>สามเหลี่ยมหน้าจั่ว</value></data>
+  <data name="EquilateralTriangle" xml:space="preserve"><value>สามเหลี่ยมด้านเท่า</value></data>
+  <data name="Parallelogram" xml:space="preserve"><value>สี่เหลี่ยมด้านขนาน</value></data>
+  <data name="Trapezoid" xml:space="preserve"><value>สี่เหลี่ยมคางหมู</value></data>
+  <data name="AngleMarks" xml:space="preserve"><value>เครื่องหมายมุม</value></data>
+  <data name="AngleMark" xml:space="preserve"><value>เครื่องหมายส่วนโค้งของมุม</value></data>
+  <data name="RightAngleMark" xml:space="preserve"><value>เครื่องหมายมุมฉาก</value></data>
+  <data name="CircularShapes" xml:space="preserve"><value>ส่วนโค้งและรูปภาคของวงกลม</value></data>
+  <data name="Arc" xml:space="preserve"><value>ส่วนโค้งวงกลม</value></data>
+  <data name="Sector" xml:space="preserve"><value>รูปภาคของวงกลม</value></data>
+  <data name="Semicircle" xml:space="preserve"><value>ครึ่งวงกลม</value></data>
+  <data name="NumberLine" xml:space="preserve"><value>เส้นจำนวน</value></data>
+  <data name="NumberLineTicks" xml:space="preserve"><value>เส้นจำนวนพร้อมขีดแบ่ง</value></data>
+  <data name="NumberLineLabeled" xml:space="preserve"><value>เส้นจำนวนพร้อมขีดแบ่งและตัวเลข</value></data>
+  <data name="BoundingEllipse" xml:space="preserve"><value>วาดวงรีจากมุมตรงข้ามของกรอบ</value></data>
+  <data name="Sphere" xml:space="preserve"><value>ทรงกลม</value></data>
+  <data name="PlaceTriangleFirstSide" xml:space="preserve"><value>แตะปลายทั้งสองของด้านแรก หรือลากเพื่อวาดด้านนั้น</value></data>
+  <data name="PlaceTriangleVertex" xml:space="preserve"><value>แตะเพื่อวางจุดยอดที่สาม</value></data>
+  <data name="PlaceAngleFirstSide" xml:space="preserve"><value>แตะจุดยอดและจุดหนึ่งบนด้านแรก หรือลากจากจุดยอด</value></data>
+  <data name="PlaceAngleSecondSide" xml:space="preserve"><value>แตะจุดหนึ่งบนด้านที่สอง</value></data>
+  <data name="PlaceArcRadius" xml:space="preserve"><value>แตะจุดศูนย์กลางและจุดเริ่มต้น หรือลากรัศมีจากจุดศูนย์กลาง</value></data>
+  <data name="PlaceArcEnd" xml:space="preserve"><value>แตะในทิศทางของจุดสิ้นสุด</value></data>
+  <data name="DrawSemicircle" xml:space="preserve"><value>ลากเพื่อวาดเส้นผ่านศูนย์กลาง ครึ่งวงกลมจะอยู่ทางซ้ายของทิศทางการลาก</value></data>
+</root>

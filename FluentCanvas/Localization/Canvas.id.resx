@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="WindowTitle" xml:space="preserve"><value>Papan tulis FluentCanvas</value></data>
+  <data name="Undo" xml:space="preserve"><value>Urungkan</value></data>
+  <data name="Redo" xml:space="preserve"><value>Ulangi</value></data>
+  <data name="Select" xml:space="preserve"><value>Pilih</value></data>
+  <data name="Pen" xml:space="preserve"><value>Pena</value></data>
+  <data name="Eraser" xml:space="preserve"><value>Penghapus</value></data>
+  <data name="EraseStrokes" xml:space="preserve"><value>Hapus per goresan</value></data>
+  <data name="ExpandToolbar" xml:space="preserve"><value>Bentangkan bilah alat mengambang</value></data>
+  <data name="CollapseToolbar" xml:space="preserve"><value>Sembunyikan bilah alat mengambang</value></data>
+  <data name="ToggleToolbar" xml:space="preserve"><value>Bentangkan atau ciutkan bilah alat mengambang</value></data>
+  <data name="ToolbarDrag" xml:space="preserve"><value>Seret untuk memindahkan bilah alat</value></data>
+  <data name="ToolbarDragOrToggle" xml:space="preserve"><value>Seret untuk memindahkan bilah. Klik untuk membentangkan atau menciutkannya.</value></data>
+  <data name="ExpandFromLeft" xml:space="preserve"><value>Bentangkan bilah dari kiri</value></data>
+  <data name="ExpandFromRight" xml:space="preserve"><value>Bentangkan bilah dari kanan</value></data>
+  <data name="SaveInk" xml:space="preserve"><value>Simpan</value></data>
+  <data name="SaveDocument" xml:space="preserve"><value>Simpan gambar</value></data>
+  <data name="OpenInk" xml:space="preserve"><value>Buka</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>Buka gambar</value></data>
+  <data name="Playback" xml:space="preserve"><value>Putar</value></data>
+  <data name="ReplayInk" xml:space="preserve"><value>Putar ulang goresan</value></data>
+  <data name="ExportImage" xml:space="preserve"><value>Simpan sebagai gambar</value></data>
+  <data name="PenTip" xml:space="preserve"><value>Ujung pena</value></data>
+  <data name="NibMode" xml:space="preserve"><value>Mode ujung pena</value></data>
+  <data name="Opacity" xml:space="preserve"><value>Opasitas</value></data>
+  <data name="InsertVideo" xml:space="preserve"><value>Sisipkan video</value></data>
+  <data name="InsertImage" xml:space="preserve"><value>Sisipkan gambar</value></data>
+  <data name="Width" xml:space="preserve"><value>Ketebalan</value></data>
+  <data name="TouchSelectionHint" xml:space="preserve"><value>Sentuh: seret dengan satu jari, cubit atau putar dengan dua jari.</value></data>
+  <data name="MouseSelectionHint" xml:space="preserve"><value>Mouse: seret untuk memindahkan, gulir untuk memperbesar atau memperkecil.</value></data>
+  <data name="ParabolaWithFocus" xml:space="preserve"><value>Parabola dengan fokus</value></data>
+  <data name="HyperbolaWithFoci" xml:space="preserve"><value>Hiperbola dengan fokus</value></data>
+  <data name="EllipseWithFoci" xml:space="preserve"><value>Elips dengan fokus</value></data>
+  <data name="PickOne" xml:space="preserve"><value>Pilih satu</value></data>
+  <data name="Countdown" xml:space="preserve"><value>Hitung mundur</value></data>
+  <data name="TimerShort" xml:space="preserve"><value>Timer</value></data>
+  <data name="ClickToClear" xml:space="preserve"><value>Klik untuk membersihkan</value></data>
+  <data name="PointBasedPenTip" xml:space="preserve"><value>Runcing berdasarkan titik</value></data>
+  <data name="DottedLine" xml:space="preserve"><value>Garis titik-titik</value></data>
+  <data name="MultiFingerInk" xml:space="preserve"><value>Menulis dengan beberapa jari</value></data>
+  <data name="More" xml:space="preserve"><value>Lainnya</value></data>
+  <data name="MoreTools" xml:space="preserve"><value>Alat lainnya</value></data>
+  <data name="MoreFeatures" xml:space="preserve"><value>Fitur lainnya</value></data>
+  <data name="MoreSettings" xml:space="preserve"><value>Pengaturan lainnya</value></data>
+  <data name="Tools" xml:space="preserve"><value>Alat</value></data>
+  <data name="PinShapes" xml:space="preserve"><value>Sematkan bilah bentuk</value></data>
+  <data name="Off" xml:space="preserve"><value>Mati</value></data>
+  <data name="On" xml:space="preserve"><value>Aktif</value></data>
+  <data name="NoTaper" xml:space="preserve"><value>Tanpa peruncingan</value></data>
+  <data name="HorizontalParabola" xml:space="preserve"><value>Parabola horizontal</value></data>
+  <data name="Board" xml:space="preserve"><value>Papan</value></data>
+  <data name="ColorBlack" xml:space="preserve"><value>Hitam</value></data>
+  <data name="ColorWhite" xml:space="preserve"><value>Putih</value></data>
+  <data name="ColorRed" xml:space="preserve"><value>Merah</value></data>
+  <data name="ColorPink" xml:space="preserve"><value>Merah muda</value></data>
+  <data name="ColorOrange" xml:space="preserve"><value>Jingga</value></data>
+  <data name="ColorYellow" xml:space="preserve"><value>Kuning</value></data>
+  <data name="ColorGreen" xml:space="preserve"><value>Hijau</value></data>
+  <data name="ColorCyan" xml:space="preserve"><value>Sian</value></data>
+  <data name="ColorBlue" xml:space="preserve"><value>Biru</value></data>
+  <data name="ColorPurple" xml:space="preserve"><value>Ungu</value></data>
+  <data name="BlackPen" xml:space="preserve"><value>Pena · hitam</value></data>
+  <data name="WhitePen" xml:space="preserve"><value>Pena · putih</value></data>
+  <data name="RedPen" xml:space="preserve"><value>Pena · merah</value></data>
+  <data name="PinkPen" xml:space="preserve"><value>Pena · merah muda</value></data>
+  <data name="OrangePen" xml:space="preserve"><value>Pena · jingga</value></data>
+  <data name="YellowPen" xml:space="preserve"><value>Pena · kuning</value></data>
+  <data name="GreenPen" xml:space="preserve"><value>Pena · hijau</value></data>
+  <data name="CyanPen" xml:space="preserve"><value>Pena · sian</value></data>
+  <data name="BluePen" xml:space="preserve"><value>Pena · biru</value></data>
+  <data name="Canvas" xml:space="preserve"><value>Kanvas</value></data>
+  <data name="DrawShape" xml:space="preserve"><value>Gambar bentuk</value></data>
+  <data name="AddPage" xml:space="preserve"><value>Tambah halaman</value></data>
+  <data name="Arrow" xml:space="preserve"><value>Panah</value></data>
+  <data name="EndSlideShow" xml:space="preserve"><value>Akhiri peragaan slide PowerPoint</value></data>
+  <data name="ScreenCaptureShort" xml:space="preserve"><value>Tangkap</value></data>
+  <data name="ScreenCapture" xml:space="preserve"><value>Tangkapan layar</value></data>
+  <data name="Rectangle" xml:space="preserve"><value>Persegi panjang</value></data>
+  <data name="CloneMode" xml:space="preserve"><value>Mode duplikasi</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>Panduan pintasan papan ketik</value></data>
+  <data name="LightPalette" xml:space="preserve"><value>Terang</value></data>
+  <data name="DarkPalette" xml:space="preserve"><value>Gelap</value></data>
+  <data name="AreaEraserShort" xml:space="preserve"><value>Area</value></data>
+  <data name="Ink" xml:space="preserve"><value>Tinta</value></data>
+  <data name="StrokeEraserShort" xml:space="preserve"><value>Goresan</value></data>
+  <data name="InkRecognition" xml:space="preserve"><value>Pengenalan goresan</value></data>
+  <data name="InkOptions" xml:space="preserve"><value>Opsi tinta</value></data>
+  <data name="RotateLeft" xml:space="preserve"><value>Putar ke kiri</value></data>
+  <data name="Annotate" xml:space="preserve"><value>Anotasi</value></data>
+  <data name="ParallelLines" xml:space="preserve"><value>Garis sejajar</value></data>
+  <data name="SwitchBoard" xml:space="preserve"><value>Beralih antara papan tulis dan anotasi desktop</value></data>
+  <data name="SwitchPenPalette" xml:space="preserve"><value>Ganti palet pena</value></data>
+  <data name="ClearAndMouseShort" xml:space="preserve"><value>Hapus</value></data>
+  <data name="Clear" xml:space="preserve"><value>Hapus</value></data>
+  <data name="ClearAnnotations" xml:space="preserve"><value>Hapus anotasi</value></data>
+  <data name="ClearAndMouse" xml:space="preserve"><value>Hapus anotasi dan beralih ke mode mouse</value></data>
+  <data name="Delete" xml:space="preserve"><value>Hapus</value></data>
+  <data name="PreviousPage" xml:space="preserve"><value>Halaman sebelumnya</value></data>
+  <data name="Settings" xml:space="preserve"><value>Pengaturan</value></data>
+  <data name="Video" xml:space="preserve"><value>Video</value></data>
+  <data name="DocumentCamera" xml:space="preserve"><value>Kamera dokumen</value></data>
+  <data name="Gestures" xml:space="preserve"><value>Gestur</value></data>
+  <data name="GestureFeatures" xml:space="preserve"><value>Kontrol gestur</value></data>
+  <data name="GestureOptions" xml:space="preserve"><value>Opsi gestur</value></data>
+  <data name="Mouse" xml:space="preserve"><value>Mouse</value></data>
+  <data name="MouseMode" xml:space="preserve"><value>Mode mouse</value></data>
+  <data name="VerticalParabola" xml:space="preserve"><value>Parabola vertikal</value></data>
+  <data name="FlipVertical" xml:space="preserve"><value>Balik vertikal</value></data>
+  <data name="Hyperbola" xml:space="preserve"><value>Hiperbola</value></data>
+  <data name="TwoFingerGestures" xml:space="preserve"><value>Gestur dua jari</value></data>
+  <data name="TwoFingerZoom" xml:space="preserve"><value>Zoom dua jari</value></data>
+  <data name="TwoFingerRotate" xml:space="preserve"><value>Putar dengan dua jari</value></data>
+  <data name="TwoFingerPan" xml:space="preserve"><value>Geser dengan dua jari</value></data>
+  <data name="FlipHorizontal" xml:space="preserve"><value>Balik horizontal</value></data>
+  <data name="RotateRight" xml:space="preserve"><value>Putar ke kanan</value></data>
+  <data name="Tetrahedron" xml:space="preserve"><value>Tetrahedron</value></data>
+  <data name="SpeedBasedPenTip" xml:space="preserve"><value>Runcing berdasarkan kecepatan</value></data>
+  <data name="RandomPicker" xml:space="preserve"><value>Pemilih acak</value></data>
+  <data name="RandomPickerShort" xml:space="preserve"><value>Undi</value></data>
+  <data name="PickOnePerson" xml:space="preserve"><value>Pilih satu orang secara acak</value></data>
+  <data name="Image" xml:space="preserve"><value>Gambar</value></data>
+  <data name="Shapes" xml:space="preserve"><value>Bentuk</value></data>
+  <data name="ShapesHint" xml:space="preserve"><value>Bentuk (tekan lama tombol di baris pertama untuk terus menggambar)</value></data>
+  <data name="Exit" xml:space="preserve"><value>Keluar</value></data>
+  <data name="Ellipse" xml:space="preserve"><value>Elips</value></data>
+  <data name="NextPage" xml:space="preserve"><value>Halaman berikutnya</value></data>
+  <data name="DashedLine" xml:space="preserve"><value>Garis putus-putus</value></data>
+  <data name="DashedCircle" xml:space="preserve"><value>Lingkaran putus-putus</value></data>
+  <data name="Colors" xml:space="preserve"><value>Warna</value></data>
+  <data name="SendToBoard" xml:space="preserve"><value>Kirim ke papan</value></data>
+  <data name="PageNumber" xml:space="preserve"><value>Nomor halaman</value></data>
+  <data name="CenteredRectangle" xml:space="preserve"><value>Gambar persegi panjang dari tengah</value></data>
+  <data name="CenteredEllipse" xml:space="preserve"><value>Gambar elips dari tengah</value></data>
+  <data name="Hide" xml:space="preserve"><value>Sembunyikan</value></data>
+  <data name="Highlighter" xml:space="preserve"><value>Stabilo</value></data>
+  <data name="RedHighlighter" xml:space="preserve"><value>Stabilo · merah</value></data>
+  <data name="OrangeHighlighter" xml:space="preserve"><value>Stabilo · jingga</value></data>
+  <data name="YellowHighlighter" xml:space="preserve"><value>Stabilo · kuning</value></data>
+  <data name="CyanHighlighter" xml:space="preserve"><value>Stabilo · sian</value></data>
+  <data name="BlueHighlighter" xml:space="preserve"><value>Stabilo · biru</value></data>
+  <data name="PurpleHighlighter" xml:space="preserve"><value>Stabilo · ungu</value></data>
+  <data name="Circle" xml:space="preserve"><value>Lingkaran</value></data>
+  <data name="CircleEraserShort" xml:space="preserve"><value>Bulat</value></data>
+  <data name="Cylinder" xml:space="preserve"><value>Tabung</value></data>
+  <data name="Cone" xml:space="preserve"><value>Kerucut</value></data>
+  <data name="RepeatShapeHint" xml:space="preserve"><value>Tekan lama untuk terus menggambar bentuk ini</value></data>
+  <data name="Cuboid" xml:space="preserve"><value>Balok</value></data>
+  <data name="Line" xml:space="preserve"><value>Garis lurus</value></data>
+  <data name="Guide" xml:space="preserve"><value>Panduan</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>Sembunyikan otomatis</value></data>
+  <data name="Axis1" xml:space="preserve"><value>Sumbu koordinat 1</value></data>
+  <data name="Axis2" xml:space="preserve"><value>Sumbu koordinat 2</value></data>
+  <data name="Axis3" xml:space="preserve"><value>Sumbu koordinat 3</value></data>
+  <data name="Axis4" xml:space="preserve"><value>Sumbu koordinat 4</value></data>
+  <data name="Axis5" xml:space="preserve"><value>Sumbu koordinat 5</value></data>
+  <data name="CurrentTool" xml:space="preserve"><value>Alat aktif</value></data>
+  <data name="CurrentColor" xml:space="preserve"><value>Warna aktif</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>Ikuti bahasa Windows</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>Jendela alat tidak dapat dibuka. Periksa kelengkapan berkas aplikasi.</value></data>
+  <data name="ProcessPathMissing" xml:space="preserve"><value>Berkas program aplikasi tidak ditemukan.</value></data>
+  <data name="ToolStartFailed" xml:space="preserve"><value>Jendela alat tidak dapat dijalankan.</value></data>
+  <data name="UnexpectedError" xml:space="preserve"><value>Terjadi kesalahan tak terduga. Simpan gambar lalu mulai ulang FluentCanvas.</value></data>
+  <data name="ActivationFailed" xml:space="preserve"><value>Berkas tidak dapat dikirim ke FluentCanvas. Coba buka melalui bilah alat.</value></data>
+  <data name="SettingsSaveFailed" xml:space="preserve"><value>Pengaturan tidak dapat disimpan. Periksa izin tulis pada folder data pengguna.</value></data>
+  <data name="SettingsReadFailed" xml:space="preserve"><value>Pengaturan tidak dapat dibaca. Berkas asli tetap tersimpan.</value></data>
+  <data name="TriangleVariants" xml:space="preserve"><value>Pilihan segitiga</value></data>
+  <data name="Triangle" xml:space="preserve"><value>Segitiga bebas</value></data>
+  <data name="RightTriangle" xml:space="preserve"><value>Segitiga siku-siku</value></data>
+  <data name="IsoscelesTriangle" xml:space="preserve"><value>Segitiga sama kaki</value></data>
+  <data name="EquilateralTriangle" xml:space="preserve"><value>Segitiga sama sisi</value></data>
+  <data name="Parallelogram" xml:space="preserve"><value>Jajar genjang</value></data>
+  <data name="Trapezoid" xml:space="preserve"><value>Trapesium</value></data>
+  <data name="AngleMarks" xml:space="preserve"><value>Penanda sudut</value></data>
+  <data name="AngleMark" xml:space="preserve"><value>Penanda busur sudut</value></data>
+  <data name="RightAngleMark" xml:space="preserve"><value>Penanda sudut siku-siku</value></data>
+  <data name="CircularShapes" xml:space="preserve"><value>Busur dan juring</value></data>
+  <data name="Arc" xml:space="preserve"><value>Busur</value></data>
+  <data name="Sector" xml:space="preserve"><value>Juring</value></data>
+  <data name="Semicircle" xml:space="preserve"><value>Setengah lingkaran</value></data>
+  <data name="NumberLine" xml:space="preserve"><value>Garis bilangan</value></data>
+  <data name="NumberLineTicks" xml:space="preserve"><value>Garis bilangan dengan tanda skala</value></data>
+  <data name="NumberLineLabeled" xml:space="preserve"><value>Garis bilangan dengan tanda skala dan angka</value></data>
+  <data name="BoundingEllipse" xml:space="preserve"><value>Gambar elips dari dua sudut yang berseberangan</value></data>
+  <data name="Sphere" xml:space="preserve"><value>Bola</value></data>
+  <data name="PlaceTriangleFirstSide" xml:space="preserve"><value>Ketuk kedua ujung sisi pertama atau seret untuk menggambarnya</value></data>
+  <data name="PlaceTriangleVertex" xml:space="preserve"><value>Ketuk untuk menempatkan titik sudut ketiga</value></data>
+  <data name="PlaceAngleFirstSide" xml:space="preserve"><value>Ketuk titik sudut dan satu titik pada sisi pertama atau seret dari titik sudut</value></data>
+  <data name="PlaceAngleSecondSide" xml:space="preserve"><value>Ketuk satu titik pada sisi kedua</value></data>
+  <data name="PlaceArcRadius" xml:space="preserve"><value>Ketuk pusat dan titik awal atau seret jari-jari dari pusat</value></data>
+  <data name="PlaceArcEnd" xml:space="preserve"><value>Ketuk ke arah titik akhir</value></data>
+  <data name="DrawSemicircle" xml:space="preserve"><value>Seret untuk menggambar diameter. Setengah lingkaran muncul di kiri arah seret.</value></data>
+</root>

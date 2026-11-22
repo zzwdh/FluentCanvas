@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="WindowTitle" xml:space="preserve"><value>FluentCanvas వైట్‌బోర్డు</value></data>
+  <data name="Undo" xml:space="preserve"><value>చర్య రద్దు</value></data>
+  <data name="Redo" xml:space="preserve"><value>మళ్లీ చేయండి</value></data>
+  <data name="Select" xml:space="preserve"><value>ఎంచుకోండి</value></data>
+  <data name="Pen" xml:space="preserve"><value>పెన్ను</value></data>
+  <data name="Eraser" xml:space="preserve"><value>రబ్బరు</value></data>
+  <data name="EraseStrokes" xml:space="preserve"><value>గీతల వారీగా తుడవండి</value></data>
+  <data name="ExpandToolbar" xml:space="preserve"><value>తేలియాడే టూల్‌బార్‌ను విస్తరించండి</value></data>
+  <data name="CollapseToolbar" xml:space="preserve"><value>తేలియాడే టూల్‌బార్‌ను దాచండి</value></data>
+  <data name="ToggleToolbar" xml:space="preserve"><value>తేలియాడే టూల్‌బార్‌ను విస్తరించండి లేదా ముడవండి</value></data>
+  <data name="ToolbarDrag" xml:space="preserve"><value>టూల్‌బార్‌ను తరలించడానికి లాగండి</value></data>
+  <data name="ToolbarDragOrToggle" xml:space="preserve"><value>టూల్‌బార్‌ను తరలించడానికి లాగండి. విస్తరించడానికి లేదా ముడవడానికి క్లిక్ చేయండి.</value></data>
+  <data name="ExpandFromLeft" xml:space="preserve"><value>ఎడమ వైపు నుంచి తేలియాడే టూల్‌బార్‌ను విస్తరించండి</value></data>
+  <data name="ExpandFromRight" xml:space="preserve"><value>కుడి వైపు నుంచి తేలియాడే టూల్‌బార్‌ను విస్తరించండి</value></data>
+  <data name="SaveInk" xml:space="preserve"><value>సేవ్</value></data>
+  <data name="SaveDocument" xml:space="preserve"><value>చిత్రలేఖనాన్ని సేవ్ చేయండి</value></data>
+  <data name="OpenInk" xml:space="preserve"><value>తెరువు</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>చిత్రలేఖనాన్ని తెరవండి</value></data>
+  <data name="Playback" xml:space="preserve"><value>మళ్లీ చూపించండి</value></data>
+  <data name="ReplayInk" xml:space="preserve"><value>సిరా గీతలను మళ్లీ చూపించండి</value></data>
+  <data name="ExportImage" xml:space="preserve"><value>చిత్రంగా సేవ్ చేయండి</value></data>
+  <data name="PenTip" xml:space="preserve"><value>పెన్ను మొన</value></data>
+  <data name="NibMode" xml:space="preserve"><value>పెన్ను మొన మోడ్</value></data>
+  <data name="Opacity" xml:space="preserve"><value>అపారదర్శకత</value></data>
+  <data name="InsertVideo" xml:space="preserve"><value>వీడియో చేర్చండి</value></data>
+  <data name="InsertImage" xml:space="preserve"><value>చిత్రం చేర్చండి</value></data>
+  <data name="Width" xml:space="preserve"><value>వెడల్పు</value></data>
+  <data name="TouchSelectionHint" xml:space="preserve"><value>స్పర్శ: ఒక వేలితో లాగండి, రెండు వేళ్లతో జూమ్ చేయండి లేదా తిప్పండి</value></data>
+  <data name="MouseSelectionHint" xml:space="preserve"><value>మౌస్: తరలించడానికి లాగండి, జూమ్ చేయడానికి స్క్రోల్ చేయండి</value></data>
+  <data name="ParabolaWithFocus" xml:space="preserve"><value>నాభితో పరావలయం</value></data>
+  <data name="HyperbolaWithFoci" xml:space="preserve"><value>నాభులతో అతిపరవలయం</value></data>
+  <data name="EllipseWithFoci" xml:space="preserve"><value>నాభులతో దీర్ఘవృత్తం</value></data>
+  <data name="PickOne" xml:space="preserve"><value>ఒకరిని ఎంచుకోండి</value></data>
+  <data name="Countdown" xml:space="preserve"><value>కౌంట్‌డౌన్</value></data>
+  <data name="TimerShort" xml:space="preserve"><value>టైమర్</value></data>
+  <data name="ClickToClear" xml:space="preserve"><value>తుడవడానికి క్లిక్ చేయండి</value></data>
+  <data name="PointBasedPenTip" xml:space="preserve"><value>బిందువుల ఆధారంగా సన్నబడే మొన</value></data>
+  <data name="DottedLine" xml:space="preserve"><value>చుక్కల రేఖ</value></data>
+  <data name="MultiFingerInk" xml:space="preserve"><value>పలు వేళ్లతో రాయండి</value></data>
+  <data name="More" xml:space="preserve"><value>మరిన్ని</value></data>
+  <data name="MoreTools" xml:space="preserve"><value>మరిన్ని సాధనాలు</value></data>
+  <data name="MoreFeatures" xml:space="preserve"><value>మరిన్ని ఫీచర్లు</value></data>
+  <data name="MoreSettings" xml:space="preserve"><value>మరిన్ని సెట్టింగ్‌లు</value></data>
+  <data name="Tools" xml:space="preserve"><value>సాధనాలు</value></data>
+  <data name="PinShapes" xml:space="preserve"><value>ఆకారాల టూల్‌బార్‌ను పిన్ చేయండి</value></data>
+  <data name="Off" xml:space="preserve"><value>ఆఫ్</value></data>
+  <data name="On" xml:space="preserve"><value>ఆన్</value></data>
+  <data name="NoTaper" xml:space="preserve"><value>సన్నబడని మొన</value></data>
+  <data name="HorizontalParabola" xml:space="preserve"><value>అడ్డ పరావలయం</value></data>
+  <data name="Board" xml:space="preserve"><value>బోర్డు</value></data>
+  <data name="ColorBlack" xml:space="preserve"><value>నలుపు</value></data>
+  <data name="ColorWhite" xml:space="preserve"><value>తెలుపు</value></data>
+  <data name="ColorRed" xml:space="preserve"><value>ఎరుపు</value></data>
+  <data name="ColorPink" xml:space="preserve"><value>గులాబీ</value></data>
+  <data name="ColorOrange" xml:space="preserve"><value>నారింజ</value></data>
+  <data name="ColorYellow" xml:space="preserve"><value>పసుపు</value></data>
+  <data name="ColorGreen" xml:space="preserve"><value>ఆకుపచ్చ</value></data>
+  <data name="ColorCyan" xml:space="preserve"><value>సయాన్</value></data>
+  <data name="ColorBlue" xml:space="preserve"><value>నీలం</value></data>
+  <data name="ColorPurple" xml:space="preserve"><value>ఊదా</value></data>
+  <data name="BlackPen" xml:space="preserve"><value>పెన్ను: నలుపు</value></data>
+  <data name="WhitePen" xml:space="preserve"><value>పెన్ను: తెలుపు</value></data>
+  <data name="RedPen" xml:space="preserve"><value>పెన్ను: ఎరుపు</value></data>
+  <data name="PinkPen" xml:space="preserve"><value>పెన్ను: గులాబీ</value></data>
+  <data name="OrangePen" xml:space="preserve"><value>పెన్ను: నారింజ</value></data>
+  <data name="YellowPen" xml:space="preserve"><value>పెన్ను: పసుపు</value></data>
+  <data name="GreenPen" xml:space="preserve"><value>పెన్ను: ఆకుపచ్చ</value></data>
+  <data name="CyanPen" xml:space="preserve"><value>పెన్ను: నీలాకుపచ్చ</value></data>
+  <data name="BluePen" xml:space="preserve"><value>పెన్ను: నీలం</value></data>
+  <data name="Canvas" xml:space="preserve"><value>కాన్వాస్</value></data>
+  <data name="DrawShape" xml:space="preserve"><value>ఆకారాలు గీయండి</value></data>
+  <data name="AddPage" xml:space="preserve"><value>పేజీని జోడించండి</value></data>
+  <data name="Arrow" xml:space="preserve"><value>బాణం</value></data>
+  <data name="EndSlideShow" xml:space="preserve"><value>PowerPoint స్లైడ్ షోను ముగించండి</value></data>
+  <data name="ScreenCaptureShort" xml:space="preserve"><value>క్యాప్చర్</value></data>
+  <data name="ScreenCapture" xml:space="preserve"><value>స్క్రీన్‌షాట్</value></data>
+  <data name="Rectangle" xml:space="preserve"><value>దీర్ఘచతురస్రం</value></data>
+  <data name="CloneMode" xml:space="preserve"><value>నకలు మోడ్</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>కీబోర్డ్ షార్ట్‌కట్ గైడ్</value></data>
+  <data name="LightPalette" xml:space="preserve"><value>లేత</value></data>
+  <data name="DarkPalette" xml:space="preserve"><value>ముదురు</value></data>
+  <data name="AreaEraserShort" xml:space="preserve"><value>ప్రాంతం</value></data>
+  <data name="Ink" xml:space="preserve"><value>సిరా</value></data>
+  <data name="StrokeEraserShort" xml:space="preserve"><value>గీత</value></data>
+  <data name="InkRecognition" xml:space="preserve"><value>సిరా గీతల గుర్తింపు</value></data>
+  <data name="InkOptions" xml:space="preserve"><value>సిరా ఎంపికలు</value></data>
+  <data name="RotateLeft" xml:space="preserve"><value>ఎడమవైపు తిప్పండి</value></data>
+  <data name="Annotate" xml:space="preserve"><value>ఉల్లేఖించండి</value></data>
+  <data name="ParallelLines" xml:space="preserve"><value>సమాంతర రేఖలు</value></data>
+  <data name="SwitchBoard" xml:space="preserve"><value>వైట్‌బోర్డు, డెస్క్‌టాప్ ఉల్లేఖన మోడ్‌ల మధ్య మారండి</value></data>
+  <data name="SwitchPenPalette" xml:space="preserve"><value>పెన్ను రంగుల పాలెట్‌ను మార్చండి</value></data>
+  <data name="ClearAndMouseShort" xml:space="preserve"><value>తుడవండి</value></data>
+  <data name="Clear" xml:space="preserve"><value>తుడవండి</value></data>
+  <data name="ClearAnnotations" xml:space="preserve"><value>ఉల్లేఖనాలను తుడవండి</value></data>
+  <data name="ClearAndMouse" xml:space="preserve"><value>ఉల్లేఖనాలను తుడిచి మౌస్ మోడ్‌కు మారండి</value></data>
+  <data name="Delete" xml:space="preserve"><value>తొలగించండి</value></data>
+  <data name="PreviousPage" xml:space="preserve"><value>మునుపటి పేజీ</value></data>
+  <data name="Settings" xml:space="preserve"><value>సెట్టింగ్‌లు</value></data>
+  <data name="Video" xml:space="preserve"><value>వీడియో</value></data>
+  <data name="DocumentCamera" xml:space="preserve"><value>పత్రాల కెమెరా</value></data>
+  <data name="Gestures" xml:space="preserve"><value>సంజ్ఞలు</value></data>
+  <data name="GestureFeatures" xml:space="preserve"><value>సంజ్ఞ నియంత్రణలు</value></data>
+  <data name="GestureOptions" xml:space="preserve"><value>సంజ్ఞ ఎంపికలు</value></data>
+  <data name="Mouse" xml:space="preserve"><value>మౌస్</value></data>
+  <data name="MouseMode" xml:space="preserve"><value>మౌస్ మోడ్</value></data>
+  <data name="VerticalParabola" xml:space="preserve"><value>నిలువు పరావలయం</value></data>
+  <data name="FlipVertical" xml:space="preserve"><value>నిలువుగా తిరగేయండి</value></data>
+  <data name="Hyperbola" xml:space="preserve"><value>అతిపరవలయం</value></data>
+  <data name="TwoFingerGestures" xml:space="preserve"><value>రెండు వేళ్ల సంజ్ఞలు</value></data>
+  <data name="TwoFingerZoom" xml:space="preserve"><value>రెండు వేళ్లతో జూమ్</value></data>
+  <data name="TwoFingerRotate" xml:space="preserve"><value>రెండు వేళ్లతో తిప్పండి</value></data>
+  <data name="TwoFingerPan" xml:space="preserve"><value>రెండు వేళ్లతో జరపండి</value></data>
+  <data name="FlipHorizontal" xml:space="preserve"><value>అడ్డంగా తిరగేయండి</value></data>
+  <data name="RotateRight" xml:space="preserve"><value>కుడివైపు తిప్పండి</value></data>
+  <data name="Tetrahedron" xml:space="preserve"><value>చతుర్ముఖి</value></data>
+  <data name="SpeedBasedPenTip" xml:space="preserve"><value>వేగం ఆధారంగా సన్నబడే మొన</value></data>
+  <data name="RandomPicker" xml:space="preserve"><value>యాదృచ్ఛిక ఎంపిక</value></data>
+  <data name="RandomPickerShort" xml:space="preserve"><value>ఎంచుకోండి</value></data>
+  <data name="PickOnePerson" xml:space="preserve"><value>యాదృచ్ఛికంగా ఒకరిని ఎంచుకోండి</value></data>
+  <data name="Image" xml:space="preserve"><value>చిత్రం</value></data>
+  <data name="Shapes" xml:space="preserve"><value>ఆకారాలు</value></data>
+  <data name="ShapesHint" xml:space="preserve"><value>ఆకారాలు (గీస్తూ ఉండటానికి తొలి వరుసలోని బటన్‌ను నొక్కి పట్టుకోండి)</value></data>
+  <data name="Exit" xml:space="preserve"><value>నిష్క్రమించండి</value></data>
+  <data name="Ellipse" xml:space="preserve"><value>దీర్ఘవృత్తం</value></data>
+  <data name="NextPage" xml:space="preserve"><value>తదుపరి పేజీ</value></data>
+  <data name="DashedLine" xml:space="preserve"><value>గీతల రేఖ</value></data>
+  <data name="DashedCircle" xml:space="preserve"><value>గీతలతో వృత్తం</value></data>
+  <data name="Colors" xml:space="preserve"><value>రంగులు</value></data>
+  <data name="SendToBoard" xml:space="preserve"><value>బోర్డుకు పంపండి</value></data>
+  <data name="PageNumber" xml:space="preserve"><value>పేజీ సంఖ్య</value></data>
+  <data name="CenteredRectangle" xml:space="preserve"><value>మధ్య నుంచి దీర్ఘచతురస్రాన్ని గీయండి</value></data>
+  <data name="CenteredEllipse" xml:space="preserve"><value>మధ్య నుంచి దీర్ఘవృత్తాన్ని గీయండి</value></data>
+  <data name="Hide" xml:space="preserve"><value>దాచండి</value></data>
+  <data name="Highlighter" xml:space="preserve"><value>హైలైటర్</value></data>
+  <data name="RedHighlighter" xml:space="preserve"><value>హైలైటర్: ఎరుపు</value></data>
+  <data name="OrangeHighlighter" xml:space="preserve"><value>హైలైటర్: నారింజ</value></data>
+  <data name="YellowHighlighter" xml:space="preserve"><value>హైలైటర్: పసుపు</value></data>
+  <data name="CyanHighlighter" xml:space="preserve"><value>హైలైటర్: నీలాకుపచ్చ</value></data>
+  <data name="BlueHighlighter" xml:space="preserve"><value>హైలైటర్: నీలం</value></data>
+  <data name="PurpleHighlighter" xml:space="preserve"><value>హైలైటర్: ఊదా</value></data>
+  <data name="Circle" xml:space="preserve"><value>వృత్తం</value></data>
+  <data name="CircleEraserShort" xml:space="preserve"><value>వృత్తం</value></data>
+  <data name="Cylinder" xml:space="preserve"><value>స్థూపం</value></data>
+  <data name="Cone" xml:space="preserve"><value>శంకువు</value></data>
+  <data name="RepeatShapeHint" xml:space="preserve"><value>ఈ ఆకారాన్ని గీస్తూ ఉండటానికి నొక్కి పట్టుకోండి</value></data>
+  <data name="Cuboid" xml:space="preserve"><value>దీర్ఘఘనం</value></data>
+  <data name="Line" xml:space="preserve"><value>సరళ రేఖ</value></data>
+  <data name="Guide" xml:space="preserve"><value>గైడ్</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>స్వయంచాలకంగా దాచు</value></data>
+  <data name="Axis1" xml:space="preserve"><value>నిరూపక అక్షాలు 1</value></data>
+  <data name="Axis2" xml:space="preserve"><value>నిరూపక అక్షాలు 2</value></data>
+  <data name="Axis3" xml:space="preserve"><value>నిరూపక అక్షాలు 3</value></data>
+  <data name="Axis4" xml:space="preserve"><value>నిరూపక అక్షాలు 4</value></data>
+  <data name="Axis5" xml:space="preserve"><value>నిరూపక అక్షాలు 5</value></data>
+  <data name="CurrentTool" xml:space="preserve"><value>ప్రస్తుత సాధనం</value></data>
+  <data name="CurrentColor" xml:space="preserve"><value>ప్రస్తుత రంగు</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>Windows భాషను అనుసరించండి</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>సాధనం విండో తెరవలేకపోయాము. యాప్ ఫైళ్లు సరిగా ఉన్నాయో చూసుకోండి.</value></data>
+  <data name="ProcessPathMissing" xml:space="preserve"><value>యాప్ ఎగ్జిక్యూటబుల్ ఫైల్‌ని కనుగొనలేకపోయాము.</value></data>
+  <data name="ToolStartFailed" xml:space="preserve"><value>సాధనం విండోను ప్రారంభించలేకపోయాము.</value></data>
+  <data name="UnexpectedError" xml:space="preserve"><value>ఊహించని లోపం వచ్చింది. చిత్రలేఖనాన్ని సేవ్ చేసి FluentCanvasను పునఃప్రారంభించండి.</value></data>
+  <data name="ActivationFailed" xml:space="preserve"><value>తెరిచి ఉన్న FluentCanvas విండోకు ఫైల్‌ని పంపలేకపోయాము. టూల్‌బార్ నుంచి దాన్ని తెరిచి మళ్లీ ప్రయత్నించండి.</value></data>
+  <data name="SettingsSaveFailed" xml:space="preserve"><value>సెట్టింగ్‌లను సేవ్ చేయలేకపోయాము. వినియోగదారు డేటా ఫోల్డర్‌లో రాయగలరో లేదో చూసుకోండి.</value></data>
+  <data name="SettingsReadFailed" xml:space="preserve"><value>సెట్టింగ్‌లను చదవలేకపోయాము. అసలు ఫైల్ అలాగే ఉంది.</value></data>
+  <data name="TriangleVariants" xml:space="preserve"><value>త్రిభుజం ఎంపికలు</value></data>
+  <data name="Triangle" xml:space="preserve"><value>స్వేచ్ఛా త్రిభుజం</value></data>
+  <data name="RightTriangle" xml:space="preserve"><value>లంబకోణ త్రిభుజం</value></data>
+  <data name="IsoscelesTriangle" xml:space="preserve"><value>సమద్విబాహు త్రిభుజం</value></data>
+  <data name="EquilateralTriangle" xml:space="preserve"><value>సమబాహు త్రిభుజం</value></data>
+  <data name="Parallelogram" xml:space="preserve"><value>సమాంతర చతుర్భుజం</value></data>
+  <data name="Trapezoid" xml:space="preserve"><value>సమలంబ చతుర్భుజం</value></data>
+  <data name="AngleMarks" xml:space="preserve"><value>కోణ గుర్తులు</value></data>
+  <data name="AngleMark" xml:space="preserve"><value>కోణ చాపం గుర్తు</value></data>
+  <data name="RightAngleMark" xml:space="preserve"><value>లంబకోణ గుర్తు</value></data>
+  <data name="CircularShapes" xml:space="preserve"><value>వృత్త చాపాలు, వృత్త ఖండాలు</value></data>
+  <data name="Arc" xml:space="preserve"><value>వృత్త చాపం</value></data>
+  <data name="Sector" xml:space="preserve"><value>వృత్త సెక్టార్</value></data>
+  <data name="Semicircle" xml:space="preserve"><value>అర్ధవృత్తం</value></data>
+  <data name="NumberLine" xml:space="preserve"><value>సంఖ్యారేఖ</value></data>
+  <data name="NumberLineTicks" xml:space="preserve"><value>కొలత గుర్తులతో సంఖ్యారేఖ</value></data>
+  <data name="NumberLineLabeled" xml:space="preserve"><value>కొలత గుర్తులు, సంఖ్యలతో సంఖ్యారేఖ</value></data>
+  <data name="BoundingEllipse" xml:space="preserve"><value>ఎదురెదురు మూలల నుంచి దీర్ఘవృత్తం గీయండి</value></data>
+  <data name="Sphere" xml:space="preserve"><value>గోళం</value></data>
+  <data name="PlaceTriangleFirstSide" xml:space="preserve"><value>మొదటి భుజం రెండు చివరలను తట్టండి లేదా లాగి గీయండి</value></data>
+  <data name="PlaceTriangleVertex" xml:space="preserve"><value>మూడో శీర్షాన్ని ఉంచడానికి తట్టండి</value></data>
+  <data name="PlaceAngleFirstSide" xml:space="preserve"><value>శీర్షాన్ని, మొదటి భుజంపై ఒక బిందువును తట్టండి లేదా శీర్షం నుంచి లాగండి</value></data>
+  <data name="PlaceAngleSecondSide" xml:space="preserve"><value>రెండో భుజంపై ఒక బిందువును తట్టండి</value></data>
+  <data name="PlaceArcRadius" xml:space="preserve"><value>కేంద్రాన్ని, ప్రారంభ బిందువును తట్టండి లేదా కేంద్రం నుంచి వ్యాసార్థాన్ని లాగండి</value></data>
+  <data name="PlaceArcEnd" xml:space="preserve"><value>ముగింపు బిందువు దిశలో తట్టండి</value></data>
+  <data name="DrawSemicircle" xml:space="preserve"><value>లాగి వ్యాసాన్ని గీయండి. లాగే దిశకు ఎడమ వైపు అర్ధవృత్తం కనిపిస్తుంది.</value></data>
+</root>

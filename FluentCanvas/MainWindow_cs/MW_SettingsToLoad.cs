@@ -1,8 +1,7 @@
 using FluentCanvas.Helpers;
+using FluentCanvas.Localization;
 using System;
 using System.Windows;
-using System.Windows.Interop;
-using System.Windows.Media;
 
 namespace FluentCanvas
 {
@@ -12,30 +11,17 @@ namespace FluentCanvas
         {
             try
             {
-                if (!ViewModel.Settings.Load())
+                if (!settingsService.Load())
                 {
-                    SetSettingsToRecommendation();
+                    Settings = SettingsPresets.Recommended(Settings);
                     SaveSettingsToFile();
                 }
             }
             catch (Exception ex)
             {
                 LogHelper.WriteLogToFile(ex.ToString(), LogHelper.LogType.Error);
-                ShowNotificationAsync("无法读取设置，已保留原文件。");
+                ShowNotificationAsync(UiText.Get("Canvas.SettingsReadFailed"));
             }
-
-            if (Settings.Startup == null) Settings.Startup = new Startup();
-            if (Settings.Appearance == null) Settings.Appearance = new Appearance();
-            if (Settings.PowerPointSettings == null) Settings.PowerPointSettings = new PowerPointSettings();
-            if (Settings.Gesture == null) Settings.Gesture = new Gesture();
-            if (Settings.Canvas == null) Settings.Canvas = new Canvas();
-            if (Settings.Advanced == null) Settings.Advanced = new Advanced();
-            if (Settings.InkToShape == null) Settings.InkToShape = new InkToShape();
-            if (Settings.RandSettings == null) Settings.RandSettings = new RandSettings();
-            if (Settings.Automation == null) Settings.Automation = new Automation();
-
-            // Panel state is owned by the settings view.
-            SettingsPanel.LoadFromSettings();
 
             // Startup (shell)
             if (isStartup)
@@ -63,44 +49,13 @@ namespace FluentCanvas
                 BoardToggleSwitchEnableNibMode.IsOn = false;
                 BoundsWidth = Settings.Advanced.FingerModeBoundsWidth;
             }
-            if (isStartup && !App.IsPackaged && Settings.Startup.IsAutoUpdate)
+            if (isStartup)
             {
-                AutoUpdate();
+                _ = Services.StoreUpdateService.DownloadAtStartupAsync();
             }
 
             // Appearance (shell)
-            if (Settings.Appearance.IsEnableDisPlayFloatBarText)
-            {
-                FloatBarSelectIconTextBlock.Visibility = Visibility.Visible;
-                Icon_Pen.Height = 22;
-                Icon_Eraser1.Height = 22;
-                Icon_Eraser2.Height = 22;
-                Icon_Eraser2.Margin = new Thickness(5, -22, 0, -8);
-                Icon_EraserByStrokes1.Height = 22;
-                Icon_EraserByStrokes2.Height = 22;
-                Icon_EraserByStrokes2.Margin = new Thickness(12, -22, 0, -8);
-                Icon_Select1.Height = 22;
-                Icon_Select2.Height = 22;
-                Icon_Select2.Margin = new Thickness(6, -18, 0, -8);
-                Icon_Undo.Margin = new Thickness(0, 1.5, 0, -1.5);
-                Icon_Redo.Margin = new Thickness(0, 1.5, 0, -1.5);
-            }
-            else
-            {
-                FloatBarSelectIconTextBlock.Visibility = Visibility.Collapsed;
-                Icon_Pen.Height = 32;
-                Icon_Eraser1.Height = 32;
-                Icon_Eraser2.Height = 32;
-                Icon_Eraser2.Margin = new Thickness(5, -32, 0, -8);
-                Icon_EraserByStrokes1.Height = 32;
-                Icon_EraserByStrokes2.Height = 32;
-                Icon_EraserByStrokes2.Margin = new Thickness(12, -32, 0, -8);
-                Icon_Select1.Height = 32;
-                Icon_Select2.Height = 32;
-                Icon_Select2.Margin = new Thickness(6, -28, 0, -8);
-                Icon_Undo.Margin = new Thickness(0);
-                Icon_Redo.Margin = new Thickness(0);
-            }
+            ApplyToolbarLabels();
             if (Settings.Appearance.IsEnableDisPlayNibModeToggler)
             {
                 NibModeSimpleStackPanel.Visibility = Visibility.Visible;
@@ -114,58 +69,19 @@ namespace FluentCanvas
 
             SystemEvents_UserPreferenceChanged(null, null);
 
-            if (Settings.Appearance.IsColorfulViewboxFloatingBar)
-            {
-                LinearGradientBrush gradientBrush = new LinearGradientBrush();
-                gradientBrush.StartPoint = new Point(0, 0);
-                gradientBrush.EndPoint = new Point(1, 1);
-                GradientStop blueStop = new GradientStop(Color.FromArgb(0x95, 0x80, 0xB0, 0xFF), 0);
-                GradientStop greenStop = new GradientStop(Color.FromArgb(0x95, 0xC0, 0xFF, 0xC0), 1);
-                gradientBrush.GradientStops.Add(blueStop);
-                gradientBrush.GradientStops.Add(greenStop);
-                EnableTwoFingerGestureBorder.Background = gradientBrush;
-                BorderFloatingBarMainControls.Background = gradientBrush;
-                BorderFloatingBarMoveControls.Background = gradientBrush;
-                BtnPPTSlideShowEnd.Background = gradientBrush;
-            }
             ApplyScaling();
 
             // PowerPointSettings (shell)
-            if (Settings.PowerPointSettings.PowerPointSupport)
-            {
-                pptService.StartPolling();
-            }
-            else
-            {
-                pptService.StopPolling();
-            }
+            navigation.IsBottomButtonVisible = Settings.PowerPointSettings.IsShowPPTNavigationBottom;
+            navigation.IsSideButtonVisible = Settings.PowerPointSettings.IsShowPPTNavigationSides;
+            ApplyPresentationSettings();
 
             // Gesture (shell)
-            ToggleSwitchEnableMultiTouchMode.IsOn = Settings.Gesture.IsEnableMultiTouchMode;
             ToggleSwitchEnableTwoFingerZoom.IsOn = Settings.Gesture.IsEnableTwoFingerZoom;
             BoardToggleSwitchEnableTwoFingerZoom.IsOn = Settings.Gesture.IsEnableTwoFingerZoom;
-            ToggleSwitchEnableTwoFingerTranslate.IsOn = Settings.Gesture.IsEnableTwoFingerTranslate;
-            BoardToggleSwitchEnableTwoFingerTranslate.IsOn = Settings.Gesture.IsEnableTwoFingerTranslate;
             ToggleSwitchEnableTwoFingerRotation.IsOn = Settings.Gesture.IsEnableTwoFingerRotation;
             BoardToggleSwitchEnableTwoFingerRotation.IsOn = Settings.Gesture.IsEnableTwoFingerRotation;
-            if (Settings.Gesture.AutoSwitchTwoFingerGesture)
-            {
-                if (Topmost)
-                {
-                    ToggleSwitchEnableTwoFingerTranslate.IsOn = false;
-                    BoardToggleSwitchEnableTwoFingerTranslate.IsOn = false;
-                    Settings.Gesture.IsEnableTwoFingerTranslate = false;
-                    if (!isInMultiTouchMode) ToggleSwitchEnableMultiTouchMode.IsOn = true;
-                }
-                else
-                {
-                    ToggleSwitchEnableTwoFingerTranslate.IsOn = true;
-                    BoardToggleSwitchEnableTwoFingerTranslate.IsOn = true;
-                    Settings.Gesture.IsEnableTwoFingerTranslate = true;
-                    if (isInMultiTouchMode) ToggleSwitchEnableMultiTouchMode.IsOn = false;
-                }
-            }
-            CheckEnableTwoFingerGestureBtnColorPrompt();
+            ApplySceneGestureSettings();
 
             // Canvas (shell)
             drawingAttributes.Height = Settings.Canvas.InkWidth;
@@ -176,31 +92,19 @@ namespace FluentCanvas
             InkAlphaSlider.Value = Settings.Canvas.InkAlpha;
             BoardInkAlphaSlider.Value = Settings.Canvas.InkAlpha;
 
-            if (Settings.Canvas.UsingWhiteboard)
-            {
-                GridBackgroundCover.Background = new SolidColorBrush(StringToColor("#FFF2F2F2"));
-                lastBoardInkColor = 0;
-            }
-            else
-            {
-                GridBackgroundCover.Background = new SolidColorBrush(StringToColor("#FF1F1F1F"));
-                lastBoardInkColor = 5;
-            }
+            lastBoardInkColor = Settings.Canvas.UsingWhiteboard ? 0 : 5;
 
             inkCanvas.ForceCursor = Settings.Canvas.IsShowCursor;
 
             ComboBoxPenStyle.SelectedIndex = Settings.Canvas.InkStyle;
             BoardComboBoxPenStyle.SelectedIndex = Settings.Canvas.InkStyle;
+            ApplyInkRecognitionSettings();
 
             // Advanced (shell)
-            if (Settings.Advanced.IsEnableEdgeGestureUtil)
-            {
-                if (OperatingSystem.IsWindowsVersionAtLeast(10)) EdgeGestureUtil.DisableEdgeGestures(new WindowInteropHelper(this).Handle, true);
-            }
+            ShellSetEdgeGestureUtil(Settings.Advanced.IsEnableEdgeGestureUtil);
 
             // Automation (shell)
             StartOrStoptimerCheckAutoFold();
-            ShellRestartKillProcessTimer();
 
             ViewboxFloatingBarMarginAnimation();
         }

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Ready" xml:space="preserve"><value>సిద్ధం</value></data>
+  <data name="Hours" xml:space="preserve"><value>గంటలు</value></data>
+  <data name="Minutes" xml:space="preserve"><value>నిమిషాలు</value></data>
+  <data name="Seconds" xml:space="preserve"><value>సెకన్లు</value></data>
+  <data name="Start" xml:space="preserve"><value>ప్రారంభించండి</value></data>
+  <data name="Reset" xml:space="preserve"><value>రీసెట్ చేయండి</value></data>
+  <data name="Compact" xml:space="preserve"><value>కుదించిన వీక్షణ</value></data>
+  <data name="FullScreen" xml:space="preserve"><value>పూర్తి స్క్రీన్</value></data>
+  <data name="TimeRemaining" xml:space="preserve"><value>మిగిలిన సమయం</value></data>
+  <data name="TimeRemainingProgress" xml:space="preserve"><value>కౌంట్‌డౌన్ పురోగతి</value></data>
+  <data name="Paused" xml:space="preserve"><value>పాజ్ అయింది</value></data>
+  <data name="CountdownEndsAt" xml:space="preserve"><value>దాదాపు {0:HH:mm:ss}కి ముగుస్తుంది</value></data>
+  <data name="TimeUp" xml:space="preserve"><value>సమయం ముగిసింది</value></data>
+  <data name="TimeUpAlarmFailed" xml:space="preserve"><value>సమయం ముగిసింది. అలారం మోగలేదు.</value></data>
+  <data name="TimeRemainingSpoken" xml:space="preserve"><value>మిగిలిన సమయం: {0} గంటలు, {1} నిమిషాలు, {2} సెకన్లు</value></data>
+  <data name="Pause" xml:space="preserve"><value>పాజ్ చేయండి</value></data>
+  <data name="Resume" xml:space="preserve"><value>కొనసాగించండి</value></data>
+  <data name="Expand" xml:space="preserve"><value>విస్తరించండి</value></data>
+  <data name="ExitFullScreen" xml:space="preserve"><value>పూర్తి స్క్రీన్ నుంచి నిష్క్రమించండి</value></data>
+  <data name="RosterLoading" xml:space="preserve"><value>జాబితా లోడ్ అవుతోంది…</value></data>
+  <data name="ParticipantCount" xml:space="preserve"><value>పాల్గొనేవారు</value></data>
+  <data name="DrawCount" xml:space="preserve"><value>ఎంచుకోవాల్సిన సంఖ్య</value></data>
+  <data name="StartDraw" xml:space="preserve"><value>ఎంచుకోండి</value></data>
+  <data name="EditRoster" xml:space="preserve"><value>జాబితాను సవరించండి</value></data>
+  <data name="DrawOne" xml:space="preserve"><value>ఒకరిని ఎంచుకోండి</value></data>
+  <data name="DrawResult" xml:space="preserve"><value>ఫలితం</value></data>
+  <data name="RosterReadFailed" xml:space="preserve"><value>జాబితాను చదవలేకపోయాము. ఎంపిక కోసం సంఖ్యలను ఉపయోగిస్తాము.</value></data>
+  <data name="RosterLoaded" xml:space="preserve"><value>జాబితాలో వ్యక్తులు: {0}</value></data>
+  <data name="RosterUsingNumbers" xml:space="preserve"><value>సంఖ్యల ఆధారంగా ఎంపిక</value></data>
+  <data name="InvalidRulesSkipped" xml:space="preserve"><value> · దాటవేసిన చెల్లని నియమాలు: {0}</value></data>
+  <data name="Drawing" xml:space="preserve"><value>ఎంపిక జరుగుతోంది…</value></data>
+  <data name="SingleDrawResult" xml:space="preserve"><value>ఫలితం: {0}</value></data>
+  <data name="MultipleDrawResult" xml:space="preserve"><value>ఎంపికైన వ్యక్తులు: {0}</value></data>
+  <data name="DrawAgain" xml:space="preserve"><value>మళ్లీ ఎంచుకోండి</value></data>
+  <data name="NamesPerLine" xml:space="preserve"><value>ప్రతి పంక్తిలో ఒక పేరు నమోదు చేయండి</value></data>
+  <data name="RulesPerLine" xml:space="preserve"><value>ప్రతి పంక్తిలో ఒక ప్రత్యామ్నాయ నియమాన్ని నమోదు చేయండి</value></data>
+  <data name="Roster" xml:space="preserve"><value>పేర్ల జాబితా</value></data>
+  <data name="ImportRoster" xml:space="preserve"><value>పేర్లను దిగుమతి చేయండి</value></data>
+  <data name="ReplacementRules" xml:space="preserve"><value>ప్రత్యామ్నాయ నియమాలు</value></data>
+  <data name="ImportReplacementRules" xml:space="preserve"><value>నియమాలను దిగుమతి చేయండి</value></data>
+  <data name="ReplacementRuleExample" xml:space="preserve"><value>ఉదాహరణ: అభిషేక్--&gt;అభి. పేరును మినహాయించడానికి కుడి వైపు ఖాళీగా ఉంచండి.</value></data>
+  <data name="RosterAndRules" xml:space="preserve"><value>జాబితా, ప్రత్యామ్నాయ నియమాలు</value></data>
+  <data name="Save" xml:space="preserve"><value>సేవ్ చేయండి</value></data>
+  <data name="Cancel" xml:space="preserve"><value>రద్దు చేయండి</value></data>
+  <data name="RosterSaved" xml:space="preserve"><value>జాబితా సేవ్ అయింది</value></data>
+  <data name="RosterEditFailed" xml:space="preserve"><value>జాబితాను సవరించలేకపోయాము: {0}</value></data>
+  <data name="RosterImportFailed" xml:space="preserve"><value>దిగుమతి విఫలమైంది: {0}</value></data>
+  <data name="InvalidReplacementRule" xml:space="preserve"><value>ప్రత్యామ్నాయ నియమాలను తనిఖీ చేయండి. ప్రతి పంక్తిలో “అసలు పేరు--&gt;చూపే పేరు” రూపాన్ని ఉపయోగించండి.</value></data>
+  <data name="RosterSaveTooLarge" xml:space="preserve"><value>ప్రతి జాబితా ఫైల్ గరిష్ఠ పరిమాణం 2 MB.</value></data>
+  <data name="RosterLocked" xml:space="preserve"><value>మరో విండోలో జాబితా సేవ్ అవుతోంది. కాసేపటి తర్వాత మళ్లీ ప్రయత్నించండి.</value></data>
+  <data name="RosterChanged" xml:space="preserve"><value>మరో విండోలో జాబితా మారింది. తాజా జాబితాను లోడ్ చేయడానికి ఎడిటర్‌ని మళ్లీ తెరవండి.</value></data>
+  <data name="RosterReadTooLarge" xml:space="preserve"><value>జాబితా ఫైల్ పరిమాణం 2 MB కంటే ఎక్కువ.</value></data>
+  <data name="ReplacementRulesChanged" xml:space="preserve"><value>మరో ప్రక్రియ ప్రత్యామ్నాయ నియమాలను మార్చింది.</value></data>
+  <data name="RosterRollbackFailed" xml:space="preserve"><value>జాబితాను సేవ్ చేయలేకపోయాము, పాత నియమాలను పునరుద్ధరించలేకపోయాము. రెండు ఫైళ్లను తనిఖీ చేయడానికి ఎడిటర్‌ని మళ్లీ తెరవండి.</value></data>
+  <data name="SavingBeforeClose" xml:space="preserve"><value>పత్రం సేవ్ అవుతోంది. మూసివేసే ముందు అది పూర్తయ్యే వరకు వేచి ఉండండి.</value></data>
+  <data name="CloseUnsavedWork" xml:space="preserve"><value>FluentCanvasను మూసివేయాలా? సేవ్ చేయని మార్పులు పోతాయి.</value></data>
+  <data name="ConfirmClose" xml:space="preserve"><value>మీరు ఖచ్చితంగా FluentCanvasను మూసివేయాలనుకుంటున్నారా?</value></data>
+  <data name="CancelClosing" xml:space="preserve"><value>FluentCanvasను మూసివేయడాన్ని రద్దు చేయాలా?</value></data>
+  <data name="StartupEntryInUse" xml:space="preserve"><value>ఈ స్టార్టప్ నమోదును మరొక ఇన్‌స్టాలేషన్ ఉపయోగిస్తోంది.</value></data>
+  <data name="AutoFoldInk" xml:space="preserve"><value>సిరా గీతలు తొలగించబడ్డాయి, టూల్‌బార్ అంచుకు ముడుచుకుంది. గీతలను తిరిగి పొందడానికి ఉల్లేఖన మోడ్‌కు వెళ్లి రద్దు చేయి ఎంచుకోండి.</value></data>
+  <data name="InsertImageFailed" xml:space="preserve"><value>చిత్రాన్ని చేర్చలేకపోయాము. ఫైల్‌ని తనిఖీ చేసి మళ్లీ ప్రయత్నించండి.</value></data>
+  <data name="InsertVideoFailed" xml:space="preserve"><value>వీడియోను చేర్చలేకపోయాము. ఫైల్‌ని తనిఖీ చేసి మళ్లీ ప్రయత్నించండి.</value></data>
+  <data name="CanvasChangedDuringImport" xml:space="preserve"><value>దిగుమతి సమయంలో కాన్వాస్ మారింది. కావాల్సిన పేజీలో ఫైల్‌ని మళ్లీ చేర్చండి.</value></data>
+  <data name="OpenToolFailed" xml:space="preserve"><value>సాధనం విండోను తెరవలేకపోయాము.</value></data>
+  <data name="OpenDrawOneFailed" xml:space="preserve"><value>ఒకరిని ఎంచుకునే విండోను తెరవలేకపోయాము.</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>సెట్టింగ్‌లను తెరవలేకపోయాము.</value></data>
+  <data name="ScreenshotSaved" xml:space="preserve"><value>స్క్రీన్‌షాట్ {0}లో సేవ్ అయింది</value></data>
+  <data name="ScreenshotPathFailed" xml:space="preserve"><value>స్క్రీన్‌షాట్‌ను సేవ్ చేయలేకపోయాము. సెట్టింగ్‌లలో సేవ్ స్థానాన్ని తనిఖీ చేయండి.</value></data>
+  <data name="ScreenshotFailed" xml:space="preserve"><value>స్క్రీన్‌షాట్‌ను సేవ్ చేయలేకపోయాము.</value></data>
+  <data name="SlideCaptureObscured" xml:space="preserve"><value>స్లైడ్ షో విండో దాచబడింది లేదా కప్పబడి ఉంది. స్క్రీన్‌షాట్ తీయలేకపోయాము.</value></data>
+  <data name="SlideScreenshotFailed" xml:space="preserve"><value>స్లైడ్ షో స్క్రీన్‌షాట్‌ను సేవ్ చేయలేకపోయాము. సేవ్ స్థానాన్ని తనిఖీ చేయండి.</value></data>
+  <data name="DocumentSaved" xml:space="preserve"><value>సిరా గీతలు, వస్తువులు {0}లో సేవ్ అయ్యాయి</value></data>
+  <data name="DocumentSaveFailed" xml:space="preserve"><value>పత్రాన్ని సేవ్ చేయలేకపోయాము. సేవ్ స్థానాన్ని తనిఖీ చేసి మళ్లీ ప్రయత్నించండి.</value></data>
+  <data name="CanvasChangedDuringBackup" xml:space="preserve"><value>బ్యాకప్ సమయంలో కాన్వాస్ మారింది. దాన్ని మళ్లీ తుడవడానికి ప్రయత్నించండి.</value></data>
+  <data name="BackupFailed" xml:space="preserve"><value>బ్యాకప్ విఫలమైంది</value></data>
+  <data name="BackupFailedPrompt" xml:space="preserve"><value>బ్యాకప్ చేయలేకపోయాము. కాన్వాస్ అలాగే ఉంది.</value></data>
+  <data name="CanvasChangedWhileOpening" xml:space="preserve"><value>పత్రాన్ని తెరిచేటప్పుడు కాన్వాస్ మారింది. కావాల్సిన పేజీలో దాన్ని మళ్లీ తెరవండి.</value></data>
+  <data name="UnsavedBoardPrompt" xml:space="preserve"><value>ఈ వైట్‌బోర్డులో సేవ్ చేయని మార్పులు ఉన్నాయి.</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>పత్రాన్ని తెరవండి</value></data>
+  <data name="CanvasChangedDuringSave" xml:space="preserve"><value>సేవ్ చేస్తున్నప్పుడు కాన్వాస్ మారింది. పత్రాన్ని మళ్లీ తెరవండి.</value></data>
+  <data name="DocumentOpenFailed" xml:space="preserve"><value>పత్రాన్ని తెరవలేకపోయాము. ఫైల్‌ని తనిఖీ చేసి మళ్లీ ప్రయత్నించండి.</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>స్వయంచాలకంగా దాచు</value></data>
+  <data name="Pinned" xml:space="preserve"><value>పిన్ చేయబడింది</value></data>
+  <data name="RemoveAsymptotes" xml:space="preserve"><value>అనంతస్పర్శ రేఖలను తీసివేయాలా?</value></data>
+  <data name="SavingBeforeRestart" xml:space="preserve"><value>పత్రం సేవ్ అవుతోంది. పునఃప్రారంభించే ముందు అది పూర్తయ్యే వరకు వేచి ఉండండి.</value></data>
+  <data name="RestartFailed" xml:space="preserve"><value>యాప్‌ను పునఃప్రారంభించలేకపోయాము. మీ పనిని సేవ్ చేసి, FluentCanvasను మళ్లీ తెరవండి.</value></data>
+  <data name="PngImage" xml:space="preserve"><value>PNG చిత్రం</value></data>
+  <data name="SelectionExportFailed" xml:space="preserve"><value>ఎంపికను ఎగుమతి చేయలేకపోయాము. చిన్న ప్రాంతాన్ని ఎంచుకోండి లేదా సేవ్ స్థానాన్ని తనిఖీ చేయండి.</value></data>
+  <data name="CloneToBoard" xml:space="preserve"><value>బోర్డుకు కాపీ చేయండి</value></data>
+  <data name="CloneToNewPage" xml:space="preserve"><value>కొత్త పేజీకి కాపీ చేయండి</value></data>
+  <data name="EasiNoteAutomaticallyClosed" xml:space="preserve"><value>EasiNote 5 స్వయంచాలకంగా మూసివేయబడింది.</value></data>
+  <data name="Retry" xml:space="preserve"><value>మళ్లీ ప్రయత్నించండి</value></data>
+  <data name="ClearWithoutBackup" xml:space="preserve"><value>బ్యాకప్ లేకుండా తుడవండి</value></data>
+  <data name="SaveAndOpen" xml:space="preserve"><value>సేవ్ చేసి తెరవండి</value></data>
+  <data name="OpenWithoutSaving" xml:space="preserve"><value>మార్పులను విస్మరించి తెరవండి</value></data>
+</root>

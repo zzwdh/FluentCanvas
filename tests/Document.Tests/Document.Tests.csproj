@@ -2,13 +2,13 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net11.0-windows</TargetFramework>
-    <RuntimeFrameworkVersion>11.0.0</RuntimeFrameworkVersion>
+    <RuntimeFrameworkVersion>$(FluentCanvasDesktopRuntimeVersion)</RuntimeFrameworkVersion>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
     <None Update="Fixtures/frame.mp4" CopyToOutputDirectory="PreserveNewest" />
-    <Compile Include="../../FluentCanvas/Helpers/AtomicFile.cs" Link="AtomicFile.cs" />
-    <Compile Include="../../FluentCanvas/Helpers/CanvasDocument*.cs" Link="%(Filename)%(Extension)" />
-    <Compile Include="../../FluentCanvas/Helpers/TimeMachine.cs" Link="TimeMachine.cs" />
+    <ProjectReference Include="../../FluentCanvas.CanvasCore/FluentCanvas.CanvasCore.csproj" />
+    <Compile Include="../../FluentCanvas/Helpers/ShapeDraftInkCanvas.cs" Link="ShapeDraftInkCanvas.cs" />
+    <Compile Include="../../FluentCanvas/Services/WpsBridgeTransport.cs" Link="WpsBridgeTransport.cs" />
   </ItemGroup>
 </Project>

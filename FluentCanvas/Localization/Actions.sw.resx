@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Ready" xml:space="preserve"><value>Tayari</value></data>
+  <data name="Hours" xml:space="preserve"><value>Saa</value></data>
+  <data name="Minutes" xml:space="preserve"><value>Dakika</value></data>
+  <data name="Seconds" xml:space="preserve"><value>Sekunde</value></data>
+  <data name="Start" xml:space="preserve"><value>Anza</value></data>
+  <data name="Reset" xml:space="preserve"><value>Weka upya</value></data>
+  <data name="Compact" xml:space="preserve"><value>Mwonekano mdogo</value></data>
+  <data name="FullScreen" xml:space="preserve"><value>Skrini nzima</value></data>
+  <data name="TimeRemaining" xml:space="preserve"><value>Muda uliobaki</value></data>
+  <data name="TimeRemainingProgress" xml:space="preserve"><value>Maendeleo ya kuhesabu muda kurudi nyuma</value></data>
+  <data name="Paused" xml:space="preserve"><value>Imesitishwa</value></data>
+  <data name="CountdownEndsAt" xml:space="preserve"><value>Itaisha takriban saa {0:HH:mm:ss}</value></data>
+  <data name="TimeUp" xml:space="preserve"><value>Muda umeisha</value></data>
+  <data name="TimeUpAlarmFailed" xml:space="preserve"><value>Muda umeisha. Kengele haikuweza kulia.</value></data>
+  <data name="TimeRemainingSpoken" xml:space="preserve"><value>Muda uliobaki (saa, dakika, sekunde): {0}, {1}, {2}</value></data>
+  <data name="Pause" xml:space="preserve"><value>Sitisha</value></data>
+  <data name="Resume" xml:space="preserve"><value>Endelea</value></data>
+  <data name="Expand" xml:space="preserve"><value>Panua</value></data>
+  <data name="ExitFullScreen" xml:space="preserve"><value>Ondoka kwenye skrini nzima</value></data>
+  <data name="RosterLoading" xml:space="preserve"><value>Inapakia orodha ya washiriki…</value></data>
+  <data name="ParticipantCount" xml:space="preserve"><value>Washiriki</value></data>
+  <data name="DrawCount" xml:space="preserve"><value>Idadi ya kuchagua</value></data>
+  <data name="StartDraw" xml:space="preserve"><value>Chagua</value></data>
+  <data name="EditRoster" xml:space="preserve"><value>Hariri orodha ya washiriki</value></data>
+  <data name="DrawOne" xml:space="preserve"><value>Chagua mmoja</value></data>
+  <data name="DrawResult" xml:space="preserve"><value>Matokeo</value></data>
+  <data name="RosterReadFailed" xml:space="preserve"><value>Imeshindikana kusoma orodha. Uchaguzi utatumia nambari.</value></data>
+  <data name="RosterLoaded" xml:space="preserve"><value>Idadi kwenye orodha: {0}</value></data>
+  <data name="RosterUsingNumbers" xml:space="preserve"><value>Inatumia vipengee vyenye nambari</value></data>
+  <data name="InvalidRulesSkipped" xml:space="preserve"><value> · Sheria zisizo halali zilizorukwa: {0}</value></data>
+  <data name="Drawing" xml:space="preserve"><value>Inachagua…</value></data>
+  <data name="SingleDrawResult" xml:space="preserve"><value>Matokeo: {0}</value></data>
+  <data name="MultipleDrawResult" xml:space="preserve"><value>Watu {0} wamechaguliwa</value></data>
+  <data name="DrawAgain" xml:space="preserve"><value>Chagua tena</value></data>
+  <data name="NamesPerLine" xml:space="preserve"><value>Andika jina moja kwa kila mstari</value></data>
+  <data name="RulesPerLine" xml:space="preserve"><value>Andika sheria moja ya kubadilisha jina kwa kila mstari</value></data>
+  <data name="Roster" xml:space="preserve"><value>Orodha ya washiriki</value></data>
+  <data name="ImportRoster" xml:space="preserve"><value>Leta majina</value></data>
+  <data name="ReplacementRules" xml:space="preserve"><value>Sheria za kubadilisha majina</value></data>
+  <data name="ImportReplacementRules" xml:space="preserve"><value>Leta sheria</value></data>
+  <data name="ReplacementRuleExample" xml:space="preserve"><value>Mfano: Alex--&gt;Al. Acha upande wa kulia wazi ili kuondoa jina.</value></data>
+  <data name="RosterAndRules" xml:space="preserve"><value>Orodha ya washiriki na sheria za kubadilisha majina</value></data>
+  <data name="Save" xml:space="preserve"><value>Hifadhi</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Ghairi</value></data>
+  <data name="RosterSaved" xml:space="preserve"><value>Orodha ya washiriki imehifadhiwa</value></data>
+  <data name="RosterEditFailed" xml:space="preserve"><value>Imeshindikana kuhariri orodha ya washiriki: {0}</value></data>
+  <data name="RosterImportFailed" xml:space="preserve"><value>Imeshindikana kuleta faili: {0}</value></data>
+  <data name="InvalidReplacementRule" xml:space="preserve"><value>Angalia sheria za kubadilisha majina. Tumia “jina asili--&gt;jina la kuonyesha” katika kila mstari.</value></data>
+  <data name="RosterSaveTooLarge" xml:space="preserve"><value>Kila faili ya orodha inaweza kuwa na hadi MB 2.</value></data>
+  <data name="RosterLocked" xml:space="preserve"><value>Dirisha jingine linahifadhi orodha ya washiriki. Subiri kidogo kisha ujaribu tena.</value></data>
+  <data name="RosterChanged" xml:space="preserve"><value>Dirisha jingine limebadilisha orodha ya washiriki. Fungua kihariri tena ili kupakia toleo jipya.</value></data>
+  <data name="RosterReadTooLarge" xml:space="preserve"><value>Faili ya orodha ya washiriki inazidi MB 2.</value></data>
+  <data name="ReplacementRulesChanged" xml:space="preserve"><value>Mchakato mwingine umebadilisha sheria za kubadilisha majina.</value></data>
+  <data name="RosterRollbackFailed" xml:space="preserve"><value>Imeshindikana kuhifadhi orodha ya washiriki na kurejesha sheria za awali. Fungua kihariri tena ili kuangalia faili zote mbili.</value></data>
+  <data name="SavingBeforeClose" xml:space="preserve"><value>Hati inahifadhiwa. Subiri hadi ikamilike kabla ya kufunga.</value></data>
+  <data name="CloseUnsavedWork" xml:space="preserve"><value>Ungependa kufunga FluentCanvas? Kazi ambayo hujahifadhi itapotea.</value></data>
+  <data name="ConfirmClose" xml:space="preserve"><value>Una uhakika unataka kufunga FluentCanvas?</value></data>
+  <data name="CancelClosing" xml:space="preserve"><value>Ungependa kughairi kufunga FluentCanvas?</value></data>
+  <data name="StartupEntryInUse" xml:space="preserve"><value>Usakinishaji mwingine unatumia kipengee hiki cha kuanzisha.</value></data>
+  <data name="AutoFoldInk" xml:space="preserve"><value>Mwandiko umefutwa na upau wa zana umewekwa ukingoni. Rudi kwenye hali ya maelezo kisha uchague Tendua ili kurejesha mwandiko.</value></data>
+  <data name="InsertImageFailed" xml:space="preserve"><value>Imeshindikana kuingiza picha. Angalia faili kisha ujaribu tena.</value></data>
+  <data name="InsertVideoFailed" xml:space="preserve"><value>Imeshindikana kuingiza video. Angalia faili kisha ujaribu tena.</value></data>
+  <data name="CanvasChangedDuringImport" xml:space="preserve"><value>Turubai imebadilika wakati wa kuleta faili. Ingiza faili tena kwenye ukurasa uliokusudia.</value></data>
+  <data name="OpenToolFailed" xml:space="preserve"><value>Imeshindikana kufungua dirisha la zana.</value></data>
+  <data name="OpenDrawOneFailed" xml:space="preserve"><value>Imeshindikana kufungua dirisha la kuchagua mtu mmoja.</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>Imeshindikana kufungua Mipangilio.</value></data>
+  <data name="ScreenshotSaved" xml:space="preserve"><value>Picha ya skrini imehifadhiwa kwenye {0}</value></data>
+  <data name="ScreenshotPathFailed" xml:space="preserve"><value>Imeshindikana kuhifadhi picha ya skrini. Angalia mahali pa kuhifadhi katika Mipangilio.</value></data>
+  <data name="ScreenshotFailed" xml:space="preserve"><value>Imeshindikana kuhifadhi picha ya skrini.</value></data>
+  <data name="SlideCaptureObscured" xml:space="preserve"><value>Imeshindikana kupiga picha ya onyesho la slaidi kwa sababu dirisha lake limefichwa au kufunikwa.</value></data>
+  <data name="SlideScreenshotFailed" xml:space="preserve"><value>Imeshindikana kuhifadhi picha ya skrini ya onyesho la slaidi. Angalia mahali pa kuhifadhi.</value></data>
+  <data name="DocumentSaved" xml:space="preserve"><value>Mwandiko na vitu vimehifadhiwa kwenye {0}</value></data>
+  <data name="DocumentSaveFailed" xml:space="preserve"><value>Imeshindikana kuhifadhi hati. Angalia mahali pa kuhifadhi kisha ujaribu tena.</value></data>
+  <data name="CanvasChangedDuringBackup" xml:space="preserve"><value>Turubai imebadilika wakati wa kuhifadhi nakala rudufu. Jaribu kuifuta tena.</value></data>
+  <data name="BackupFailed" xml:space="preserve"><value>Nakala rudufu imeshindwa</value></data>
+  <data name="BackupFailedPrompt" xml:space="preserve"><value>Imeshindikana kuhifadhi nakala rudufu. Turubai imehifadhiwa.</value></data>
+  <data name="CanvasChangedWhileOpening" xml:space="preserve"><value>Turubai imebadilika wakati wa kufungua hati. Ifungue tena kwenye ukurasa uliokusudia.</value></data>
+  <data name="UnsavedBoardPrompt" xml:space="preserve"><value>Ubao huu mweupe una mabadiliko ambayo hayajahifadhiwa.</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>Fungua hati</value></data>
+  <data name="CanvasChangedDuringSave" xml:space="preserve"><value>Turubai imebadilika wakati wa kuhifadhi. Fungua hati tena.</value></data>
+  <data name="DocumentOpenFailed" xml:space="preserve"><value>Imeshindikana kufungua hati. Angalia faili kisha ujaribu tena.</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>Ficha kiotomatiki</value></data>
+  <data name="Pinned" xml:space="preserve"><value>Imebandikwa</value></data>
+  <data name="RemoveAsymptotes" xml:space="preserve"><value>Ungependa kuondoa mistari asimptoti?</value></data>
+  <data name="SavingBeforeRestart" xml:space="preserve"><value>Hati inahifadhiwa. Subiri hadi ikamilike kabla ya kuanzisha upya.</value></data>
+  <data name="RestartFailed" xml:space="preserve"><value>Imeshindikana kuanzisha upya. Hifadhi kazi yako kisha ufungue FluentCanvas tena.</value></data>
+  <data name="PngImage" xml:space="preserve"><value>Picha ya PNG</value></data>
+  <data name="SelectionExportFailed" xml:space="preserve"><value>Imeshindikana kuhamisha uteuzi. Chagua eneo dogo zaidi au angalia mahali pa kuhifadhi.</value></data>
+  <data name="CloneToBoard" xml:space="preserve"><value>Nakili kwenye ubao</value></data>
+  <data name="CloneToNewPage" xml:space="preserve"><value>Nakili kwenye ukurasa mpya</value></data>
+  <data name="EasiNoteAutomaticallyClosed" xml:space="preserve"><value>EasiNote 5 imefungwa kiotomatiki.</value></data>
+  <data name="Retry" xml:space="preserve"><value>Jaribu tena</value></data>
+  <data name="ClearWithoutBackup" xml:space="preserve"><value>Futa bila nakala rudufu</value></data>
+  <data name="SaveAndOpen" xml:space="preserve"><value>Hifadhi na ufungue</value></data>
+  <data name="OpenWithoutSaving" xml:space="preserve"><value>Tupa mabadiliko na ufungue</value></data>
+</root>

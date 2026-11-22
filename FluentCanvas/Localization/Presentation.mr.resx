@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>PowerPoint टिपणांचे पान बदलता आले नाही: {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>सादरीकरण सेटिंग्ज - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>{0} स्लाइड शो समाप्त करता आला नाही.</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>या सादरीकरणात लपवलेल्या स्लाइड आहेत. त्या दाखवायच्या का?</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>{0} स्लाइडची जुनी टिपणे आयात केली.</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>FluentCanvas ला फाइलचे नाव आणि स्लाइड क्रमांकानुसार जतन केलेली जुनी टिपणे सापडली. ती याच सादरीकरणाची आहेत आणि स्लाइडचा क्रम बदललेला नाही याची खात्री करा. या सादरीकरणाच्या टिपणांच्या फोल्डरमध्ये ती कॉपी करायची का?</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>मागील स्लाइड शो {0} क्रमांकाच्या स्लाइडवर संपला. त्या स्लाइडवर जायचे का?</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>या सादरीकरणात स्लाइड आपोआप बदलतात किंवा सरावातील वेळा वापरल्या जातात. स्लाइड स्वतः बदलायच्या का?</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>PowerPoint स्लाइड नेव्हिगेशन उघडता आले नाही.</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>पुढील स्लाइड</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>{0} मध्ये पुढील स्लाइडवर जाता आले नाही.</value></data>
+  <data name="No" xml:space="preserve"><value>नाही</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>PowerPoint मधील क्रिया पूर्ण झाली नाही: {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>स्लाइड शोमधील स्थान {0} · सादरीकरणातील स्लाइड {1}</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>मागील स्लाइड</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>{0} मध्ये मागील स्लाइडवर जाता आले नाही.</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>स्लाइड {0} ची जतन केलेली टिपणे वाचता आली नाहीत. मूळ फाइल जशी होती तशी ठेवली आहे.</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>PowerPoint टिपणे जतन करता आली नाहीत. ती या सत्रात अजून उपलब्ध आहेत.</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>PowerPoint टिपणे स्थानिक पुनर्प्राप्ती फोल्डरमध्ये जतन केली.</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>PowerPoint टिपणे किंवा स्लाइड शोमधील स्थान जतन करता आले नाही: {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>सध्याच्या स्लाइड शोची विंडो सापडली नाही.</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS ला स्लाइड शोची आज्ञा पूर्ण करता आली नाही.</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>WPS अ‍ॅड-इनकडून स्लाइड शोच्या आज्ञेची पोच मिळाली नाही.</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>स्लाइड शोची आज्ञा WPS अ‍ॅड-इनला पाठवता आली नाही.</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>होय</value></data>
+</root>

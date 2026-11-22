@@ -9,6 +9,8 @@ Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "FluentCanvas.Package", "Flu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentCanvas.InkAnalyzerCore", "FluentCanvas.InkAnalyzerCore\FluentCanvas.InkAnalyzerCore.csproj", "{DCE21B12-6EF2-489A-B340-BCA41EC92C44}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentCanvas.CanvasCore", "FluentCanvas.CanvasCore\FluentCanvas.CanvasCore.csproj", "{3F15AD26-0526-4CF0-88EF-33CFA7E3A040}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM64 = Debug|ARM64
@@ -41,6 +43,14 @@ Global
 		{DCE21B12-6EF2-489A-B340-BCA41EC92C44}.Release|ARM64.Build.0 = Release|Any CPU
 		{DCE21B12-6EF2-489A-B340-BCA41EC92C44}.Release|x64.ActiveCfg = Release|Any CPU
 		{DCE21B12-6EF2-489A-B340-BCA41EC92C44}.Release|x64.Build.0 = Release|Any CPU
+		{3F15AD26-0526-4CF0-88EF-33CFA7E3A040}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{3F15AD26-0526-4CF0-88EF-33CFA7E3A040}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{3F15AD26-0526-4CF0-88EF-33CFA7E3A040}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3F15AD26-0526-4CF0-88EF-33CFA7E3A040}.Debug|x64.Build.0 = Debug|Any CPU
+		{3F15AD26-0526-4CF0-88EF-33CFA7E3A040}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{3F15AD26-0526-4CF0-88EF-33CFA7E3A040}.Release|ARM64.Build.0 = Release|Any CPU
+		{3F15AD26-0526-4CF0-88EF-33CFA7E3A040}.Release|x64.ActiveCfg = Release|Any CPU
+		{3F15AD26-0526-4CF0-88EF-33CFA7E3A040}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

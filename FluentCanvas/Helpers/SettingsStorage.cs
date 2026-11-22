@@ -5,8 +5,11 @@ using Newtonsoft.Json;
 
 namespace FluentCanvas.Helpers
 {
-    internal static class SettingsStorage
+    internal sealed class SettingsStorage(string path)
     {
+        private readonly object gate = new();
+        private bool recoveredFromBackup;
+
         private static readonly JsonSerializerSettings JsonOptions = new()
         {
             NullValueHandling = NullValueHandling.Ignore,
@@ -15,14 +18,21 @@ namespace FluentCanvas.Helpers
 
         // The file used by the original UI is authoritative. Some older MSIX
         // installations also have a (possibly older) LocalSettings snapshot.
-        public static Settings Read(string path, Func<string> readLegacy)
+        public Settings Read(Func<string> readLegacy)
+        {
+            lock (gate) return ReadCore(readLegacy);
+        }
+
+        private Settings ReadCore(Func<string> readLegacy)
         {
             Exception invalid = null;
             foreach (string candidate in new[] { path, path + ".bak" })
             {
                 try
                 {
-                    return Parse(File.ReadAllText(candidate));
+                    var settings = Parse(File.ReadAllText(candidate));
+                    recoveredFromBackup = candidate != path;
+                    return settings;
                 }
                 catch (FileNotFoundException) { }
                 catch (DirectoryNotFoundException) { }
@@ -41,10 +51,17 @@ namespace FluentCanvas.Helpers
             JsonConvert.DeserializeObject<Settings>(json, JsonOptions)
                 ?? throw new JsonSerializationException("设置内容为空。");
 
-        public static void Write(string path, Settings settings)
+        public void Write(Settings settings)
         {
-            var bytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(settings, Formatting.Indented));
-            AtomicFile.Write(path, stream => stream.Write(bytes), path + ".bak");
+            lock (gate)
+            {
+                var bytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(settings, Formatting.Indented));
+                // After recovery the backup is the last readable generation. Rotate again
+                // only once the replacement primary has been committed successfully.
+                string backupPath = recoveredFromBackup ? null : path + ".bak";
+                AtomicFile.Write(path, stream => stream.Write(bytes), backupPath);
+                recoveredFromBackup = false;
+            }
         }
     }
 }

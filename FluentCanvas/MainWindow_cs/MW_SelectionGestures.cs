@@ -1,12 +1,12 @@
 using FluentCanvas.Helpers;
-using Microsoft.Win32;
+using FluentCanvas.Localization;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Ink;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Point = System.Windows.Point;
@@ -24,24 +24,9 @@ namespace FluentCanvas
             lastBorderMouseDownObject = sender;
         }
 
-        bool isStrokeSelectionCloneOn = false;
-
-        private void BorderStrokeSelectionClone_Click(object sender, RoutedEventArgs e)
-        {
-            if (isStrokeSelectionCloneOn)
-            {
-                IconStrokeSelectionClone.SetResourceReference(TextBlock.ForegroundProperty, "FloatBarForeground");
-                isStrokeSelectionCloneOn = false;
-            }
-            else
-            {
-                IconStrokeSelectionClone.SetResourceReference(TextBlock.ForegroundProperty, "FloatBarBackground");
-                isStrokeSelectionCloneOn = true;
-            }
-        }
-
         private void BorderStrokeSelectionCloneToBoardOrNewPage_Click(object sender, RoutedEventArgs e)
         {
+            if (currentMode != 0 && !Pages.CanInsert) return;
             if (currentMode == 0)
             {
                 StrokeCollection strokes = inkCanvas.GetSelectedStrokes();
@@ -58,7 +43,7 @@ namespace FluentCanvas
                 List<UIElement> elements = FluentCanvasElementsHelper.GetSelectedElementsCloned(inkCanvas);
                 inkCanvas.Select(new StrokeCollection());
                 strokes = strokes.Clone();
-                BtnWhiteBoardAdd_Click(null, null);
+                AddWhiteboard();
                 inkCanvas.Strokes.Add(strokes);
                 FluentCanvasElementsHelper.AddElements(inkCanvas, elements, timeMachine);
             }
@@ -88,66 +73,28 @@ namespace FluentCanvas
             SymbolIconDelete_MouseUp(sender, e);
         }
 
-        private void BtnStrokeSelectionSaveToImage_Click(object sender, RoutedEventArgs e)
+        private async void BtnStrokeSelectionSaveToImage_Click(object sender, RoutedEventArgs e)
         {
-            StrokeCollection selectedStrokes = inkCanvas.GetSelectedStrokes();
-            var selectedElements = inkCanvas.GetSelectedElements();
-
-            if (selectedStrokes.Count > 0 || selectedElements.Count > 0)
+            try
             {
-                Rect bounds = inkCanvas.GetSelectionBounds();
+                var bitmap = CanvasSelectionImage.Render(inkCanvas);
+                if (bitmap == null) return;
 
-                double width = bounds.Width + 10;
-                double height = bounds.Height + 10;
-                RenderTargetBitmap renderTarget = new RenderTargetBitmap(
-                    (int)Math.Ceiling(width), (int)Math.Ceiling(height),
-                    96, 96, PixelFormats.Pbgra32);
+                string path = await WinUiPickers.PickSaveFileAsync(new WindowInteropHelper(this).Handle,
+                    "FluentCanvas.ExportSelection", DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss-fff"), UiText.Get("Actions.PngImage"), ".png");
+                if (path == null) return;
 
-                DrawingVisual drawingVisual = new DrawingVisual();
-                using (DrawingContext drawingContext = drawingVisual.RenderOpen())
+                await screenshotWrites.Enqueue(() =>
                 {
-                    drawingContext.PushTransform(new TranslateTransform(-bounds.X, -bounds.Y));
-
-                    foreach (Stroke stroke in selectedStrokes)
-                    {
-                        stroke.Draw(drawingContext);
-                    }
-
-                    foreach (UIElement element in selectedElements)
-                    {
-                        VisualBrush vb = new VisualBrush(element);
-                        Rect elementBounds = new Rect(element.RenderSize);
-
-                        Transform renderTransform = element.RenderTransform;
-                        if (renderTransform != null)
-                        {
-                            drawingContext.PushTransform(renderTransform);
-                            drawingContext.DrawRectangle(vb, null, elementBounds);
-                            drawingContext.Pop();
-                        }
-                        else
-                        {
-                            drawingContext.DrawRectangle(vb, null, elementBounds);
-                        }
-                    }
-                }
-
-                renderTarget.Render(drawingVisual);
-
-                SaveFileDialog saveFileDialog = new SaveFileDialog
-                {
-                    Filter = "PNG Images|*.png",
-                    Title = "Save Selected Ink as PNG",
-                    FileName = DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss-fff")
-                };
-
-                if (saveFileDialog.ShowDialog() == true)
-                {
-                    PngBitmapEncoder encoder = new PngBitmapEncoder();
-                    encoder.Frames.Add(BitmapFrame.Create(renderTarget));
-
-                    Helpers.AtomicFile.Write(saveFileDialog.FileName, encoder.Save);
-                }
+                    var encoder = new PngBitmapEncoder();
+                    encoder.Frames.Add(BitmapFrame.Create(bitmap));
+                    AtomicFile.Write(path, encoder.Save);
+                });
+            }
+            catch (Exception ex)
+            {
+                ShowNotificationAsync(UiText.Get("Actions.SelectionExportFailed"));
+                LogHelper.WriteLogToFile("导出选区失败 | " + ex, LogHelper.LogType.Error);
             }
         }
 
@@ -164,15 +111,16 @@ namespace FluentCanvas
                     stroke.DrawingAttributes.Height = newHeight;
                 }
             }
-            if (DrawingAttributesHistory.Count > 0)
-            {
-                timeMachine.CommitStrokeDrawingAttributesHistory(DrawingAttributesHistory);
-                DrawingAttributesHistory = new Dictionary<Stroke, Tuple<DrawingAttributes, DrawingAttributes>>();
-                foreach (var item in DrawingAttributesHistoryFlag)
-                {
-                    item.Value.Clear();
-                }
-            }
+            CommitPendingStrokeDrawingAttributes();
+        }
+
+        private void CommitPendingStrokeDrawingAttributes()
+        {
+            if (DrawingAttributesHistory.Count == 0) return;
+            timeMachine.CommitStrokeDrawingAttributesHistory(DrawingAttributesHistory);
+            DrawingAttributesHistory = new Dictionary<Stroke, Tuple<DrawingAttributes, DrawingAttributes>>();
+            foreach (var strokes in DrawingAttributesHistoryFlag.Values)
+                strokes.Clear();
         }
 
         private void MatrixTransform(int type)
@@ -221,28 +169,22 @@ namespace FluentCanvas
         private void ApplyElementMatrixTransform(UIElement element, Matrix matrix)
         {
             FrameworkElement frameworkElement = element as FrameworkElement;
-            TransformGroup transformGroup = frameworkElement.RenderTransform as TransformGroup;
-            if (transformGroup == null)
-            {
-                transformGroup = new TransformGroup();
-                frameworkElement.RenderTransform = transformGroup;
-            }
+            Matrix previous = frameworkElement.RenderTransform?.Value ?? Matrix.Identity;
 
             if (!ElementsInitialHistory.ContainsKey(frameworkElement.Name))
-            {
-                ElementsInitialHistory[frameworkElement.Name] = transformGroup.Clone();
-            }
+                ElementsInitialHistory[frameworkElement.Name] = new TransformGroup { Children = { new MatrixTransform(previous) } };
 
-            TransformGroup centeredTransformGroup = new TransformGroup();
-            centeredTransformGroup.Children.Add(new MatrixTransform(matrix));
-            transformGroup.Children.Add(centeredTransformGroup);
+            previous.Append(matrix);
+            var transformGroup = new TransformGroup { Children = { new MatrixTransform(previous) } };
+            frameworkElement.RenderTransform = transformGroup;
+            canvasContentVersion++;
 
             if (ElementsManipulationHistory == null)
             {
                 ElementsManipulationHistory = new Dictionary<string, Tuple<object, TransformGroup>>();
             }
             ElementsManipulationHistory[frameworkElement.Name] =
-                new Tuple<object, TransformGroup>(ElementsInitialHistory[frameworkElement.Name], transformGroup.Clone());
+                new Tuple<object, TransformGroup>(ElementsInitialHistory[frameworkElement.Name], transformGroup);
         }
 
         private void BtnFlipHorizontal_Click(object sender, RoutedEventArgs e)
@@ -294,7 +236,7 @@ namespace FluentCanvas
         {
             lastMousePoint = e.GetPosition(inkCanvas);
             isGridInkCanvasSelectionCoverMouseDown = true;
-            if (isStrokeSelectionCloneOn)
+            if (ToggleButtonStrokeSelectionClone.IsChecked == true)
             {
                 StrokeCollection strokes = inkCanvas.GetSelectedStrokes();
                 List<UIElement> elementsList = FluentCanvasElementsHelper.GetSelectedElements(inkCanvas);
@@ -368,11 +310,11 @@ namespace FluentCanvas
             {
                 if (currentMode == 0)
                 {
-                    TextSelectionCloneToNewBoard.Text = "衍至画板";
+                    TextSelectionCloneToNewBoard.Text = UiText.Get("Actions.CloneToBoard");
                 }
                 else
                 {
-                    TextSelectionCloneToNewBoard.Text = "衍至新页";
+                    TextSelectionCloneToNewBoard.Text = UiText.Get("Actions.CloneToNewPage");
                 }
                 GridInkCanvasSelectionCover.Visibility = Visibility.Visible;
                 StrokesSelectionClone = new StrokeCollection();
@@ -411,7 +353,7 @@ namespace FluentCanvas
         private void BtnSelect_Click(object sender, RoutedEventArgs e)
         {
             forceEraser = true;
-            drawingShapeMode = 0;
+            drawingShapeMode = ShapeTool.Pen;
             inkCanvas.IsManipulationEnabled = false;
             if (inkCanvas.EditingMode == InkCanvasEditingMode.Select)
             {
@@ -453,16 +395,14 @@ namespace FluentCanvas
             {
                 if (currentMode == 0)
                 {
-                    TextSelectionCloneToNewBoard.Text = "衍至画板";
+                    TextSelectionCloneToNewBoard.Text = UiText.Get("Actions.CloneToBoard");
                 }
                 else
                 {
-                    TextSelectionCloneToNewBoard.Text = "衍至新页";
+                    TextSelectionCloneToNewBoard.Text = UiText.Get("Actions.CloneToNewPage");
                 }
                 GridInkCanvasSelectionCover.Visibility = Visibility.Visible;
-                IconStrokeSelectionClone.SetResourceReference(TextBlock.ForegroundProperty, "FloatBarForeground");
                 ToggleButtonStrokeSelectionClone.IsChecked = false;
-                isStrokeSelectionCloneOn = false;
                 updateBorderStrokeSelectionControlLocation();
             }
         }
@@ -523,26 +463,7 @@ namespace FluentCanvas
 
         private void GridInkCanvasSelectionCover_ManipulationCompleted(object sender, ManipulationCompletedEventArgs e)
         {
-            if (StrokeManipulationHistory?.Count > 0 || ElementsManipulationHistory?.Count > 0)
-            {
-                timeMachine.CommitStrokeManipulationHistory(StrokeManipulationHistory, ElementsManipulationHistory);
-                if(StrokeManipulationHistory?.Count > 0)
-                {
-                    foreach (var item in StrokeManipulationHistory)
-                    {
-                        StrokeInitialHistory[item.Key] = item.Value.Item2;
-                    }
-                    StrokeManipulationHistory = null;
-                }
-                if(ElementsManipulationHistory?.Count > 0)
-                {
-                    foreach (var item in ElementsManipulationHistory)
-                    {
-                        ElementsInitialHistory[item.Key] = item.Value.Item2;
-                    }
-                    ElementsManipulationHistory = null;
-                }
-            }
+            ToCommitStrokeManipulationHistoryAfterMouseUp();
             if (DrawingAttributesHistory.Count > 0)
             {
                 timeMachine.CommitStrokeDrawingAttributesHistory(DrawingAttributesHistory);
@@ -622,10 +543,9 @@ namespace FluentCanvas
             if (dec.Count == 1)
             {
                 TouchPoint touchPoint = e.GetTouchPoint(null);
-                centerPoint = touchPoint.Position;
                 lastTouchPointOnGridInkCanvasCover = touchPoint.Position;
 
-                if (isStrokeSelectionCloneOn)
+                if (ToggleButtonStrokeSelectionClone.IsChecked == true)
                 {
                     StrokeCollection strokes = inkCanvas.GetSelectedStrokes();
                     List<UIElement> elementsList = FluentCanvasElementsHelper.GetSelectedElements(inkCanvas);
@@ -667,11 +587,11 @@ namespace FluentCanvas
             {
                 if (currentMode == 0)
                 {
-                    TextSelectionCloneToNewBoard.Text = "衍至画板";
+                    TextSelectionCloneToNewBoard.Text = UiText.Get("Actions.CloneToBoard");
                 }
                 else
                 {
-                    TextSelectionCloneToNewBoard.Text = "衍至新页";
+                    TextSelectionCloneToNewBoard.Text = UiText.Get("Actions.CloneToNewPage");
                 }
                 GridInkCanvasSelectionCover.Visibility = Visibility.Visible;
                 StrokesSelectionClone = new StrokeCollection();

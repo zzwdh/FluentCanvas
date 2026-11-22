@@ -3,51 +3,37 @@ using System;
 
 namespace FluentCanvas.Services
 {
-    /// <summary>
-    /// Owns the PowerPoint/WPS COM connection, polling and navigation.
-    /// UI orchestration stays in the shell, which subscribes to the events
-    /// raised here instead of touching COM directly.
-    /// </summary>
-    public interface IPowerPointService
+    public enum PresentationProvider
     {
-        bool IsConnected { get; }
+        PowerPoint,
+        Wps
+    }
 
-        Application Application { get; }
+    public sealed record PowerPointSlide(
+        string DeckKey, string Name, int SlideId, int SlideIndex, int ShowPosition, int SlideCount,
+        nint WindowHandle = default, PresentationProvider Provider = PresentationProvider.PowerPoint,
+        bool CanPersistInk = true, Guid SessionId = default);
 
-        Presentation Presentation { get; }
+    public interface ISlideShowService
+    {
+        PowerPointSlide CurrentSlide { get; }
+        bool NextSlide();
+        bool PreviousSlide();
+        bool EndShow();
+        bool ShowSlideNavigation();
 
-        Slides Slides { get; }
+        event Action<PowerPointSlide> SlideChanged;
+        event Action SlideLeaving;
+        event Action SlideShowEnded;
+    }
 
-        int SlideCount { get; }
+    public interface IPowerPointService : ISlideShowService
+    {
+        void SetEnabled(bool enabled);
+        bool IsCurrentPresentation(Presentation presentation);
+        void GoToSlide(Presentation presentation, int slideIndex);
+        string GetDeckKey(Presentation presentation);
 
-        int CurrentShowPosition { get; }
-
-        string PresentationName { get; }
-
-        void StartPolling();
-
-        void StopPolling();
-
-        bool TryConnect();
-
-        void Disconnect();
-
-        void NextSlide();
-
-        void PreviousSlide();
-
-        void EndShow();
-
-        void ShowSlideNavigation();
-
-        event EventHandler Connected;
-
-        event EventHandler SlideShowBegin;
-
-        event EventHandler SlideShowEnd;
-
-        event EventHandler SlideChanged;
-
-        event EventHandler PresentationClosed;
+        event Action<Presentation> PresentationAvailable;
     }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>Imeshindikana kubadilisha ukurasa wa maelezo ya PowerPoint: {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>Mipangilio ya wasilisho - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>Imeshindikana kumaliza onyesho la slaidi la {0}.</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>Wasilisho hili lina slaidi zilizofichwa. Zionyeshwe?</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>Maelezo ya zamani ya slaidi {0} yameingizwa.</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>FluentCanvas imepata maelezo ya zamani yaliyohifadhiwa kulingana na jina la faili na nambari ya slaidi. Hakikisha ni ya wasilisho hili na slaidi bado zina mpangilio uleule. Ungependa kuyanakili kwenye folda ya maelezo ya wasilisho hili?</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>Onyesho lililotangulia lilifikia slaidi ya {0}. Uende kwenye slaidi hiyo?</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>Wasilisho hili linatumia mpito otomatiki au muda wa mazoezi. Ungependa kubadilisha slaidi mwenyewe?</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>Imeshindikana kufungua urambazaji wa slaidi za PowerPoint.</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>Slaidi inayofuata</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>Imeshindikana kwenda kwenye slaidi inayofuata katika {0}.</value></data>
+  <data name="No" xml:space="preserve"><value>Hapana</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>Operesheni ya PowerPoint imeshindwa: {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>Nafasi katika onyesho {0} · Slaidi ya {1} katika wasilisho</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>Slaidi iliyotangulia</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>Imeshindikana kurudi kwenye slaidi iliyotangulia katika {0}.</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>Imeshindikana kusoma maelezo yaliyohifadhiwa ya slaidi ya {0}. Faili asili imehifadhiwa.</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>Imeshindikana kuhifadhi maelezo ya PowerPoint. Bado yanapatikana katika kipindi hiki.</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>Maelezo ya PowerPoint yamehifadhiwa kwenye folda ya urejeshaji katika kifaa hiki.</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>Imeshindikana kuhifadhi maelezo ya PowerPoint au nafasi katika onyesho la slaidi: {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>Dirisha la onyesho la sasa la slaidi halikupatikana.</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS imeshindwa kutekeleza amri ya onyesho la slaidi.</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>Programu jalizi ya WPS haikuthibitisha kupokea amri ya onyesho la slaidi.</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>Imeshindikana kutuma amri ya onyesho la slaidi kwa programu jalizi ya WPS.</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>Ndiyo</value></data>
+</root>

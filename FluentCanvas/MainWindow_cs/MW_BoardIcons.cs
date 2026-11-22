@@ -2,8 +2,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Ink;
-using System.Windows.Media;
-using Application = System.Windows.Application;
 using System.Diagnostics;
 
 namespace FluentCanvas
@@ -25,21 +23,14 @@ namespace FluentCanvas
             }
             SystemEvents_UserPreferenceChanged(null, null);
             CheckColorTheme(true);
-            if (BoardPen.Opacity == 1)
+            RefreshBoardToolBackgrounds();
+        }
+
+        private void RefreshBoardToolBackgrounds()
+        {
+            foreach (var tool in new[] { BoardPen, BoardEraser, BoardSelect, BoardEraserByStrokes })
             {
-                BoardPen.Background = (Brush)Application.Current.FindResource("BoardBarBackground");
-            }
-            if (BoardEraser.Opacity == 1)
-            {
-                BoardEraser.Background = (Brush)Application.Current.FindResource("BoardBarBackground");
-            }
-            if (BoardSelect.Opacity == 1)
-            {
-                BoardSelect.Background = (Brush)Application.Current.FindResource("BoardBarBackground");
-            }
-            if (BoardEraserByStrokes.Opacity == 1)
-            {
-                BoardEraserByStrokes.Background = (Brush)Application.Current.FindResource("BoardBarBackground");
+                if (tool.Opacity == 1) tool.SetResourceReference(Border.BackgroundProperty, "BoardBarBackground");
             }
         }
 
@@ -71,7 +62,7 @@ namespace FluentCanvas
                 }
                 inkCanvas.EraserShape = new EllipseStylusShape(k * 90, k * 90);
                 inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
-                drawingShapeMode = 0;
+                drawingShapeMode = ShapeTool.Pen;
 
                 inkCanvas_EditingModeChanged(inkCanvas, null);
                 CancelSingleFingerDragMode();
@@ -93,7 +84,7 @@ namespace FluentCanvas
 
                 inkCanvas.EraserShape = new EllipseStylusShape(5, 5);
                 inkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
-                drawingShapeMode = 0;
+                drawingShapeMode = ShapeTool.Pen;
 
                 inkCanvas_EditingModeChanged(inkCanvas, null);
                 CancelSingleFingerDragMode();

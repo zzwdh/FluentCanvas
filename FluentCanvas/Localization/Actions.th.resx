@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Ready" xml:space="preserve"><value>พร้อม</value></data>
+  <data name="Hours" xml:space="preserve"><value>ชั่วโมง</value></data>
+  <data name="Minutes" xml:space="preserve"><value>นาที</value></data>
+  <data name="Seconds" xml:space="preserve"><value>วินาที</value></data>
+  <data name="Start" xml:space="preserve"><value>เริ่ม</value></data>
+  <data name="Reset" xml:space="preserve"><value>รีเซ็ต</value></data>
+  <data name="Compact" xml:space="preserve"><value>แบบย่อ</value></data>
+  <data name="FullScreen" xml:space="preserve"><value>เต็มหน้าจอ</value></data>
+  <data name="TimeRemaining" xml:space="preserve"><value>เวลาที่เหลือ</value></data>
+  <data name="TimeRemainingProgress" xml:space="preserve"><value>ความคืบหน้าของการนับถอยหลัง</value></data>
+  <data name="Paused" xml:space="preserve"><value>หยุดชั่วคราว</value></data>
+  <data name="CountdownEndsAt" xml:space="preserve"><value>สิ้นสุดประมาณ {0:HH:mm:ss}</value></data>
+  <data name="TimeUp" xml:space="preserve"><value>หมดเวลา</value></data>
+  <data name="TimeUpAlarmFailed" xml:space="preserve"><value>หมดเวลาแล้ว ไม่สามารถเล่นเสียงเตือนได้</value></data>
+  <data name="TimeRemainingSpoken" xml:space="preserve"><value>เวลาที่เหลือ (ชั่วโมง นาที วินาที): {0}, {1}, {2}</value></data>
+  <data name="Pause" xml:space="preserve"><value>หยุดชั่วคราว</value></data>
+  <data name="Resume" xml:space="preserve"><value>ดำเนินการต่อ</value></data>
+  <data name="Expand" xml:space="preserve"><value>ขยาย</value></data>
+  <data name="ExitFullScreen" xml:space="preserve"><value>ออกจากโหมดเต็มหน้าจอ</value></data>
+  <data name="RosterLoading" xml:space="preserve"><value>กำลังโหลดรายชื่อ…</value></data>
+  <data name="ParticipantCount" xml:space="preserve"><value>ผู้เข้าร่วม</value></data>
+  <data name="DrawCount" xml:space="preserve"><value>จำนวนคนที่จะสุ่ม</value></data>
+  <data name="StartDraw" xml:space="preserve"><value>สุ่ม</value></data>
+  <data name="EditRoster" xml:space="preserve"><value>แก้ไขรายชื่อ</value></data>
+  <data name="DrawOne" xml:space="preserve"><value>สุ่มหนึ่งคน</value></data>
+  <data name="DrawResult" xml:space="preserve"><value>ผลการสุ่ม</value></data>
+  <data name="RosterReadFailed" xml:space="preserve"><value>อ่านรายชื่อไม่ได้ เครื่องมือจะใช้หมายเลขแทน</value></data>
+  <data name="RosterLoaded" xml:space="preserve"><value>จำนวนรายชื่อ: {0}</value></data>
+  <data name="RosterUsingNumbers" xml:space="preserve"><value>ใช้รายการตามหมายเลข</value></data>
+  <data name="InvalidRulesSkipped" xml:space="preserve"><value> · ข้ามกฎที่ไม่ถูกต้อง {0} ข้อ</value></data>
+  <data name="Drawing" xml:space="preserve"><value>กำลังสุ่ม…</value></data>
+  <data name="SingleDrawResult" xml:space="preserve"><value>ผลการสุ่ม: {0}</value></data>
+  <data name="MultipleDrawResult" xml:space="preserve"><value>สุ่มได้ {0} คน</value></data>
+  <data name="DrawAgain" xml:space="preserve"><value>สุ่มอีกครั้ง</value></data>
+  <data name="NamesPerLine" xml:space="preserve"><value>ป้อนหนึ่งชื่อต่อบรรทัด</value></data>
+  <data name="RulesPerLine" xml:space="preserve"><value>ป้อนหนึ่งกฎการแทนที่ต่อบรรทัด</value></data>
+  <data name="Roster" xml:space="preserve"><value>รายชื่อ</value></data>
+  <data name="ImportRoster" xml:space="preserve"><value>นำเข้ารายชื่อ</value></data>
+  <data name="ReplacementRules" xml:space="preserve"><value>กฎการแทนที่</value></data>
+  <data name="ImportReplacementRules" xml:space="preserve"><value>นำเข้ากฎ</value></data>
+  <data name="ReplacementRuleExample" xml:space="preserve"><value>ตัวอย่าง: สมชาย--&gt;ชาย เว้นด้านขวาให้ว่างหากต้องการตัดชื่อนั้นออก</value></data>
+  <data name="RosterAndRules" xml:space="preserve"><value>รายชื่อและกฎการแทนที่</value></data>
+  <data name="Save" xml:space="preserve"><value>บันทึก</value></data>
+  <data name="Cancel" xml:space="preserve"><value>ยกเลิก</value></data>
+  <data name="RosterSaved" xml:space="preserve"><value>บันทึกรายชื่อแล้ว</value></data>
+  <data name="RosterEditFailed" xml:space="preserve"><value>แก้ไขรายชื่อไม่ได้: {0}</value></data>
+  <data name="RosterImportFailed" xml:space="preserve"><value>นำเข้าไม่สำเร็จ: {0}</value></data>
+  <data name="InvalidReplacementRule" xml:space="preserve"><value>ตรวจสอบกฎการแทนที่ ใช้รูปแบบ “ชื่อเดิม--&gt;ชื่อที่แสดง” ในแต่ละบรรทัด</value></data>
+  <data name="RosterSaveTooLarge" xml:space="preserve"><value>ไฟล์รายชื่อแต่ละไฟล์มีขนาดได้ไม่เกิน 2 MB</value></data>
+  <data name="RosterLocked" xml:space="preserve"><value>อีกหน้าต่างกำลังบันทึกรายชื่อ ลองอีกครั้งในอีกสักครู่</value></data>
+  <data name="RosterChanged" xml:space="preserve"><value>อีกหน้าต่างเปลี่ยนแปลงรายชื่อแล้ว เปิดหน้าต่างแก้ไขอีกครั้งเพื่อโหลดเวอร์ชันล่าสุด</value></data>
+  <data name="RosterReadTooLarge" xml:space="preserve"><value>ไฟล์รายชื่อมีขนาดเกิน 2 MB</value></data>
+  <data name="ReplacementRulesChanged" xml:space="preserve"><value>กระบวนการอื่นแก้ไขกฎการแทนที่แล้ว</value></data>
+  <data name="RosterRollbackFailed" xml:space="preserve"><value>บันทึกรายชื่อและคืนค่ากฎเดิมไม่ได้ เปิดหน้าต่างแก้ไขอีกครั้งเพื่อตรวจสอบทั้งสองไฟล์</value></data>
+  <data name="SavingBeforeClose" xml:space="preserve"><value>กำลังบันทึกเอกสาร รอจนบันทึกเสร็จก่อนปิด</value></data>
+  <data name="CloseUnsavedWork" xml:space="preserve"><value>ปิด FluentCanvas หรือไม่ งานที่ยังไม่ได้บันทึกจะสูญหาย</value></data>
+  <data name="ConfirmClose" xml:space="preserve"><value>แน่ใจหรือไม่ว่าต้องการปิด FluentCanvas</value></data>
+  <data name="CancelClosing" xml:space="preserve"><value>ยกเลิกการปิด FluentCanvas หรือไม่</value></data>
+  <data name="StartupEntryInUse" xml:space="preserve"><value>การติดตั้งอื่นใช้รายการเริ่มต้นนี้อยู่</value></data>
+  <data name="AutoFoldInk" xml:space="preserve"><value>ล้างเส้นหมึกและเก็บแถบเครื่องมือไว้ที่ขอบหน้าจอแล้ว กลับไปที่โหมดคำอธิบายประกอบแล้วเลือกเลิกทำเพื่อคืนค่าเส้นหมึก</value></data>
+  <data name="InsertImageFailed" xml:space="preserve"><value>แทรกรูปภาพไม่ได้ ตรวจสอบไฟล์แล้วลองอีกครั้ง</value></data>
+  <data name="InsertVideoFailed" xml:space="preserve"><value>แทรกวิดีโอไม่ได้ ตรวจสอบไฟล์แล้วลองอีกครั้ง</value></data>
+  <data name="CanvasChangedDuringImport" xml:space="preserve"><value>พื้นที่วาดเปลี่ยนระหว่างการนำเข้า แทรกไฟล์อีกครั้งในหน้าที่ต้องการ</value></data>
+  <data name="OpenToolFailed" xml:space="preserve"><value>เปิดหน้าต่างเครื่องมือไม่ได้</value></data>
+  <data name="OpenDrawOneFailed" xml:space="preserve"><value>เปิดหน้าต่างสุ่มหนึ่งคนไม่ได้</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>เปิดการตั้งค่าไม่ได้</value></data>
+  <data name="ScreenshotSaved" xml:space="preserve"><value>บันทึกภาพหน้าจอไว้ที่ {0}</value></data>
+  <data name="ScreenshotPathFailed" xml:space="preserve"><value>บันทึกภาพหน้าจอไม่ได้ ตรวจสอบตำแหน่งบันทึกในการตั้งค่า</value></data>
+  <data name="ScreenshotFailed" xml:space="preserve"><value>บันทึกภาพหน้าจอไม่ได้</value></data>
+  <data name="SlideCaptureObscured" xml:space="preserve"><value>จับภาพการนำเสนอไม่ได้เพราะหน้าต่างถูกซ่อนหรือถูกบัง</value></data>
+  <data name="SlideScreenshotFailed" xml:space="preserve"><value>บันทึกภาพหน้าจอการนำเสนอไม่ได้ ตรวจสอบตำแหน่งบันทึก</value></data>
+  <data name="DocumentSaved" xml:space="preserve"><value>บันทึกเส้นหมึกและวัตถุไว้ที่ {0}</value></data>
+  <data name="DocumentSaveFailed" xml:space="preserve"><value>บันทึกเอกสารไม่ได้ ตรวจสอบตำแหน่งบันทึกแล้วลองอีกครั้ง</value></data>
+  <data name="CanvasChangedDuringBackup" xml:space="preserve"><value>พื้นที่วาดเปลี่ยนระหว่างการสำรองข้อมูล ลองล้างพื้นที่วาดอีกครั้ง</value></data>
+  <data name="BackupFailed" xml:space="preserve"><value>สำรองข้อมูลไม่สำเร็จ</value></data>
+  <data name="BackupFailedPrompt" xml:space="preserve"><value>สำรองข้อมูลไม่สำเร็จ พื้นที่วาดยังคงอยู่</value></data>
+  <data name="CanvasChangedWhileOpening" xml:space="preserve"><value>พื้นที่วาดเปลี่ยนระหว่างเปิดเอกสาร เปิดเอกสารอีกครั้งในหน้าที่ต้องการ</value></data>
+  <data name="UnsavedBoardPrompt" xml:space="preserve"><value>ไวท์บอร์ดนี้มีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>เปิดเอกสาร</value></data>
+  <data name="CanvasChangedDuringSave" xml:space="preserve"><value>พื้นที่วาดเปลี่ยนระหว่างการบันทึก เปิดเอกสารอีกครั้ง</value></data>
+  <data name="DocumentOpenFailed" xml:space="preserve"><value>เปิดเอกสารไม่ได้ ตรวจสอบไฟล์แล้วลองอีกครั้ง</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>ซ่อนอัตโนมัติ</value></data>
+  <data name="Pinned" xml:space="preserve"><value>ปักหมุดแล้ว</value></data>
+  <data name="RemoveAsymptotes" xml:space="preserve"><value>ลบเส้นกำกับออกหรือไม่</value></data>
+  <data name="SavingBeforeRestart" xml:space="preserve"><value>กำลังบันทึกเอกสาร รอจนบันทึกเสร็จก่อนเริ่มใหม่</value></data>
+  <data name="RestartFailed" xml:space="preserve"><value>เริ่มใหม่ไม่ได้ บันทึกงานแล้วเปิด FluentCanvas อีกครั้ง</value></data>
+  <data name="PngImage" xml:space="preserve"><value>รูปภาพ PNG</value></data>
+  <data name="SelectionExportFailed" xml:space="preserve"><value>ส่งออกส่วนที่เลือกไม่ได้ เลือกพื้นที่เล็กลงหรือตรวจสอบตำแหน่งบันทึก</value></data>
+  <data name="CloneToBoard" xml:space="preserve"><value>คัดลอกไปยังไวท์บอร์ด</value></data>
+  <data name="CloneToNewPage" xml:space="preserve"><value>คัดลอกไปยังหน้าใหม่</value></data>
+  <data name="EasiNoteAutomaticallyClosed" xml:space="preserve"><value>ปิด EasiNote 5 โดยอัตโนมัติแล้ว</value></data>
+  <data name="Retry" xml:space="preserve"><value>ลองอีกครั้ง</value></data>
+  <data name="ClearWithoutBackup" xml:space="preserve"><value>ล้างโดยไม่สำรองข้อมูล</value></data>
+  <data name="SaveAndOpen" xml:space="preserve"><value>บันทึกแล้วเปิด</value></data>
+  <data name="OpenWithoutSaving" xml:space="preserve"><value>ละทิ้งการเปลี่ยนแปลงแล้วเปิด</value></data>
+</root>

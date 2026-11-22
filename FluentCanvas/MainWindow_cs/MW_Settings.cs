@@ -1,7 +1,8 @@
 using FluentCanvas.Helpers;
+using FluentCanvas.Localization;
 using FluentCanvas.Services;
 using FluentCanvas.ViewModels;
-using Newtonsoft.Json;
+using iNKORE.UI.WPF.Modern.Controls;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -78,18 +79,6 @@ namespace FluentCanvas
             SaveSettingsToFile();
         }
 
-        private void StartOrStoptimerCheckAutoFold()
-        {
-            if (Settings.Automation.IsEnableAutoFold)
-            {
-                timerCheckAutoFold.Start();
-            }
-            else
-            {
-                timerCheckAutoFold.Stop();
-            }
-        }
-
         private void ToggleSwitchEnableTwoFingerZoom_Toggled(object sender, RoutedEventArgs e)
         {
             if (!isLoaded) return;
@@ -106,43 +95,55 @@ namespace FluentCanvas
             SaveSettingsToFile();
         }
 
+        private bool synchronizingGestureControls;
+        private bool IsTwoFingerTranslateActive { get; set; }
+        private bool IsTwoFingerTranslateOrRotationActive => IsTwoFingerTranslateActive || Settings.Gesture.IsEnableTwoFingerRotation;
+        private bool IsTwoFingerGestureActive => Settings.Gesture.IsEnableTwoFingerZoom || IsTwoFingerTranslateOrRotationActive;
+
+        private void ApplySceneGestureSettings()
+        {
+            var gesture = Settings.Gesture;
+            bool desktop = currentMode == 0;
+            SetActiveGestureModes(
+                gesture.AutoSwitchTwoFingerGesture ? desktop : gesture.IsEnableMultiTouchMode,
+                gesture.AutoSwitchTwoFingerGesture ? !desktop : gesture.IsEnableTwoFingerTranslate);
+        }
+
+        private void SetActiveGestureModes(bool multiTouch, bool translate)
+        {
+            synchronizingGestureControls = true;
+            try
+            {
+                if (isInMultiTouchMode != multiTouch) BorderMultiTouchMode_MouseUp(null, null);
+                IsTwoFingerTranslateActive = translate;
+                ToggleSwitchEnableMultiTouchMode.IsOn = BoardToggleSwitchEnableMultiTouchMode.IsOn = multiTouch;
+                ToggleSwitchEnableTwoFingerTranslate.IsOn = BoardToggleSwitchEnableTwoFingerTranslate.IsOn = translate;
+            }
+            finally { synchronizingGestureControls = false; }
+            CheckEnableTwoFingerGestureBtnColorPrompt();
+        }
+
         private void ToggleSwitchEnableMultiTouchMode_Toggled(object sender, RoutedEventArgs e)
         {
+            if (!isLoaded || synchronizingGestureControls) return;
+            bool enabled = sender == ToggleSwitchEnableMultiTouchMode
+                ? ToggleSwitchEnableMultiTouchMode.IsOn : BoardToggleSwitchEnableMultiTouchMode.IsOn;
+            SetActiveGestureModes(enabled, IsTwoFingerTranslateActive);
+            if (Settings.Gesture.AutoSwitchTwoFingerGesture) return;
 
-            if (sender == ToggleSwitchEnableMultiTouchMode)
-            {
-                BoardToggleSwitchEnableMultiTouchMode.IsOn = ToggleSwitchEnableMultiTouchMode.IsOn;
-            }
-            else
-            {
-                ToggleSwitchEnableMultiTouchMode.IsOn = BoardToggleSwitchEnableMultiTouchMode.IsOn;
-            }
-            if (ToggleSwitchEnableMultiTouchMode.IsOn)
-            {
-                if (!isInMultiTouchMode) BorderMultiTouchMode_MouseUp(null, null);
-            }
-            else
-            {
-                if (isInMultiTouchMode) BorderMultiTouchMode_MouseUp(null, null);
-            }
-            Settings.Gesture.IsEnableMultiTouchMode = ToggleSwitchEnableMultiTouchMode.IsOn;
-            CheckEnableTwoFingerGestureBtnColorPrompt();
+            Settings.Gesture.IsEnableMultiTouchMode = enabled;
             SaveSettingsToFile();
         }
 
         private void ToggleSwitchEnableTwoFingerTranslate_Toggled(object sender, RoutedEventArgs e)
         {
-            if (!isLoaded) return;
-            if (sender == ToggleSwitchEnableTwoFingerTranslate)
-            {
-                BoardToggleSwitchEnableTwoFingerTranslate.IsOn = ToggleSwitchEnableTwoFingerTranslate.IsOn;
-            }
-            else
-            {
-                ToggleSwitchEnableTwoFingerTranslate.IsOn = BoardToggleSwitchEnableTwoFingerTranslate.IsOn;
-            }
-            Settings.Gesture.IsEnableTwoFingerTranslate = ToggleSwitchEnableTwoFingerTranslate.IsOn;
-            CheckEnableTwoFingerGestureBtnColorPrompt();
+            if (!isLoaded || synchronizingGestureControls) return;
+            bool enabled = sender == ToggleSwitchEnableTwoFingerTranslate
+                ? ToggleSwitchEnableTwoFingerTranslate.IsOn : BoardToggleSwitchEnableTwoFingerTranslate.IsOn;
+            SetActiveGestureModes(isInMultiTouchMode, enabled);
+            if (Settings.Gesture.AutoSwitchTwoFingerGesture) return;
+
+            Settings.Gesture.IsEnableTwoFingerTranslate = enabled;
             SaveSettingsToFile();
         }
 
@@ -159,124 +160,79 @@ namespace FluentCanvas
                 ToggleSwitchEnableTwoFingerRotation.IsOn = BoardToggleSwitchEnableTwoFingerRotation.IsOn;
             }
             Settings.Gesture.IsEnableTwoFingerRotation = ToggleSwitchEnableTwoFingerRotation.IsOn;
-            Settings.Gesture.IsEnableTwoFingerRotationOnSelection = SettingsPanel.ToggleSwitchEnableTwoFingerRotationOnSelection.IsOn;
             CheckEnableTwoFingerGestureBtnColorPrompt();
             SaveSettingsToFile();
         }
 
-        public static void SetSettingsToRecommendation()
+        private void ApplyToolbarLabels()
         {
-            bool AutoDelSavedFilesDays = Settings.Automation.AutoDelSavedFiles;
-            int AutoDelSavedFilesDaysThreshold = Settings.Automation.AutoDelSavedFilesDaysThreshold;
-            Settings = new Settings();
-            Settings.Advanced.IsSpecialScreen = true;
-            Settings.Advanced.IsQuadIR = false;
-            Settings.Advanced.TouchMultiplier = 0.3;
-            Settings.Advanced.NibModeBoundsWidth = 5;
-            Settings.Advanced.FingerModeBoundsWidth = 20;
-            Settings.Advanced.NibModeBoundsWidthThresholdValue = 2.5;
-            Settings.Advanced.FingerModeBoundsWidthThresholdValue = 2.5;
-            Settings.Advanced.NibModeBoundsWidthEraserSize = 0.8;
-            Settings.Advanced.FingerModeBoundsWidthEraserSize = 0.8;
-            Settings.Advanced.IsLogEnabled = true;
-            Settings.Advanced.IsSecondConfimeWhenShutdownApp = false;
-            Settings.Advanced.IsEnableEdgeGestureUtil = false;
-
-            Settings.Appearance.IsEnableDisPlayFloatBarText = false;
-            Settings.Appearance.IsEnableDisPlayNibModeToggler = false;
-            Settings.Appearance.IsColorfulViewboxFloatingBar = false;
-            Settings.Appearance.FloatingBarScale = 100.0;
-            Settings.Appearance.BlackboardScale = 100.0;
-            Settings.Appearance.IsTransparentButtonBackground = true;
-            Settings.Appearance.IsShowExitButton = true;
-            Settings.Appearance.IsShowEraserButton = true;
-            Settings.Appearance.IsShowHideControlButton = false;
-            Settings.Appearance.IsShowLRSwitchButton = false;
-            Settings.Appearance.IsShowModeFingerToggleSwitch = true;
-            Settings.Appearance.Theme = 0;
-
-            Settings.Automation.IsAutoFoldInEasiNote = true;
-            Settings.Automation.IsAutoFoldInEasiNoteIgnoreDesktopAnno = true;
-            Settings.Automation.IsAutoFoldInEasiCamera = true;
-            Settings.Automation.IsAutoFoldInEasiNote3C = false;
-            Settings.Automation.IsAutoFoldInSeewoPincoTeacher = false;
-            Settings.Automation.IsAutoFoldInHiteTouchPro = false;
-            Settings.Automation.IsAutoFoldInHiteCamera = false;
-            Settings.Automation.IsAutoFoldInWxBoardMain = false;
-            Settings.Automation.IsAutoFoldInOldZyBoard = false;
-            Settings.Automation.IsAutoFoldInMSWhiteboard = false;
-            Settings.Automation.IsAutoFoldInPPTSlideShow = false;
-            Settings.Automation.IsAutoKillPptService = false;
-            Settings.Automation.IsAutoKillEasiNote = false;
-            Settings.Automation.IsSaveScreenshotsInDateFolders = false;
-            Settings.Automation.IsAutoSaveStrokesAtScreenshot = true;
-            Settings.Automation.IsAutoSaveStrokesAtClear = true;
-            Settings.Automation.IsAutoClearWhenExitingWritingMode = false;
-            Settings.Automation.MinimumAutomationStrokeNumber = 0;
-            Settings.Automation.AutoDelSavedFiles = AutoDelSavedFilesDays;
-            Settings.Automation.AutoDelSavedFilesDaysThreshold = AutoDelSavedFilesDaysThreshold;
-
-            Settings.PowerPointSettings.IsShowPPTNavigationBottom = false;
-            Settings.PowerPointSettings.IsShowBottomPPTNavigationPanel = true;
-            Settings.PowerPointSettings.IsShowSidePPTNavigationPanel = true;
-            Settings.PowerPointSettings.PowerPointSupport = true;
-            Settings.PowerPointSettings.IsShowCanvasAtNewSlideShow = true;
-            Settings.PowerPointSettings.IsNoClearStrokeOnSelectWhenInPowerPoint = true;
-            Settings.PowerPointSettings.IsShowStrokeOnSelectInPowerPoint = false;
-            Settings.PowerPointSettings.IsAutoSaveStrokesInPowerPoint = true;
-            Settings.PowerPointSettings.IsAutoSaveScreenShotInPowerPoint = true;
-            Settings.PowerPointSettings.IsNotifyPreviousPage = false;
-            Settings.PowerPointSettings.IsNotifyHiddenPage = false;
-            Settings.PowerPointSettings.IsNotifyAutoPlayPresentation = true;
-            Settings.PowerPointSettings.IsEnableTwoFingerGestureInPresentationMode = false;
-            Settings.PowerPointSettings.IsEnableFingerGestureSlideShowControl = false;
-            Settings.PowerPointSettings.IsSupportWPS = true;
-
-            Settings.Canvas.InkWidth = 2.5;
-            Settings.Canvas.InkAlpha = 80;
-            Settings.Canvas.IsShowCursor = false;
-            Settings.Canvas.InkStyle = 0;
-            Settings.Canvas.EraserSize = 1;
-            Settings.Canvas.EraserType = 0;
-            Settings.Canvas.HideStrokeWhenSelecting = false;
-            Settings.Canvas.UsingWhiteboard = false;
-            Settings.Canvas.HyperbolaAsymptoteOption = 0;
-
-            Settings.Gesture.MatrixTransformCenterPoint = MatrixTransformCenterPointOptions.CanvasCenterPoint;
-            Settings.Gesture.AutoSwitchTwoFingerGesture = true;
-            Settings.Gesture.IsEnableTwoFingerTranslate = true;
-            Settings.Gesture.IsEnableTwoFingerZoom = false;
-            Settings.Gesture.IsEnableTwoFingerRotation = false;
-            Settings.Gesture.IsEnableTwoFingerRotationOnSelection = true;
-
-            Settings.InkToShape.IsInkToShapeEnabled = true;
-
-            Settings.Startup.IsEnableNibMode = false;
-            Settings.Startup.IsAutoUpdate = true;
-            Settings.Startup.IsAutoUpdateWithSilence = true;
-            Settings.Startup.AutoUpdateWithSilenceStartTime = "18:20";
-            Settings.Startup.AutoUpdateWithSilenceEndTime = "07:40";
-            Settings.Startup.IsFoldAtStartup = false;
+            bool shown = Settings.Appearance.IsEnableDisPlayFloatBarText;
+            int height = shown ? 22 : 32;
+            FloatBarSelectIconTextBlock.Visibility = shown ? Visibility.Visible : Visibility.Collapsed;
+            Icon_Pen.Height = Icon_Eraser1.Height = Icon_Eraser2.Height = height;
+            Icon_EraserByStrokes1.Height = Icon_EraserByStrokes2.Height = height;
+            Icon_Select1.Height = Icon_Select2.Height = height;
+            Icon_Eraser2.Margin = shown ? new Thickness(5, -22, 0, -8) : new Thickness(5, -32, 0, -8);
+            Icon_EraserByStrokes2.Margin = shown ? new Thickness(12, -22, 0, -8) : new Thickness(12, -32, 0, -8);
+            Icon_Select2.Margin = shown ? new Thickness(6, -18, 0, -8) : new Thickness(6, -28, 0, -8);
+            Icon_Undo.Margin = Icon_Redo.Margin = shown ? new Thickness(0, 1.5, 0, -1.5) : new Thickness(0);
         }
 
         private void ToggleSwitchEnableInkToShape_Toggled(object sender, RoutedEventArgs e)
         {
-            if (!isLoaded) return;
-            Settings.InkToShape.IsInkToShapeEnabled = SettingsPanel.ToggleSwitchEnableInkToShape.IsOn;
-            SaveSettingsToFile();
+            if (!isLoaded || sender is not ToggleSwitch toggle) return;
+            bool previous = Settings.InkToShape.IsInkToShapeEnabled;
+            Settings.InkToShape.IsInkToShapeEnabled = toggle.IsOn;
+            if (!SaveSettingsToFile()) Settings.InkToShape.IsInkToShapeEnabled = previous;
+            ApplyInkRecognitionSettings();
         }
 
-        public static bool SaveSettingsToFile()
+        private void ApplyInkRecognitionSettings()
+        {
+            bool wasLoaded = isLoaded;
+            isLoaded = false;
+            try
+            {
+                bool enabled = Settings.InkToShape.IsInkToShapeEnabled;
+                DesktopToggleInkRecognition.IsOn = BoardToggleInkRecognition.IsOn = enabled;
+                if (!enabled) InvalidateInkRecognition();
+            }
+            finally { isLoaded = wasLoaded; }
+        }
+
+        private async Task ApplySpecialVersionSettingsAsync()
+        {
+            await Task.Delay(1000);
+            if (Dispatcher.HasShutdownStarted) return;
+            bool wasLoaded = isLoaded;
+            var previous = Settings;
+            isLoaded = false;
+            try
+            {
+                Settings = SettingsPresets.ForSpecialVersion(previous);
+                if (!SaveSettingsToFile())
+                {
+                    Settings = previous;
+                    return;
+                }
+                LoadSettings();
+                ShowNotificationAsync("已保存推荐设置。");
+            }
+            catch (Exception ex) { LogHelper.WriteLogToFile(ex.ToString(), LogHelper.LogType.Error); }
+            finally { isLoaded = wasLoaded; }
+        }
+
+        private bool SaveSettingsToFile()
         {
             try
             {
-                Locator.Get<ISettingsService>().Save();
+                settingsService.Save();
                 return true;
             }
             catch (Exception ex)
             {
                 LogHelper.WriteLogToFile($"Settings save failed: {ex}", LogHelper.LogType.Error);
-                ShowNewMessage("设置未能保存。请检查用户数据目录是否可写。", true);
+                ShowNotificationAsync(UiText.Get("Canvas.SettingsSaveFailed"), true);
                 return false;
             }
         }

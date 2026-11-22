@@ -5,9 +5,14 @@
 /FluentCanvas.Package/AppPackages
 /FluentCanvas.InkAnalyzerCore/obj
 /FluentCanvas.InkAnalyzerCore/bin
-/.vs
+/FluentCanvas.CanvasCore/obj
+/FluentCanvas.CanvasCore/bin
+.vs/
+*.user
+*.assets.cache
 
 /artifacts/
+/store-identity.json
 /tests/**/bin/
 /tests/**/obj/
 *.pfx

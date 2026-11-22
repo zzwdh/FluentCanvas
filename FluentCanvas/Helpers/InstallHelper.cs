@@ -2,6 +2,8 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Principal;
+using System.Threading;
 using Windows.Win32;
 using Windows.Win32.UI.Shell;
 
@@ -10,7 +12,7 @@ namespace FluentCanvas.Helpers
     /// <summary>
     /// Handles first-run migration and registration.
     /// The packaged (MSIX) build relies on the package manifest, while the
-    /// unpackaged build self-registers its file associations on first launch.
+    /// unpackaged build keeps one per-user file association owner.
     /// </summary>
     internal static class InstallHelper
     {
@@ -19,6 +21,7 @@ namespace FluentCanvas.Helpers
         private const string RegisteredApplicationsKeyPath = @"Software\RegisteredApplications";
         private const string CapabilitiesKeyPath = @"Software\FluentCanvas\Capabilities";
         private const string AppPathsKeyPath = @"Software\Microsoft\Windows\CurrentVersion\App Paths\FluentCanvas.exe";
+        internal const string DefaultAppsSettings = "ms-settings:defaultapps?registeredAppUser=" + ApplicationName;
 
         private static readonly string[] MigratableFiles =
         {
@@ -59,7 +62,7 @@ namespace FluentCanvas.Helpers
 
         private static void MigrateLegacyUserData()
         {
-            var target = App.RootPath;
+            var target = StorageHelper.UserDataFolder;
             if (string.IsNullOrEmpty(target))
             {
                 return;
@@ -116,56 +119,116 @@ namespace FluentCanvas.Helpers
             }
         }
 
-        private static void RegisterUnpackagedApp()
+        internal static bool IsAssociationOwner()
         {
+            return GetRegistrationOwner() is string owner &&
+                string.Equals(owner, Environment.ProcessPath, StringComparison.OrdinalIgnoreCase);
+        }
+
+        internal static void RegisterUnpackagedApp(bool replaceOwner = false)
+        {
+            if (App.IsPackaged) return;
             var exePath = Environment.ProcessPath;
-            if (string.IsNullOrEmpty(exePath))
+            if (string.IsNullOrEmpty(exePath) || string.Equals(Path.GetFileName(exePath), "dotnet.exe", StringComparison.OrdinalIgnoreCase))
+                throw new InvalidOperationException("File associations require the FluentCanvas executable.");
+
+            using var identity = WindowsIdentity.GetCurrent();
+            using var registration = new Mutex(false, $@"Global\FluentCanvas.FileAssociations.{identity.User.Value}");
+            try
             {
-                return;
+                if (!registration.WaitOne(TimeSpan.FromSeconds(2)))
+                    throw new TimeoutException("File association registration is already in progress.");
             }
+            catch (AbandonedMutexException)
+            {
+                // The previous process left an incomplete registration. Repair the owned values below.
+            }
+
+            try
+            {
+                var owner = GetRegistrationOwner();
+                if (!replaceOwner && owner != null && !string.Equals(owner, exePath, StringComparison.OrdinalIgnoreCase))
+                    return;
+                WriteRegistration(exePath);
+            }
+            finally
+            {
+                registration.ReleaseMutex();
+            }
+        }
+
+        private static string GetRegistrationOwner()
+        {
+            using var appPath = Registry.CurrentUser.OpenSubKey(AppPathsKeyPath);
+            if (appPath?.GetValue(null) is string path && !string.IsNullOrWhiteSpace(path)) return path;
+
+            // Recognize a legacy registration interrupted before its App Paths value was written.
+            foreach (var (_, progId, _) in FileAssociations)
+            {
+                using var key = Registry.CurrentUser.OpenSubKey($@"{ClassesKeyPath}\{progId}\shell\open\command");
+                if (key?.GetValue(null) is string command && command.StartsWith('"'))
+                {
+                    int end = command.IndexOf('"', 1);
+                    if (end > 1) return command[1..end];
+                }
+            }
+            return null;
+        }
+
+        private static void WriteRegistration(string exePath)
+        {
+            using var appPath = Registry.CurrentUser.CreateSubKey(AppPathsKeyPath);
+            bool changed = SetRegistrationValue(appPath, null, exePath);
+            changed |= SetRegistrationValue(appPath, "Path", Path.GetDirectoryName(exePath));
 
             using var classes = Registry.CurrentUser.CreateSubKey(ClassesKeyPath);
             using var registeredApplications = Registry.CurrentUser.CreateSubKey(RegisteredApplicationsKeyPath);
             using var capabilities = Registry.CurrentUser.CreateSubKey(CapabilitiesKeyPath);
 
-            registeredApplications.SetValue(ApplicationName, CapabilitiesKeyPath);
-            capabilities.SetValue("ApplicationName", ApplicationName);
-            capabilities.SetValue("ApplicationDescription", "FluentCanvas ink annotation board");
+            changed |= SetRegistrationValue(registeredApplications, ApplicationName, CapabilitiesKeyPath);
+            changed |= SetRegistrationValue(capabilities, "ApplicationName", ApplicationName);
+            changed |= SetRegistrationValue(capabilities, "ApplicationDescription", "FluentCanvas ink annotation board");
 
             using (var fileAssociations = capabilities.CreateSubKey("FileAssociations"))
             {
                 foreach (var (extension, progId, description) in FileAssociations)
                 {
-                    fileAssociations.SetValue(extension, progId);
+                    changed |= SetRegistrationValue(fileAssociations, extension, progId);
 
                     using var progIdKey = classes.CreateSubKey(progId);
-                    progIdKey.SetValue(null, description);
+                    changed |= SetRegistrationValue(progIdKey, null, description);
 
                     using (var iconKey = progIdKey.CreateSubKey("DefaultIcon"))
                     {
-                        iconKey.SetValue(null, $"\"{exePath}\",0");
+                        changed |= SetRegistrationValue(iconKey, null, $"\"{exePath}\",0");
                     }
 
                     using (var commandKey = progIdKey.CreateSubKey(@"shell\open\command"))
                     {
-                        commandKey.SetValue(null, $"\"{exePath}\" \"%1\"");
+                        changed |= SetRegistrationValue(commandKey, null, $"\"{exePath}\" \"%1\"");
                     }
 
                     using var extensionKey = classes.CreateSubKey(extension);
                     using var openWith = extensionKey.CreateSubKey("OpenWithProgids");
-                    openWith.SetValue(progId, Array.Empty<byte>(), RegistryValueKind.None);
+                    if (!Array.Exists(openWith.GetValueNames(), name => string.Equals(name, progId, StringComparison.OrdinalIgnoreCase)) ||
+                        openWith.GetValueKind(progId) != RegistryValueKind.None)
+                    {
+                        openWith.SetValue(progId, Array.Empty<byte>(), RegistryValueKind.None);
+                        changed = true;
+                    }
                 }
             }
 
-            using (var appPath = Registry.CurrentUser.CreateSubKey(AppPathsKeyPath))
-            {
-                appPath.SetValue(null, exePath);
-                appPath.SetValue("Path", Path.GetDirectoryName(exePath));
-            }
-
+            if (!changed) return;
             unsafe { PInvoke.SHChangeNotify(SHCNE_ID.SHCNE_ASSOCCHANGED, SHCNF_FLAGS.SHCNF_IDLIST, null, null); }
             LogHelper.WriteLogToFile("InstallHelper | Registered unpackaged file associations.", LogHelper.LogType.Event);
         }
 
+        private static bool SetRegistrationValue(RegistryKey key, string name, string value)
+        {
+            if (key.GetValue(name) is string current && current == value) return false;
+            key.SetValue(name, value);
+            return true;
+        }
     }
 }

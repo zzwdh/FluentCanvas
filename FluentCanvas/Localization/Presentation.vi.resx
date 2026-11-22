@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>Không thể chuyển trang chú thích trong PowerPoint. {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>Cài đặt bản trình bày – FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>Không thể kết thúc trình chiếu trong {0}.</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>Bản trình bày này có các trang chiếu bị ẩn. Bạn có muốn hiện chúng không?</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>Đã nhập chú thích cũ cho {0} trang chiếu.</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>FluentCanvas tìm thấy chú thích cũ được lưu theo tên tệp và số trang chiếu. Hãy kiểm tra xem chú thích có thuộc bản trình bày này không và thứ tự các trang chiếu có còn như ban đầu không. Bạn có muốn sao chép chúng vào thư mục chú thích của bản trình bày này không?</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>Lần trình chiếu trước dừng ở trang {0}. Bạn có muốn chuyển đến trang đó không?</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>Bản trình bày này tự động chuyển trang hoặc dùng thời gian đã ghi khi diễn tập. Bạn có muốn chuyển trang theo cách thủ công không?</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>Không thể mở điều hướng trang chiếu trong PowerPoint.</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>Trang chiếu tiếp theo</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>Không thể chuyển đến trang chiếu tiếp theo trong {0}.</value></data>
+  <data name="No" xml:space="preserve"><value>Không</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>Thao tác trong PowerPoint không thành công. {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>Vị trí trình chiếu {0} · Trang {1} trong bản trình bày</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>Trang chiếu trước</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>Không thể quay lại trang chiếu trước trong {0}.</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>Không thể đọc chú thích đã lưu cho trang chiếu {0}. Tệp gốc đã được giữ lại.</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>Không thể lưu chú thích PowerPoint. Chú thích vẫn còn trong phiên này.</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>Đã lưu chú thích PowerPoint vào thư mục khôi phục trên máy.</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>Không thể lưu chú thích PowerPoint hoặc vị trí trình chiếu. {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>Không tìm thấy cửa sổ trình chiếu hiện tại.</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS không thể thực hiện lệnh trình chiếu.</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>Phần bổ trợ WPS chưa xác nhận lệnh trình chiếu.</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>Không thể gửi lệnh trình chiếu đến phần bổ trợ WPS.</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>Có</value></data>
+</root>

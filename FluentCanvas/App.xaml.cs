@@ -1,4 +1,5 @@
 using FluentCanvas.Helpers;
+using FluentCanvas.Localization;
 using FluentCanvas.Services;
 using iNKORE.UI.WPF.Modern.Controls;
 using Microsoft.Windows.AppLifecycle;
@@ -17,12 +18,10 @@ namespace FluentCanvas
     public partial class App : Application
     {
         private readonly Queue<string> activationFiles = new();
+        private AppInstance currentInstance;
         private MainWindow activationWindow;
+        private TrayIcon trayIcon;
         private bool openingFiles;
-
-        public static string[] StartArgs = Array.Empty<string>();
-        public static string RootPath =>
-            Helpers.StorageHelper.UserDataFolder + System.IO.Path.DirectorySeparatorChar;
 
         private static string[] GetActivationFiles(AppActivationArguments args, string[] fallback = null)
         {
@@ -61,7 +60,12 @@ namespace FluentCanvas
         public App()
         {
             ErrorReporting.Initialize();
-            Exit += (_, _) => ErrorReporting.Close();
+            Exit += (_, _) =>
+            {
+                trayIcon?.Dispose();
+                if (currentInstance != null) currentInstance.Activated -= AppInstance_Activated;
+                ErrorReporting.Close();
+            };
             this.Startup += new StartupEventHandler(App_Startup);
             this.DispatcherUnhandledException += App_DispatcherUnhandledException;
         }
@@ -69,7 +73,7 @@ namespace FluentCanvas
         private void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
             ErrorReporting.Capture(e.Exception);
-            FluentCanvas.MainWindow.ShowNewMessage("抱歉，出现未预期的异常，可能导致 FluentCanvas 画板运行不稳定。\n建议保存墨迹后重启应用。", true);
+            activationWindow?.ShowNotificationAsync(UiText.Get("Canvas.UnexpectedError"), true);
             LogHelper.NewLog(e.Exception.ToString());
             e.Handled = true;
         }
@@ -83,16 +87,15 @@ namespace FluentCanvas
                 return;
             }
 
-            StartArgs = e.Args;
             AppActivationArguments activation = null;
             bool redirecting = false;
             try
             {
-                var current = AppInstance.GetCurrent();
+                currentInstance = AppInstance.GetCurrent();
                 // Subscribe before publishing the key: a second launch can arrive
                 // while the first window is still being constructed.
-                current.Activated += AppInstance_Activated;
-                activation = current.GetActivatedEventArgs();
+                currentInstance.Activated += AppInstance_Activated;
+                activation = currentInstance.GetActivatedEventArgs();
                 var primary = AppInstance.FindOrRegisterForKey("FluentCanvas");
                 if (!primary.IsCurrent && !Array.Exists(e.Args, arg => arg == "-m"))
                 {
@@ -107,7 +110,7 @@ namespace FluentCanvas
                 LogHelper.WriteLogToFile($"Windows App SDK activation failed: {ex}", LogHelper.LogType.Error);
                 if (redirecting)
                 {
-                    System.Windows.MessageBox.Show("无法将文件发送到已打开的 FluentCanvas。请使用画板中的打开按钮重试。", "FluentCanvas");
+                    System.Windows.MessageBox.Show(UiText.Get("Canvas.ActivationFailed"), "FluentCanvas");
                     Shutdown(1);
                     return;
                 }
@@ -117,12 +120,24 @@ namespace FluentCanvas
                 activationFiles.Enqueue(path);
 
             InstallHelper.RunStartupTasks();
+            LogHelper.TrimStartupLog();
             LogHelper.NewLog($"FluentCanvas Starting (Version: {Assembly.GetExecutingAssembly().GetName().Version})");
-            ServiceRegistration.RegisterServices();
-            Locator.Initialize();
-
-            MainWindow = new MainWindow();
-            MainWindow.Show();
+            var powerPoint = new PowerPointService();
+            var slideShows = new PresentationSlideShowService(powerPoint, new WpsSlideShowService());
+            var window = new MainWindow(SettingsServiceFactory.Create(), powerPoint, slideShows);
+            MainWindow = window;
+            window.Loaded += (_, _) => EnableFileActivation(window);
+            window.Closed += (_, _) =>
+            {
+                activationWindow = null;
+                trayIcon?.Dispose();
+            };
+            window.Show();
+            try { trayIcon = new TrayIcon(window); }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLogToFile($"Notification area initialization failed: {ex}", LogHelper.LogType.Error);
+            }
         }
 
         private void AppInstance_Activated(object sender, AppActivationArguments args)
@@ -135,28 +150,25 @@ namespace FluentCanvas
                 if (activationWindow == null)
                     return;
 
-                if (activationWindow.WindowState == WindowState.Minimized)
-                    activationWindow.WindowState = WindowState.Normal;
-                activationWindow.Show();
-                activationWindow.Activate();
+                activationWindow.ActivateCanvas();
                 OpenPendingFiles();
             });
         }
 
-        internal void EnableFileActivation(MainWindow window)
+        private void EnableFileActivation(MainWindow window)
         {
             activationWindow = window;
             OpenPendingFiles();
         }
 
-        private void OpenPendingFiles()
+        private async void OpenPendingFiles()
         {
             if (openingFiles) return;
             openingFiles = true;
             try
             {
-                while (activationFiles.TryDequeue(out var file))
-                    activationWindow.LoadInkCanvasFile(file);
+                while (activationWindow != null && activationFiles.TryDequeue(out var file))
+                    await activationWindow.LoadInkCanvasFileAsync(file);
             }
             finally
             {

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>An kasa sauya shafin bayanan PowerPoint: {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>Saitunan gabatarwa - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>An kasa ƙare nunin silayid na {0}.</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>Wannan gabatarwar tana da silayid da aka ɓoye. A nuna su?</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>An shigo da tsoffin bayanai na silayid {0}.</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>FluentCanvas ya gano tsoffin bayanan da aka adana bisa sunan fayil da lambar silayid. Tabbatar suna cikin wannan gabatarwar kuma jerin silayid bai canza ba. A kwafe su zuwa babban fayil ɗin bayanan wannan gabatarwar?</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>Nunin da ya gabata ya ƙare a silayid na {0}. A je zuwa wannan silayid?</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>Gabatarwar tana sauya silayid da kanta ko tana amfani da lokacin da aka tsara. A sauya silayid da hannu?</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>An kasa buɗe hanyar zirga-zirgar silayid na PowerPoint.</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>Silayid na gaba</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>An kasa zuwa silayid na gaba a {0}.</value></data>
+  <data name="No" xml:space="preserve"><value>A'a</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>Aikin PowerPoint ya gaza: {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>Matsayi a nuni {0} · Silayid na {1} a gabatarwar</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>Silayid na baya</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>An kasa zuwa silayid na baya a {0}.</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>An kasa karanta bayanan da aka adana na silayid {0}. An bar asalin fayil ɗin.</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>An kasa adana bayanan PowerPoint. Har yanzu akwai su a wannan zaman.</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>An adana bayanan PowerPoint a babban fayil ɗin dawo da aiki a wannan na'urar.</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>An kasa adana bayanan PowerPoint ko matsayin nunin silayid: {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>An kasa gano tagar nunin silayid na yanzu.</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS ya kasa kammala umarnin nunin silayid.</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>Ƙarin manhajar WPS bai tabbatar da karɓar umarnin nunin silayid ba.</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>An kasa aika umarnin nunin silayid zuwa ƙarin manhajar WPS.</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>I</value></data>
+</root>

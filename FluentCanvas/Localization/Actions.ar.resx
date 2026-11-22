@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Ready" xml:space="preserve"><value>جاهز</value></data>
+  <data name="Hours" xml:space="preserve"><value>ساعات</value></data>
+  <data name="Minutes" xml:space="preserve"><value>دقائق</value></data>
+  <data name="Seconds" xml:space="preserve"><value>ثوانٍ</value></data>
+  <data name="Start" xml:space="preserve"><value>ابدأ</value></data>
+  <data name="Reset" xml:space="preserve"><value>إعادة ضبط</value></data>
+  <data name="Compact" xml:space="preserve"><value>عرض مصغّر</value></data>
+  <data name="FullScreen" xml:space="preserve"><value>ملء الشاشة</value></data>
+  <data name="TimeRemaining" xml:space="preserve"><value>الوقت المتبقي</value></data>
+  <data name="TimeRemainingProgress" xml:space="preserve"><value>تقدم العد التنازلي</value></data>
+  <data name="Paused" xml:space="preserve"><value>متوقف مؤقتًا</value></data>
+  <data name="CountdownEndsAt" xml:space="preserve"><value>ينتهي نحو {0:HH:mm:ss}</value></data>
+  <data name="TimeUp" xml:space="preserve"><value>انتهى الوقت</value></data>
+  <data name="TimeUpAlarmFailed" xml:space="preserve"><value>انتهى الوقت. تعذر تشغيل صوت التنبيه.</value></data>
+  <data name="TimeRemainingSpoken" xml:space="preserve"><value>الوقت المتبقي: {0} س، {1} د، {2} ث</value></data>
+  <data name="Pause" xml:space="preserve"><value>إيقاف مؤقت</value></data>
+  <data name="Resume" xml:space="preserve"><value>استئناف</value></data>
+  <data name="Expand" xml:space="preserve"><value>توسيع</value></data>
+  <data name="ExitFullScreen" xml:space="preserve"><value>الخروج من ملء الشاشة</value></data>
+  <data name="RosterLoading" xml:space="preserve"><value>جارٍ تحميل القائمة…</value></data>
+  <data name="ParticipantCount" xml:space="preserve"><value>المشاركون</value></data>
+  <data name="DrawCount" xml:space="preserve"><value>عدد المختارين</value></data>
+  <data name="StartDraw" xml:space="preserve"><value>ابدأ القرعة</value></data>
+  <data name="EditRoster" xml:space="preserve"><value>تحرير القائمة</value></data>
+  <data name="DrawOne" xml:space="preserve"><value>اختيار شخص واحد</value></data>
+  <data name="DrawResult" xml:space="preserve"><value>النتيجة</value></data>
+  <data name="RosterReadFailed" xml:space="preserve"><value>تعذرت قراءة القائمة. ستُستخدم الأرقام في القرعة.</value></data>
+  <data name="RosterLoaded" xml:space="preserve"><value>عدد الأسماء في القائمة: {0}</value></data>
+  <data name="RosterUsingNumbers" xml:space="preserve"><value>اختيار حسب الأرقام</value></data>
+  <data name="InvalidRulesSkipped" xml:space="preserve"><value> · تم تجاهل قواعد غير صالحة: {0}</value></data>
+  <data name="Drawing" xml:space="preserve"><value>جارٍ الاختيار…</value></data>
+  <data name="SingleDrawResult" xml:space="preserve"><value>النتيجة: {0}</value></data>
+  <data name="MultipleDrawResult" xml:space="preserve"><value>عدد المختارين: {0}</value></data>
+  <data name="DrawAgain" xml:space="preserve"><value>أعد القرعة</value></data>
+  <data name="NamesPerLine" xml:space="preserve"><value>أدخل اسمًا واحدًا في كل سطر</value></data>
+  <data name="RulesPerLine" xml:space="preserve"><value>أدخل قاعدة استبدال واحدة في كل سطر</value></data>
+  <data name="Roster" xml:space="preserve"><value>قائمة الأسماء</value></data>
+  <data name="ImportRoster" xml:space="preserve"><value>استيراد الأسماء</value></data>
+  <data name="ReplacementRules" xml:space="preserve"><value>قواعد الاستبدال</value></data>
+  <data name="ImportReplacementRules" xml:space="preserve"><value>استيراد القواعد</value></data>
+  <data name="ReplacementRuleExample" xml:space="preserve"><value>مثال: ⁦Ahmad--&gt;Hamad⁩. اترك الجزء بعد السهم فارغًا لاستبعاد الاسم.</value></data>
+  <data name="RosterAndRules" xml:space="preserve"><value>القائمة وقواعد الاستبدال</value></data>
+  <data name="Save" xml:space="preserve"><value>حفظ</value></data>
+  <data name="Cancel" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="RosterSaved" xml:space="preserve"><value>تم حفظ القائمة</value></data>
+  <data name="RosterEditFailed" xml:space="preserve"><value>تعذر تحرير القائمة: {0}</value></data>
+  <data name="RosterImportFailed" xml:space="preserve"><value>فشل الاستيراد: {0}</value></data>
+  <data name="InvalidReplacementRule" xml:space="preserve"><value>تحقق من القواعد. استخدم الصيغة ⁦OriginalName--&gt;DisplayName⁩ في كل سطر.</value></data>
+  <data name="RosterSaveTooLarge" xml:space="preserve"><value>الحد الأقصى لحجم كل ملف قائمة 2 ميغابايت.</value></data>
+  <data name="RosterLocked" xml:space="preserve"><value>تحفظ نافذة أخرى القائمة. حاول مجددًا بعد قليل.</value></data>
+  <data name="RosterChanged" xml:space="preserve"><value>عدّلت نافذة أخرى القائمة. أعد فتح المحرر لتحميل أحدث نسخة.</value></data>
+  <data name="RosterReadTooLarge" xml:space="preserve"><value>حجم ملف القائمة يتجاوز 2 ميغابايت.</value></data>
+  <data name="ReplacementRulesChanged" xml:space="preserve"><value>عدّلت عملية أخرى قواعد الاستبدال.</value></data>
+  <data name="RosterRollbackFailed" xml:space="preserve"><value>تعذر حفظ القائمة واستعادة القواعد السابقة. أعد فتح المحرر للتحقق من الملفين.</value></data>
+  <data name="SavingBeforeClose" xml:space="preserve"><value>يجري حفظ مستند. انتظر حتى يكتمل الحفظ قبل الإغلاق.</value></data>
+  <data name="CloseUnsavedWork" xml:space="preserve"><value>هل تريد إغلاق FluentCanvas؟ ستفقد التغييرات غير المحفوظة.</value></data>
+  <data name="ConfirmClose" xml:space="preserve"><value>هل أنت متأكد من رغبتك في إغلاق FluentCanvas؟</value></data>
+  <data name="CancelClosing" xml:space="preserve"><value>هل تريد إلغاء إغلاق FluentCanvas؟</value></data>
+  <data name="StartupEntryInUse" xml:space="preserve"><value>يستخدم تثبيت آخر إدخال بدء التشغيل هذا.</value></data>
+  <data name="AutoFoldInk" xml:space="preserve"><value>مُسحت الكتابة بالحبر وطُوي شريط الأدوات إلى الجانب. لاستعادتها، ارجع إلى وضع التعليق واختر تراجع.</value></data>
+  <data name="InsertImageFailed" xml:space="preserve"><value>تعذر إدراج الصورة. تحقق من الملف وحاول مجددًا.</value></data>
+  <data name="InsertVideoFailed" xml:space="preserve"><value>تعذر إدراج الفيديو. تحقق من الملف وحاول مجددًا.</value></data>
+  <data name="CanvasChangedDuringImport" xml:space="preserve"><value>تغيّرت اللوحة أثناء الاستيراد. أدرج الملف مرة أخرى في الصفحة المطلوبة.</value></data>
+  <data name="OpenToolFailed" xml:space="preserve"><value>تعذر فتح نافذة الأداة.</value></data>
+  <data name="OpenDrawOneFailed" xml:space="preserve"><value>تعذر فتح نافذة اختيار شخص واحد.</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>تعذر فتح الإعدادات.</value></data>
+  <data name="ScreenshotSaved" xml:space="preserve"><value>تم حفظ لقطة الشاشة في {0}</value></data>
+  <data name="ScreenshotPathFailed" xml:space="preserve"><value>تعذر حفظ لقطة الشاشة. تحقق من موقع الحفظ في الإعدادات.</value></data>
+  <data name="ScreenshotFailed" xml:space="preserve"><value>تعذر حفظ لقطة الشاشة.</value></data>
+  <data name="SlideCaptureObscured" xml:space="preserve"><value>تعذر التقاط عرض الشرائح لأن نافذته مخفية أو تحجبها نافذة أخرى.</value></data>
+  <data name="SlideScreenshotFailed" xml:space="preserve"><value>تعذر حفظ لقطة عرض الشرائح. تحقق من موقع الحفظ.</value></data>
+  <data name="DocumentSaved" xml:space="preserve"><value>تم حفظ الحبر والعناصر في {0}</value></data>
+  <data name="DocumentSaveFailed" xml:space="preserve"><value>تعذر حفظ المستند. تحقق من موقع الحفظ وحاول مجددًا.</value></data>
+  <data name="CanvasChangedDuringBackup" xml:space="preserve"><value>تغيّرت اللوحة أثناء النسخ الاحتياطي. حاول مسحها مجددًا.</value></data>
+  <data name="BackupFailed" xml:space="preserve"><value>فشل النسخ الاحتياطي</value></data>
+  <data name="BackupFailedPrompt" xml:space="preserve"><value>تعذر إنشاء نسخة احتياطية. تم الاحتفاظ باللوحة.</value></data>
+  <data name="CanvasChangedWhileOpening" xml:space="preserve"><value>تغيّرت اللوحة أثناء فتح المستند. أعد فتحه في الصفحة المطلوبة.</value></data>
+  <data name="UnsavedBoardPrompt" xml:space="preserve"><value>تحتوي السبورة على تغييرات غير محفوظة.</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>فتح المستند</value></data>
+  <data name="CanvasChangedDuringSave" xml:space="preserve"><value>تغيّرت اللوحة أثناء الحفظ. أعد فتح المستند.</value></data>
+  <data name="DocumentOpenFailed" xml:space="preserve"><value>تعذر فتح المستند. تحقق من الملف وحاول مجددًا.</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>إخفاء تلقائي</value></data>
+  <data name="Pinned" xml:space="preserve"><value>مثبّت</value></data>
+  <data name="RemoveAsymptotes" xml:space="preserve"><value>هل تريد إزالة خطوط التقارب؟</value></data>
+  <data name="SavingBeforeRestart" xml:space="preserve"><value>يجري حفظ مستند. انتظر حتى يكتمل الحفظ قبل إعادة التشغيل.</value></data>
+  <data name="RestartFailed" xml:space="preserve"><value>تعذرت إعادة التشغيل. احفظ عملك ثم افتح FluentCanvas مجددًا.</value></data>
+  <data name="PngImage" xml:space="preserve"><value>صورة PNG</value></data>
+  <data name="SelectionExportFailed" xml:space="preserve"><value>تعذر تصدير المنطقة المحددة. حدد منطقة أصغر أو تحقق من موقع الحفظ.</value></data>
+  <data name="CloneToBoard" xml:space="preserve"><value>نسخ إلى السبورة</value></data>
+  <data name="CloneToNewPage" xml:space="preserve"><value>نسخ إلى صفحة جديدة</value></data>
+  <data name="EasiNoteAutomaticallyClosed" xml:space="preserve"><value>أُغلق EasiNote 5 تلقائيًا.</value></data>
+  <data name="Retry" xml:space="preserve"><value>إعادة المحاولة</value></data>
+  <data name="ClearWithoutBackup" xml:space="preserve"><value>مسح دون نسخة احتياطية</value></data>
+  <data name="SaveAndOpen" xml:space="preserve"><value>حفظ وفتح</value></data>
+  <data name="OpenWithoutSaving" xml:space="preserve"><value>تجاهل التغييرات والفتح</value></data>
+</root>

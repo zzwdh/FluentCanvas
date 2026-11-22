@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>No se pudo cambiar de página de anotaciones en PowerPoint. {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>Configuración de la presentación - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>No se pudo finalizar la presentación de {0}.</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>Esta presentación contiene diapositivas ocultas. ¿Quieres mostrarlas?</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>Se importaron anotaciones antiguas de {0} diapositivas.</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>Se encontraron anotaciones antiguas guardadas por nombre de archivo y número de diapositiva. Comprueba que pertenecen a esta presentación y que las diapositivas siguen en el orden original. ¿Quieres copiarlas a la carpeta de anotaciones de esta presentación?</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>La última presentación quedó en la diapositiva {0}. ¿Quieres ir a esa diapositiva?</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>Esta presentación usa el avance automático o los intervalos de ensayo. ¿Quieres avanzar las diapositivas manualmente?</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>No se pudo abrir la navegación de diapositivas de PowerPoint.</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>Diapositiva siguiente</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>No se pudo avanzar a la diapositiva siguiente en {0}.</value></data>
+  <data name="No" xml:space="preserve"><value>No</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>La operación de PowerPoint falló. {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>Posición en la presentación {0} · Diapositiva {1} del archivo</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>Diapositiva anterior</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>No se pudo volver a la diapositiva anterior en {0}.</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>No se pudieron leer las anotaciones guardadas de la diapositiva {0}. Se conservó el archivo original.</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>No se pudieron guardar las anotaciones de PowerPoint. Siguen disponibles en esta sesión.</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>Se guardaron las anotaciones de PowerPoint en la carpeta de recuperación local.</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>No se pudieron guardar las anotaciones de PowerPoint o la posición de la presentación. {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>No se pudo localizar la ventana de la presentación actual.</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS no pudo ejecutar el comando de presentación.</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>El complemento de WPS no confirmó la recepción del comando de presentación.</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>No se pudo enviar el comando de presentación al complemento de WPS.</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>Sí</value></data>
+</root>

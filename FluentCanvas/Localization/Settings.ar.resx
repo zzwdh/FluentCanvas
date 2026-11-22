@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotateOnSlideShow" xml:space="preserve"><value>الدخول في وضع التعليق عند بدء عرض الشرائح</value></data>
+  <data name="App" xml:space="preserve"><value>التطبيق</value></data>
+  <data name="Appearance" xml:space="preserve"><value>المظهر</value></data>
+  <data name="Apply" xml:space="preserve"><value>تطبيق</value></data>
+  <data name="AutosaveLocation" xml:space="preserve"><value>موقع الحفظ التلقائي</value></data>
+  <data name="AutosaveRetention" xml:space="preserve"><value>مدة الاحتفاظ بملفات الحفظ التلقائي بالأيام</value></data>
+  <data name="BoardScale" xml:space="preserve"><value>حجم عناصر تحكم اللوحة البيضاء (%)</value></data>
+  <data name="Cancel" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="CaptureOnClear" xml:space="preserve"><value>التقاط الشاشة تلقائيًا قبل المسح</value></data>
+  <data name="CaptureSlide" xml:space="preserve"><value>التقاط الشاشة تلقائيًا عند تبديل الشرائح</value></data>
+  <data name="ChangeFailed" xml:space="preserve"><value>تعذّر تغيير الإعداد. حاول مرة أخرى.</value></data>
+  <data name="ChooseFolder" xml:space="preserve"><value>اختيار مجلد…</value></data>
+  <data name="ChooseFolderFailed" xml:space="preserve"><value>تعذّر تحديد المجلد: {0}</value></data>
+  <data name="CleanAutosaves" xml:space="preserve"><value>حذف ملفات الحفظ التلقائي المنتهية عند بدء التشغيل</value></data>
+  <data name="ConnectionFailed" xml:space="preserve"><value>تعذّر الاتصال بـ FluentCanvas. أعد تحميل الإعدادات وحاول مرة أخرى.</value></data>
+  <data name="Copied" xml:space="preserve"><value>تم النسخ</value></data>
+  <data name="CopyDiagnostics" xml:space="preserve"><value>نسخ معلومات التشخيص</value></data>
+  <data name="CopyFailed" xml:space="preserve"><value>تعذّر النسخ. حاول مرة أخرى.</value></data>
+  <data name="Dark" xml:space="preserve"><value>داكن</value></data>
+  <data name="DateFolders" xml:space="preserve"><value>تنظيم لقطات الشاشة في مجلدات حسب التاريخ</value></data>
+  <data name="DetectPowerPoint" xml:space="preserve"><value>اكتشاف عروض شرائح PowerPoint</value></data>
+  <data name="Diagnostics" xml:space="preserve"><value>التشخيص</value></data>
+  <data name="DiagnosticsAndPrivacy" xml:space="preserve"><value>التشخيص والخصوصية</value></data>
+  <data name="DiagnosticsComponents" xml:space="preserve"><value>مساحة الرسم  WPF
+نافذة التشخيص  WinUI 3</value></data>
+  <data name="DiagnosticsTitle" xml:space="preserve"><value>FluentCanvas · التشخيص</value></data>
+  <data name="DirectoryNotWritable" xml:space="preserve"><value>تعذّرت الكتابة في المجلد المحدد.</value></data>
+  <data name="DirectoryTimeout" xml:space="preserve"><value>لم يستجب المجلد المحدد. تحقّق من الاتصال وحاول مرة أخرى.</value></data>
+  <data name="EnableWps" xml:space="preserve"><value>عروض شرائح WPS (تجريبية، تتطلب وظيفة إضافية لسطح المكتب)</value></data>
+  <data name="Exit" xml:space="preserve"><value>خروج</value></data>
+  <data name="ExitApp" xml:space="preserve"><value>الخروج من FluentCanvas</value></data>
+  <data name="FingerEraserScale" xml:space="preserve"><value>مضاعف حجم الممحاة في وضع الإصبع</value></data>
+  <data name="FingerEraserThreshold" xml:space="preserve"><value>مضاعف حد ممحاة المنطقة في وضع الإصبع</value></data>
+  <data name="FingerTouchWidth" xml:space="preserve"><value>حد عرض اللمس في وضع الإصبع</value></data>
+  <data name="FoldAtStartup" xml:space="preserve"><value>طي شريط الأدوات إلى حافة الشاشة عند بدء التشغيل</value></data>
+  <data name="FoldInSlideShow" xml:space="preserve"><value>طي شريط الأدوات تلقائيًا أثناء عرض الشرائح</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>حسب إعداد Windows</value></data>
+  <data name="GlobalHotkeys" xml:space="preserve"><value>اختصارات عامة</value></data>
+  <data name="Guide" xml:space="preserve"><value>دليل الاستخدام</value></data>
+  <data name="GuideCanvas" xml:space="preserve"><value>اختصارات مساحة الرسم</value></data>
+  <data name="GuideCapture" xml:space="preserve"><value>حفظ لقطة شاشة على سطح المكتب</value></data>
+  <data name="GuideClear" xml:space="preserve"><value>مسح مساحة الرسم أو حذف التحديد الحالي</value></data>
+  <data name="GuideEraser" xml:space="preserve"><value>التبديل إلى الممحاة أو بين مسح المنطقة ومسح الخط كاملاً</value></data>
+  <data name="GuideGlobal" xml:space="preserve"><value>الاختصارات العامة الافتراضية</value></data>
+  <data name="GuideIntro" xml:space="preserve"><value>تعمل الاختصارات العامة حتى عندما يكون تطبيق آخر أو عرض شرائح هو النشط. عدّلها أو عالج التعارضات من «الاختصارات العامة» في الإعدادات.</value></data>
+  <data name="GuideLine" xml:space="preserve"><value>اختيار أداة الخط</value></data>
+  <data name="GuideNextKeys" xml:space="preserve"><value>↓ / → / Page Down / N / المسافة</value></data>
+  <data name="GuidePen" xml:space="preserve"><value>التبديل إلى القلم أو إظهار لوحة الألوان أو إخفاؤها</value></data>
+  <data name="GuidePointer" xml:space="preserve"><value>إنهاء الكتابة والعودة إلى المؤشر</value></data>
+  <data name="GuideRedo" xml:space="preserve"><value>إعادة</value></data>
+  <data name="GuideSelect" xml:space="preserve"><value>التبديل إلى أداة التحديد</value></data>
+  <data name="GuideSlides" xml:space="preserve"><value>اختصارات عرض الشرائح عندما تكون نافذة التعليقات نشطة</value></data>
+  <data name="GuideTitle" xml:space="preserve"><value>FluentCanvas · دليل الاستخدام</value></data>
+  <data name="GuideTools" xml:space="preserve"><value>إظهار أدوات الشريط العائم أو إخفاؤها</value></data>
+  <data name="GuideUndo" xml:space="preserve"><value>تراجع</value></data>
+  <data name="GuideWheel" xml:space="preserve"><value>عجلة الماوس إلى الأسفل أو الأعلى</value></data>
+  <data name="GuideWheelSlides" xml:space="preserve"><value>الشريحة التالية أو السابقة</value></data>
+  <data name="HotkeyApplyName" xml:space="preserve"><value>تطبيق الاختصار العام للإجراء «{0}»</value></data>
+  <data name="HotkeyBoard" xml:space="preserve"><value>التبديل بين اللوحة البيضاء وتعليقات سطح المكتب</value></data>
+  <data name="HotkeyCapture" xml:space="preserve"><value>التقاط لقطة شاشة</value></data>
+  <data name="HotkeyClear" xml:space="preserve"><value>مسح مساحة الرسم أو حذف التحديد</value></data>
+  <data name="HotkeyConflict" xml:space="preserve"><value>تستخدمه عملية أو تطبيق آخر بالفعل.</value></data>
+  <data name="HotkeyDisabled" xml:space="preserve"><value>معطّل</value></data>
+  <data name="HotkeyDraw" xml:space="preserve"><value>التبديل إلى القلم</value></data>
+  <data name="HotkeyEndSlides" xml:space="preserve"><value>إنهاء عرض الشرائح</value></data>
+  <data name="HotkeyHint" xml:space="preserve"><value>أدخل تركيبة تتضمن مفتاح تعديل، مثل Ctrl+Shift+B. لتعطيل اختصار، أفرغ حقله واختر «تطبيق».</value></data>
+  <data name="HotkeyInputName" xml:space="preserve"><value>الاختصار العام للإجراء «{0}»</value></data>
+  <data name="HotkeyInvalid" xml:space="preserve"><value>الاختصار غير صالح. استخدم تركيبة مثل Ctrl+Shift+B.</value></data>
+  <data name="HotkeyLimit" xml:space="preserve"><value>تم بلوغ الحد الأقصى للاختصارات العامة.</value></data>
+  <data name="HotkeyModifier" xml:space="preserve"><value>أدخل تركيبة تتضمن مفتاح تعديل، مثل Ctrl+Shift+B.</value></data>
+  <data name="HotkeyPointer" xml:space="preserve"><value>العودة إلى المؤشر</value></data>
+  <data name="HotkeyResetName" xml:space="preserve"><value>استعادة الاختصار العام الافتراضي للإجراء «{0}»</value></data>
+  <data name="HotkeySaveFailed" xml:space="preserve"><value>تعذّر حفظ الاختصار.</value></data>
+  <data name="HotkeyTools" xml:space="preserve"><value>إظهار مجموعات الأدوات أو إخفاؤها</value></data>
+  <data name="HotkeyUnavailable" xml:space="preserve"><value>تعذّر تسجيل الاختصارات العامة الآتية: {0}. يمكنك تغييرها من الإعدادات.</value></data>
+  <data name="HotkeyUnknown" xml:space="preserve"><value>الاختصار العام غير معروف.</value></data>
+  <data name="HotkeyUnknownKey" xml:space="preserve"><value>لا يتعرّف Windows على هذا المفتاح.</value></data>
+  <data name="HotkeyWindowsError" xml:space="preserve"><value>تعذّر على Windows تسجيل الاختصار ({0}).</value></data>
+  <data name="InstallationMethod" xml:space="preserve"><value>التثبيت  {0}</value></data>
+  <data name="InvalidSession" xml:space="preserve"><value>جلسة الإعدادات غير صالحة.</value></data>
+  <data name="InvalidValue" xml:space="preserve"><value>قيمة الإعداد غير صالحة.</value></data>
+  <data name="Language" xml:space="preserve"><value>لغة العرض</value></data>
+  <data name="LanguageRestart" xml:space="preserve"><value>أعد تشغيل FluentCanvas لتطبيق اللغة المحددة.</value></data>
+  <data name="Light" xml:space="preserve"><value>فاتح</value></data>
+  <data name="MoreOptions" xml:space="preserve"><value>خيارات إضافية</value></data>
+  <data name="MultiTouch" xml:space="preserve"><value>السماح بالكتابة بعدة أصابع عند إيقاف التبديل التلقائي</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>الشريحة التالية</value></data>
+  <data name="NibEraserScale" xml:space="preserve"><value>مضاعف حجم الممحاة في وضع سن القلم</value></data>
+  <data name="NibEraserThreshold" xml:space="preserve"><value>مضاعف حد ممحاة المنطقة في وضع سن القلم</value></data>
+  <data name="NibMode" xml:space="preserve"><value>استخدام وضع سن القلم</value></data>
+  <data name="NibTouchWidth" xml:space="preserve"><value>حد عرض اللمس في وضع سن القلم</value></data>
+  <data name="Off" xml:space="preserve"><value>إيقاف</value></data>
+  <data name="On" xml:space="preserve"><value>تشغيل</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>تعذّر فتح الإعدادات. حاول مرة أخرى.</value></data>
+  <data name="PenCursor" xml:space="preserve"><value>إظهار مؤشر القلم</value></data>
+  <data name="PenWidth" xml:space="preserve"><value>سُمك القلم</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>الشريحة السابقة</value></data>
+  <data name="QuadInfrared" xml:space="preserve"><value>استخدام شاشة لمس بالأشعة تحت الحمراء من أربعة جوانب</value></data>
+  <data name="RecognizeShapes" xml:space="preserve"><value>التعرّف على الأشكال المرسومة باليد</value></data>
+  <data name="Reload" xml:space="preserve"><value>إعادة تحميل الإعدادات</value></data>
+  <data name="ReportingStartFailed" xml:space="preserve"><value>تعذّر تشغيل الإبلاغ عن الأخطاء.</value></data>
+  <data name="ResetDefault" xml:space="preserve"><value>استعادة الافتراضي</value></data>
+  <data name="Restart" xml:space="preserve"><value>إعادة التشغيل</value></data>
+  <data name="RestartApp" xml:space="preserve"><value>إعادة تشغيل FluentCanvas</value></data>
+  <data name="RunAtStartup" xml:space="preserve"><value>التشغيل عند تسجيل الدخول إلى Windows</value></data>
+  <data name="SaveBeforeExit" xml:space="preserve"><value>سيتم نسخ صفحات اللوحة البيضاء والتعليقات التوضيحية غير المحفوظة احتياطيًا قبل المتابعة.</value></data>
+  <data name="SavedApplyFailed" xml:space="preserve"><value>حُفظ الإعداد، لكن تعذّر تطبيقه على اللوحة الحالية. احفظ عملك وأعد تشغيل FluentCanvas.</value></data>
+  <data name="SaveFailed" xml:space="preserve"><value>تعذّر حفظ الإعداد.</value></data>
+  <data name="SaveInkOnCapture" xml:space="preserve"><value>حفظ الكتابة اليدوية مع لقطات الشاشة</value></data>
+  <data name="SaveSlideInk" xml:space="preserve"><value>حفظ الكتابة اليدوية تلقائيًا لكل شريحة</value></data>
+  <data name="Saving" xml:space="preserve"><value>الحفظ</value></data>
+  <data name="SendErrors" xml:space="preserve"><value>إرسال أخطاء التطبيق إلى Sentry</value></data>
+  <data name="SettingsExited" xml:space="preserve"><value>أُغلقت نافذة الإعدادات بشكل غير متوقع. حاول مرة أخرى.</value></data>
+  <data name="SettingUnavailable" xml:space="preserve"><value>لا يمكن تغيير هذا الإعداد.</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>دليل الاختصارات</value></data>
+  <data name="Slides" xml:space="preserve"><value>عروض الشرائح</value></data>
+  <data name="SpecialTouchScreen" xml:space="preserve"><value>استخدام معايرة مخصصة لشاشة اللمس</value></data>
+  <data name="Standalone" xml:space="preserve"><value>مستقل</value></data>
+  <data name="Startup" xml:space="preserve"><value>بدء التشغيل</value></data>
+  <data name="StartupChangeFailed" xml:space="preserve"><value>تعذّر تغيير بدء التشغيل. تحقّق من إعدادات تطبيقات بدء التشغيل في Windows.</value></data>
+  <data name="StartupDisabledByUser" xml:space="preserve"><value>يمكنك تفعيل هذا الخيار في إعدادات تطبيقات بدء التشغيل في Windows.</value></data>
+  <data name="StartupNotEnabled" xml:space="preserve"><value>بدء التشغيل التلقائي غير مفعّل في Windows.</value></data>
+  <data name="StartupPolicyDisabled" xml:space="preserve"><value>عطّلت مؤسستك عنصر بدء التشغيل هذا.</value></data>
+  <data name="StartupPolicyEnabled" xml:space="preserve"><value>فعّلت مؤسستك عنصر بدء التشغيل هذا.</value></data>
+  <data name="StartupUnreadable" xml:space="preserve"><value>تعذّرت قراءة حالة بدء التشغيل في Windows.</value></data>
+  <data name="StoreAutoDownload" xml:space="preserve"><value>التحقق من التحديثات وتنزيلها تلقائيًا عند بدء التشغيل</value></data>
+  <data name="StoreAvailable" xml:space="preserve"><value>يتوفر تحديث من Microsoft Store.</value></data>
+  <data name="StoreBackingUp" xml:space="preserve"><value>جارٍ نسخ العمل غير المحفوظ احتياطيًا…</value></data>
+  <data name="StoreBackupAndUpdate" xml:space="preserve"><value>نسخ احتياطي وتحديث</value></data>
+  <data name="StoreBackupFailed" xml:space="preserve"><value>تعذّر نسخ عملك احتياطيًا. تحقّق من موقع الحفظ وحاول مرة أخرى.</value></data>
+  <data name="StoreBackupLocation" xml:space="preserve"><value>
+موقع النسخة الاحتياطية: {0}</value></data>
+  <data name="StoreBackupStateChanged" xml:space="preserve"><value>تغيّرت اللوحة أو عرض الشرائح أثناء النسخ الاحتياطي. حاول مرة أخرى.</value></data>
+  <data name="StoreBoardBusy" xml:space="preserve"><value>اللوحة البيضاء مشغولة. انتظر انتهاء العملية الحالية وحاول مرة أخرى.</value></data>
+  <data name="StoreCanceled" xml:space="preserve"><value>أُلغي التحديث.</value></data>
+  <data name="StoreCheck" xml:space="preserve"><value>التحقق من التحديثات</value></data>
+  <data name="StoreChecking" xml:space="preserve"><value>جارٍ التحقق من تحديثات Microsoft Store…</value></data>
+  <data name="StoreCompleted" xml:space="preserve"><value>أكمل Microsoft Store التحديث.</value></data>
+  <data name="StoreDeferred" xml:space="preserve"><value>يمكنك التحقق من التحديث وتثبيته لاحقًا.</value></data>
+  <data name="StoreDownloadHint" xml:space="preserve"><value>يتبع التنزيل التلقائي إعدادات التحديث والشبكة في Microsoft Store. يدير المتجر التثبيت.</value></data>
+  <data name="StoreDownloading" xml:space="preserve"><value>ينزّل Microsoft Store التحديث ({0:P0})…</value></data>
+  <data name="StoreFinishing" xml:space="preserve"><value>في انتظار انتهاء التحديث في Microsoft Store…</value></data>
+  <data name="StoreInstallConfirmation" xml:space="preserve"><value>هل تريد تثبيت تحديث Microsoft Store؟</value></data>
+  <data name="StoreInstallHint" xml:space="preserve"><value>سيتم نسخ اللوحات والتعليقات غير المحفوظة احتياطيًا في مجلد داخل موقع الحفظ. سيتوقف التحرير مؤقتًا أثناء التحديث، وقد يؤدي التثبيت إلى إغلاق التطبيق.</value></data>
+  <data name="StoreInstalling" xml:space="preserve"><value>يثبّت Microsoft Store التحديث…</value></data>
+  <data name="StoreLater" xml:space="preserve"><value>لاحقًا</value></data>
+  <data name="StoreLowBattery" xml:space="preserve"><value>البطارية منخفضة. صِل الجهاز بالطاقة وحاول مرة أخرى.</value></data>
+  <data name="StoreNeedsWifi" xml:space="preserve"><value>اتصل بشبكة Wi-Fi وحاول مرة أخرى.</value></data>
+  <data name="StoreNonStorePackage" xml:space="preserve"><value>ثبّت FluentCanvas من Microsoft Store لتقييمه أو لتلقي تحديثات المتجر.</value></data>
+  <data name="StoreNoUpdate" xml:space="preserve"><value>لا توجد تحديثات متاحة في Microsoft Store.</value></data>
+  <data name="StoreOpeningRating" xml:space="preserve"><value>جارٍ فتح نافذة تقييم المتجر…</value></data>
+  <data name="StoreRate" xml:space="preserve"><value>التقييم وكتابة مراجعة</value></data>
+  <data name="StoreRatingClosed" xml:space="preserve"><value>أُغلقت نافذة التقييم.</value></data>
+  <data name="StoreRatingUpdated" xml:space="preserve"><value>حدّث Microsoft Store تقييمك.</value></data>
+  <data name="StoreRequestFailed" xml:space="preserve"><value>تعذّر على Microsoft Store إكمال الطلب (0x{0:X8}). حاول مرة أخرى لاحقًا.</value></data>
+  <data name="StoreRequesting" xml:space="preserve"><value>جارٍ طلب تثبيت التحديث من Microsoft Store…</value></data>
+  <data name="StoreResumeEditing" xml:space="preserve"><value>
+أغلق الإعدادات لاستئناف تحرير اللوحة البيضاء.</value></data>
+  <data name="StoreSlidesActive" xml:space="preserve"><value>أنه عرض الشرائح واحفظ تعليقاتك قبل تثبيت التحديث.</value></data>
+  <data name="StoreSlidesUnsaved" xml:space="preserve"><value>لم تُحفظ تعليقات عرض الشرائح. تحقّق من موقع الحفظ وحاول مرة أخرى.</value></data>
+  <data name="StoreStandalone" xml:space="preserve"><value>هذه النسخة مستقلة. التقييمات والتحديثات التلقائية متاحة في نسخة Microsoft Store.</value></data>
+  <data name="StoreUpdateFailed" xml:space="preserve"><value>تعذّر على Microsoft Store إنهاء التحديث ({0}).</value></data>
+  <data name="StoreUpdateUnavailable" xml:space="preserve"><value>لا يستطيع Microsoft Store تحديث هذا التثبيت.</value></data>
+  <data name="StoreUpdating" xml:space="preserve"><value>يحدّث Microsoft Store تطبيق FluentCanvas.</value></data>
+  <data name="SwitchGestures" xml:space="preserve"><value>تبديل الإيماءات تلقائيًا بين وضعي التعليق واللوحة</value></data>
+  <data name="Theme" xml:space="preserve"><value>نسق التطبيق</value></data>
+  <data name="ToolbarLabels" xml:space="preserve"><value>إظهار تسميات شريط الأدوات</value></data>
+  <data name="ToolbarScale" xml:space="preserve"><value>حجم شريط الأدوات العائم (%)</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>تعذّر فتح نافذة الأداة. حاول مرة أخرى.</value></data>
+  <data name="TouchCalibration" xml:space="preserve"><value>معايرة شاشة اللمس والممحاة</value></data>
+  <data name="TouchMultiplier" xml:space="preserve"><value>مضاعف حجم اللمس للشاشات المخصصة</value></data>
+  <data name="TwoFingerRotation" xml:space="preserve"><value>السماح بتدوير مساحة الرسم بإصبعين</value></data>
+  <data name="WhiteboardAndInk" xml:space="preserve"><value>اللوحة البيضاء والكتابة</value></data>
+  <data name="WhiteboardBackground" xml:space="preserve"><value>استخدام خلفية بيضاء للوحة</value></data>
+  <data name="WindowTitle" xml:space="preserve"><value>FluentCanvas · الإعدادات</value></data>
+  <data name="FileAssociations" xml:space="preserve"><value>التطبيق الافتراضي لملفات ‎.icart و‎.icstk</value></data>
+  <data name="FileAssociationsConfirm" xml:space="preserve"><value>هل تريد استخدام هذه النسخة لاقترانات الملفات؟ سيُحدَّث الموقع المسجل إلى {0}. اختر التطبيق الافتراضي في إعدادات Windows.</value></data>
+  <data name="WindowsStartupSettings" xml:space="preserve"><value>تطبيقات بدء تشغيل Windows</value></data>
+  <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>تعطيل إيماءات اللمس عند الحواف في وضع ملء الشاشة</value></data>
+</root>

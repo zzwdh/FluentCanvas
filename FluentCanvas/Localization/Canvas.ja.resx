@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="WindowTitle" xml:space="preserve"><value>FluentCanvas ホワイトボード</value></data>
+  <data name="Undo" xml:space="preserve"><value>元に戻す</value></data>
+  <data name="Redo" xml:space="preserve"><value>やり直す</value></data>
+  <data name="Select" xml:space="preserve"><value>選択</value></data>
+  <data name="Pen" xml:space="preserve"><value>ペン</value></data>
+  <data name="Eraser" xml:space="preserve"><value>消しゴム</value></data>
+  <data name="EraseStrokes" xml:space="preserve"><value>ストローク単位で消去</value></data>
+  <data name="ExpandToolbar" xml:space="preserve"><value>フローティング ツールバーを展開</value></data>
+  <data name="CollapseToolbar" xml:space="preserve"><value>フローティング ツールバーを隠す</value></data>
+  <data name="ToggleToolbar" xml:space="preserve"><value>フローティング ツールバーを展開または折りたたむ</value></data>
+  <data name="ToolbarDrag" xml:space="preserve"><value>ドラッグしてツールバーを移動</value></data>
+  <data name="ToolbarDragOrToggle" xml:space="preserve"><value>ドラッグで移動、クリックで展開または折りたたみ</value></data>
+  <data name="ExpandFromLeft" xml:space="preserve"><value>左側からフローティング ツールバーを展開</value></data>
+  <data name="ExpandFromRight" xml:space="preserve"><value>右側からフローティング ツールバーを展開</value></data>
+  <data name="SaveInk" xml:space="preserve"><value>保存</value></data>
+  <data name="SaveDocument" xml:space="preserve"><value>作品を保存</value></data>
+  <data name="OpenInk" xml:space="preserve"><value>開く</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>作品を開く</value></data>
+  <data name="Playback" xml:space="preserve"><value>再生</value></data>
+  <data name="ReplayInk" xml:space="preserve"><value>インクを再生</value></data>
+  <data name="ExportImage" xml:space="preserve"><value>画像として保存</value></data>
+  <data name="PenTip" xml:space="preserve"><value>ペン先</value></data>
+  <data name="NibMode" xml:space="preserve"><value>ペン先モード</value></data>
+  <data name="Opacity" xml:space="preserve"><value>不透明度</value></data>
+  <data name="InsertVideo" xml:space="preserve"><value>動画を挿入</value></data>
+  <data name="InsertImage" xml:space="preserve"><value>画像を挿入</value></data>
+  <data name="Width" xml:space="preserve"><value>太さ</value></data>
+  <data name="TouchSelectionHint" xml:space="preserve"><value>タッチ：1 本指で移動、2 本指で拡大縮小・回転</value></data>
+  <data name="MouseSelectionHint" xml:space="preserve"><value>マウス：ドラッグで移動、ホイールで拡大縮小</value></data>
+  <data name="ParabolaWithFocus" xml:space="preserve"><value>焦点付きの放物線</value></data>
+  <data name="HyperbolaWithFoci" xml:space="preserve"><value>焦点付きの双曲線</value></data>
+  <data name="EllipseWithFoci" xml:space="preserve"><value>焦点付きの楕円</value></data>
+  <data name="PickOne" xml:space="preserve"><value>1 人抽選</value></data>
+  <data name="Countdown" xml:space="preserve"><value>カウントダウン</value></data>
+  <data name="TimerShort" xml:space="preserve"><value>タイマー</value></data>
+  <data name="ClickToClear" xml:space="preserve"><value>クリックして画面を消去</value></data>
+  <data name="PointBasedPenTip" xml:space="preserve"><value>座標に応じた筆圧効果</value></data>
+  <data name="DottedLine" xml:space="preserve"><value>点線</value></data>
+  <data name="MultiFingerInk" xml:space="preserve"><value>複数の指で描画</value></data>
+  <data name="More" xml:space="preserve"><value>その他</value></data>
+  <data name="MoreTools" xml:space="preserve"><value>その他のツール</value></data>
+  <data name="MoreFeatures" xml:space="preserve"><value>その他の機能</value></data>
+  <data name="MoreSettings" xml:space="preserve"><value>その他の設定</value></data>
+  <data name="Tools" xml:space="preserve"><value>ツール</value></data>
+  <data name="PinShapes" xml:space="preserve"><value>図形ツールバーを固定</value></data>
+  <data name="Off" xml:space="preserve"><value>オフ</value></data>
+  <data name="On" xml:space="preserve"><value>オン</value></data>
+  <data name="NoTaper" xml:space="preserve"><value>筆圧効果なし</value></data>
+  <data name="HorizontalParabola" xml:space="preserve"><value>横向きの放物線</value></data>
+  <data name="Board" xml:space="preserve"><value>ボード</value></data>
+  <data name="ColorBlack" xml:space="preserve"><value>黒</value></data>
+  <data name="ColorWhite" xml:space="preserve"><value>白</value></data>
+  <data name="ColorRed" xml:space="preserve"><value>赤</value></data>
+  <data name="ColorPink" xml:space="preserve"><value>ピンク</value></data>
+  <data name="ColorOrange" xml:space="preserve"><value>オレンジ</value></data>
+  <data name="ColorYellow" xml:space="preserve"><value>黄色</value></data>
+  <data name="ColorGreen" xml:space="preserve"><value>緑</value></data>
+  <data name="ColorCyan" xml:space="preserve"><value>シアン</value></data>
+  <data name="ColorBlue" xml:space="preserve"><value>青</value></data>
+  <data name="ColorPurple" xml:space="preserve"><value>紫</value></data>
+  <data name="BlackPen" xml:space="preserve"><value>ペン：黒</value></data>
+  <data name="WhitePen" xml:space="preserve"><value>ペン：白</value></data>
+  <data name="RedPen" xml:space="preserve"><value>ペン：赤</value></data>
+  <data name="PinkPen" xml:space="preserve"><value>ペン：ピンク</value></data>
+  <data name="OrangePen" xml:space="preserve"><value>ペン：オレンジ</value></data>
+  <data name="YellowPen" xml:space="preserve"><value>ペン：黄</value></data>
+  <data name="GreenPen" xml:space="preserve"><value>ペン：緑</value></data>
+  <data name="CyanPen" xml:space="preserve"><value>ペン：シアン</value></data>
+  <data name="BluePen" xml:space="preserve"><value>ペン：青</value></data>
+  <data name="Canvas" xml:space="preserve"><value>キャンバス</value></data>
+  <data name="DrawShape" xml:space="preserve"><value>図形を描く</value></data>
+  <data name="AddPage" xml:space="preserve"><value>ページを追加</value></data>
+  <data name="Arrow" xml:space="preserve"><value>矢印</value></data>
+  <data name="EndSlideShow" xml:space="preserve"><value>PowerPoint のスライド ショーを終了</value></data>
+  <data name="ScreenCaptureShort" xml:space="preserve"><value>画面撮影</value></data>
+  <data name="ScreenCapture" xml:space="preserve"><value>スクリーンショット</value></data>
+  <data name="Rectangle" xml:space="preserve"><value>長方形</value></data>
+  <data name="CloneMode" xml:space="preserve"><value>複製モード</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>キーボード ショートカット ガイド</value></data>
+  <data name="LightPalette" xml:space="preserve"><value>ライト</value></data>
+  <data name="DarkPalette" xml:space="preserve"><value>ダーク</value></data>
+  <data name="AreaEraserShort" xml:space="preserve"><value>範囲</value></data>
+  <data name="Ink" xml:space="preserve"><value>インク</value></data>
+  <data name="StrokeEraserShort" xml:space="preserve"><value>線消去</value></data>
+  <data name="InkRecognition" xml:space="preserve"><value>インク認識</value></data>
+  <data name="InkOptions" xml:space="preserve"><value>インクの設定</value></data>
+  <data name="RotateLeft" xml:space="preserve"><value>左回転</value></data>
+  <data name="Annotate" xml:space="preserve"><value>注釈</value></data>
+  <data name="ParallelLines" xml:space="preserve"><value>平行線</value></data>
+  <data name="SwitchBoard" xml:space="preserve"><value>ホワイトボードとデスクトップ注釈を切り替え</value></data>
+  <data name="SwitchPenPalette" xml:space="preserve"><value>ペンの色パレットを切り替え</value></data>
+  <data name="ClearAndMouseShort" xml:space="preserve"><value>消去</value></data>
+  <data name="Clear" xml:space="preserve"><value>消去</value></data>
+  <data name="ClearAnnotations" xml:space="preserve"><value>注釈を消去</value></data>
+  <data name="ClearAndMouse" xml:space="preserve"><value>注釈を消去してマウス モードに切り替え</value></data>
+  <data name="Delete" xml:space="preserve"><value>削除</value></data>
+  <data name="PreviousPage" xml:space="preserve"><value>前のページ</value></data>
+  <data name="Settings" xml:space="preserve"><value>設定</value></data>
+  <data name="Video" xml:space="preserve"><value>動画</value></data>
+  <data name="DocumentCamera" xml:space="preserve"><value>書画カメラ</value></data>
+  <data name="Gestures" xml:space="preserve"><value>ジェスチャ</value></data>
+  <data name="GestureFeatures" xml:space="preserve"><value>ジェスチャ操作</value></data>
+  <data name="GestureOptions" xml:space="preserve"><value>ジェスチャの設定</value></data>
+  <data name="Mouse" xml:space="preserve"><value>マウス</value></data>
+  <data name="MouseMode" xml:space="preserve"><value>マウス モード</value></data>
+  <data name="VerticalParabola" xml:space="preserve"><value>縦向きの放物線</value></data>
+  <data name="FlipVertical" xml:space="preserve"><value>上下反転</value></data>
+  <data name="Hyperbola" xml:space="preserve"><value>双曲線</value></data>
+  <data name="TwoFingerGestures" xml:space="preserve"><value>2 本指ジェスチャ</value></data>
+  <data name="TwoFingerZoom" xml:space="preserve"><value>2 本指で拡大縮小</value></data>
+  <data name="TwoFingerRotate" xml:space="preserve"><value>2 本指で回転</value></data>
+  <data name="TwoFingerPan" xml:space="preserve"><value>2 本指で移動</value></data>
+  <data name="FlipHorizontal" xml:space="preserve"><value>左右反転</value></data>
+  <data name="RotateRight" xml:space="preserve"><value>右回転</value></data>
+  <data name="Tetrahedron" xml:space="preserve"><value>四面体</value></data>
+  <data name="SpeedBasedPenTip" xml:space="preserve"><value>速度に応じた筆圧効果</value></data>
+  <data name="RandomPicker" xml:space="preserve"><value>ランダム抽選</value></data>
+  <data name="RandomPickerShort" xml:space="preserve"><value>抽選</value></data>
+  <data name="PickOnePerson" xml:space="preserve"><value>ランダムに 1 人を選ぶ</value></data>
+  <data name="Image" xml:space="preserve"><value>画像</value></data>
+  <data name="Shapes" xml:space="preserve"><value>図形</value></data>
+  <data name="ShapesHint" xml:space="preserve"><value>図形（1 行目のボタンを長押しすると連続描画）</value></data>
+  <data name="Exit" xml:space="preserve"><value>終了</value></data>
+  <data name="Ellipse" xml:space="preserve"><value>楕円</value></data>
+  <data name="NextPage" xml:space="preserve"><value>次のページ</value></data>
+  <data name="DashedLine" xml:space="preserve"><value>破線</value></data>
+  <data name="DashedCircle" xml:space="preserve"><value>破線の円</value></data>
+  <data name="Colors" xml:space="preserve"><value>色</value></data>
+  <data name="SendToBoard" xml:space="preserve"><value>ボードへ送る</value></data>
+  <data name="PageNumber" xml:space="preserve"><value>ページ番号</value></data>
+  <data name="CenteredRectangle" xml:space="preserve"><value>中心から長方形を描く</value></data>
+  <data name="CenteredEllipse" xml:space="preserve"><value>中心から楕円を描く</value></data>
+  <data name="Hide" xml:space="preserve"><value>隠す</value></data>
+  <data name="Highlighter" xml:space="preserve"><value>蛍光ペン</value></data>
+  <data name="RedHighlighter" xml:space="preserve"><value>蛍光ペン：赤</value></data>
+  <data name="OrangeHighlighter" xml:space="preserve"><value>蛍光ペン：オレンジ</value></data>
+  <data name="YellowHighlighter" xml:space="preserve"><value>蛍光ペン：黄</value></data>
+  <data name="CyanHighlighter" xml:space="preserve"><value>蛍光ペン：シアン</value></data>
+  <data name="BlueHighlighter" xml:space="preserve"><value>蛍光ペン：青</value></data>
+  <data name="PurpleHighlighter" xml:space="preserve"><value>蛍光ペン：紫</value></data>
+  <data name="Circle" xml:space="preserve"><value>円</value></data>
+  <data name="CircleEraserShort" xml:space="preserve"><value>丸消去</value></data>
+  <data name="Cylinder" xml:space="preserve"><value>円柱</value></data>
+  <data name="Cone" xml:space="preserve"><value>円錐</value></data>
+  <data name="RepeatShapeHint" xml:space="preserve"><value>長押しで連続して描画</value></data>
+  <data name="Cuboid" xml:space="preserve"><value>直方体</value></data>
+  <data name="Line" xml:space="preserve"><value>直線</value></data>
+  <data name="Guide" xml:space="preserve"><value>ガイド</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>自動的に隠す</value></data>
+  <data name="Axis1" xml:space="preserve"><value>座標軸 1</value></data>
+  <data name="Axis2" xml:space="preserve"><value>座標軸 2</value></data>
+  <data name="Axis3" xml:space="preserve"><value>座標軸 3</value></data>
+  <data name="Axis4" xml:space="preserve"><value>座標軸 4</value></data>
+  <data name="Axis5" xml:space="preserve"><value>座標軸 5</value></data>
+  <data name="CurrentTool" xml:space="preserve"><value>選択中のツール</value></data>
+  <data name="CurrentColor" xml:space="preserve"><value>選択中の色</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>Windows に従う</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>ツール ウィンドウを開けませんでした。アプリのファイルが揃っているか確認してください。</value></data>
+  <data name="ProcessPathMissing" xml:space="preserve"><value>アプリの実行ファイルが見つかりませんでした。</value></data>
+  <data name="ToolStartFailed" xml:space="preserve"><value>ツール ウィンドウを起動できませんでした。</value></data>
+  <data name="UnexpectedError" xml:space="preserve"><value>予期しないエラーが発生しました。作品を保存してから FluentCanvas を再起動してください。</value></data>
+  <data name="ActivationFailed" xml:space="preserve"><value>起動中の FluentCanvas にファイルを送れませんでした。ツールバーの「開く」から再試行してください。</value></data>
+  <data name="SettingsSaveFailed" xml:space="preserve"><value>設定を保存できませんでした。ユーザー データ フォルダーに書き込めるか確認してください。</value></data>
+  <data name="SettingsReadFailed" xml:space="preserve"><value>設定を読み取れませんでした。元のファイルはそのまま残っています。</value></data>
+  <data name="TriangleVariants" xml:space="preserve"><value>三角形の種類</value></data>
+  <data name="Triangle" xml:space="preserve"><value>任意の三角形</value></data>
+  <data name="RightTriangle" xml:space="preserve"><value>直角三角形</value></data>
+  <data name="IsoscelesTriangle" xml:space="preserve"><value>二等辺三角形</value></data>
+  <data name="EquilateralTriangle" xml:space="preserve"><value>正三角形</value></data>
+  <data name="Parallelogram" xml:space="preserve"><value>平行四辺形</value></data>
+  <data name="Trapezoid" xml:space="preserve"><value>台形</value></data>
+  <data name="AngleMarks" xml:space="preserve"><value>角の記号</value></data>
+  <data name="AngleMark" xml:space="preserve"><value>角の弧</value></data>
+  <data name="RightAngleMark" xml:space="preserve"><value>直角記号</value></data>
+  <data name="CircularShapes" xml:space="preserve"><value>円弧と扇形</value></data>
+  <data name="Arc" xml:space="preserve"><value>円弧</value></data>
+  <data name="Sector" xml:space="preserve"><value>扇形</value></data>
+  <data name="Semicircle" xml:space="preserve"><value>半円</value></data>
+  <data name="NumberLine" xml:space="preserve"><value>数直線</value></data>
+  <data name="NumberLineTicks" xml:space="preserve"><value>目盛り付き数直線</value></data>
+  <data name="NumberLineLabeled" xml:space="preserve"><value>目盛りと数値付き数直線</value></data>
+  <data name="BoundingEllipse" xml:space="preserve"><value>外接枠の対角から楕円を描く</value></data>
+  <data name="Sphere" xml:space="preserve"><value>球</value></data>
+  <data name="PlaceTriangleFirstSide" xml:space="preserve"><value>最初の辺の両端をタップするか、ドラッグして辺を描きます</value></data>
+  <data name="PlaceTriangleVertex" xml:space="preserve"><value>3 つ目の頂点をタップします</value></data>
+  <data name="PlaceAngleFirstSide" xml:space="preserve"><value>頂点と最初の辺上の点をタップするか、頂点からドラッグします</value></data>
+  <data name="PlaceAngleSecondSide" xml:space="preserve"><value>2 本目の辺上の点をタップします</value></data>
+  <data name="PlaceArcRadius" xml:space="preserve"><value>中心と始点をタップするか、中心からドラッグして半径を描きます</value></data>
+  <data name="PlaceArcEnd" xml:space="preserve"><value>終点の方向をタップします</value></data>
+  <data name="DrawSemicircle" xml:space="preserve"><value>ドラッグして直径を描きます。半円はドラッグ方向の左側に描かれます。</value></data>
+</root>

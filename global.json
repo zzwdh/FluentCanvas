@@ -2,6 +2,7 @@
   "sdk": {
     "version": "11.0.100",
     "rollForward": "disable",
-    "allowPrerelease": false
+    "allowPrerelease": false,
+    "paths": ["$host$", "artifacts/sdk/dotnet-11.0.100"]
   }
 }

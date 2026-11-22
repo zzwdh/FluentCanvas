@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="WindowTitle" xml:space="preserve"><value>Farin Allon FluentCanvas</value></data>
+  <data name="Undo" xml:space="preserve"><value>Warware</value></data>
+  <data name="Redo" xml:space="preserve"><value>Sake yi</value></data>
+  <data name="Select" xml:space="preserve"><value>Zaɓa</value></data>
+  <data name="Pen" xml:space="preserve"><value>Alƙalami</value></data>
+  <data name="Eraser" xml:space="preserve"><value>Magogi</value></data>
+  <data name="EraseStrokes" xml:space="preserve"><value>Goge layi gaba ɗaya</value></data>
+  <data name="ExpandToolbar" xml:space="preserve"><value>Faɗaɗa sandar kayan aiki mai yawo</value></data>
+  <data name="CollapseToolbar" xml:space="preserve"><value>Ɓoye sandar kayan aiki mai yawo</value></data>
+  <data name="ToggleToolbar" xml:space="preserve"><value>Faɗaɗa ko matse sandar kayan aiki</value></data>
+  <data name="ToolbarDrag" xml:space="preserve"><value>Ja don matsar da sandar kayan aiki</value></data>
+  <data name="ToolbarDragOrToggle" xml:space="preserve"><value>Ja don matsar da sandar kayan aiki. Danna don faɗaɗa ko matse ta.</value></data>
+  <data name="ExpandFromLeft" xml:space="preserve"><value>Faɗaɗa sandar kayan aiki daga hagu</value></data>
+  <data name="ExpandFromRight" xml:space="preserve"><value>Faɗaɗa sandar kayan aiki daga dama</value></data>
+  <data name="SaveInk" xml:space="preserve"><value>Adana</value></data>
+  <data name="SaveDocument" xml:space="preserve"><value>Adana zane</value></data>
+  <data name="OpenInk" xml:space="preserve"><value>Buɗe</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>Buɗe zane</value></data>
+  <data name="Playback" xml:space="preserve"><value>Sake nunawa</value></data>
+  <data name="ReplayInk" xml:space="preserve"><value>Sake nuna rubutu</value></data>
+  <data name="ExportImage" xml:space="preserve"><value>Adana a matsayin hoto</value></data>
+  <data name="PenTip" xml:space="preserve"><value>Bakin alƙalami</value></data>
+  <data name="NibMode" xml:space="preserve"><value>Yanayin bakin alƙalami</value></data>
+  <data name="Opacity" xml:space="preserve"><value>Rashin haske ta ciki</value></data>
+  <data name="InsertVideo" xml:space="preserve"><value>Saka bidiyo</value></data>
+  <data name="InsertImage" xml:space="preserve"><value>Saka hoto</value></data>
+  <data name="Width" xml:space="preserve"><value>Faɗi</value></data>
+  <data name="TouchSelectionHint" xml:space="preserve"><value>Taɓawa: ja da yatsa ɗaya, sauya girma ko juya da yatsu biyu</value></data>
+  <data name="MouseSelectionHint" xml:space="preserve"><value>Linzami: ja don motsawa, juya ƙafarsa don sauya girma</value></data>
+  <data name="ParabolaWithFocus" xml:space="preserve"><value>Parabola da wurin mayar da hankali</value></data>
+  <data name="HyperbolaWithFoci" xml:space="preserve"><value>Hiperbola da wuraren mayar da hankali</value></data>
+  <data name="EllipseWithFoci" xml:space="preserve"><value>Zoben ƙwai da wuraren mayar da hankali</value></data>
+  <data name="PickOne" xml:space="preserve"><value>Zaɓi mutum ɗaya</value></data>
+  <data name="Countdown" xml:space="preserve"><value>Ƙidayar baya</value></data>
+  <data name="TimerShort" xml:space="preserve"><value>Mai ƙidaya</value></data>
+  <data name="ClickToClear" xml:space="preserve"><value>Danna don gogewa</value></data>
+  <data name="PointBasedPenTip" xml:space="preserve"><value>Rage kauri bisa ɗigo</value></data>
+  <data name="DottedLine" xml:space="preserve"><value>Layin ɗigo</value></data>
+  <data name="MultiFingerInk" xml:space="preserve"><value>Rubutu da yatsu da yawa</value></data>
+  <data name="More" xml:space="preserve"><value>Ƙari</value></data>
+  <data name="MoreTools" xml:space="preserve"><value>Ƙarin kayan aiki</value></data>
+  <data name="MoreFeatures" xml:space="preserve"><value>Ƙarin fasaloli</value></data>
+  <data name="MoreSettings" xml:space="preserve"><value>Ƙarin saituna</value></data>
+  <data name="Tools" xml:space="preserve"><value>Kayan aiki</value></data>
+  <data name="PinShapes" xml:space="preserve"><value>Liƙa sandar kayan aikin siffofi</value></data>
+  <data name="Off" xml:space="preserve"><value>A kashe</value></data>
+  <data name="On" xml:space="preserve"><value>A kunne</value></data>
+  <data name="NoTaper" xml:space="preserve"><value>Kauri iri ɗaya</value></data>
+  <data name="HorizontalParabola" xml:space="preserve"><value>Parabola a kwance</value></data>
+  <data name="Board" xml:space="preserve"><value>Allo</value></data>
+  <data name="ColorBlack" xml:space="preserve"><value>Baƙi</value></data>
+  <data name="ColorWhite" xml:space="preserve"><value>Fari</value></data>
+  <data name="ColorRed" xml:space="preserve"><value>Ja</value></data>
+  <data name="ColorPink" xml:space="preserve"><value>Ruwan hoda</value></data>
+  <data name="ColorOrange" xml:space="preserve"><value>Lemu</value></data>
+  <data name="ColorYellow" xml:space="preserve"><value>Rawaya</value></data>
+  <data name="ColorGreen" xml:space="preserve"><value>Kore</value></data>
+  <data name="ColorCyan" xml:space="preserve"><value>Shuɗi mai haske</value></data>
+  <data name="ColorBlue" xml:space="preserve"><value>Shuɗi</value></data>
+  <data name="ColorPurple" xml:space="preserve"><value>Shunayya</value></data>
+  <data name="BlackPen" xml:space="preserve"><value>Alƙalami: baƙi</value></data>
+  <data name="WhitePen" xml:space="preserve"><value>Alƙalami: fari</value></data>
+  <data name="RedPen" xml:space="preserve"><value>Alƙalami: ja</value></data>
+  <data name="PinkPen" xml:space="preserve"><value>Alƙalami: hoda</value></data>
+  <data name="OrangePen" xml:space="preserve"><value>Alƙalami: ruwan lemu</value></data>
+  <data name="YellowPen" xml:space="preserve"><value>Alƙalami: rawaya</value></data>
+  <data name="GreenPen" xml:space="preserve"><value>Alƙalami: kore</value></data>
+  <data name="CyanPen" xml:space="preserve"><value>Alƙalami: shuɗi mai kore</value></data>
+  <data name="BluePen" xml:space="preserve"><value>Alƙalami: shuɗi</value></data>
+  <data name="Canvas" xml:space="preserve"><value>Filin zane</value></data>
+  <data name="DrawShape" xml:space="preserve"><value>Zana siffofi</value></data>
+  <data name="AddPage" xml:space="preserve"><value>Ƙara shafi</value></data>
+  <data name="Arrow" xml:space="preserve"><value>Kibiya</value></data>
+  <data name="EndSlideShow" xml:space="preserve"><value>Ƙare nunin silayid na PowerPoint</value></data>
+  <data name="ScreenCaptureShort" xml:space="preserve"><value>Ɗauki hoto</value></data>
+  <data name="ScreenCapture" xml:space="preserve"><value>Hoton allo</value></data>
+  <data name="Rectangle" xml:space="preserve"><value>Murabba'i mai tsawo</value></data>
+  <data name="CloneMode" xml:space="preserve"><value>Yanayin yin kwafi</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>Jagorar gajerun hanyoyin madannai</value></data>
+  <data name="LightPalette" xml:space="preserve"><value>Mai haske</value></data>
+  <data name="DarkPalette" xml:space="preserve"><value>Mai duhu</value></data>
+  <data name="AreaEraserShort" xml:space="preserve"><value>Yanki</value></data>
+  <data name="Ink" xml:space="preserve"><value>Rubutu</value></data>
+  <data name="StrokeEraserShort" xml:space="preserve"><value>Layi</value></data>
+  <data name="InkRecognition" xml:space="preserve"><value>Gane rubutun hannu</value></data>
+  <data name="InkOptions" xml:space="preserve"><value>Zaɓuɓɓukan rubutu</value></data>
+  <data name="RotateLeft" xml:space="preserve"><value>Juya zuwa hagu</value></data>
+  <data name="Annotate" xml:space="preserve"><value>Rubuta bayani</value></data>
+  <data name="ParallelLines" xml:space="preserve"><value>Layukan da ke tafiya a layi ɗaya</value></data>
+  <data name="SwitchBoard" xml:space="preserve"><value>Sauya tsakanin farin allo da rubuta bayani a tebur</value></data>
+  <data name="SwitchPenPalette" xml:space="preserve"><value>Sauya jerin launukan alƙalami</value></data>
+  <data name="ClearAndMouseShort" xml:space="preserve"><value>Goge</value></data>
+  <data name="Clear" xml:space="preserve"><value>Goge</value></data>
+  <data name="ClearAnnotations" xml:space="preserve"><value>Goge bayanan da aka rubuta</value></data>
+  <data name="ClearAndMouse" xml:space="preserve"><value>Goge bayanan da aka rubuta ka koma yanayin linzami</value></data>
+  <data name="Delete" xml:space="preserve"><value>Share</value></data>
+  <data name="PreviousPage" xml:space="preserve"><value>Shafin baya</value></data>
+  <data name="Settings" xml:space="preserve"><value>Saituna</value></data>
+  <data name="Video" xml:space="preserve"><value>Bidiyo</value></data>
+  <data name="DocumentCamera" xml:space="preserve"><value>Kyamarar takarda</value></data>
+  <data name="Gestures" xml:space="preserve"><value>Motsin taɓawa</value></data>
+  <data name="GestureFeatures" xml:space="preserve"><value>Sarrafa motsin taɓawa</value></data>
+  <data name="GestureOptions" xml:space="preserve"><value>Zaɓuɓɓukan motsin taɓawa</value></data>
+  <data name="Mouse" xml:space="preserve"><value>Linzami</value></data>
+  <data name="MouseMode" xml:space="preserve"><value>Yanayin linzami</value></data>
+  <data name="VerticalParabola" xml:space="preserve"><value>Parabola a tsaye</value></data>
+  <data name="FlipVertical" xml:space="preserve"><value>Juya zuwa sama da ƙasa</value></data>
+  <data name="Hyperbola" xml:space="preserve"><value>Hiperbola</value></data>
+  <data name="TwoFingerGestures" xml:space="preserve"><value>Motsin taɓawa da yatsu biyu</value></data>
+  <data name="TwoFingerZoom" xml:space="preserve"><value>Sauya girma da yatsu biyu</value></data>
+  <data name="TwoFingerRotate" xml:space="preserve"><value>Juya da yatsu biyu</value></data>
+  <data name="TwoFingerPan" xml:space="preserve"><value>Matsar da yatsu biyu</value></data>
+  <data name="FlipHorizontal" xml:space="preserve"><value>Juya zuwa hagu da dama</value></data>
+  <data name="RotateRight" xml:space="preserve"><value>Juya zuwa dama</value></data>
+  <data name="Tetrahedron" xml:space="preserve"><value>Siffa mai fuskoki huɗu</value></data>
+  <data name="SpeedBasedPenTip" xml:space="preserve"><value>Rage kauri bisa sauri</value></data>
+  <data name="RandomPicker" xml:space="preserve"><value>Zaɓen bazata</value></data>
+  <data name="RandomPickerShort" xml:space="preserve"><value>Zaɓa</value></data>
+  <data name="PickOnePerson" xml:space="preserve"><value>Zaɓi mutum ɗaya bazata</value></data>
+  <data name="Image" xml:space="preserve"><value>Hoto</value></data>
+  <data name="Shapes" xml:space="preserve"><value>Siffofi</value></data>
+  <data name="ShapesHint" xml:space="preserve"><value>Siffofi (riƙe maɓalli a jeren farko don ci gaba da zana)</value></data>
+  <data name="Exit" xml:space="preserve"><value>Fita</value></data>
+  <data name="Ellipse" xml:space="preserve"><value>Zoben ƙwai</value></data>
+  <data name="NextPage" xml:space="preserve"><value>Shafi na gaba</value></data>
+  <data name="DashedLine" xml:space="preserve"><value>Yankakken layi</value></data>
+  <data name="DashedCircle" xml:space="preserve"><value>Yankakken da'ira</value></data>
+  <data name="Colors" xml:space="preserve"><value>Launuka</value></data>
+  <data name="SendToBoard" xml:space="preserve"><value>Aika zuwa allo</value></data>
+  <data name="PageNumber" xml:space="preserve"><value>Lambar shafi</value></data>
+  <data name="CenteredRectangle" xml:space="preserve"><value>Zana murabba'i mai tsawo daga tsakiya</value></data>
+  <data name="CenteredEllipse" xml:space="preserve"><value>Zana zoben ƙwai daga tsakiya</value></data>
+  <data name="Hide" xml:space="preserve"><value>Ɓoye</value></data>
+  <data name="Highlighter" xml:space="preserve"><value>Alƙalamin fito da rubutu</value></data>
+  <data name="RedHighlighter" xml:space="preserve"><value>Alƙalamin fito da rubutu: ja</value></data>
+  <data name="OrangeHighlighter" xml:space="preserve"><value>Alƙalamin fito da rubutu: ruwan lemu</value></data>
+  <data name="YellowHighlighter" xml:space="preserve"><value>Alƙalamin fito da rubutu: rawaya</value></data>
+  <data name="CyanHighlighter" xml:space="preserve"><value>Alƙalamin fito da rubutu: shuɗi mai kore</value></data>
+  <data name="BlueHighlighter" xml:space="preserve"><value>Alƙalamin fito da rubutu: shuɗi</value></data>
+  <data name="PurpleHighlighter" xml:space="preserve"><value>Alƙalamin fito da rubutu: shunayya</value></data>
+  <data name="Circle" xml:space="preserve"><value>Da'ira</value></data>
+  <data name="CircleEraserShort" xml:space="preserve"><value>Da'ira</value></data>
+  <data name="Cylinder" xml:space="preserve"><value>Silinda</value></data>
+  <data name="Cone" xml:space="preserve"><value>Mazugi</value></data>
+  <data name="RepeatShapeHint" xml:space="preserve"><value>Riƙe maɓallin don ci gaba da zana wannan siffar</value></data>
+  <data name="Cuboid" xml:space="preserve"><value>Tubali mai siffar murabba'i</value></data>
+  <data name="Line" xml:space="preserve"><value>Madaidaicin layi</value></data>
+  <data name="Guide" xml:space="preserve"><value>Jagora</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>Ɓoye ta atomatik</value></data>
+  <data name="Axis1" xml:space="preserve"><value>Layukan daidaitawa 1</value></data>
+  <data name="Axis2" xml:space="preserve"><value>Layukan daidaitawa 2</value></data>
+  <data name="Axis3" xml:space="preserve"><value>Layukan daidaitawa 3</value></data>
+  <data name="Axis4" xml:space="preserve"><value>Layukan daidaitawa 4</value></data>
+  <data name="Axis5" xml:space="preserve"><value>Layukan daidaitawa 5</value></data>
+  <data name="CurrentTool" xml:space="preserve"><value>Kayan aiki na yanzu</value></data>
+  <data name="CurrentColor" xml:space="preserve"><value>Launi na yanzu</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>Bi saitunan Windows</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>An kasa buɗe tagar kayan aiki. Duba ko fayilolin manhajar suna nan lafiya.</value></data>
+  <data name="ProcessPathMissing" xml:space="preserve"><value>An kasa gano fayil ɗin kunna manhajar.</value></data>
+  <data name="ToolStartFailed" xml:space="preserve"><value>An kasa fara tagar kayan aiki.</value></data>
+  <data name="UnexpectedError" xml:space="preserve"><value>An sami kuskuren da ba a zata ba. Adana zanenka ka sake kunna FluentCanvas.</value></data>
+  <data name="ActivationFailed" xml:space="preserve"><value>An kasa aika fayil ɗin zuwa tagar FluentCanvas da take buɗe. Buɗe shi daga sandar kayan aiki ka sake gwadawa.</value></data>
+  <data name="SettingsSaveFailed" xml:space="preserve"><value>An kasa adana saituna. Tabbatar za ka iya rubutawa a babban fayil ɗin bayanan mai amfani.</value></data>
+  <data name="SettingsReadFailed" xml:space="preserve"><value>An kasa karanta saituna. An bar asalin fayil ɗin.</value></data>
+  <data name="TriangleVariants" xml:space="preserve"><value>Zaɓuɓɓukan kusurwa uku</value></data>
+  <data name="Triangle" xml:space="preserve"><value>Siffar kusurwa uku ta zaɓi</value></data>
+  <data name="RightTriangle" xml:space="preserve"><value>Siffar kusurwa uku mai kusurwar dama</value></data>
+  <data name="IsoscelesTriangle" xml:space="preserve"><value>Siffar kusurwa uku mai gefuna biyu daidai</value></data>
+  <data name="EquilateralTriangle" xml:space="preserve"><value>Siffar kusurwa uku mai gefuna uku daidai</value></data>
+  <data name="Parallelogram" xml:space="preserve"><value>Siffa mai gefuna masu tafiya a layi ɗaya</value></data>
+  <data name="Trapezoid" xml:space="preserve"><value>Trapezoid</value></data>
+  <data name="AngleMarks" xml:space="preserve"><value>Alamomin kusurwa</value></data>
+  <data name="AngleMark" xml:space="preserve"><value>Alamar baka ta kusurwa</value></data>
+  <data name="RightAngleMark" xml:space="preserve"><value>Alamar kusurwar dama</value></data>
+  <data name="CircularShapes" xml:space="preserve"><value>Bakuna da ɓangarorin da&apos;ira</value></data>
+  <data name="Arc" xml:space="preserve"><value>Bakar da&apos;ira</value></data>
+  <data name="Sector" xml:space="preserve"><value>Ɓangaren da&apos;ira</value></data>
+  <data name="Semicircle" xml:space="preserve"><value>Rabin da&apos;ira</value></data>
+  <data name="NumberLine" xml:space="preserve"><value>Layin lambobi</value></data>
+  <data name="NumberLineTicks" xml:space="preserve"><value>Layin lambobi mai alamomin awo</value></data>
+  <data name="NumberLineLabeled" xml:space="preserve"><value>Layin lambobi mai alamomin awo da lambobi</value></data>
+  <data name="BoundingEllipse" xml:space="preserve"><value>Zana da&apos;ira mai tsawo daga kusurwoyi biyu masu fuskantar juna</value></data>
+  <data name="Sphere" xml:space="preserve"><value>Ƙwallo</value></data>
+  <data name="PlaceTriangleFirstSide" xml:space="preserve"><value>Taɓa ƙarshen biyu na gefen farko ko ja don zana shi</value></data>
+  <data name="PlaceTriangleVertex" xml:space="preserve"><value>Taɓa don sa kusurwa ta uku</value></data>
+  <data name="PlaceAngleFirstSide" xml:space="preserve"><value>Taɓa kusurwar da aya a gefen farko ko ja daga kusurwar</value></data>
+  <data name="PlaceAngleSecondSide" xml:space="preserve"><value>Taɓa aya a gefe na biyu</value></data>
+  <data name="PlaceArcRadius" xml:space="preserve"><value>Taɓa tsakiya da wurin farawa ko ja daga tsakiya don zana rabin diamita</value></data>
+  <data name="PlaceArcEnd" xml:space="preserve"><value>Taɓa ta fuskar wurin ƙarshe</value></data>
+  <data name="DrawSemicircle" xml:space="preserve"><value>Ja don zana diamita. Rabin da&apos;irar zai bayyana a hagun alkiblar ja.</value></data>
+</root>

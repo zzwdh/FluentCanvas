@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="WindowTitle" xml:space="preserve"><value>FluentCanvas Whiteboard</value></data>
+  <data name="Undo" xml:space="preserve"><value>Rückgängig</value></data>
+  <data name="Redo" xml:space="preserve"><value>Wiederholen</value></data>
+  <data name="Select" xml:space="preserve"><value>Auswählen</value></data>
+  <data name="Pen" xml:space="preserve"><value>Stift</value></data>
+  <data name="Eraser" xml:space="preserve"><value>Radierer</value></data>
+  <data name="EraseStrokes" xml:space="preserve"><value>Ganze Striche löschen</value></data>
+  <data name="ExpandToolbar" xml:space="preserve"><value>Schwebende Symbolleiste erweitern</value></data>
+  <data name="CollapseToolbar" xml:space="preserve"><value>Schwebende Symbolleiste ausblenden</value></data>
+  <data name="ToggleToolbar" xml:space="preserve"><value>Schwebende Symbolleiste erweitern oder einklappen</value></data>
+  <data name="ToolbarDrag" xml:space="preserve"><value>Ziehen, um die Symbolleiste zu verschieben</value></data>
+  <data name="ToolbarDragOrToggle" xml:space="preserve"><value>Zum Verschieben ziehen. Zum Erweitern oder Einklappen klicken.</value></data>
+  <data name="ExpandFromLeft" xml:space="preserve"><value>Schwebende Symbolleiste von links erweitern</value></data>
+  <data name="ExpandFromRight" xml:space="preserve"><value>Schwebende Symbolleiste von rechts erweitern</value></data>
+  <data name="SaveInk" xml:space="preserve"><value>Speichern</value></data>
+  <data name="SaveDocument" xml:space="preserve"><value>Zeichnung speichern</value></data>
+  <data name="OpenInk" xml:space="preserve"><value>Öffnen</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>Zeichnung öffnen</value></data>
+  <data name="Playback" xml:space="preserve"><value>Wiedergeben</value></data>
+  <data name="ReplayInk" xml:space="preserve"><value>Stiftstriche wiedergeben</value></data>
+  <data name="ExportImage" xml:space="preserve"><value>Als Bild speichern</value></data>
+  <data name="PenTip" xml:space="preserve"><value>Stiftspitze</value></data>
+  <data name="NibMode" xml:space="preserve"><value>Stiftspitzenmodus</value></data>
+  <data name="Opacity" xml:space="preserve"><value>Deckkraft</value></data>
+  <data name="InsertVideo" xml:space="preserve"><value>Video einfügen</value></data>
+  <data name="InsertImage" xml:space="preserve"><value>Bild einfügen</value></data>
+  <data name="Width" xml:space="preserve"><value>Breite</value></data>
+  <data name="TouchSelectionHint" xml:space="preserve"><value>Touch: Mit einem Finger ziehen, mit zwei Fingern zoomen oder drehen</value></data>
+  <data name="MouseSelectionHint" xml:space="preserve"><value>Maus: Zum Verschieben ziehen, zum Zoomen scrollen</value></data>
+  <data name="ParabolaWithFocus" xml:space="preserve"><value>Parabel mit Brennpunkt</value></data>
+  <data name="HyperbolaWithFoci" xml:space="preserve"><value>Hyperbel mit Brennpunkten</value></data>
+  <data name="EllipseWithFoci" xml:space="preserve"><value>Ellipse mit Brennpunkten</value></data>
+  <data name="PickOne" xml:space="preserve"><value>Eine Person auslosen</value></data>
+  <data name="Countdown" xml:space="preserve"><value>Countdown</value></data>
+  <data name="TimerShort" xml:space="preserve"><value>Timer</value></data>
+  <data name="ClickToClear" xml:space="preserve"><value>Zum Leeren klicken</value></data>
+  <data name="PointBasedPenTip" xml:space="preserve"><value>Punktbasierte Verjüngung</value></data>
+  <data name="DottedLine" xml:space="preserve"><value>Gepunktete Linie</value></data>
+  <data name="MultiFingerInk" xml:space="preserve"><value>Mit mehreren Fingern zeichnen</value></data>
+  <data name="More" xml:space="preserve"><value>Mehr</value></data>
+  <data name="MoreTools" xml:space="preserve"><value>Weitere Werkzeuge</value></data>
+  <data name="MoreFeatures" xml:space="preserve"><value>Weitere Funktionen</value></data>
+  <data name="MoreSettings" xml:space="preserve"><value>Weitere Einstellungen</value></data>
+  <data name="Tools" xml:space="preserve"><value>Werkzeuge</value></data>
+  <data name="PinShapes" xml:space="preserve"><value>Formenleiste anheften</value></data>
+  <data name="Off" xml:space="preserve"><value>Aus</value></data>
+  <data name="On" xml:space="preserve"><value>Ein</value></data>
+  <data name="NoTaper" xml:space="preserve"><value>Ohne Verjüngung</value></data>
+  <data name="HorizontalParabola" xml:space="preserve"><value>Horizontale Parabel</value></data>
+  <data name="Board" xml:space="preserve"><value>Tafel</value></data>
+  <data name="ColorBlack" xml:space="preserve"><value>Schwarz</value></data>
+  <data name="ColorWhite" xml:space="preserve"><value>Weiß</value></data>
+  <data name="ColorRed" xml:space="preserve"><value>Rot</value></data>
+  <data name="ColorPink" xml:space="preserve"><value>Rosa</value></data>
+  <data name="ColorOrange" xml:space="preserve"><value>Orange</value></data>
+  <data name="ColorYellow" xml:space="preserve"><value>Gelb</value></data>
+  <data name="ColorGreen" xml:space="preserve"><value>Grün</value></data>
+  <data name="ColorCyan" xml:space="preserve"><value>Cyan</value></data>
+  <data name="ColorBlue" xml:space="preserve"><value>Blau</value></data>
+  <data name="ColorPurple" xml:space="preserve"><value>Violett</value></data>
+  <data name="BlackPen" xml:space="preserve"><value>Stift: Schwarz</value></data>
+  <data name="WhitePen" xml:space="preserve"><value>Stift: Weiß</value></data>
+  <data name="RedPen" xml:space="preserve"><value>Stift: Rot</value></data>
+  <data name="PinkPen" xml:space="preserve"><value>Stift: Rosa</value></data>
+  <data name="OrangePen" xml:space="preserve"><value>Stift: Orange</value></data>
+  <data name="YellowPen" xml:space="preserve"><value>Stift: Gelb</value></data>
+  <data name="GreenPen" xml:space="preserve"><value>Stift: Grün</value></data>
+  <data name="CyanPen" xml:space="preserve"><value>Stift: Cyan</value></data>
+  <data name="BluePen" xml:space="preserve"><value>Stift: Blau</value></data>
+  <data name="Canvas" xml:space="preserve"><value>Zeichenfläche</value></data>
+  <data name="DrawShape" xml:space="preserve"><value>Formen zeichnen</value></data>
+  <data name="AddPage" xml:space="preserve"><value>Seite hinzufügen</value></data>
+  <data name="Arrow" xml:space="preserve"><value>Pfeil</value></data>
+  <data name="EndSlideShow" xml:space="preserve"><value>PowerPoint-Bildschirmpräsentation beenden</value></data>
+  <data name="ScreenCaptureShort" xml:space="preserve"><value>Aufnehmen</value></data>
+  <data name="ScreenCapture" xml:space="preserve"><value>Screenshot</value></data>
+  <data name="Rectangle" xml:space="preserve"><value>Rechteck</value></data>
+  <data name="CloneMode" xml:space="preserve"><value>Dupliziermodus</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>Tastenkürzelübersicht</value></data>
+  <data name="LightPalette" xml:space="preserve"><value>Hell</value></data>
+  <data name="DarkPalette" xml:space="preserve"><value>Dunkel</value></data>
+  <data name="AreaEraserShort" xml:space="preserve"><value>Fläche</value></data>
+  <data name="Ink" xml:space="preserve"><value>Freihand</value></data>
+  <data name="StrokeEraserShort" xml:space="preserve"><value>Strich</value></data>
+  <data name="InkRecognition" xml:space="preserve"><value>Freihanderkennung</value></data>
+  <data name="InkOptions" xml:space="preserve"><value>Freihandoptionen</value></data>
+  <data name="RotateLeft" xml:space="preserve"><value>Nach links drehen</value></data>
+  <data name="Annotate" xml:space="preserve"><value>Kommentieren</value></data>
+  <data name="ParallelLines" xml:space="preserve"><value>Parallele Linien</value></data>
+  <data name="SwitchBoard" xml:space="preserve"><value>Zwischen Whiteboard und Desktop-Anmerkungen wechseln</value></data>
+  <data name="SwitchPenPalette" xml:space="preserve"><value>Stiftpalette wechseln</value></data>
+  <data name="ClearAndMouseShort" xml:space="preserve"><value>Leeren</value></data>
+  <data name="Clear" xml:space="preserve"><value>Leeren</value></data>
+  <data name="ClearAnnotations" xml:space="preserve"><value>Anmerkungen löschen</value></data>
+  <data name="ClearAndMouse" xml:space="preserve"><value>Anmerkungen löschen und zum Mausmodus wechseln</value></data>
+  <data name="Delete" xml:space="preserve"><value>Löschen</value></data>
+  <data name="PreviousPage" xml:space="preserve"><value>Vorherige Seite</value></data>
+  <data name="Settings" xml:space="preserve"><value>Einstellungen</value></data>
+  <data name="Video" xml:space="preserve"><value>Video</value></data>
+  <data name="DocumentCamera" xml:space="preserve"><value>Dokumentenkamera</value></data>
+  <data name="Gestures" xml:space="preserve"><value>Gesten</value></data>
+  <data name="GestureFeatures" xml:space="preserve"><value>Gestensteuerung</value></data>
+  <data name="GestureOptions" xml:space="preserve"><value>Gestenoptionen</value></data>
+  <data name="Mouse" xml:space="preserve"><value>Maus</value></data>
+  <data name="MouseMode" xml:space="preserve"><value>Mausmodus</value></data>
+  <data name="VerticalParabola" xml:space="preserve"><value>Vertikale Parabel</value></data>
+  <data name="FlipVertical" xml:space="preserve"><value>Vertikal spiegeln</value></data>
+  <data name="Hyperbola" xml:space="preserve"><value>Hyperbel</value></data>
+  <data name="TwoFingerGestures" xml:space="preserve"><value>Zwei-Finger-Gesten</value></data>
+  <data name="TwoFingerZoom" xml:space="preserve"><value>Zoomen mit zwei Fingern</value></data>
+  <data name="TwoFingerRotate" xml:space="preserve"><value>Drehen mit zwei Fingern</value></data>
+  <data name="TwoFingerPan" xml:space="preserve"><value>Verschieben mit zwei Fingern</value></data>
+  <data name="FlipHorizontal" xml:space="preserve"><value>Horizontal spiegeln</value></data>
+  <data name="RotateRight" xml:space="preserve"><value>Nach rechts drehen</value></data>
+  <data name="Tetrahedron" xml:space="preserve"><value>Tetraeder</value></data>
+  <data name="SpeedBasedPenTip" xml:space="preserve"><value>Geschwindigkeitsabhängige Verjüngung</value></data>
+  <data name="RandomPicker" xml:space="preserve"><value>Zufallsauswahl</value></data>
+  <data name="RandomPickerShort" xml:space="preserve"><value>Auslosen</value></data>
+  <data name="PickOnePerson" xml:space="preserve"><value>Eine Person zufällig auslosen</value></data>
+  <data name="Image" xml:space="preserve"><value>Bild</value></data>
+  <data name="Shapes" xml:space="preserve"><value>Formen</value></data>
+  <data name="ShapesHint" xml:space="preserve"><value>Formen (eine Schaltfläche in der ersten Reihe gedrückt halten, um weiterzuzeichnen)</value></data>
+  <data name="Exit" xml:space="preserve"><value>Beenden</value></data>
+  <data name="Ellipse" xml:space="preserve"><value>Ellipse</value></data>
+  <data name="NextPage" xml:space="preserve"><value>Nächste Seite</value></data>
+  <data name="DashedLine" xml:space="preserve"><value>Gestrichelte Linie</value></data>
+  <data name="DashedCircle" xml:space="preserve"><value>Gestrichelter Kreis</value></data>
+  <data name="Colors" xml:space="preserve"><value>Farben</value></data>
+  <data name="SendToBoard" xml:space="preserve"><value>An Whiteboard senden</value></data>
+  <data name="PageNumber" xml:space="preserve"><value>Seitenzahl</value></data>
+  <data name="CenteredRectangle" xml:space="preserve"><value>Rechteck vom Mittelpunkt aus zeichnen</value></data>
+  <data name="CenteredEllipse" xml:space="preserve"><value>Ellipse vom Mittelpunkt aus zeichnen</value></data>
+  <data name="Hide" xml:space="preserve"><value>Ausblenden</value></data>
+  <data name="Highlighter" xml:space="preserve"><value>Textmarker</value></data>
+  <data name="RedHighlighter" xml:space="preserve"><value>Textmarker: Rot</value></data>
+  <data name="OrangeHighlighter" xml:space="preserve"><value>Textmarker: Orange</value></data>
+  <data name="YellowHighlighter" xml:space="preserve"><value>Textmarker: Gelb</value></data>
+  <data name="CyanHighlighter" xml:space="preserve"><value>Textmarker: Cyan</value></data>
+  <data name="BlueHighlighter" xml:space="preserve"><value>Textmarker: Blau</value></data>
+  <data name="PurpleHighlighter" xml:space="preserve"><value>Textmarker: Violett</value></data>
+  <data name="Circle" xml:space="preserve"><value>Kreis</value></data>
+  <data name="CircleEraserShort" xml:space="preserve"><value>Kreis</value></data>
+  <data name="Cylinder" xml:space="preserve"><value>Zylinder</value></data>
+  <data name="Cone" xml:space="preserve"><value>Kegel</value></data>
+  <data name="RepeatShapeHint" xml:space="preserve"><value>Gedrückt halten, um diese Form weiterzuzeichnen</value></data>
+  <data name="Cuboid" xml:space="preserve"><value>Quader</value></data>
+  <data name="Line" xml:space="preserve"><value>Gerade Linie</value></data>
+  <data name="Guide" xml:space="preserve"><value>Anleitung</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>Automatisch ausblenden</value></data>
+  <data name="Axis1" xml:space="preserve"><value>Koordinatenachsen 1</value></data>
+  <data name="Axis2" xml:space="preserve"><value>Koordinatenachsen 2</value></data>
+  <data name="Axis3" xml:space="preserve"><value>Koordinatenachsen 3</value></data>
+  <data name="Axis4" xml:space="preserve"><value>Koordinatenachsen 4</value></data>
+  <data name="Axis5" xml:space="preserve"><value>Koordinatenachsen 5</value></data>
+  <data name="CurrentTool" xml:space="preserve"><value>Aktuelles Werkzeug</value></data>
+  <data name="CurrentColor" xml:space="preserve"><value>Aktuelle Farbe</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>Wie Windows</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>Das Werkzeugfenster konnte nicht geöffnet werden. Prüfen Sie, ob die App-Dateien vollständig sind.</value></data>
+  <data name="ProcessPathMissing" xml:space="preserve"><value>Die ausführbare Datei der Anwendung wurde nicht gefunden.</value></data>
+  <data name="ToolStartFailed" xml:space="preserve"><value>Das Werkzeugfenster konnte nicht gestartet werden.</value></data>
+  <data name="UnexpectedError" xml:space="preserve"><value>Ein unerwarteter Fehler ist aufgetreten. Speichern Sie Ihre Zeichnung und starten Sie FluentCanvas neu.</value></data>
+  <data name="ActivationFailed" xml:space="preserve"><value>Die Datei konnte nicht an das geöffnete FluentCanvas-Fenster gesendet werden. Öffnen Sie sie über die Symbolleiste.</value></data>
+  <data name="SettingsSaveFailed" xml:space="preserve"><value>Die Einstellungen konnten nicht gespeichert werden. Prüfen Sie Ihre Schreibberechtigung für den Benutzerdatenordner.</value></data>
+  <data name="SettingsReadFailed" xml:space="preserve"><value>Die Einstellungen konnten nicht gelesen werden. Die Originaldatei wurde beibehalten.</value></data>
+  <data name="TriangleVariants" xml:space="preserve"><value>Dreiecke</value></data>
+  <data name="Triangle" xml:space="preserve"><value>Beliebiges Dreieck</value></data>
+  <data name="RightTriangle" xml:space="preserve"><value>Rechtwinkliges Dreieck</value></data>
+  <data name="IsoscelesTriangle" xml:space="preserve"><value>Gleichschenkliges Dreieck</value></data>
+  <data name="EquilateralTriangle" xml:space="preserve"><value>Gleichseitiges Dreieck</value></data>
+  <data name="Parallelogram" xml:space="preserve"><value>Parallelogramm</value></data>
+  <data name="Trapezoid" xml:space="preserve"><value>Trapez</value></data>
+  <data name="AngleMarks" xml:space="preserve"><value>Winkelmarkierungen</value></data>
+  <data name="AngleMark" xml:space="preserve"><value>Winkelbogen</value></data>
+  <data name="RightAngleMark" xml:space="preserve"><value>Rechtwinkelmarkierung</value></data>
+  <data name="CircularShapes" xml:space="preserve"><value>Kreisbögen und Kreissektoren</value></data>
+  <data name="Arc" xml:space="preserve"><value>Kreisbogen</value></data>
+  <data name="Sector" xml:space="preserve"><value>Kreissektor</value></data>
+  <data name="Semicircle" xml:space="preserve"><value>Halbkreis</value></data>
+  <data name="NumberLine" xml:space="preserve"><value>Zahlengerade</value></data>
+  <data name="NumberLineTicks" xml:space="preserve"><value>Zahlengerade mit Teilstrichen</value></data>
+  <data name="NumberLineLabeled" xml:space="preserve"><value>Zahlengerade mit Teilstrichen und Zahlen</value></data>
+  <data name="BoundingEllipse" xml:space="preserve"><value>Ellipse über zwei gegenüberliegende Ecken zeichnen</value></data>
+  <data name="Sphere" xml:space="preserve"><value>Kugel</value></data>
+  <data name="PlaceTriangleFirstSide" xml:space="preserve"><value>Beide Endpunkte der ersten Seite antippen oder die Seite ziehen</value></data>
+  <data name="PlaceTriangleVertex" xml:space="preserve"><value>Den dritten Eckpunkt antippen</value></data>
+  <data name="PlaceAngleFirstSide" xml:space="preserve"><value>Den Scheitelpunkt und einen Punkt auf der ersten Seite antippen oder vom Scheitelpunkt aus ziehen</value></data>
+  <data name="PlaceAngleSecondSide" xml:space="preserve"><value>Einen Punkt auf der zweiten Seite antippen</value></data>
+  <data name="PlaceArcRadius" xml:space="preserve"><value>Mittelpunkt und Startpunkt antippen oder vom Mittelpunkt aus einen Radius ziehen</value></data>
+  <data name="PlaceArcEnd" xml:space="preserve"><value>In Richtung des Endpunkts tippen</value></data>
+  <data name="DrawSemicircle" xml:space="preserve"><value>Den Durchmesser ziehen. Der Halbkreis erscheint links von der Zugrichtung.</value></data>
+</root>

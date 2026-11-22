@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Ready" xml:space="preserve"><value>প্রস্তুত</value></data>
+  <data name="Hours" xml:space="preserve"><value>ঘণ্টা</value></data>
+  <data name="Minutes" xml:space="preserve"><value>মিনিট</value></data>
+  <data name="Seconds" xml:space="preserve"><value>সেকেন্ড</value></data>
+  <data name="Start" xml:space="preserve"><value>শুরু করুন</value></data>
+  <data name="Reset" xml:space="preserve"><value>রিসেট করুন</value></data>
+  <data name="Compact" xml:space="preserve"><value>সংক্ষিপ্ত দৃশ্য</value></data>
+  <data name="FullScreen" xml:space="preserve"><value>পূর্ণ পর্দা</value></data>
+  <data name="TimeRemaining" xml:space="preserve"><value>অবশিষ্ট সময়</value></data>
+  <data name="TimeRemainingProgress" xml:space="preserve"><value>সময় গণনার অগ্রগতি</value></data>
+  <data name="Paused" xml:space="preserve"><value>বিরতিতে</value></data>
+  <data name="CountdownEndsAt" xml:space="preserve"><value>প্রায় {0:HH:mm:ss} এ শেষ হবে</value></data>
+  <data name="TimeUp" xml:space="preserve"><value>সময় শেষ</value></data>
+  <data name="TimeUpAlarmFailed" xml:space="preserve"><value>সময় শেষ। অ্যালার্ম বাজানো যায়নি।</value></data>
+  <data name="TimeRemainingSpoken" xml:space="preserve"><value>অবশিষ্ট সময়: {0} ঘণ্টা, {1} মিনিট, {2} সেকেন্ড</value></data>
+  <data name="Pause" xml:space="preserve"><value>বিরতি</value></data>
+  <data name="Resume" xml:space="preserve"><value>চালিয়ে যান</value></data>
+  <data name="Expand" xml:space="preserve"><value>বড় করুন</value></data>
+  <data name="ExitFullScreen" xml:space="preserve"><value>পূর্ণ পর্দা থেকে বের হন</value></data>
+  <data name="RosterLoading" xml:space="preserve"><value>তালিকা লোড হচ্ছে…</value></data>
+  <data name="ParticipantCount" xml:space="preserve"><value>অংশগ্রহণকারী</value></data>
+  <data name="DrawCount" xml:space="preserve"><value>নির্বাচনের সংখ্যা</value></data>
+  <data name="StartDraw" xml:space="preserve"><value>বেছে নিন</value></data>
+  <data name="EditRoster" xml:space="preserve"><value>তালিকা সম্পাদনা</value></data>
+  <data name="DrawOne" xml:space="preserve"><value>একজন বেছে নিন</value></data>
+  <data name="DrawResult" xml:space="preserve"><value>ফলাফল</value></data>
+  <data name="RosterReadFailed" xml:space="preserve"><value>তালিকা পড়া যায়নি। নির্বাচনে নম্বর ব্যবহার করা হবে।</value></data>
+  <data name="RosterLoaded" xml:space="preserve"><value>তালিকায় ব্যক্তি: {0}</value></data>
+  <data name="RosterUsingNumbers" xml:space="preserve"><value>নম্বর দিয়ে নির্বাচন</value></data>
+  <data name="InvalidRulesSkipped" xml:space="preserve"><value> · বাদ দেওয়া অবৈধ নিয়ম: {0}</value></data>
+  <data name="Drawing" xml:space="preserve"><value>নির্বাচন চলছে…</value></data>
+  <data name="SingleDrawResult" xml:space="preserve"><value>ফলাফল: {0}</value></data>
+  <data name="MultipleDrawResult" xml:space="preserve"><value>নির্বাচিত ব্যক্তি: {0}</value></data>
+  <data name="DrawAgain" xml:space="preserve"><value>আবার বেছে নিন</value></data>
+  <data name="NamesPerLine" xml:space="preserve"><value>প্রতি লাইনে একটি নাম লিখুন</value></data>
+  <data name="RulesPerLine" xml:space="preserve"><value>প্রতি লাইনে একটি প্রতিস্থাপন নিয়ম লিখুন</value></data>
+  <data name="Roster" xml:space="preserve"><value>নামের তালিকা</value></data>
+  <data name="ImportRoster" xml:space="preserve"><value>নাম আমদানি করুন</value></data>
+  <data name="ReplacementRules" xml:space="preserve"><value>প্রতিস্থাপনের নিয়ম</value></data>
+  <data name="ImportReplacementRules" xml:space="preserve"><value>নিয়ম আমদানি করুন</value></data>
+  <data name="ReplacementRuleExample" xml:space="preserve"><value>যেমন: আরিফুল--&gt;আরিফ। নাম বাদ দিতে ডান পাশ খালি রাখুন।</value></data>
+  <data name="RosterAndRules" xml:space="preserve"><value>তালিকা ও প্রতিস্থাপনের নিয়ম</value></data>
+  <data name="Save" xml:space="preserve"><value>সংরক্ষণ করুন</value></data>
+  <data name="Cancel" xml:space="preserve"><value>বাতিল করুন</value></data>
+  <data name="RosterSaved" xml:space="preserve"><value>তালিকা সংরক্ষিত হয়েছে</value></data>
+  <data name="RosterEditFailed" xml:space="preserve"><value>তালিকা সম্পাদনা করা যায়নি: {0}</value></data>
+  <data name="RosterImportFailed" xml:space="preserve"><value>আমদানি ব্যর্থ: {0}</value></data>
+  <data name="InvalidReplacementRule" xml:space="preserve"><value>নিয়ম যাচাই করুন। প্রতি লাইনে “মূল নাম--&gt;প্রদর্শিত নাম” লিখুন।</value></data>
+  <data name="RosterSaveTooLarge" xml:space="preserve"><value>প্রতিটি তালিকা ফাইলের সর্বোচ্চ আকার 2 MB।</value></data>
+  <data name="RosterLocked" xml:space="preserve"><value>অন্য একটি উইন্ডো তালিকা সংরক্ষণ করছে। একটু পরে আবার চেষ্টা করুন।</value></data>
+  <data name="RosterChanged" xml:space="preserve"><value>অন্য একটি উইন্ডো তালিকা বদলেছে। সর্বশেষ সংস্করণ লোড করতে সম্পাদকটি আবার খুলুন।</value></data>
+  <data name="RosterReadTooLarge" xml:space="preserve"><value>তালিকা ফাইলটি 2 MB-এর বেশি।</value></data>
+  <data name="ReplacementRulesChanged" xml:space="preserve"><value>অন্য একটি প্রক্রিয়া প্রতিস্থাপনের নিয়ম বদলেছে।</value></data>
+  <data name="RosterRollbackFailed" xml:space="preserve"><value>তালিকা সংরক্ষণ এবং আগের নিয়ম পুনরুদ্ধার করা যায়নি। দুটি ফাইল যাচাই করতে সম্পাদকটি আবার খুলুন।</value></data>
+  <data name="SavingBeforeClose" xml:space="preserve"><value>একটি নথি সংরক্ষণ করা হচ্ছে। সংরক্ষণ শেষ হলে বন্ধ করুন।</value></data>
+  <data name="CloseUnsavedWork" xml:space="preserve"><value>FluentCanvas বন্ধ করবেন? সংরক্ষণ না করা পরিবর্তন হারিয়ে যাবে।</value></data>
+  <data name="ConfirmClose" xml:space="preserve"><value>আপনি কি নিশ্চিত যে FluentCanvas বন্ধ করবেন?</value></data>
+  <data name="CancelClosing" xml:space="preserve"><value>FluentCanvas বন্ধ করা বাতিল করবেন?</value></data>
+  <data name="StartupEntryInUse" xml:space="preserve"><value>অন্য একটি ইনস্টলেশন এই স্টার্টআপ এন্ট্রি ব্যবহার করছে।</value></data>
+  <data name="AutoFoldInk" xml:space="preserve"><value>কালির লেখা মুছে টুলবার পাশে রাখা হয়েছে। লেখা ফেরাতে টীকা মোডে ফিরে পূর্বাবস্থায় ফেরান বেছে নিন।</value></data>
+  <data name="InsertImageFailed" xml:space="preserve"><value>ছবি যোগ করা যায়নি। ফাইলটি যাচাই করে আবার চেষ্টা করুন।</value></data>
+  <data name="InsertVideoFailed" xml:space="preserve"><value>ভিডিও যোগ করা যায়নি। ফাইলটি যাচাই করে আবার চেষ্টা করুন।</value></data>
+  <data name="CanvasChangedDuringImport" xml:space="preserve"><value>আমদানির সময় ক্যানভাস বদলে গেছে। নির্দিষ্ট পাতায় ফাইলটি আবার যোগ করুন।</value></data>
+  <data name="OpenToolFailed" xml:space="preserve"><value>টুলের উইন্ডো খোলা যায়নি।</value></data>
+  <data name="OpenDrawOneFailed" xml:space="preserve"><value>একজন বেছে নেওয়ার উইন্ডো খোলা যায়নি।</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>সেটিংস খোলা যায়নি।</value></data>
+  <data name="ScreenshotSaved" xml:space="preserve"><value>স্ক্রিনশট {0}-এ সংরক্ষণ করা হয়েছে</value></data>
+  <data name="ScreenshotPathFailed" xml:space="preserve"><value>স্ক্রিনশট সংরক্ষণ করা যায়নি। সেটিংসে সংরক্ষণের অবস্থান যাচাই করুন।</value></data>
+  <data name="ScreenshotFailed" xml:space="preserve"><value>স্ক্রিনশট সংরক্ষণ করা যায়নি।</value></data>
+  <data name="SlideCaptureObscured" xml:space="preserve"><value>স্লাইড শোর উইন্ডো লুকানো বা ঢাকা থাকায় স্ক্রিনশট নেওয়া যায়নি।</value></data>
+  <data name="SlideScreenshotFailed" xml:space="preserve"><value>স্লাইড শোর স্ক্রিনশট সংরক্ষণ করা যায়নি। সংরক্ষণের অবস্থান যাচাই করুন।</value></data>
+  <data name="DocumentSaved" xml:space="preserve"><value>কালির লেখা ও বস্তু {0}-এ সংরক্ষণ করা হয়েছে</value></data>
+  <data name="DocumentSaveFailed" xml:space="preserve"><value>নথি সংরক্ষণ করা যায়নি। সংরক্ষণের অবস্থান যাচাই করে আবার চেষ্টা করুন।</value></data>
+  <data name="CanvasChangedDuringBackup" xml:space="preserve"><value>ব্যাকআপ নেওয়ার সময় ক্যানভাস বদলে গেছে। আবার পরিষ্কার করে দেখুন।</value></data>
+  <data name="BackupFailed" xml:space="preserve"><value>ব্যাকআপ নেওয়া যায়নি</value></data>
+  <data name="BackupFailedPrompt" xml:space="preserve"><value>ব্যাকআপ নেওয়া যায়নি। ক্যানভাস অক্ষত আছে।</value></data>
+  <data name="CanvasChangedWhileOpening" xml:space="preserve"><value>নথি খোলার সময় ক্যানভাস বদলে গেছে। সঠিক পাতায় নথিটি আবার খুলুন।</value></data>
+  <data name="UnsavedBoardPrompt" xml:space="preserve"><value>হোয়াইটবোর্ডের কিছু পরিবর্তন সংরক্ষিত হয়নি।</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>নথি খুলুন</value></data>
+  <data name="CanvasChangedDuringSave" xml:space="preserve"><value>সংরক্ষণের সময় ক্যানভাস বদলে গেছে। নথিটি আবার খুলুন।</value></data>
+  <data name="DocumentOpenFailed" xml:space="preserve"><value>নথি খোলা যায়নি। ফাইলটি যাচাই করে আবার চেষ্টা করুন।</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>স্বয়ংক্রিয়ভাবে লুকান</value></data>
+  <data name="Pinned" xml:space="preserve"><value>পিন করা হয়েছে</value></data>
+  <data name="RemoveAsymptotes" xml:space="preserve"><value>অসীমতট রেখা সরাবেন?</value></data>
+  <data name="SavingBeforeRestart" xml:space="preserve"><value>একটি নথি সংরক্ষণ করা হচ্ছে। সংরক্ষণ শেষ হলে পুনরায় চালু করুন।</value></data>
+  <data name="RestartFailed" xml:space="preserve"><value>পুনরায় চালু করা যায়নি। কাজ সংরক্ষণ করে FluentCanvas আবার খুলুন।</value></data>
+  <data name="PngImage" xml:space="preserve"><value>PNG ছবি</value></data>
+  <data name="SelectionExportFailed" xml:space="preserve"><value>নির্বাচিত অংশ রপ্তানি করা যায়নি। ছোট অংশ বেছে নিন অথবা সংরক্ষণের অবস্থান যাচাই করুন।</value></data>
+  <data name="CloneToBoard" xml:space="preserve"><value>বোর্ডে কপি করুন</value></data>
+  <data name="CloneToNewPage" xml:space="preserve"><value>নতুন পাতায় কপি করুন</value></data>
+  <data name="EasiNoteAutomaticallyClosed" xml:space="preserve"><value>EasiNote 5 স্বয়ংক্রিয়ভাবে বন্ধ হয়েছে।</value></data>
+  <data name="Retry" xml:space="preserve"><value>আবার চেষ্টা করুন</value></data>
+  <data name="ClearWithoutBackup" xml:space="preserve"><value>ব্যাকআপ ছাড়াই পরিষ্কার করুন</value></data>
+  <data name="SaveAndOpen" xml:space="preserve"><value>সংরক্ষণ করে খুলুন</value></data>
+  <data name="OpenWithoutSaving" xml:space="preserve"><value>পরিবর্তন বাদ দিয়ে খুলুন</value></data>
+</root>

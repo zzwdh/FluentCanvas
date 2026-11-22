@@ -1,4 +1,19 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+                    xmlns:modernStyles="clr-namespace:iNKORE.UI.WPF.Modern.Helpers.Styles;assembly=iNKORE.UI.WPF.Modern">
+    <sys:Double x:Key="OverlayChromeOpacity">0.75</sys:Double>
+    <sys:Double x:Key="PresentationToolbarOpacity">0.4</sys:Double>
+    <sys:Double x:Key="NotificationSurfaceOpacity">0.95</sys:Double>
+    <ui:ElementTheme x:Key="LightConfirmationTheme">Light</ui:ElementTheme>
+    <ui:ElementTheme x:Key="DarkConfirmationTheme">Dark</ui:ElementTheme>
+    <modernStyles:BackdropType x:Key="ConfirmationBackdrop">Mica</modernStyles:BackdropType>
+
+    <SolidColorBrush x:Key="NotificationSurfaceBrush" Color="White" />
+    <SolidColorBrush x:Key="NotificationBorderBrush" Color="Black" />
+    <SolidColorBrush x:Key="NotificationTextBrush" Color="Black" />
+
     <SolidColorBrush x:Key="PopupWindowBackground" Opacity="0.95" Color="#F0F3F9" />
     <SolidColorBrush x:Key="PopupWindowBorderBrush" Opacity="0.8" Color="#0066BF" />
     <SolidColorBrush x:Key="PopupWindowForeground" Color="Black" />

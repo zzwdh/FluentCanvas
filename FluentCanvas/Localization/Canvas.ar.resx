@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="WindowTitle" xml:space="preserve"><value>لوحة FluentCanvas البيضاء</value></data>
+  <data name="Undo" xml:space="preserve"><value>تراجع</value></data>
+  <data name="Redo" xml:space="preserve"><value>إعادة</value></data>
+  <data name="Select" xml:space="preserve"><value>تحديد</value></data>
+  <data name="Pen" xml:space="preserve"><value>قلم</value></data>
+  <data name="Eraser" xml:space="preserve"><value>ممحاة</value></data>
+  <data name="EraseStrokes" xml:space="preserve"><value>مسح ضربة قلم كاملة</value></data>
+  <data name="ExpandToolbar" xml:space="preserve"><value>توسيع شريط الأدوات العائم</value></data>
+  <data name="CollapseToolbar" xml:space="preserve"><value>إخفاء شريط الأدوات العائم</value></data>
+  <data name="ToggleToolbar" xml:space="preserve"><value>توسيع شريط الأدوات العائم أو طيّه</value></data>
+  <data name="ToolbarDrag" xml:space="preserve"><value>اسحب لتحريك شريط الأدوات</value></data>
+  <data name="ToolbarDragOrToggle" xml:space="preserve"><value>اسحب لتحريك الشريط. انقر لتوسيعه أو طيّه.</value></data>
+  <data name="ExpandFromLeft" xml:space="preserve"><value>توسيع الشريط من اليسار</value></data>
+  <data name="ExpandFromRight" xml:space="preserve"><value>توسيع الشريط من اليمين</value></data>
+  <data name="SaveInk" xml:space="preserve"><value>حفظ</value></data>
+  <data name="SaveDocument" xml:space="preserve"><value>حفظ الرسم</value></data>
+  <data name="OpenInk" xml:space="preserve"><value>فتح</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>فتح الرسم</value></data>
+  <data name="Playback" xml:space="preserve"><value>إعادة العرض</value></data>
+  <data name="ReplayInk" xml:space="preserve"><value>إعادة عرض ضربات القلم</value></data>
+  <data name="ExportImage" xml:space="preserve"><value>حفظ كصورة</value></data>
+  <data name="PenTip" xml:space="preserve"><value>رأس القلم</value></data>
+  <data name="NibMode" xml:space="preserve"><value>وضع سن القلم</value></data>
+  <data name="Opacity" xml:space="preserve"><value>العتامة</value></data>
+  <data name="InsertVideo" xml:space="preserve"><value>إدراج فيديو</value></data>
+  <data name="InsertImage" xml:space="preserve"><value>إدراج صورة</value></data>
+  <data name="Width" xml:space="preserve"><value>السماكة</value></data>
+  <data name="TouchSelectionHint" xml:space="preserve"><value>باللمس: اسحب بإصبع، واستعمل إصبعين للتكبير أو التدوير.</value></data>
+  <data name="MouseSelectionHint" xml:space="preserve"><value>بالفأرة: اسحب للتحريك ومرّر العجلة للتكبير والتصغير.</value></data>
+  <data name="ParabolaWithFocus" xml:space="preserve"><value>قطع مكافئ مع البؤرة</value></data>
+  <data name="HyperbolaWithFoci" xml:space="preserve"><value>قطع زائد مع البؤرتين</value></data>
+  <data name="EllipseWithFoci" xml:space="preserve"><value>قطع ناقص مع البؤرتين</value></data>
+  <data name="PickOne" xml:space="preserve"><value>اختيار شخص</value></data>
+  <data name="Countdown" xml:space="preserve"><value>العد التنازلي</value></data>
+  <data name="TimerShort" xml:space="preserve"><value>مؤقت</value></data>
+  <data name="ClickToClear" xml:space="preserve"><value>انقر للمسح</value></data>
+  <data name="PointBasedPenTip" xml:space="preserve"><value>تضييق الخط بحسب النقاط</value></data>
+  <data name="DottedLine" xml:space="preserve"><value>خط منقّط</value></data>
+  <data name="MultiFingerInk" xml:space="preserve"><value>الكتابة بعدة أصابع</value></data>
+  <data name="More" xml:space="preserve"><value>المزيد</value></data>
+  <data name="MoreTools" xml:space="preserve"><value>أدوات إضافية</value></data>
+  <data name="MoreFeatures" xml:space="preserve"><value>ميزات إضافية</value></data>
+  <data name="MoreSettings" xml:space="preserve"><value>إعدادات إضافية</value></data>
+  <data name="Tools" xml:space="preserve"><value>الأدوات</value></data>
+  <data name="PinShapes" xml:space="preserve"><value>تثبيت شريط الأشكال</value></data>
+  <data name="Off" xml:space="preserve"><value>إيقاف</value></data>
+  <data name="On" xml:space="preserve"><value>تشغيل</value></data>
+  <data name="NoTaper" xml:space="preserve"><value>سماكة ثابتة</value></data>
+  <data name="HorizontalParabola" xml:space="preserve"><value>قطع مكافئ أفقي</value></data>
+  <data name="Board" xml:space="preserve"><value>اللوحة</value></data>
+  <data name="ColorBlack" xml:space="preserve"><value>أسود</value></data>
+  <data name="ColorWhite" xml:space="preserve"><value>أبيض</value></data>
+  <data name="ColorRed" xml:space="preserve"><value>أحمر</value></data>
+  <data name="ColorPink" xml:space="preserve"><value>وردي</value></data>
+  <data name="ColorOrange" xml:space="preserve"><value>برتقالي</value></data>
+  <data name="ColorYellow" xml:space="preserve"><value>أصفر</value></data>
+  <data name="ColorGreen" xml:space="preserve"><value>أخضر</value></data>
+  <data name="ColorCyan" xml:space="preserve"><value>سماوي</value></data>
+  <data name="ColorBlue" xml:space="preserve"><value>أزرق</value></data>
+  <data name="ColorPurple" xml:space="preserve"><value>بنفسجي</value></data>
+  <data name="BlackPen" xml:space="preserve"><value>قلم · أسود</value></data>
+  <data name="WhitePen" xml:space="preserve"><value>قلم · أبيض</value></data>
+  <data name="RedPen" xml:space="preserve"><value>قلم · أحمر</value></data>
+  <data name="PinkPen" xml:space="preserve"><value>قلم · وردي</value></data>
+  <data name="OrangePen" xml:space="preserve"><value>قلم · برتقالي</value></data>
+  <data name="YellowPen" xml:space="preserve"><value>قلم · أصفر</value></data>
+  <data name="GreenPen" xml:space="preserve"><value>قلم · أخضر</value></data>
+  <data name="CyanPen" xml:space="preserve"><value>قلم · سماوي</value></data>
+  <data name="BluePen" xml:space="preserve"><value>قلم · أزرق</value></data>
+  <data name="Canvas" xml:space="preserve"><value>مساحة الرسم</value></data>
+  <data name="DrawShape" xml:space="preserve"><value>رسم أشكال</value></data>
+  <data name="AddPage" xml:space="preserve"><value>إضافة صفحة</value></data>
+  <data name="Arrow" xml:space="preserve"><value>سهم</value></data>
+  <data name="EndSlideShow" xml:space="preserve"><value>إنهاء عرض شرائح PowerPoint</value></data>
+  <data name="ScreenCaptureShort" xml:space="preserve"><value>التقاط</value></data>
+  <data name="ScreenCapture" xml:space="preserve"><value>لقطة شاشة</value></data>
+  <data name="Rectangle" xml:space="preserve"><value>مستطيل</value></data>
+  <data name="CloneMode" xml:space="preserve"><value>وضع النسخ</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>دليل اختصارات لوحة المفاتيح</value></data>
+  <data name="LightPalette" xml:space="preserve"><value>فاتح</value></data>
+  <data name="DarkPalette" xml:space="preserve"><value>داكن</value></data>
+  <data name="AreaEraserShort" xml:space="preserve"><value>مساحة</value></data>
+  <data name="Ink" xml:space="preserve"><value>الحبر</value></data>
+  <data name="StrokeEraserShort" xml:space="preserve"><value>ضربة</value></data>
+  <data name="InkRecognition" xml:space="preserve"><value>التعرّف على الحبر</value></data>
+  <data name="InkOptions" xml:space="preserve"><value>خيارات الحبر</value></data>
+  <data name="RotateLeft" xml:space="preserve"><value>تدوير لليسار</value></data>
+  <data name="Annotate" xml:space="preserve"><value>إضافة تعليق</value></data>
+  <data name="ParallelLines" xml:space="preserve"><value>خطوط متوازية</value></data>
+  <data name="SwitchBoard" xml:space="preserve"><value>التبديل بين اللوحة البيضاء والتعليق على سطح المكتب</value></data>
+  <data name="SwitchPenPalette" xml:space="preserve"><value>تبديل لوحة ألوان القلم</value></data>
+  <data name="ClearAndMouseShort" xml:space="preserve"><value>مسح</value></data>
+  <data name="Clear" xml:space="preserve"><value>مسح</value></data>
+  <data name="ClearAnnotations" xml:space="preserve"><value>مسح التعليقات</value></data>
+  <data name="ClearAndMouse" xml:space="preserve"><value>مسح التعليقات والتبديل إلى وضع الفأرة</value></data>
+  <data name="Delete" xml:space="preserve"><value>حذف</value></data>
+  <data name="PreviousPage" xml:space="preserve"><value>الصفحة السابقة</value></data>
+  <data name="Settings" xml:space="preserve"><value>الإعدادات</value></data>
+  <data name="Video" xml:space="preserve"><value>فيديو</value></data>
+  <data name="DocumentCamera" xml:space="preserve"><value>كاميرا المستندات</value></data>
+  <data name="Gestures" xml:space="preserve"><value>الإيماءات</value></data>
+  <data name="GestureFeatures" xml:space="preserve"><value>عناصر التحكم بالإيماءات</value></data>
+  <data name="GestureOptions" xml:space="preserve"><value>خيارات الإيماءات</value></data>
+  <data name="Mouse" xml:space="preserve"><value>الفأرة</value></data>
+  <data name="MouseMode" xml:space="preserve"><value>وضع الفأرة</value></data>
+  <data name="VerticalParabola" xml:space="preserve"><value>قطع مكافئ رأسي</value></data>
+  <data name="FlipVertical" xml:space="preserve"><value>قلب رأسي</value></data>
+  <data name="Hyperbola" xml:space="preserve"><value>قطع زائد</value></data>
+  <data name="TwoFingerGestures" xml:space="preserve"><value>إيماءات بإصبعين</value></data>
+  <data name="TwoFingerZoom" xml:space="preserve"><value>التكبير بإصبعين</value></data>
+  <data name="TwoFingerRotate" xml:space="preserve"><value>التدوير بإصبعين</value></data>
+  <data name="TwoFingerPan" xml:space="preserve"><value>التحريك بإصبعين</value></data>
+  <data name="FlipHorizontal" xml:space="preserve"><value>قلب أفقي</value></data>
+  <data name="RotateRight" xml:space="preserve"><value>تدوير لليمين</value></data>
+  <data name="Tetrahedron" xml:space="preserve"><value>رباعي السطوح</value></data>
+  <data name="SpeedBasedPenTip" xml:space="preserve"><value>تضييق الخط بحسب السرعة</value></data>
+  <data name="RandomPicker" xml:space="preserve"><value>الاختيار العشوائي</value></data>
+  <data name="RandomPickerShort" xml:space="preserve"><value>اختيار</value></data>
+  <data name="PickOnePerson" xml:space="preserve"><value>اختيار شخص واحد عشوائيًا</value></data>
+  <data name="Image" xml:space="preserve"><value>صورة</value></data>
+  <data name="Shapes" xml:space="preserve"><value>الأشكال</value></data>
+  <data name="ShapesHint" xml:space="preserve"><value>الأشكال (اضغط مطولًا على زر في الصف الأول لتكرار الرسم)</value></data>
+  <data name="Exit" xml:space="preserve"><value>خروج</value></data>
+  <data name="Ellipse" xml:space="preserve"><value>قطع ناقص</value></data>
+  <data name="NextPage" xml:space="preserve"><value>الصفحة التالية</value></data>
+  <data name="DashedLine" xml:space="preserve"><value>خط متقطّع</value></data>
+  <data name="DashedCircle" xml:space="preserve"><value>دائرة متقطّعة</value></data>
+  <data name="Colors" xml:space="preserve"><value>الألوان</value></data>
+  <data name="SendToBoard" xml:space="preserve"><value>إرسال إلى اللوحة</value></data>
+  <data name="PageNumber" xml:space="preserve"><value>رقم الصفحة</value></data>
+  <data name="CenteredRectangle" xml:space="preserve"><value>رسم مستطيل من المركز</value></data>
+  <data name="CenteredEllipse" xml:space="preserve"><value>رسم قطع ناقص من المركز</value></data>
+  <data name="Hide" xml:space="preserve"><value>إخفاء</value></data>
+  <data name="Highlighter" xml:space="preserve"><value>قلم تمييز</value></data>
+  <data name="RedHighlighter" xml:space="preserve"><value>قلم تمييز · أحمر</value></data>
+  <data name="OrangeHighlighter" xml:space="preserve"><value>قلم تمييز · برتقالي</value></data>
+  <data name="YellowHighlighter" xml:space="preserve"><value>قلم تمييز · أصفر</value></data>
+  <data name="CyanHighlighter" xml:space="preserve"><value>قلم تمييز · سماوي</value></data>
+  <data name="BlueHighlighter" xml:space="preserve"><value>قلم تمييز · أزرق</value></data>
+  <data name="PurpleHighlighter" xml:space="preserve"><value>قلم تمييز · بنفسجي</value></data>
+  <data name="Circle" xml:space="preserve"><value>دائرة</value></data>
+  <data name="CircleEraserShort" xml:space="preserve"><value>دائري</value></data>
+  <data name="Cylinder" xml:space="preserve"><value>أسطوانة</value></data>
+  <data name="Cone" xml:space="preserve"><value>مخروط</value></data>
+  <data name="RepeatShapeHint" xml:space="preserve"><value>اضغط مطولًا لتكرار رسم هذا الشكل</value></data>
+  <data name="Cuboid" xml:space="preserve"><value>متوازي مستطيلات</value></data>
+  <data name="Line" xml:space="preserve"><value>خط مستقيم</value></data>
+  <data name="Guide" xml:space="preserve"><value>الدليل</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>إخفاء تلقائي</value></data>
+  <data name="Axis1" xml:space="preserve"><value>محاور الإحداثيات 1</value></data>
+  <data name="Axis2" xml:space="preserve"><value>محاور الإحداثيات 2</value></data>
+  <data name="Axis3" xml:space="preserve"><value>محاور الإحداثيات 3</value></data>
+  <data name="Axis4" xml:space="preserve"><value>محاور الإحداثيات 4</value></data>
+  <data name="Axis5" xml:space="preserve"><value>محاور الإحداثيات 5</value></data>
+  <data name="CurrentTool" xml:space="preserve"><value>الأداة الحالية</value></data>
+  <data name="CurrentColor" xml:space="preserve"><value>اللون الحالي</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>استخدام لغة Windows</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>تعذر فتح نافذة الأداة. تحقق من سلامة ملفات التطبيق.</value></data>
+  <data name="ProcessPathMissing" xml:space="preserve"><value>لم يُعثر على الملف التنفيذي للتطبيق.</value></data>
+  <data name="ToolStartFailed" xml:space="preserve"><value>تعذر تشغيل نافذة الأداة.</value></data>
+  <data name="UnexpectedError" xml:space="preserve"><value>حدث خطأ غير متوقع. احفظ الرسم ثم أعد تشغيل FluentCanvas.</value></data>
+  <data name="ActivationFailed" xml:space="preserve"><value>تعذر إرسال الملف إلى نافذة FluentCanvas المفتوحة. حاول فتحه من شريط الأدوات.</value></data>
+  <data name="SettingsSaveFailed" xml:space="preserve"><value>تعذر حفظ الإعدادات. تحقق من إذن الكتابة في مجلد بيانات المستخدم.</value></data>
+  <data name="SettingsReadFailed" xml:space="preserve"><value>تعذرت قراءة الإعدادات. تم الاحتفاظ بالملف الأصلي.</value></data>
+  <data name="TriangleVariants" xml:space="preserve"><value>خيارات المثلث</value></data>
+  <data name="Triangle" xml:space="preserve"><value>مثلث حر</value></data>
+  <data name="RightTriangle" xml:space="preserve"><value>مثلث قائم الزاوية</value></data>
+  <data name="IsoscelesTriangle" xml:space="preserve"><value>مثلث متساوي الساقين</value></data>
+  <data name="EquilateralTriangle" xml:space="preserve"><value>مثلث متساوي الأضلاع</value></data>
+  <data name="Parallelogram" xml:space="preserve"><value>متوازي أضلاع</value></data>
+  <data name="Trapezoid" xml:space="preserve"><value>شبه منحرف</value></data>
+  <data name="AngleMarks" xml:space="preserve"><value>علامات الزوايا</value></data>
+  <data name="AngleMark" xml:space="preserve"><value>قوس الزاوية</value></data>
+  <data name="RightAngleMark" xml:space="preserve"><value>علامة الزاوية القائمة</value></data>
+  <data name="CircularShapes" xml:space="preserve"><value>الأقواس والقطاعات الدائرية</value></data>
+  <data name="Arc" xml:space="preserve"><value>قوس دائري</value></data>
+  <data name="Sector" xml:space="preserve"><value>قطاع دائري</value></data>
+  <data name="Semicircle" xml:space="preserve"><value>نصف دائرة</value></data>
+  <data name="NumberLine" xml:space="preserve"><value>خط الأعداد</value></data>
+  <data name="NumberLineTicks" xml:space="preserve"><value>خط الأعداد بعلامات تدريج</value></data>
+  <data name="NumberLineLabeled" xml:space="preserve"><value>خط الأعداد بعلامات تدريج وأرقام</value></data>
+  <data name="BoundingEllipse" xml:space="preserve"><value>ارسم قطعًا ناقصًا من زاويتين متقابلتين</value></data>
+  <data name="Sphere" xml:space="preserve"><value>كرة</value></data>
+  <data name="PlaceTriangleFirstSide" xml:space="preserve"><value>اضغط على طرفي الضلع الأول أو اسحب لرسمه</value></data>
+  <data name="PlaceTriangleVertex" xml:space="preserve"><value>اضغط لتحديد الرأس الثالث</value></data>
+  <data name="PlaceAngleFirstSide" xml:space="preserve"><value>اضغط على الرأس ونقطة على الضلع الأول أو اسحب من الرأس</value></data>
+  <data name="PlaceAngleSecondSide" xml:space="preserve"><value>اضغط على نقطة على الضلع الثاني</value></data>
+  <data name="PlaceArcRadius" xml:space="preserve"><value>اضغط على المركز ونقطة البداية أو اسحب من المركز لرسم نصف القطر</value></data>
+  <data name="PlaceArcEnd" xml:space="preserve"><value>اضغط في اتجاه نقطة النهاية</value></data>
+  <data name="DrawSemicircle" xml:space="preserve"><value>اسحب لرسم القطر. يظهر نصف الدائرة يسار اتجاه السحب.</value></data>
+</root>

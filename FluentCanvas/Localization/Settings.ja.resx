@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotateOnSlideShow" xml:space="preserve"><value>スライド ショーの開始時に注釈モードに切り替える</value></data>
+  <data name="App" xml:space="preserve"><value>アプリ</value></data>
+  <data name="Appearance" xml:space="preserve"><value>外観</value></data>
+  <data name="Apply" xml:space="preserve"><value>適用</value></data>
+  <data name="AutosaveLocation" xml:space="preserve"><value>自動保存先</value></data>
+  <data name="AutosaveRetention" xml:space="preserve"><value>自動保存ファイルの保持日数</value></data>
+  <data name="BoardScale" xml:space="preserve"><value>ホワイトボードの操作部のサイズ (%)</value></data>
+  <data name="Cancel" xml:space="preserve"><value>キャンセル</value></data>
+  <data name="CaptureOnClear" xml:space="preserve"><value>画面を消去する前に自動でスクリーンショットを撮る</value></data>
+  <data name="CaptureSlide" xml:space="preserve"><value>スライドを切り替えるときに自動でスクリーンショットを撮る</value></data>
+  <data name="ChangeFailed" xml:space="preserve"><value>設定を変更できませんでした。もう一度お試しください。</value></data>
+  <data name="ChooseFolder" xml:space="preserve"><value>フォルダーを選ぶ…</value></data>
+  <data name="ChooseFolderFailed" xml:space="preserve"><value>フォルダーを選択できませんでした: {0}</value></data>
+  <data name="CleanAutosaves" xml:space="preserve"><value>起動時に保持期間を過ぎた自動保存ファイルを削除する</value></data>
+  <data name="ConnectionFailed" xml:space="preserve"><value>FluentCanvas に接続できませんでした。設定を読み直してください。</value></data>
+  <data name="Copied" xml:space="preserve"><value>コピーしました</value></data>
+  <data name="CopyDiagnostics" xml:space="preserve"><value>診断情報をコピーする</value></data>
+  <data name="CopyFailed" xml:space="preserve"><value>コピーできませんでした。もう一度お試しください</value></data>
+  <data name="Dark" xml:space="preserve"><value>ダーク</value></data>
+  <data name="DateFolders" xml:space="preserve"><value>スクリーンショットを日付別のフォルダーにまとめる</value></data>
+  <data name="DetectPowerPoint" xml:space="preserve"><value>PowerPoint のスライド ショーを検出する</value></data>
+  <data name="Diagnostics" xml:space="preserve"><value>診断情報</value></data>
+  <data name="DiagnosticsAndPrivacy" xml:space="preserve"><value>診断とプライバシー</value></data>
+  <data name="DiagnosticsComponents" xml:space="preserve"><value>キャンバス  WPF
+診断ウィンドウ  WinUI 3</value></data>
+  <data name="DiagnosticsTitle" xml:space="preserve"><value>FluentCanvas · 診断情報</value></data>
+  <data name="DirectoryNotWritable" xml:space="preserve"><value>選択したフォルダーに書き込めませんでした。</value></data>
+  <data name="DirectoryTimeout" xml:space="preserve"><value>選択したフォルダーが応答しませんでした。接続を確認してもう一度お試しください。</value></data>
+  <data name="EnableWps" xml:space="preserve"><value>WPS スライド ショー（試験機能、デスクトップ用アドインが必要）</value></data>
+  <data name="Exit" xml:space="preserve"><value>終了</value></data>
+  <data name="ExitApp" xml:space="preserve"><value>FluentCanvas を終了する</value></data>
+  <data name="FingerEraserScale" xml:space="preserve"><value>指モードの消しゴムのサイズ倍率</value></data>
+  <data name="FingerEraserThreshold" xml:space="preserve"><value>指モードの範囲消しゴムのしきい値倍率</value></data>
+  <data name="FingerTouchWidth" xml:space="preserve"><value>指モードのタッチ幅のしきい値</value></data>
+  <data name="FoldAtStartup" xml:space="preserve"><value>起動時にツールバーを画面の端に折りたたむ</value></data>
+  <data name="FoldInSlideShow" xml:space="preserve"><value>スライド ショー中にツールバーを自動で折りたたむ</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>Windows に従う</value></data>
+  <data name="GlobalHotkeys" xml:space="preserve"><value>グローバル ショートカット</value></data>
+  <data name="Guide" xml:space="preserve"><value>操作ガイド</value></data>
+  <data name="GuideCanvas" xml:space="preserve"><value>キャンバスのショートカット</value></data>
+  <data name="GuideCapture" xml:space="preserve"><value>スクリーンショットをデスクトップに保存する</value></data>
+  <data name="GuideClear" xml:space="preserve"><value>キャンバスを消去するか、選択内容を削除する</value></data>
+  <data name="GuideEraser" xml:space="preserve"><value>消しゴムに切り替えるか、範囲消去とストローク消去を切り替える</value></data>
+  <data name="GuideGlobal" xml:space="preserve"><value>既定のグローバル ショートカット</value></data>
+  <data name="GuideIntro" xml:space="preserve"><value>別のアプリやスライド ショーにフォーカスがあるときも、グローバル ショートカットを使用できます。変更や競合の解消は、設定の「グローバル ショートカット」で行ってください。</value></data>
+  <data name="GuideLine" xml:space="preserve"><value>直線ツールを選ぶ</value></data>
+  <data name="GuideNextKeys" xml:space="preserve"><value>↓ / → / Page Down / N / スペース</value></data>
+  <data name="GuidePen" xml:space="preserve"><value>ペンに切り替えるか、カラーパレットを開閉する</value></data>
+  <data name="GuidePointer" xml:space="preserve"><value>描画を終了してポインターに戻る</value></data>
+  <data name="GuideRedo" xml:space="preserve"><value>やり直す</value></data>
+  <data name="GuideSelect" xml:space="preserve"><value>選択ツールに切り替える</value></data>
+  <data name="GuideSlides" xml:space="preserve"><value>注釈ウィンドウにフォーカスがあるときのスライド ショー操作</value></data>
+  <data name="GuideTitle" xml:space="preserve"><value>FluentCanvas · 操作ガイド</value></data>
+  <data name="GuideTools" xml:space="preserve"><value>フローティング ツールバーのツールを表示または非表示にする</value></data>
+  <data name="GuideUndo" xml:space="preserve"><value>元に戻す</value></data>
+  <data name="GuideWheel" xml:space="preserve"><value>マウス ホイールを下 / 上に回す</value></data>
+  <data name="GuideWheelSlides" xml:space="preserve"><value>次 / 前のスライド</value></data>
+  <data name="HotkeyApplyName" xml:space="preserve"><value>「{0}」のグローバル ショートカットを適用する</value></data>
+  <data name="HotkeyBoard" xml:space="preserve"><value>ホワイトボードとデスクトップ注釈を切り替える</value></data>
+  <data name="HotkeyCapture" xml:space="preserve"><value>スクリーンショットを撮る</value></data>
+  <data name="HotkeyClear" xml:space="preserve"><value>キャンバスまたは選択内容を消去する</value></data>
+  <data name="HotkeyConflict" xml:space="preserve"><value>別の操作またはアプリで既に使われています。</value></data>
+  <data name="HotkeyDisabled" xml:space="preserve"><value>無効</value></data>
+  <data name="HotkeyDraw" xml:space="preserve"><value>ペンに切り替える</value></data>
+  <data name="HotkeyEndSlides" xml:space="preserve"><value>スライド ショーを終了する</value></data>
+  <data name="HotkeyHint" xml:space="preserve"><value>Ctrl+Shift+B など、修飾キーを含む組み合わせを入力してください。ショートカットを無効にするには、入力欄を空にして「適用」を選びます。</value></data>
+  <data name="HotkeyInputName" xml:space="preserve"><value>「{0}」のグローバル ショートカット</value></data>
+  <data name="HotkeyInvalid" xml:space="preserve"><value>ショートカットの形式が無効です。Ctrl+Shift+B などの組み合わせを使用してください。</value></data>
+  <data name="HotkeyLimit" xml:space="preserve"><value>グローバル ショートカットの上限に達しました。</value></data>
+  <data name="HotkeyModifier" xml:space="preserve"><value>Ctrl+Shift+B など、修飾キーを含む組み合わせを入力してください。</value></data>
+  <data name="HotkeyPointer" xml:space="preserve"><value>ポインターに戻る</value></data>
+  <data name="HotkeyResetName" xml:space="preserve"><value>「{0}」のグローバル ショートカットを既定値に戻す</value></data>
+  <data name="HotkeySaveFailed" xml:space="preserve"><value>ショートカットを保存できませんでした。</value></data>
+  <data name="HotkeyTools" xml:space="preserve"><value>ツール グループを開閉する</value></data>
+  <data name="HotkeyUnavailable" xml:space="preserve"><value>次のグローバル ショートカットを登録できませんでした: {0}。設定で変更できます。</value></data>
+  <data name="HotkeyUnknown" xml:space="preserve"><value>このグローバル ショートカットを認識できませんでした。</value></data>
+  <data name="HotkeyUnknownKey" xml:space="preserve"><value>Windows がこのキーを認識できませんでした。</value></data>
+  <data name="HotkeyWindowsError" xml:space="preserve"><value>Windows でショートカットを登録できませんでした ({0})。</value></data>
+  <data name="InstallationMethod" xml:space="preserve"><value>インストール方式  {0}</value></data>
+  <data name="InvalidSession" xml:space="preserve"><value>設定ウィンドウのセッションが無効です。</value></data>
+  <data name="InvalidValue" xml:space="preserve"><value>設定値が無効です。</value></data>
+  <data name="Language" xml:space="preserve"><value>表示言語</value></data>
+  <data name="LanguageRestart" xml:space="preserve"><value>選択した言語は FluentCanvas の再起動後に適用されます。</value></data>
+  <data name="Light" xml:space="preserve"><value>ライト</value></data>
+  <data name="MoreOptions" xml:space="preserve"><value>その他のオプション</value></data>
+  <data name="MultiTouch" xml:space="preserve"><value>自動切り替えがオフのときに複数の指で描画する</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>次のスライド</value></data>
+  <data name="NibEraserScale" xml:space="preserve"><value>ペン先モードの消しゴムのサイズ倍率</value></data>
+  <data name="NibEraserThreshold" xml:space="preserve"><value>ペン先モードの範囲消しゴムのしきい値倍率</value></data>
+  <data name="NibMode" xml:space="preserve"><value>ペン先モードを使う</value></data>
+  <data name="NibTouchWidth" xml:space="preserve"><value>ペン先モードのタッチ幅のしきい値</value></data>
+  <data name="Off" xml:space="preserve"><value>オフ</value></data>
+  <data name="On" xml:space="preserve"><value>オン</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>設定を開けませんでした。もう一度お試しください。</value></data>
+  <data name="PenCursor" xml:space="preserve"><value>ペンのカーソルを表示する</value></data>
+  <data name="PenWidth" xml:space="preserve"><value>ペンの太さ</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>前のスライド</value></data>
+  <data name="QuadInfrared" xml:space="preserve"><value>4 辺赤外線方式のタッチスクリーンを使う</value></data>
+  <data name="RecognizeShapes" xml:space="preserve"><value>手描きの図形を認識する</value></data>
+  <data name="Reload" xml:space="preserve"><value>設定を読み直す</value></data>
+  <data name="ReportingStartFailed" xml:space="preserve"><value>エラー レポートを開始できませんでした。</value></data>
+  <data name="ResetDefault" xml:space="preserve"><value>既定に戻す</value></data>
+  <data name="Restart" xml:space="preserve"><value>再起動</value></data>
+  <data name="RestartApp" xml:space="preserve"><value>FluentCanvas を再起動する</value></data>
+  <data name="RunAtStartup" xml:space="preserve"><value>Windows にサインインしたときに起動する</value></data>
+  <data name="SaveBeforeExit" xml:space="preserve"><value>続行する前に、未保存のホワイトボードのページと注釈をバックアップします。</value></data>
+  <data name="SavedApplyFailed" xml:space="preserve"><value>設定は保存されましたが、現在のホワイトボードに適用できませんでした。作業内容を保存して FluentCanvas を再起動してください。</value></data>
+  <data name="SaveFailed" xml:space="preserve"><value>設定を保存できませんでした。</value></data>
+  <data name="SaveInkOnCapture" xml:space="preserve"><value>スクリーンショットと一緒にインクを保存する</value></data>
+  <data name="SaveSlideInk" xml:space="preserve"><value>スライドごとにインクを自動保存する</value></data>
+  <data name="Saving" xml:space="preserve"><value>保存</value></data>
+  <data name="SendErrors" xml:space="preserve"><value>アプリのエラーを Sentry に送信する</value></data>
+  <data name="SettingsExited" xml:space="preserve"><value>設定ウィンドウが予期せず閉じました。もう一度お試しください。</value></data>
+  <data name="SettingUnavailable" xml:space="preserve"><value>この設定は変更できません。</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>ショートカット ガイド</value></data>
+  <data name="Slides" xml:space="preserve"><value>スライド ショー</value></data>
+  <data name="SpecialTouchScreen" xml:space="preserve"><value>タッチスクリーンのカスタム調整を使う</value></data>
+  <data name="Standalone" xml:space="preserve"><value>スタンドアロン</value></data>
+  <data name="Startup" xml:space="preserve"><value>起動</value></data>
+  <data name="StartupChangeFailed" xml:space="preserve"><value>スタートアップ設定を変更できませんでした。Windows の「スタートアップ アプリ」を確認してください。</value></data>
+  <data name="StartupDisabledByUser" xml:space="preserve"><value>Windows の「スタートアップ アプリ」設定で有効にできます。</value></data>
+  <data name="StartupNotEnabled" xml:space="preserve"><value>Windows で自動起動が有効になっていません。</value></data>
+  <data name="StartupPolicyDisabled" xml:space="preserve"><value>組織のポリシーでこのスタートアップ項目が無効になっています。</value></data>
+  <data name="StartupPolicyEnabled" xml:space="preserve"><value>組織のポリシーでこのスタートアップ項目が有効になっています。</value></data>
+  <data name="StartupUnreadable" xml:space="preserve"><value>Windows のスタートアップ状態を読み取れませんでした。</value></data>
+  <data name="StoreAutoDownload" xml:space="preserve"><value>起動時に更新を自動で確認してダウンロードする</value></data>
+  <data name="StoreAvailable" xml:space="preserve"><value>Microsoft Store に利用できる更新があります。</value></data>
+  <data name="StoreBackingUp" xml:space="preserve"><value>保存していない作業をバックアップしています…</value></data>
+  <data name="StoreBackupAndUpdate" xml:space="preserve"><value>バックアップして更新する</value></data>
+  <data name="StoreBackupFailed" xml:space="preserve"><value>作業内容をバックアップできませんでした。保存先を確認してもう一度お試しください。</value></data>
+  <data name="StoreBackupLocation" xml:space="preserve"><value>
+バックアップ先: {0}</value></data>
+  <data name="StoreBackupStateChanged" xml:space="preserve"><value>バックアップ中にホワイトボードまたはスライド ショーが変わりました。もう一度お試しください。</value></data>
+  <data name="StoreBoardBusy" xml:space="preserve"><value>ホワイトボードは処理中です。現在の操作が終わってから、もう一度お試しください。</value></data>
+  <data name="StoreCanceled" xml:space="preserve"><value>更新がキャンセルされました。</value></data>
+  <data name="StoreCheck" xml:space="preserve"><value>更新プログラムを確認する</value></data>
+  <data name="StoreChecking" xml:space="preserve"><value>Microsoft Store の更新を確認しています…</value></data>
+  <data name="StoreCompleted" xml:space="preserve"><value>Microsoft Store の更新が完了しました。</value></data>
+  <data name="StoreDeferred" xml:space="preserve"><value>後で更新を確認してインストールできます。</value></data>
+  <data name="StoreDownloadHint" xml:space="preserve"><value>自動ダウンロードには Microsoft Store の更新設定とネットワーク設定が適用されます。インストールはストアが管理します。</value></data>
+  <data name="StoreDownloading" xml:space="preserve"><value>Microsoft Store が更新をダウンロードしています ({0:P0})…</value></data>
+  <data name="StoreFinishing" xml:space="preserve"><value>Microsoft Store の更新完了を待っています…</value></data>
+  <data name="StoreInstallConfirmation" xml:space="preserve"><value>Microsoft Store の更新をインストールしますか？</value></data>
+  <data name="StoreInstallHint" xml:space="preserve"><value>保存していないホワイトボードと注釈は保存先のフォルダーにバックアップされます。更新中は編集が一時停止し、インストール時にアプリが終了する場合があります。</value></data>
+  <data name="StoreInstalling" xml:space="preserve"><value>Microsoft Store が更新をインストールしています…</value></data>
+  <data name="StoreLater" xml:space="preserve"><value>後で</value></data>
+  <data name="StoreLowBattery" xml:space="preserve"><value>バッテリー残量が不足しています。電源に接続してもう一度お試しください。</value></data>
+  <data name="StoreNeedsWifi" xml:space="preserve"><value>Wi-Fi に接続してもう一度お試しください。</value></data>
+  <data name="StoreNonStorePackage" xml:space="preserve"><value>評価やストアからの更新には、Microsoft Store から FluentCanvas をインストールしてください。</value></data>
+  <data name="StoreNoUpdate" xml:space="preserve"><value>Microsoft Store で利用できる更新はありません。</value></data>
+  <data name="StoreOpeningRating" xml:space="preserve"><value>ストアの評価ウィンドウを開いています…</value></data>
+  <data name="StoreRate" xml:space="preserve"><value>評価とレビュー</value></data>
+  <data name="StoreRatingClosed" xml:space="preserve"><value>評価ウィンドウが閉じられました。</value></data>
+  <data name="StoreRatingUpdated" xml:space="preserve"><value>Microsoft Store で評価が更新されました。</value></data>
+  <data name="StoreRequestFailed" xml:space="preserve"><value>Microsoft Store が要求を完了できませんでした (0x{0:X8})。しばらくしてから、もう一度お試しください。</value></data>
+  <data name="StoreRequesting" xml:space="preserve"><value>Microsoft Store に更新のインストールを要求しています…</value></data>
+  <data name="StoreResumeEditing" xml:space="preserve"><value>
+ホワイトボードの編集を再開するには、設定ウィンドウを閉じてください。</value></data>
+  <data name="StoreSlidesActive" xml:space="preserve"><value>スライド ショーを終了して注釈を保存してから、更新プログラムをインストールしてください。</value></data>
+  <data name="StoreSlidesUnsaved" xml:space="preserve"><value>スライド ショーの注釈が保存されていません。保存先を確認してもう一度お試しください。</value></data>
+  <data name="StoreStandalone" xml:space="preserve"><value>これはスタンドアロン版です。評価と自動更新は Microsoft Store 版で利用できます。</value></data>
+  <data name="StoreUpdateFailed" xml:space="preserve"><value>Microsoft Store の更新が完了しませんでした ({0})。</value></data>
+  <data name="StoreUpdateUnavailable" xml:space="preserve"><value>このインストールは Microsoft Store から更新できません。</value></data>
+  <data name="StoreUpdating" xml:space="preserve"><value>Microsoft Store が FluentCanvas を更新しています。</value></data>
+  <data name="SwitchGestures" xml:space="preserve"><value>デスクトップ注釈とホワイトボードでジェスチャを自動で切り替える</value></data>
+  <data name="Theme" xml:space="preserve"><value>アプリのテーマ</value></data>
+  <data name="ToolbarLabels" xml:space="preserve"><value>ツールバーにラベルを表示する</value></data>
+  <data name="ToolbarScale" xml:space="preserve"><value>フローティング ツールバーのサイズ (%)</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>ツールのウィンドウを開けませんでした。もう一度お試しください。</value></data>
+  <data name="TouchCalibration" xml:space="preserve"><value>タッチスクリーン調整と消しゴム</value></data>
+  <data name="TouchMultiplier" xml:space="preserve"><value>カスタム タッチスクリーンのタッチサイズ倍率</value></data>
+  <data name="TwoFingerRotation" xml:space="preserve"><value>2 本の指でキャンバスを回転できるようにする</value></data>
+  <data name="WhiteboardAndInk" xml:space="preserve"><value>ホワイトボードと手書き</value></data>
+  <data name="WhiteboardBackground" xml:space="preserve"><value>ホワイトボードの背景を白にする</value></data>
+  <data name="WindowTitle" xml:space="preserve"><value>FluentCanvas · 設定</value></data>
+  <data name="FileAssociations" xml:space="preserve"><value>.icart と .icstk の既定のアプリ</value></data>
+  <data name="FileAssociationsConfirm" xml:space="preserve"><value>ファイルの関連付けにこのコピーを使用しますか？登録先は {0} に更新されます。既定のアプリは Windows の設定で選択してください。</value></data>
+  <data name="WindowsStartupSettings" xml:space="preserve"><value>Windows のスタートアップ アプリ</value></data>
+  <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>全画面表示中は画面端のタッチ ジェスチャを無効にする</value></data>
+</root>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>Не удалось переключить страницу рукописных заметок PowerPoint. {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>Параметры презентации - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>Не удалось завершить показ слайдов в {0}.</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>В презентации есть скрытые слайды. Отобразить их?</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>Количество слайдов с импортированными заметками: {0}.</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>Найдены заметки старого формата, сохранённые по имени файла и номеру слайда. Убедитесь, что они относятся к этой презентации и слайды по-прежнему расположены в исходном порядке. Скопировать заметки в папку заметок к этой презентации?</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>В прошлый раз показ остановился на слайде {0}. Перейти к этому слайду?</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>В презентации используется автоматическая смена слайдов или время, заданное при репетиции. Переключать слайды вручную?</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>Не удалось открыть навигацию по слайдам PowerPoint.</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>Следующий слайд</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>Не удалось перейти к следующему слайду в {0}.</value></data>
+  <data name="No" xml:space="preserve"><value>Нет</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>Не удалось выполнить операцию PowerPoint. {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>Позиция в показе: {0} · Слайд {1} в презентации</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>Предыдущий слайд</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>Не удалось вернуться к предыдущему слайду в {0}.</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>Не удалось прочитать сохранённые заметки слайда {0}. Исходный файл сохранён.</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>Не удалось сохранить рукописные заметки PowerPoint. Они доступны до конца текущего сеанса.</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>Рукописные заметки PowerPoint сохранены в локальной папке восстановления.</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>Не удалось сохранить рукописные заметки PowerPoint или позицию в показе. {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>Не удалось найти окно текущего показа слайдов.</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS не удалось выполнить команду показа слайдов.</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>Надстройка WPS не подтвердила получение команды показа слайдов.</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>Не удалось отправить команду показа слайдов надстройке WPS.</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>Да</value></data>
+</root>

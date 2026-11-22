@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>Impossible de changer de page d’annotation dans PowerPoint. {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>Paramètres de la présentation - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>Impossible de terminer le diaporama dans {0}.</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>Cette présentation contient des diapositives masquées. Voulez-vous les afficher ?</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>Les anciennes annotations de {0} diapositives ont été importées.</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>Des anciennes annotations enregistrées par nom de fichier et numéro de diapositive ont été trouvées. Vérifiez qu’elles appartiennent à cette présentation et que les diapositives sont toujours dans leur ordre d’origine. Voulez-vous les copier dans le dossier d’annotations de cette présentation ?</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>Le dernier diaporama s’est arrêté à la diapositive {0}. Voulez-vous afficher cette diapositive ?</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>Cette présentation utilise le défilement automatique ou des minutages enregistrés lors d’une répétition. Voulez-vous faire défiler les diapositives manuellement ?</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>Impossible d’ouvrir la navigation entre les diapositives dans PowerPoint.</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>Diapositive suivante</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>Impossible de passer à la diapositive suivante dans {0}.</value></data>
+  <data name="No" xml:space="preserve"><value>Non</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>L’opération PowerPoint a échoué. {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>Position dans le diaporama {0} · Diapositive {1} du fichier</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>Diapositive précédente</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>Impossible de revenir à la diapositive précédente dans {0}.</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>Impossible de lire les annotations enregistrées pour la diapositive {0}. Le fichier d’origine a été conservé.</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>Impossible d’enregistrer les annotations PowerPoint. Elles restent disponibles dans cette session.</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>Les annotations PowerPoint ont été enregistrées dans le dossier de récupération local.</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>Impossible d’enregistrer les annotations PowerPoint ou la position dans le diaporama. {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>Impossible de localiser la fenêtre du diaporama en cours.</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS n’a pas pu exécuter la commande de diaporama.</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>Le complément WPS n’a pas accusé réception de la commande de diaporama.</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>Impossible d’envoyer la commande de diaporama au complément WPS.</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>Oui</value></data>
+</root>

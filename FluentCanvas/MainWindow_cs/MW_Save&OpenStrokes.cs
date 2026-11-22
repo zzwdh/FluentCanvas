@@ -1,92 +1,224 @@
 using FluentCanvas.Helpers;
+using FluentCanvas.Localization;
 using FluentCanvas.Services;
 using FluentCanvas.Views;
-using Microsoft.Win32;
 using System;
 using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Ink;
+using System.Windows.Interop;
+using Forms = System.Windows.Forms;
 
 namespace FluentCanvas
 {
     public partial class MainWindow : Window
     {
-        private void SymbolIconSaveStrokes_Click(object sender, RoutedEventArgs e)
+        private readonly SemaphoreSlim documentOpenGate = new(1);
+        private bool backingUpForClear;
+        private int manualSavesInProgress;
+
+        private async void SymbolIconSaveStrokes_Click(object sender, RoutedEventArgs e)
         {
             if (inkCanvas.Visibility != Visibility.Visible) return;
+            RestoreToolbarFlyoutFocus();
             AnimationsHelper.HideWithSlideAndFade(BorderTools);
             AnimationsHelper.HideWithSlideAndFade(BoardBorderTools);
-            if (Locator.Get<IAppViewService>().TryGet<INotificationsView>(out var notificationsView))
-            {
-                notificationsView.HideView();
-            }
-            SaveInkCanvasFile(true, true);
+            notifications.Hide();
+            await SaveInkCanvasFileAsync(saveByUser: true);
         }
 
-        private void SaveInkCanvasFile(bool newNotice = true, bool saveByUser = false)
+        private async Task<bool> SaveInkCanvasFileAsync(bool newNotice = true, bool saveByUser = false, bool showFailure = true,
+            Task screenshotWrite = null)
         {
+            if (saveByUser) manualSavesInProgress++;
             try
             {
-                var basePath = StorageHelper.NormalizeStorageLocation(Settings.Automation.AutoSavedStrokesLocation);
-                Settings.Automation.AutoSavedStrokesLocation = basePath;
+                if (saveByUser) CommitPendingCanvasEdits();
+                var strokes = new StrokeCollection(EnumerateCommittedStrokes());
+                var snapshot = CanvasDocument.Capture(strokes, EnumerateCanvasElements());
+                var state = timeMachine.CurrentState;
+                long context = canvasContextVersion, version = canvasContentVersion;
+                string location = Settings.Automation.AutoSavedStrokesLocation;
+                bool isWhiteboard = activeCanvasPage != 0;
+                string folder = (saveByUser ? "User Saved - " : "Auto Saved - ")
+                    + (isWhiteboard ? "BlackBoard Strokes" : "Annotation Strokes");
+                string page = isWhiteboard ? $" Page-{activeCanvasPage} StrokesCount-{strokes.Count}" : "";
+                string name = $"{DateTime.Now:yyyy-MM-dd HH-mm-ss-fff}{page}-{Guid.NewGuid():N}.icart";
 
-                string savePath = basePath
-                    + (saveByUser ? @"\User Saved - " : @"\Auto Saved - ")
-                    + (currentMode == 0 ? "Annotation Strokes" : "BlackBoard Strokes");
+                string WriteSnapshot()
+                {
+                    // A paired PNG occupies the previous slot in the same serial queue.
+                    // Its caller reports its own write failure.
+                    if (screenshotWrite is { IsCompletedSuccessfully: false }) return null;
+                    string directory = Path.Combine(StorageHelper.NormalizeStorageLocation(location), folder);
+                    Directory.CreateDirectory(directory);
+                    string destination = Path.Combine(directory, name);
+                    snapshot.Save(destination);
+                    return destination;
+                }
 
-                StorageHelper.EnsureDirectory(savePath);
-
-                string savePathWithName = savePath + @"\" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss-fff")
-                    + (currentMode != 0 ? " Page-" + CurrentWhiteboardIndex + " StrokesCount-" + inkCanvas.Strokes.Count + ".icart" : ".icart");
-
-                CanvasDocument.Save(savePathWithName, inkCanvas);
-                if (newNotice) ShowNotificationAsync("墨迹及元素成功保存至 " + savePathWithName);
-            }
-            catch (Exception Ex)
-            {
-                ShowNotificationAsync("墨迹及元素保存失败！");
-                LogHelper.WriteLogToFile("墨迹及元素保存失败 | " + Ex.ToString(), LogHelper.LogType.Error);
-            }
-        }
-
-        private void SymbolIconOpenInkCanvasFile_Click(object sender, RoutedEventArgs e)
-        {
-            AnimationsHelper.HideWithSlideAndFade(BorderTools);
-            AnimationsHelper.HideWithSlideAndFade(BoardBorderTools);
-
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                InitialDirectory = Settings.Automation.AutoSavedStrokesLocation,
-                Title = "打开墨迹文件",
-                Filter = "FluentCanvas Files (*.icart;*.icstk)|*.icart;*.icstk|FluentCanvas Files (*.icart)|*.icart|FluentCanvas Stroke Files (*.icstk)|*.icstk"
-            };
-
-            if (openFileDialog.ShowDialog() == true)
-            {
-                LoadInkCanvasFile(openFileDialog.FileName);
-            }
-        }
-
-        public void LoadInkCanvasFile(string filePath)
-        {
-            var previousReason = _currentCommitType;
-            try
-            {
-                _currentCommitType = CommitReason.CodeInput;
-                CanvasDocument.LoadInto(filePath, inkCanvas, timeMachine);
-                LogHelper.WriteLogToFile($"Opened {Path.GetExtension(filePath).ToLowerInvariant()}: {inkCanvas.Strokes.Count} strokes, {inkCanvas.Children.Count} elements", LogHelper.LogType.Event);
+                string path = await (screenshotWrite == null ? Task.Run(WriteSnapshot) : screenshotWrites.Enqueue(WriteSnapshot));
+                if (path == null) return false;
+                if (saveByUser && IsCurrentCanvas(context, version, state)) timeMachine.MarkSaved();
+                if (newNotice) ShowNotificationAsync(UiText.Format("Actions.DocumentSaved", path));
+                return true;
             }
             catch (Exception ex)
             {
-                ShowNotificationAsync("作品打开失败：" + ex.Message);
-                LogHelper.WriteLogToFile("打开作品失败 | " + ex, LogHelper.LogType.Error);
-                return;
+                if (showFailure && !closingPowerPointOwner) ShowNotificationAsync(UiText.Get("Actions.DocumentSaveFailed"));
+                LogHelper.WriteLogToFile("墨迹及元素保存失败 | " + ex, LogHelper.LogType.Error);
+                return false;
             }
             finally
             {
-                _currentCommitType = previousReason;
+                if (saveByUser) manualSavesInProgress--;
             }
+        }
 
-            if (inkCanvas.Visibility != Visibility.Visible) SymbolIconCursor_Click(null, null);
+        private bool ShouldArchiveCanvas => Settings.Automation.IsAutoSaveStrokesAtClear
+            && (EnumerateCanvasElements().Any() || EnumerateCommittedStrokes().Count() > Settings.Automation.MinimumAutomationStrokeNumber);
+
+        private bool HasUnsavedCanvasChanges => timeMachine.HasUnsavedChanges ||
+            strokeManipulationHistory.Count > 0 || ElementsManipulationHistory?.Count > 0 ||
+            DrawingAttributesHistory.Count > 0 || AddedStroke?.Count > 0 || ReplacedStroke?.Count > 0;
+
+        private bool IsCurrentCanvas(long context, long version, object state) =>
+            context == canvasContextVersion && version == canvasContentVersion && ReferenceEquals(state, timeMachine.CurrentState);
+
+        private void ArchiveCanvasForTransition()
+        {
+            if (!ShouldArchiveCanvas) return;
+            _ = SaveInkCanvasFileAsync(newNotice: false);
+            SaveScreenshot(true, saveEditable: false);
+        }
+
+        private async Task<bool> TryBackupBeforeClearAsync()
+        {
+            if (backingUpForClear) return false;
+            if (!ShouldArchiveCanvas) return true;
+
+            backingUpForClear = true;
+            try
+            {
+                long context = canvasContextVersion, version = canvasContentVersion;
+                object state = timeMachine.CurrentState;
+                while (true)
+                {
+                    bool saved = await SaveInkCanvasFileAsync(newNotice: false, showFailure: false);
+                    if (!IsCurrentCanvas(context, version, state))
+                    {
+                        ShowNotificationAsync(UiText.Get("Actions.CanvasChangedDuringBackup"));
+                        return false;
+                    }
+                    if (saved)
+                    {
+                        SaveScreenshot(true, saveEditable: false);
+                        return true;
+                    }
+
+                    var choice = ShowDocumentPrompt("Actions.BackupFailed", "Actions.BackupFailedPrompt",
+                        "Actions.Retry", "Actions.ClearWithoutBackup");
+                    if (!IsCurrentCanvas(context, version, state)) return false;
+                    if (choice != MessageBoxResult.Yes) return choice == MessageBoxResult.No;
+                }
+            }
+            finally { backingUpForClear = false; }
+        }
+
+        private async void SymbolIconOpenInkCanvasFile_Click(object sender, RoutedEventArgs e)
+        {
+            RestoreToolbarFlyoutFocus();
+            AnimationsHelper.HideWithSlideAndFade(BorderTools);
+            AnimationsHelper.HideWithSlideAndFade(BoardBorderTools);
+
+            try
+            {
+                long context = canvasContextVersion;
+                string path = await WinUiPickers.PickOpenFileAsync(new WindowInteropHelper(this).Handle,
+                    "FluentCanvas.OpenDocument", new[] { ".icart", ".icstk" }, Settings.Automation.AutoSavedStrokesLocation);
+                if (path == null) return;
+                if (context == canvasContextVersion) await LoadInkCanvasFileAsync(path);
+                else ShowNotificationAsync(UiText.Get("Actions.CanvasChangedWhileOpening"));
+            }
+            catch (Exception ex)
+            {
+                ShowNotificationAsync(UiText.Get("Actions.DocumentOpenFailed"));
+                LogHelper.WriteLogToFile("选择作品失败 | " + ex, LogHelper.LogType.Error);
+            }
+        }
+
+        internal async Task LoadInkCanvasFileAsync(string filePath)
+        {
+            long context = canvasContextVersion;
+            await documentOpenGate.WaitAsync();
+            try
+            {
+                if (sessionCloseApproved || closingPowerPointOwner) return;
+                if (context != canvasContextVersion)
+                {
+                    ShowNotificationAsync(UiText.Get("Actions.CanvasChangedWhileOpening"));
+                    return;
+                }
+                using var staged = await Task.Run(() => CanvasDocument.Read(filePath));
+                if (context != canvasContextVersion)
+                {
+                    ShowNotificationAsync(UiText.Get("Actions.CanvasChangedWhileOpening"));
+                    return;
+                }
+                if (HasUnsavedCanvasChanges)
+                {
+                    var choice = ShowDocumentPrompt("Actions.OpenDocument", "Actions.UnsavedBoardPrompt",
+                        "Actions.SaveAndOpen", "Actions.OpenWithoutSaving");
+                    if (choice is not (MessageBoxResult.Yes or MessageBoxResult.No) || context != canvasContextVersion) return;
+                    if (choice == MessageBoxResult.Yes)
+                    {
+                        if (!await SaveInkCanvasFileAsync(saveByUser: true)) return;
+                        if (context != canvasContextVersion || HasUnsavedCanvasChanges)
+                        {
+                            ShowNotificationAsync(UiText.Get("Actions.CanvasChangedDuringSave"));
+                            return;
+                        }
+                    }
+                }
+
+                ResetCanvasContext();
+                var previousReason = _currentCommitType;
+                _currentCommitType = CommitReason.CodeInput;
+                try { staged.Apply(inkCanvas, timeMachine); }
+                finally { _currentCommitType = previousReason; }
+                LogHelper.WriteLogToFile($"Opened {Path.GetExtension(filePath).ToLowerInvariant()}: {inkCanvas.Strokes.Count} strokes, {inkCanvas.Children.Count} elements", LogHelper.LogType.Event);
+                if (inkCanvas.Visibility != Visibility.Visible) SymbolIconCursor_Click(null, null);
+            }
+            catch (Exception ex)
+            {
+                ShowNotificationAsync(UiText.Get("Actions.DocumentOpenFailed"));
+                LogHelper.WriteLogToFile("打开作品失败 | " + ex, LogHelper.LogType.Error);
+            }
+            finally { documentOpenGate.Release(); }
+        }
+
+        private MessageBoxResult ShowDocumentPrompt(string title, string message, string accept, string decline)
+        {
+            var primary = new Forms.TaskDialogButton(UiText.Get(accept));
+            var secondary = new Forms.TaskDialogButton(UiText.Get(decline));
+            var cancel = new Forms.TaskDialogButton(UiText.Get("Actions.Cancel"));
+            var page = new Forms.TaskDialogPage
+            {
+                Caption = UiText.Get(title),
+                Text = UiText.Get(message),
+                Icon = Forms.TaskDialogIcon.Warning,
+                AllowCancel = true,
+                DefaultButton = cancel,
+                RightToLeftLayout = UiText.ActiveCulture.TextInfo.IsRightToLeft,
+                Buttons = { primary, secondary, cancel },
+            };
+            var answer = Forms.TaskDialog.ShowDialog(new WindowInteropHelper(this).Handle, page,
+                Forms.TaskDialogStartupLocation.CenterOwner);
+            if (answer == primary) return MessageBoxResult.Yes;
+            return answer == secondary ? MessageBoxResult.No : MessageBoxResult.Cancel;
         }
     }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>تغییر صفحهٔ حاشیه‌نویسی PowerPoint ممکن نبود: {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>تنظیمات ارائه - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>پایان دادن به نمایش اسلاید {0} ممکن نبود.</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>این ارائه اسلایدهای پنهان دارد. آن‌ها را نمایش می‌دهید؟</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>حاشیه‌نویسی‌های قدیمی {0} اسلاید وارد شد.</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>FluentCanvas حاشیه‌نویسی‌های قدیمی ذخیره‌شده بر اساس نام فایل و شمارهٔ اسلاید را یافت. مطمئن شوید که به همین ارائه تعلق دارند و ترتیب اسلایدها عوض نشده است. آن‌ها در پوشهٔ حاشیه‌نویسی این ارائه کپی شوند؟</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>نمایش قبلی در اسلاید {0} پایان یافت. به آن اسلاید برویم؟</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>در این ارائه اسلایدها خودکار یا طبق زمان‌بندی تمرین عوض می‌شوند. اسلایدها را دستی عوض می‌کنید؟</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>ناوبری اسلایدهای PowerPoint باز نشد.</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>اسلاید بعد</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>رفتن به اسلاید بعد در {0} ممکن نبود.</value></data>
+  <data name="No" xml:space="preserve"><value>خیر</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>عملیات PowerPoint ناموفق بود: {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>موقعیت در نمایش اسلاید {0} · اسلاید {1} در ارائه</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>اسلاید قبل</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>رفتن به اسلاید قبل در {0} ممکن نبود.</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>حاشیه‌نویسی‌های ذخیره‌شدهٔ اسلاید {0} خوانده نشد. فایل اصلی حفظ شد.</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>حاشیه‌نویسی‌های PowerPoint ذخیره نشدند. آن‌ها همچنان در این نشست در دسترس‌اند.</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>حاشیه‌نویسی‌های PowerPoint در پوشهٔ بازیابی محلی ذخیره شدند.</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>ذخیرهٔ حاشیه‌نویسی‌های PowerPoint یا موقعیت نمایش اسلاید ممکن نبود: {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>پنجرهٔ نمایش اسلاید فعلی پیدا نشد.</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS نتوانست فرمان نمایش اسلاید را اجرا کند.</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>افزونهٔ WPS دریافت فرمان نمایش اسلاید را تأیید نکرد.</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>ارسال فرمان نمایش اسلاید به افزونهٔ WPS ممکن نبود.</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>بله</value></data>
+</root>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>Não foi possível mudar de página de anotações no PowerPoint. {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>Configurações da apresentação - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>Não foi possível encerrar a apresentação de slides do {0}.</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>Esta apresentação contém slides ocultos. Deseja exibi-los?</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>Foram importadas anotações antigas de {0} slides.</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>Foram encontradas anotações antigas salvas por nome de arquivo e número do slide. Confirme se elas pertencem a esta apresentação e se os slides continuam na ordem original. Deseja copiá-las para a pasta de anotações desta apresentação?</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>A última apresentação parou no slide {0}. Deseja ir para esse slide?</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>Esta apresentação usa avanço automático ou intervalos de ensaio. Deseja avançar os slides manualmente?</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>Não foi possível abrir a navegação de slides do PowerPoint.</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>Próximo slide</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>Não foi possível avançar para o próximo slide no {0}.</value></data>
+  <data name="No" xml:space="preserve"><value>Não</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>A operação do PowerPoint falhou. {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>Posição na apresentação {0} · Slide {1} no arquivo</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>Slide anterior</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>Não foi possível voltar ao slide anterior no {0}.</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>Não foi possível ler as anotações salvas do slide {0}. O arquivo original foi preservado.</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>Não foi possível salvar as anotações do PowerPoint. Elas ainda estão disponíveis nesta sessão.</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>As anotações do PowerPoint foram salvas na pasta de recuperação local.</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>Não foi possível salvar as anotações do PowerPoint ou a posição na apresentação. {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>Não foi possível localizar a janela da apresentação de slides atual.</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>O WPS não conseguiu executar o comando de apresentação.</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>O suplemento do WPS não confirmou o recebimento do comando de apresentação.</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>Não foi possível enviar o comando de apresentação ao suplemento do WPS.</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>Sim</value></data>
+</root>

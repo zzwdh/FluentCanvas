@@ -1,152 +1,74 @@
 using FluentCanvas.Helpers;
 using System;
-using System.Diagnostics;
-using System.Timers;
 using System.Windows;
-using MessageBox = System.Windows.MessageBox;
+using System.Windows.Threading;
 
-namespace FluentCanvas
+namespace FluentCanvas;
+
+public partial class MainWindow
 {
-    public partial class MainWindow : Window
+    private readonly DispatcherTimer autoFoldTimer = new(DispatcherPriority.Background)
     {
-        Timer timerKillProcess = new Timer();
-        Timer timerCheckAutoFold = new Timer();
-        string AvailableLatestVersion = null;
-        Timer timerCheckAutoUpdateWithSilence = new Timer();
-        bool isHidingSubPanelsWhenInking = false; // 避免书写时触发二次关闭二级菜单导致动画不连续
+        Interval = TimeSpan.FromMilliseconds(1500)
+    };
+    private bool isHidingSubPanelsWhenInking;
+    private bool foldFloatingBarByUser;
+    private bool unfoldFloatingBarByUser;
 
-        private void InitTimers()
+    private void InitTimers()
+    {
+        autoFoldTimer.Tick += (_, _) =>
         {
-            timerKillProcess.Elapsed += TimerKillProcess_Elapsed;
-            timerKillProcess.Interval = 5000;
-            timerCheckAutoFold.Elapsed += timerCheckAutoFold_Elapsed;
-            timerCheckAutoFold.Interval = 1500;
-            if (!App.IsPackaged)
+            if (activePowerPointSlide == null && !isFloatingBarChangingHideMode) UpdateAutomaticToolbarFold();
+        };
+        StateChanged += (_, _) => QueueAutomaticToolbarFoldUpdate();
+        IsEnabledChanged += (_, _) => QueueAutomaticToolbarFoldUpdate();
+        Closed += (_, _) => autoFoldTimer.Stop();
+        InitFloatingToolbarPlacement();
+    }
+
+    private void StartOrStoptimerCheckAutoFold()
+    {
+        autoFoldTimer.IsEnabled = Settings.Automation.IsForegroundAutoFoldEnabled;
+        QueueAutomaticToolbarFoldUpdate();
+    }
+
+    private void QueueAutomaticToolbarFoldUpdate()
+    {
+        if (!Dispatcher.HasShutdownStarted) _ = Dispatcher.InvokeAsync(UpdateAutomaticToolbarFold);
+    }
+
+    private void UpdateAutomaticToolbarFold()
+    {
+        if (!IsLoaded || !IsEnabled || WindowState == WindowState.Minimized) return;
+
+        var automation = Settings.Automation;
+        bool shouldFold = automation.IsAutoFoldInPPTSlideShow;
+        if (activePowerPointSlide == null)
+        {
+            shouldFold = false;
+            if (automation.IsForegroundAutoFoldEnabled)
             {
-                timerCheckAutoUpdateWithSilence.Elapsed += timerCheckAutoUpdateWithSilence_Elapsed;
-                timerCheckAutoUpdateWithSilence.Interval = 1000 * 60 * 60;
+                if (ForegroundWindowInfo.Capture(automation.IsAutoFoldInMSWhiteboard) is not { } window) return;
+                shouldFold =
+                    (automation.IsAutoFoldInEasiNote && Named("EasiNote") &&
+                     !(automation.IsAutoFoldInEasiNoteIgnoreDesktopAnno && window.Title.Length == 0 && window.Height is < 500)) ||
+                    (automation.IsAutoFoldInEasiCamera && Named("EasiCamera")) ||
+                    (automation.IsAutoFoldInEasiNote3C && Named("EasiNote")) ||
+                    (automation.IsAutoFoldInSeewoPincoTeacher && (Named("BoardService") || Named("seewoPincoTeacher"))) ||
+                    (automation.IsAutoFoldInHiteCamera && Named("HiteCamera")) ||
+                    (automation.IsAutoFoldInHiteTouchPro && Named("HiteTouchPro")) ||
+                    (automation.IsAutoFoldInWxBoardMain && Named("WxBoardMain")) ||
+                    (automation.IsAutoFoldInOldZyBoard && window.Title is "WhiteBoard - DrawingWindow" or "InstantAnnotationWindow") ||
+                    (automation.IsAutoFoldInMSWhiteboard && window.IsMicrosoftWhiteboard);
+
+                bool Named(string name) => window.ProcessName.Equals(name, StringComparison.OrdinalIgnoreCase);
             }
+
+            if (!shouldFold) unfoldFloatingBarByUser = false;
         }
 
-        private void TimerKillProcess_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            try
-            {
-                // 希沃相关： easinote swenserver RemoteProcess EasiNote.MediaHttpService smartnote.cloud EasiUpdate smartnote EasiUpdate3 EasiUpdate3Protect SeewoP2P CefSharp.BrowserSubprocess SeewoUploadService
-                string arg = "/F";
-                if (Settings.Automation.IsAutoKillPptService)
-                {
-                    Process[] processes = Process.GetProcessesByName("PPTService");
-                    if (processes.Length > 0)
-                    {
-                        arg += " /IM PPTService.exe";
-                    }
-                    processes = Process.GetProcessesByName("SeewoIwbAssistant");
-                    if (processes.Length > 0)
-                    {
-                        arg += " /IM SeewoIwbAssistant.exe" + " /IM Sia.Guard.exe";
-                    }
-                }
-                if (Settings.Automation.IsAutoKillEasiNote)
-                {
-                    Process[] processes = Process.GetProcessesByName("EasiNote");
-                    if (processes.Length > 0)
-                    {
-                        arg += " /IM EasiNote.exe";
-                    }
-                }
-                if (arg != "/F")
-                {
-                    Process p = new Process();
-                    p.StartInfo = new ProcessStartInfo("taskkill", arg);
-                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                    p.Start();
-
-                    if (arg.Contains("EasiNote"))
-                    {
-                        BtnSwitch_Click(null, null);
-                        MessageBox.Show("“希沃白板 5”已自动关闭");
-                    }
-                }
-            }
-            catch { }
-        }
-
-
-        bool foldFloatingBarByUser = false, // 保持收纳操作不受自动收纳的控制
-            unfoldFloatingBarByUser = false; // 允许用户在希沃软件内进行展开操作
-
-        private void timerCheckAutoFold_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            if (isFloatingBarChangingHideMode) return;
-            try
-            {
-                string windowProcessName = ForegroundWindowInfo.ProcessName();
-                string windowTitle = ForegroundWindowInfo.WindowTitle();
-                //LogHelper.WriteLogToFile("windowTitle | " + windowTitle + " | windowProcessName | " + windowProcessName);
-
-                if (Settings.Automation.IsAutoFoldInEasiNote && windowProcessName == "EasiNote" // 希沃白板
-                    && (!(windowTitle.Length == 0 && ForegroundWindowInfo.WindowRect().Height < 500) || !Settings.Automation.IsAutoFoldInEasiNoteIgnoreDesktopAnno)
-                    || Settings.Automation.IsAutoFoldInEasiCamera && windowProcessName == "EasiCamera" // 希沃视频展台
-                    || Settings.Automation.IsAutoFoldInEasiNote3C && windowProcessName == "EasiNote" // 希沃轻白板
-                    || Settings.Automation.IsAutoFoldInSeewoPincoTeacher && (windowProcessName == "BoardService" || windowProcessName == "seewoPincoTeacher") // 希沃品课
-                    || Settings.Automation.IsAutoFoldInHiteCamera && windowProcessName == "HiteCamera" // 鸿合视频展台
-                    || Settings.Automation.IsAutoFoldInHiteTouchPro && windowProcessName == "HiteTouchPro" // 鸿合白板
-                    || Settings.Automation.IsAutoFoldInWxBoardMain && windowProcessName == "WxBoardMain" // 文香白板
-                    || Settings.Automation.IsAutoFoldInMSWhiteboard && (windowProcessName == "MicrosoftWhiteboard" || windowProcessName == "msedgewebview2") // 微软白板
-                    || Settings.Automation.IsAutoFoldInOldZyBoard && // 中原旧白板
-                    (WinTabWindowsChecker.IsWindowExisted("WhiteBoard - DrawingWindow")
-                    || WinTabWindowsChecker.IsWindowExisted("InstantAnnotationWindow")))
-                {
-                    if (!unfoldFloatingBarByUser && !isFloatingBarFolded)
-                    {
-                        FoldFloatingBar_Click(null, null);
-                    }
-                }
-                else if (WinTabWindowsChecker.IsWindowExisted("幻灯片放映", false))
-                { // 处于幻灯片放映状态
-                    if (!Settings.Automation.IsAutoFoldInPPTSlideShow && isFloatingBarFolded && !foldFloatingBarByUser)
-                    {
-                        UnFoldFloatingBar_MouseUp(null, null);
-                    }
-                }
-                else
-                {
-                    if (isFloatingBarFolded && !foldFloatingBarByUser)
-                    {
-                        UnFoldFloatingBar_MouseUp(null, null);
-                    }
-                    unfoldFloatingBarByUser = false;
-                }
-            }
-            catch { }
-        }
-
-        private void timerCheckAutoUpdateWithSilence_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            Dispatcher.Invoke(() =>
-            {
-                try
-                {
-                    if ((!Topmost) || (inkCanvas.Strokes.Count > 0)) return;
-                }
-                catch (Exception ex)
-                {
-                    LogHelper.WriteLogToFile(ex.ToString(), LogHelper.LogType.Error);
-                }
-            });
-            try
-            {
-                if (AutoUpdateWithSilenceTimeComboBox.CheckIsInSilencePeriod(Settings.Startup.AutoUpdateWithSilenceStartTime, Settings.Startup.AutoUpdateWithSilenceEndTime))
-                {
-                    AutoUpdateHelper.InstallNewVersionApp(AvailableLatestVersion, true);
-                    timerCheckAutoUpdateWithSilence.Stop();
-                }
-            }
-            catch (Exception ex)
-            {
-                LogHelper.WriteLogToFile(ex.ToString(), LogHelper.LogType.Error);
-            }
-        }
+        if (shouldFold != isFloatingBarFolded && !(shouldFold ? unfoldFloatingBarByUser : foldFloatingBarByUser))
+            ApplyFloatingBarFold(shouldFold, byUser: false);
     }
 }

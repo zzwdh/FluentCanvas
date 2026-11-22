@@ -1,5 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using FluentCanvas.Localization;
 using System;
 
 namespace FluentCanvas.ViewModels
@@ -39,7 +40,12 @@ namespace FluentCanvas.ViewModels
         [ObservableProperty]
         public partial bool IsSideButtonVisible { get; set; }
 
+        [ObservableProperty]
+        public partial bool CanOpenSlideNavigation { get; set; } = true;
+
         public string PositionText { get; private set; }
+
+        public string PositionDescription { get; private set; }
 
         public event EventHandler NextRequested;
 
@@ -47,12 +53,14 @@ namespace FluentCanvas.ViewModels
 
         public event EventHandler NavigationToggleRequested;
 
-        public void SetPosition(int current, int total)
+        public void SetPosition(int current, int total, int documentSlide)
         {
             CurrentPosition = current;
             TotalSlides = total;
-            PositionText = total > 0 ? $"{current}/{total}" : "0/0";
+            PositionText = total > 0 ? $"{current}/{total}" : current > 0 ? $"{current}" : "0/0";
+            PositionDescription = UiText.Format("Presentation.PositionDescription", PositionText, documentSlide);
             OnPropertyChanged(nameof(PositionText));
+            OnPropertyChanged(nameof(PositionDescription));
         }
 
         public void ShowPanels(bool bottom, bool side)

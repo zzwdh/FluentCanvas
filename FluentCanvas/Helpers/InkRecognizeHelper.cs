@@ -1,3 +1,5 @@
+#nullable enable
+
 using FluentCanvas.InkAnalyzerCore;
 using System.Collections.Immutable;
 using System.Linq;
@@ -13,8 +15,14 @@ namespace FluentCanvas.Helpers
     {
         private static readonly InkShapeAnalyzer Analyzer = new InkShapeAnalyzer();
 
-        public static async Task<ShapeRecognizeResult> RecognizeShapeAsync(
-            StrokeCollection strokes,
+        public static Task<ShapeRecognizeResult?> RecognizeShapeAsync(
+            StrokeCollection? strokes,
+            CancellationToken cancellationToken = default) =>
+            RecognizeShapeAsync(strokes, preferCircleOrEllipse: false, cancellationToken);
+
+        public static async Task<ShapeRecognizeResult?> RecognizeShapeAsync(
+            StrokeCollection? strokes,
+            bool preferCircleOrEllipse,
             CancellationToken cancellationToken = default)
         {
             if (strokes == null || strokes.Count == 0)
@@ -29,7 +37,7 @@ namespace FluentCanvas.Helpers
                         .ToImmutableArray()))
                 .ToArray();
 
-            var result = await Analyzer.AnalyzeLatestShapeAsync(strokeData, cancellationToken);
+            var result = await Analyzer.AnalyzeLatestShapeAsync(strokeData, preferCircleOrEllipse, cancellationToken);
             if (result == null)
                 return null;
 

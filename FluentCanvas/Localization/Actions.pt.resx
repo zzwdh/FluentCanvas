@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Ready" xml:space="preserve"><value>Pronto</value></data>
+  <data name="Hours" xml:space="preserve"><value>Horas</value></data>
+  <data name="Minutes" xml:space="preserve"><value>Minutos</value></data>
+  <data name="Seconds" xml:space="preserve"><value>Segundos</value></data>
+  <data name="Start" xml:space="preserve"><value>Iniciar</value></data>
+  <data name="Reset" xml:space="preserve"><value>Redefinir</value></data>
+  <data name="Compact" xml:space="preserve"><value>Compacto</value></data>
+  <data name="FullScreen" xml:space="preserve"><value>Tela cheia</value></data>
+  <data name="TimeRemaining" xml:space="preserve"><value>Tempo restante</value></data>
+  <data name="TimeRemainingProgress" xml:space="preserve"><value>Progresso da contagem regressiva</value></data>
+  <data name="Paused" xml:space="preserve"><value>Em pausa</value></data>
+  <data name="CountdownEndsAt" xml:space="preserve"><value>Término previsto às {0:HH:mm:ss}</value></data>
+  <data name="TimeUp" xml:space="preserve"><value>O tempo acabou</value></data>
+  <data name="TimeUpAlarmFailed" xml:space="preserve"><value>O tempo acabou. Não foi possível reproduzir o alarme.</value></data>
+  <data name="TimeRemainingSpoken" xml:space="preserve"><value>Tempo restante: {0} h, {1} min e {2} s</value></data>
+  <data name="Pause" xml:space="preserve"><value>Pausar</value></data>
+  <data name="Resume" xml:space="preserve"><value>Continuar</value></data>
+  <data name="Expand" xml:space="preserve"><value>Expandir</value></data>
+  <data name="ExitFullScreen" xml:space="preserve"><value>Sair da tela cheia</value></data>
+  <data name="RosterLoading" xml:space="preserve"><value>Carregando a lista…</value></data>
+  <data name="ParticipantCount" xml:space="preserve"><value>Participantes</value></data>
+  <data name="DrawCount" xml:space="preserve"><value>Quantidade a sortear</value></data>
+  <data name="StartDraw" xml:space="preserve"><value>Sortear</value></data>
+  <data name="EditRoster" xml:space="preserve"><value>Editar lista</value></data>
+  <data name="DrawOne" xml:space="preserve"><value>Sortear uma pessoa</value></data>
+  <data name="DrawResult" xml:space="preserve"><value>Resultado</value></data>
+  <data name="RosterReadFailed" xml:space="preserve"><value>Não foi possível ler a lista. O sorteio usará números.</value></data>
+  <data name="RosterLoaded" xml:space="preserve"><value>Pessoas na lista: {0}</value></data>
+  <data name="RosterUsingNumbers" xml:space="preserve"><value>Sorteio por número</value></data>
+  <data name="InvalidRulesSkipped" xml:space="preserve"><value> · Regras inválidas ignoradas: {0}</value></data>
+  <data name="Drawing" xml:space="preserve"><value>Sorteando…</value></data>
+  <data name="SingleDrawResult" xml:space="preserve"><value>Resultado: {0}</value></data>
+  <data name="MultipleDrawResult" xml:space="preserve"><value>Pessoas sorteadas: {0}</value></data>
+  <data name="DrawAgain" xml:space="preserve"><value>Sortear novamente</value></data>
+  <data name="NamesPerLine" xml:space="preserve"><value>Digite um nome por linha</value></data>
+  <data name="RulesPerLine" xml:space="preserve"><value>Digite uma regra de substituição por linha</value></data>
+  <data name="Roster" xml:space="preserve"><value>Lista</value></data>
+  <data name="ImportRoster" xml:space="preserve"><value>Importar nomes</value></data>
+  <data name="ReplacementRules" xml:space="preserve"><value>Regras de substituição</value></data>
+  <data name="ImportReplacementRules" xml:space="preserve"><value>Importar regras</value></data>
+  <data name="ReplacementRuleExample" xml:space="preserve"><value>Exemplo: Alexandre--&gt;Alex. Deixe o lado direito em branco para excluir o nome.</value></data>
+  <data name="RosterAndRules" xml:space="preserve"><value>Lista e regras de substituição</value></data>
+  <data name="Save" xml:space="preserve"><value>Salvar</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Cancelar</value></data>
+  <data name="RosterSaved" xml:space="preserve"><value>Lista salva</value></data>
+  <data name="RosterEditFailed" xml:space="preserve"><value>Não foi possível editar a lista: {0}</value></data>
+  <data name="RosterImportFailed" xml:space="preserve"><value>Falha na importação: {0}</value></data>
+  <data name="InvalidReplacementRule" xml:space="preserve"><value>Confira as regras. Use “nome original--&gt;nome exibido” em cada linha.</value></data>
+  <data name="RosterSaveTooLarge" xml:space="preserve"><value>Cada arquivo de lista pode ter até 2 MB.</value></data>
+  <data name="RosterLocked" xml:space="preserve"><value>Outra janela está salvando a lista. Tente novamente em instantes.</value></data>
+  <data name="RosterChanged" xml:space="preserve"><value>Outra janela alterou a lista. Reabra o editor para carregar a versão mais recente.</value></data>
+  <data name="RosterReadTooLarge" xml:space="preserve"><value>O arquivo de lista excede 2 MB.</value></data>
+  <data name="ReplacementRulesChanged" xml:space="preserve"><value>Outro processo alterou as regras de substituição.</value></data>
+  <data name="RosterRollbackFailed" xml:space="preserve"><value>Não foi possível salvar a lista nem restaurar as regras anteriores. Reabra o editor para conferir os dois arquivos.</value></data>
+  <data name="SavingBeforeClose" xml:space="preserve"><value>Um documento está sendo salvo. Aguarde a conclusão antes de fechar.</value></data>
+  <data name="CloseUnsavedWork" xml:space="preserve"><value>Fechar o FluentCanvas? As alterações não salvas serão perdidas.</value></data>
+  <data name="ConfirmClose" xml:space="preserve"><value>Tem certeza de que deseja fechar o FluentCanvas?</value></data>
+  <data name="CancelClosing" xml:space="preserve"><value>Cancelar o fechamento do FluentCanvas?</value></data>
+  <data name="StartupEntryInUse" xml:space="preserve"><value>Outra instalação usa esta entrada de inicialização.</value></data>
+  <data name="AutoFoldInk" xml:space="preserve"><value>A tinta foi apagada e a barra de ferramentas recolhida. Volte ao modo de anotação e selecione Desfazer para restaurá-la.</value></data>
+  <data name="InsertImageFailed" xml:space="preserve"><value>Não foi possível inserir a imagem. Verifique o arquivo e tente novamente.</value></data>
+  <data name="InsertVideoFailed" xml:space="preserve"><value>Não foi possível inserir o vídeo. Verifique o arquivo e tente novamente.</value></data>
+  <data name="CanvasChangedDuringImport" xml:space="preserve"><value>A tela mudou durante a importação. Insira o arquivo na página desejada.</value></data>
+  <data name="OpenToolFailed" xml:space="preserve"><value>Não foi possível abrir a janela da ferramenta.</value></data>
+  <data name="OpenDrawOneFailed" xml:space="preserve"><value>Não foi possível abrir a janela de sorteio individual.</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>Não foi possível abrir as configurações.</value></data>
+  <data name="ScreenshotSaved" xml:space="preserve"><value>Captura de tela salva em {0}</value></data>
+  <data name="ScreenshotPathFailed" xml:space="preserve"><value>Não foi possível salvar a captura. Verifique o local de salvamento nas configurações.</value></data>
+  <data name="ScreenshotFailed" xml:space="preserve"><value>Não foi possível salvar a captura de tela.</value></data>
+  <data name="SlideCaptureObscured" xml:space="preserve"><value>Não foi possível capturar a apresentação porque a janela está oculta ou encoberta.</value></data>
+  <data name="SlideScreenshotFailed" xml:space="preserve"><value>Não foi possível salvar a captura da apresentação. Verifique o local de salvamento.</value></data>
+  <data name="DocumentSaved" xml:space="preserve"><value>Tinta e objetos salvos em {0}</value></data>
+  <data name="DocumentSaveFailed" xml:space="preserve"><value>Não foi possível salvar o documento. Verifique o local de salvamento e tente novamente.</value></data>
+  <data name="CanvasChangedDuringBackup" xml:space="preserve"><value>A tela mudou durante o backup. Tente limpá-la novamente.</value></data>
+  <data name="BackupFailed" xml:space="preserve"><value>Falha no backup</value></data>
+  <data name="BackupFailedPrompt" xml:space="preserve"><value>O backup falhou. A tela foi mantida.</value></data>
+  <data name="CanvasChangedWhileOpening" xml:space="preserve"><value>A tela mudou durante a abertura. Abra o documento novamente na página desejada.</value></data>
+  <data name="UnsavedBoardPrompt" xml:space="preserve"><value>O quadro branco tem alterações não salvas.</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>Abrir documento</value></data>
+  <data name="CanvasChangedDuringSave" xml:space="preserve"><value>A tela mudou durante o salvamento. Abra o documento novamente.</value></data>
+  <data name="DocumentOpenFailed" xml:space="preserve"><value>Não foi possível abrir o documento. Verifique o arquivo e tente novamente.</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>Ocultar automaticamente</value></data>
+  <data name="Pinned" xml:space="preserve"><value>Fixado</value></data>
+  <data name="RemoveAsymptotes" xml:space="preserve"><value>Remover as assíntotas?</value></data>
+  <data name="SavingBeforeRestart" xml:space="preserve"><value>Um documento está sendo salvo. Aguarde a conclusão antes de reiniciar.</value></data>
+  <data name="RestartFailed" xml:space="preserve"><value>Não foi possível reiniciar. Salve seu trabalho e reabra o FluentCanvas.</value></data>
+  <data name="PngImage" xml:space="preserve"><value>Imagem PNG</value></data>
+  <data name="SelectionExportFailed" xml:space="preserve"><value>Não foi possível exportar a seleção. Selecione uma área menor ou verifique o local de salvamento.</value></data>
+  <data name="CloneToBoard" xml:space="preserve"><value>Copiar para o quadro</value></data>
+  <data name="CloneToNewPage" xml:space="preserve"><value>Copiar para nova página</value></data>
+  <data name="EasiNoteAutomaticallyClosed" xml:space="preserve"><value>O EasiNote 5 foi fechado automaticamente.</value></data>
+  <data name="Retry" xml:space="preserve"><value>Tentar novamente</value></data>
+  <data name="ClearWithoutBackup" xml:space="preserve"><value>Limpar sem backup</value></data>
+  <data name="SaveAndOpen" xml:space="preserve"><value>Salvar e abrir</value></data>
+  <data name="OpenWithoutSaving" xml:space="preserve"><value>Descartar alterações e abrir</value></data>
+</root>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>PowerPoint の注釈ページを切り替えられませんでした。{0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>プレゼンテーション設定 - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>{0} のスライドショーを終了できませんでした。</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>このプレゼンテーションには非表示のスライドがあります。再表示しますか？</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>{0} 枚のスライドに旧形式の注釈を取り込みました。</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>ファイル名とスライド番号で保存された旧形式の注釈が見つかりました。注釈がこのプレゼンテーションのものであり、スライドが元の順序のままであることを確認してください。このプレゼンテーションの注釈フォルダーにコピーしますか？</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>前回はスライド {0} まで表示しました。そのスライドに移動しますか？</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>このプレゼンテーションには自動切り替えまたはリハーサル時のタイミングが設定されています。手動で切り替えますか？</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>PowerPoint のスライドナビゲーションを開けませんでした。</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>次のスライド</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>{0} の次のスライドに進めませんでした。</value></data>
+  <data name="No" xml:space="preserve"><value>いいえ</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>PowerPoint の操作に失敗しました。{0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>表示位置 {0} · 資料内のスライド {1}</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>前のスライド</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>{0} の前のスライドに戻れませんでした。</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>スライド {0} の保存済み注釈を読み込めませんでした。元のファイルは保持されています。</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>PowerPoint の注釈を保存できませんでした。このセッション中は注釈を利用できます。</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>PowerPoint の注釈をローカルの復元フォルダーに保存しました。</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>PowerPoint の注釈または表示位置を保存できませんでした。{0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>現在のスライドショーのウィンドウが見つかりませんでした。</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS がスライドショーの操作を完了できませんでした。</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>WPS アドインから、スライドショーの操作を受け付けたことを確認できませんでした。</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>WPS アドインにスライドショーの操作を送信できませんでした。</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>はい</value></data>
+</root>

@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <FluentCanvasDesktopRuntimeVersion>11.0.0</FluentCanvasDesktopRuntimeVersion>
+    <FluentCanvasMinimumWindowsVersion>10.0.17763.0</FluentCanvasMinimumWindowsVersion>
+  </PropertyGroup>
+</Project>

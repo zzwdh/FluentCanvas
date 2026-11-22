@@ -1,4 +1,5 @@
 ﻿using FluentCanvas.Helpers;
+using FluentCanvas.Localization;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -72,7 +73,7 @@ namespace FluentCanvas
             else
             {
                 inkCanvas.IsManipulationEnabled = true;
-                drawingShapeMode = 0;
+                drawingShapeMode = ShapeTool.Pen;
                 inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
                 CancelSingleFingerDragMode();
                 forceEraser = false;
@@ -111,22 +112,8 @@ namespace FluentCanvas
 
         private void CheckColorTheme(bool changeColorTheme = false)
         {
-            if (changeColorTheme)
-            {
-                if (currentMode != 0)
-                {
-                    if (Settings.Canvas.UsingWhiteboard)
-                    {
-                        GridBackgroundCover.Background = new SolidColorBrush(StringToColor("#FFF2F2F2"));
-                        isUselightThemeColor = false;
-                    }
-                    else
-                    {
-                        GridBackgroundCover.Background = new SolidColorBrush(StringToColor("#FF1F1F1F"));
-                        isUselightThemeColor = true;
-                    }
-                }
-            }
+            if (changeColorTheme && currentMode != 0)
+                isUselightThemeColor = !Settings.Canvas.UsingWhiteboard;
 
             if (currentMode == 0)
             {
@@ -196,7 +183,7 @@ namespace FluentCanvas
 
                 ColorThemeSwitchIcon.Glyph = "\uE708";
                 BoardColorThemeSwitchIcon.Glyph = "\uE708";
-                ColorThemeSwitchTextBlock.Text = "暗系";
+                ColorThemeSwitchTextBlock.Text = UiText.Get("Canvas.DarkPalette");
             }
             else
             { // 暗系
@@ -225,7 +212,7 @@ namespace FluentCanvas
 
                 ColorThemeSwitchIcon.Glyph = "\uE706";
                 BoardColorThemeSwitchIcon.Glyph = "\uE706";
-                ColorThemeSwitchTextBlock.Text = "亮系";
+                ColorThemeSwitchTextBlock.Text = UiText.Get("Canvas.LightPalette");
             }
             if (drawingAttributes != null && isLoaded)
             {

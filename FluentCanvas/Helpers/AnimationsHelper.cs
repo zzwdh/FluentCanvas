@@ -1,257 +1,169 @@
-﻿using System;
+using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 namespace FluentCanvas.Helpers
 {
-    internal class AnimationsHelper
+    internal static class AnimationsHelper
     {
-        public static void ShowWithSlideFromBottomAndFade(UIElement element, double duration = 0.15)
+        private const double PanelOffset = 8;
+        private const double PanelDuration = 0.167;
+        private static readonly Vector BottomOffset = new(0, PanelOffset);
+        private static readonly Vector LeftOffset = new(-PanelOffset, 0);
+        private static readonly Vector RightOffset = new(PanelOffset, 0);
+        private static readonly ConditionalWeakTable<FrameworkElement, PanelTransition> Transitions = new();
+
+        internal static bool CanAnimate => SystemParameters.ClientAreaAnimation && !SystemParameters.HighContrast;
+
+        public static bool IsShown(FrameworkElement element) =>
+            Transitions.TryGetValue(element, out var transition)
+                ? transition.IsShowing : element.Visibility == Visibility.Visible;
+
+        public static void ShowWithSlideFromBottomAndFade(FrameworkElement element, double duration = PanelDuration) =>
+            SetPanelVisibility(element, true, BottomOffset, duration);
+
+        public static void ShowWithSlideFromLeftAndFade(FrameworkElement element) =>
+            SetPanelVisibility(element, true, LeftOffset, PanelDuration);
+
+        public static void ShowWithSlideFromRightAndFade(FrameworkElement element) =>
+            SetPanelVisibility(element, true, RightOffset, PanelDuration);
+
+        public static void HideWithSlideAndFade(FrameworkElement element) =>
+            SetPanelVisibility(element, false, BottomOffset, PanelDuration);
+
+        public static void HideToLeft(FrameworkElement element) =>
+            SetPanelVisibility(element, false, LeftOffset, PanelDuration);
+
+        public static void HideToRight(FrameworkElement element) =>
+            SetPanelVisibility(element, false, RightOffset, PanelDuration);
+
+        public static void HideImmediately(FrameworkElement element)
         {
-            try
-            {
-                if (element.Visibility == Visibility.Visible) return;
-
-                if (element == null)
-                    throw new ArgumentNullException(nameof(element));
-
-                var sb = new Storyboard();
-
-                // 渐变动画
-                var fadeInAnimation = new DoubleAnimation
-                {
-                    From = 0.5,
-                    To = 1,
-                    Duration = TimeSpan.FromSeconds(duration)
-                };
-                Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(UIElement.OpacityProperty));
-
-                // 滑动动画
-                var slideAnimation = new DoubleAnimation
-                {
-                    From = element.RenderTransform.Value.OffsetY + 10, // 滑动距离
-                    To = 0,
-                    Duration = TimeSpan.FromSeconds(duration)
-                };
-                Storyboard.SetTargetProperty(slideAnimation, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.Y)"));
-
-                sb.Children.Add(fadeInAnimation);
-                sb.Children.Add(slideAnimation);
-
-                element.Visibility = Visibility.Visible;
-                element.RenderTransform = new TranslateTransform();
-
-                sb.Begin((FrameworkElement)element);
-            }
-            catch { }
+            if (Transitions.TryGetValue(element, out var transition)) transition.Stop();
+            element.SetCurrentValue(UIElement.VisibilityProperty, Visibility.Collapsed);
         }
 
-        public static void ShowWithSlideFromLeftAndFade(UIElement element, double duration = 0.25)
+        private static void SetPanelVisibility(FrameworkElement element, bool show, Vector offset, double duration)
         {
-            try
+            Transitions.TryGetValue(element, out var previous);
+            if (!CanAnimate || !element.IsLoaded)
             {
-                if (element.Visibility == Visibility.Visible) return;
-
-                if (element == null)
-                    throw new ArgumentNullException(nameof(element));
-
-                var sb = new Storyboard();
-
-                // 渐变动画
-                var fadeInAnimation = new DoubleAnimation
-                {
-                    From = 0.5,
-                    To = 1,
-                    Duration = TimeSpan.FromSeconds(duration)
-                };
-                Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(UIElement.OpacityProperty));
-
-                // 滑动动画
-                var slideAnimation = new DoubleAnimation
-                {
-                    From = element.RenderTransform.Value.OffsetX - 20, // 滑动距离
-                    To = 0,
-                    Duration = TimeSpan.FromSeconds(duration)
-                };
-                Storyboard.SetTargetProperty(slideAnimation, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.X)"));
-
-                sb.Children.Add(fadeInAnimation);
-                sb.Children.Add(slideAnimation);
-
-                element.Visibility = Visibility.Visible;
-                element.RenderTransform = new TranslateTransform();
-
-                sb.Begin((FrameworkElement)element);
+                previous?.Stop();
+                element.SetCurrentValue(UIElement.VisibilityProperty, show ? Visibility.Visible : Visibility.Collapsed);
+                return;
             }
-            catch { }
+
+            if (IsShown(element) == show) return;
+
+            double opacity = previous != null ? element.Opacity : show ? 0 : element.Opacity;
+            Vector translation = previous?.Offset ?? (show ? offset : new Vector());
+            previous?.Stop();
+
+            if (show) element.SetCurrentValue(UIElement.VisibilityProperty, Visibility.Visible);
+            if (!element.IsVisible)
+            {
+                if (!show) HideImmediately(element);
+                return;
+            }
+
+            new PanelTransition(element, show, translation, show ? new Vector() : offset, opacity,
+                TimeSpan.FromSeconds(duration)).Start();
         }
 
-        public static void ShowWithScaleFromLeft(UIElement element, double duration = 0.5)
+        private sealed class PanelTransition(
+            FrameworkElement element, bool show, Vector from, Vector to, double opacity, TimeSpan duration)
         {
-            try
+            private readonly Storyboard storyboard = new();
+            private readonly Transform originalTransform = element.RenderTransform;
+            private readonly TranslateTransform translation = new(from.X, from.Y);
+            private TransformGroup transform;
+
+            public bool IsShowing => show;
+            public Vector Offset => new(translation.X, translation.Y);
+
+            public void Start()
             {
-                if (element.Visibility == Visibility.Visible) return;
+                transform = new TransformGroup();
+                transform.Children.Add(originalTransform);
+                transform.Children.Add(translation);
 
-                if (element == null)
-                    throw new ArgumentNullException(nameof(element));
-
-                var sb = new Storyboard();
-
-                // 水平方向的缩放动画
-                var scaleXAnimation = new DoubleAnimation
+                var endOpacity = show ? (double)element.GetAnimationBaseValue(UIElement.OpacityProperty) : 0;
+                AddAnimation(new DoubleAnimation(opacity, endOpacity, show ? TimeSpan.FromMilliseconds(83) : duration),
+                    element, UIElement.OpacityProperty);
+                AddSlide(from.X, to.X, TranslateTransform.XProperty);
+                AddSlide(from.Y, to.Y, TranslateTransform.YProperty);
+                if (!show)
                 {
-                    From = 0,
-                    To = 1,
-                    Duration = TimeSpan.FromSeconds(duration)
-                };
-                Storyboard.SetTargetProperty(scaleXAnimation, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
+                    // Keep a disappearing flyout from consuming input meant for the canvas.
+                    var hitTest = new BooleanAnimationUsingKeyFrames();
+                    hitTest.KeyFrames.Add(new DiscreteBooleanKeyFrame(false, KeyTime.FromTimeSpan(TimeSpan.Zero)));
+                    AddAnimation(hitTest, element, UIElement.IsHitTestVisibleProperty);
+                }
 
-                // 垂直方向的缩放动画
-                var scaleYAnimation = new DoubleAnimation
-                {
-                    From = 0,
-                    To = 1,
-                    Duration = TimeSpan.FromSeconds(duration)
-                };
-                Storyboard.SetTargetProperty(scaleYAnimation, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
-
-                sb.Children.Add(scaleXAnimation);
-                sb.Children.Add(scaleYAnimation);
-
-                element.Visibility = Visibility.Visible;
-                element.RenderTransformOrigin = new Point(0, 0.5); // 左侧中心点为基准
-                element.RenderTransform = new ScaleTransform(0, 0);
-
-                sb.Begin((FrameworkElement)element);
+                Transitions.Add(element, this);
+                element.SetCurrentValue(UIElement.RenderTransformProperty, transform);
+                storyboard.Completed += Finish;
+                element.IsVisibleChanged += OnVisibilityChanged;
+                element.Unloaded += Finish;
+                SystemParameters.StaticPropertyChanged += OnSystemPreferenceChanged;
+                storyboard.Begin(element, HandoffBehavior.SnapshotAndReplace, isControllable: true);
             }
-            catch { }
-        }
 
-        public static void ShowWithScaleFromRight(UIElement element, double duration = 0.5)
-        {
-            try
+            private void AddSlide(double start, double end, DependencyProperty property)
             {
-                if (element.Visibility == Visibility.Visible) return;
-
-                if (element == null)
-                    throw new ArgumentNullException(nameof(element));
-
-                var sb = new Storyboard();
-
-                // 水平方向的缩放动画
-                var scaleXAnimation = new DoubleAnimation
-                {
-                    From = 0,
-                    To = 1,
-                    Duration = TimeSpan.FromSeconds(duration)
-                };
-                Storyboard.SetTargetProperty(scaleXAnimation, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
-
-                // 垂直方向的缩放动画
-                var scaleYAnimation = new DoubleAnimation
-                {
-                    From = 0,
-                    To = 1,
-                    Duration = TimeSpan.FromSeconds(duration)
-                };
-                Storyboard.SetTargetProperty(scaleYAnimation, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
-
-                sb.Children.Add(scaleXAnimation);
-                sb.Children.Add(scaleYAnimation);
-
-                element.Visibility = Visibility.Visible;
-                element.RenderTransformOrigin = new Point(1, 0.5); // 右侧中心点为基准
-                element.RenderTransform = new ScaleTransform(0, 0);
-
-                sb.Begin((FrameworkElement)element);
+                if (start == end) return;
+                var slide = new DoubleAnimationUsingKeyFrames { Duration = duration };
+                slide.KeyFrames.Add(new DiscreteDoubleKeyFrame(start, KeyTime.FromTimeSpan(TimeSpan.Zero)));
+                slide.KeyFrames.Add(new SplineDoubleKeyFrame(end, KeyTime.FromTimeSpan(duration), new KeySpline(0, 0, 0, 1)));
+                AddAnimation(slide, translation, property);
             }
-            catch { }
-        }
 
-        public static void ShowWithScaleFromBottom(UIElement element, double duration = 0.5)
-        {
-            try
+            private void AddAnimation(Timeline animation, DependencyObject target, DependencyProperty property)
             {
-                if (element.Visibility == Visibility.Visible) return;
-
-                if (element == null)
-                    throw new ArgumentNullException(nameof(element));
-
-                var sb = new Storyboard();
-
-                // 水平方向的缩放动画
-                var scaleXAnimation = new DoubleAnimation
-                {
-                    From = 0,
-                    To = 1,
-                    Duration = TimeSpan.FromSeconds(duration)
-                };
-                Storyboard.SetTargetProperty(scaleXAnimation, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
-
-                // 垂直方向的缩放动画
-                var scaleYAnimation = new DoubleAnimation
-                {
-                    From = 0,
-                    To = 1,
-                    Duration = TimeSpan.FromSeconds(duration)
-                };
-                Storyboard.SetTargetProperty(scaleYAnimation, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
-
-                sb.Children.Add(scaleXAnimation);
-                sb.Children.Add(scaleYAnimation);
-
-                element.Visibility = Visibility.Visible;
-                element.RenderTransformOrigin = new Point(0.5, 1); // 底部中心点为基准
-                element.RenderTransform = new ScaleTransform(1, 0);
-
-                sb.Begin((FrameworkElement)element);
+                Storyboard.SetTarget(animation, target);
+                Storyboard.SetTargetProperty(animation, new PropertyPath(property));
+                storyboard.Children.Add(animation);
             }
-            catch { }
-        }
 
-        public static void HideWithSlideAndFade(UIElement element, double duration = 0.15)
-        {
-            try
+            public void Stop()
             {
-                if (element.Visibility == Visibility.Collapsed) return;
-
-                if (element == null)
-                    throw new ArgumentNullException(nameof(element));
-
-                var sb = new Storyboard();
-
-                // 渐变动画
-                var fadeOutAnimation = new DoubleAnimation
-                {
-                    From = 1,
-                    To = 0,
-                    Duration = TimeSpan.FromSeconds(duration)
-                };
-                Storyboard.SetTargetProperty(fadeOutAnimation, new PropertyPath(UIElement.OpacityProperty));
-
-                // 滑动动画
-                var slideAnimation = new DoubleAnimation
-                {
-                    From = 0,
-                    To = element.RenderTransform.Value.OffsetY + 10, // 滑动距离
-                    Duration = TimeSpan.FromSeconds(duration)
-                };
-                Storyboard.SetTargetProperty(slideAnimation, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.Y)"));
-
-                sb.Children.Add(fadeOutAnimation);
-                sb.Children.Add(slideAnimation);
-
-                sb.Completed += (s, e) =>
-                {
-                    element.Visibility = Visibility.Collapsed;
-                };
-
-                element.RenderTransform = new TranslateTransform();
-                sb.Begin((FrameworkElement)element);
+                Transitions.Remove(element);
+                SystemParameters.StaticPropertyChanged -= OnSystemPreferenceChanged;
+                element.IsVisibleChanged -= OnVisibilityChanged;
+                element.Unloaded -= Finish;
+                storyboard.Completed -= Finish;
+                storyboard.Remove(element);
+                if (ReferenceEquals(element.RenderTransform, transform))
+                    element.SetCurrentValue(UIElement.RenderTransformProperty, originalTransform);
             }
-            catch { }
-        }
 
+            private void Finish(object sender, EventArgs e)
+            {
+                if (!Transitions.TryGetValue(element, out var current) || current != this) return;
+                Stop();
+                if (!show && element.Visibility == Visibility.Visible)
+                    element.SetCurrentValue(UIElement.VisibilityProperty, Visibility.Collapsed);
+            }
+
+            private void OnVisibilityChanged(object sender, DependencyPropertyChangedEventArgs e)
+            {
+                if (!element.IsVisible) Finish(sender, EventArgs.Empty);
+            }
+
+            private void OnSystemPreferenceChanged(object sender, PropertyChangedEventArgs e)
+            {
+                if (e.PropertyName is not (nameof(SystemParameters.ClientAreaAnimation) or nameof(SystemParameters.HighContrast))) return;
+                if (element.Dispatcher.CheckAccess()) RespectSystemPreference();
+                else if (!element.Dispatcher.HasShutdownStarted) _ = element.Dispatcher.InvokeAsync(RespectSystemPreference);
+            }
+
+            private void RespectSystemPreference()
+            {
+                if (!CanAnimate) Finish(null, EventArgs.Empty);
+            }
+        }
     }
 }

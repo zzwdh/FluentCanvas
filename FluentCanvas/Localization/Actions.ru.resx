@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Ready" xml:space="preserve"><value>Готово</value></data>
+  <data name="Hours" xml:space="preserve"><value>Часы</value></data>
+  <data name="Minutes" xml:space="preserve"><value>Минуты</value></data>
+  <data name="Seconds" xml:space="preserve"><value>Секунды</value></data>
+  <data name="Start" xml:space="preserve"><value>Запустить</value></data>
+  <data name="Reset" xml:space="preserve"><value>Сбросить</value></data>
+  <data name="Compact" xml:space="preserve"><value>Компактно</value></data>
+  <data name="FullScreen" xml:space="preserve"><value>На весь экран</value></data>
+  <data name="TimeRemaining" xml:space="preserve"><value>Оставшееся время</value></data>
+  <data name="TimeRemainingProgress" xml:space="preserve"><value>Ход обратного отсчёта</value></data>
+  <data name="Paused" xml:space="preserve"><value>Приостановлено</value></data>
+  <data name="CountdownEndsAt" xml:space="preserve"><value>Окончание примерно в {0:HH:mm:ss}</value></data>
+  <data name="TimeUp" xml:space="preserve"><value>Время вышло</value></data>
+  <data name="TimeUpAlarmFailed" xml:space="preserve"><value>Время вышло. Не удалось воспроизвести сигнал.</value></data>
+  <data name="TimeRemainingSpoken" xml:space="preserve"><value>Осталось: {0} ч, {1} мин, {2} с</value></data>
+  <data name="Pause" xml:space="preserve"><value>Пауза</value></data>
+  <data name="Resume" xml:space="preserve"><value>Продолжить</value></data>
+  <data name="Expand" xml:space="preserve"><value>Развернуть</value></data>
+  <data name="ExitFullScreen" xml:space="preserve"><value>Выйти из полноэкранного режима</value></data>
+  <data name="RosterLoading" xml:space="preserve"><value>Загрузка списка…</value></data>
+  <data name="ParticipantCount" xml:space="preserve"><value>Участники</value></data>
+  <data name="DrawCount" xml:space="preserve"><value>Сколько выбрать</value></data>
+  <data name="StartDraw" xml:space="preserve"><value>Выбрать</value></data>
+  <data name="EditRoster" xml:space="preserve"><value>Изменить список</value></data>
+  <data name="DrawOne" xml:space="preserve"><value>Выбрать одного</value></data>
+  <data name="DrawResult" xml:space="preserve"><value>Результат</value></data>
+  <data name="RosterReadFailed" xml:space="preserve"><value>Не удалось прочитать список. Вместо имён будут использованы номера.</value></data>
+  <data name="RosterLoaded" xml:space="preserve"><value>Людей в списке: {0}</value></data>
+  <data name="RosterUsingNumbers" xml:space="preserve"><value>Выбор по номерам</value></data>
+  <data name="InvalidRulesSkipped" xml:space="preserve"><value> · Пропущено некорректных правил: {0}</value></data>
+  <data name="Drawing" xml:space="preserve"><value>Выполняется выбор…</value></data>
+  <data name="SingleDrawResult" xml:space="preserve"><value>Результат: {0}</value></data>
+  <data name="MultipleDrawResult" xml:space="preserve"><value>Выбрано: {0} чел.</value></data>
+  <data name="DrawAgain" xml:space="preserve"><value>Выбрать снова</value></data>
+  <data name="NamesPerLine" xml:space="preserve"><value>Введите по одному имени на строку</value></data>
+  <data name="RulesPerLine" xml:space="preserve"><value>Введите по одному правилу на строку</value></data>
+  <data name="Roster" xml:space="preserve"><value>Список</value></data>
+  <data name="ImportRoster" xml:space="preserve"><value>Импортировать имена</value></data>
+  <data name="ReplacementRules" xml:space="preserve"><value>Правила замены</value></data>
+  <data name="ImportReplacementRules" xml:space="preserve"><value>Импортировать правила</value></data>
+  <data name="ReplacementRuleExample" xml:space="preserve"><value>Пример: Александра--&gt;Саша. Оставьте правую часть пустой, чтобы исключить имя.</value></data>
+  <data name="RosterAndRules" xml:space="preserve"><value>Список и правила замены</value></data>
+  <data name="Save" xml:space="preserve"><value>Сохранить</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Отмена</value></data>
+  <data name="RosterSaved" xml:space="preserve"><value>Список сохранён</value></data>
+  <data name="RosterEditFailed" xml:space="preserve"><value>Не удалось изменить список: {0}</value></data>
+  <data name="RosterImportFailed" xml:space="preserve"><value>Ошибка импорта: {0}</value></data>
+  <data name="InvalidReplacementRule" xml:space="preserve"><value>Проверьте правила. Формат каждой строки: «исходное имя--&gt;отображаемое имя».</value></data>
+  <data name="RosterSaveTooLarge" xml:space="preserve"><value>Размер каждого файла списка не должен превышать 2 МБ.</value></data>
+  <data name="RosterLocked" xml:space="preserve"><value>Другое окно сохраняет список. Повторите попытку чуть позже.</value></data>
+  <data name="RosterChanged" xml:space="preserve"><value>Другое окно изменило список. Откройте редактор заново, чтобы загрузить последнюю версию.</value></data>
+  <data name="RosterReadTooLarge" xml:space="preserve"><value>Размер файла списка превышает 2 МБ.</value></data>
+  <data name="ReplacementRulesChanged" xml:space="preserve"><value>Другой процесс изменил правила замены.</value></data>
+  <data name="RosterRollbackFailed" xml:space="preserve"><value>Не удалось сохранить список и восстановить прежние правила. Откройте редактор заново и проверьте оба файла.</value></data>
+  <data name="SavingBeforeClose" xml:space="preserve"><value>Выполняется сохранение документа. Дождитесь завершения перед закрытием.</value></data>
+  <data name="CloseUnsavedWork" xml:space="preserve"><value>Закрыть FluentCanvas? Несохранённые изменения будут потеряны.</value></data>
+  <data name="ConfirmClose" xml:space="preserve"><value>Действительно закрыть FluentCanvas?</value></data>
+  <data name="CancelClosing" xml:space="preserve"><value>Отменить закрытие FluentCanvas?</value></data>
+  <data name="StartupEntryInUse" xml:space="preserve"><value>Эта запись автозагрузки используется другой установкой.</value></data>
+  <data name="AutoFoldInk" xml:space="preserve"><value>Рукописные линии стёрты, а панель свёрнута. Чтобы восстановить линии, вернитесь в режим заметок и выберите «Отменить».</value></data>
+  <data name="InsertImageFailed" xml:space="preserve"><value>Не удалось вставить изображение. Проверьте файл и повторите попытку.</value></data>
+  <data name="InsertVideoFailed" xml:space="preserve"><value>Не удалось вставить видео. Проверьте файл и повторите попытку.</value></data>
+  <data name="CanvasChangedDuringImport" xml:space="preserve"><value>Во время импорта холст сменился. Вставьте файл повторно на нужной странице.</value></data>
+  <data name="OpenToolFailed" xml:space="preserve"><value>Не удалось открыть окно инструмента.</value></data>
+  <data name="OpenDrawOneFailed" xml:space="preserve"><value>Не удалось открыть окно выбора одного участника.</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>Не удалось открыть параметры.</value></data>
+  <data name="ScreenshotSaved" xml:space="preserve"><value>Снимок экрана сохранён в {0}</value></data>
+  <data name="ScreenshotPathFailed" xml:space="preserve"><value>Не удалось сохранить снимок. Проверьте путь сохранения в параметрах.</value></data>
+  <data name="ScreenshotFailed" xml:space="preserve"><value>Не удалось сохранить снимок экрана.</value></data>
+  <data name="SlideCaptureObscured" xml:space="preserve"><value>Не удалось сделать снимок слайд-шоу: его окно скрыто или перекрыто.</value></data>
+  <data name="SlideScreenshotFailed" xml:space="preserve"><value>Не удалось сохранить снимок слайд-шоу. Проверьте путь сохранения.</value></data>
+  <data name="DocumentSaved" xml:space="preserve"><value>Рукописные линии и объекты сохранены в {0}</value></data>
+  <data name="DocumentSaveFailed" xml:space="preserve"><value>Не удалось сохранить документ. Проверьте путь сохранения и повторите попытку.</value></data>
+  <data name="CanvasChangedDuringBackup" xml:space="preserve"><value>Во время резервного копирования холст изменился. Попробуйте очистить его ещё раз.</value></data>
+  <data name="BackupFailed" xml:space="preserve"><value>Сбой резервного копирования</value></data>
+  <data name="BackupFailedPrompt" xml:space="preserve"><value>Не удалось создать резервную копию. Холст сохранён.</value></data>
+  <data name="CanvasChangedWhileOpening" xml:space="preserve"><value>При открытии документа холст сменился. Откройте документ повторно на нужной странице.</value></data>
+  <data name="UnsavedBoardPrompt" xml:space="preserve"><value>На доске есть несохранённые изменения.</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>Открыть документ</value></data>
+  <data name="CanvasChangedDuringSave" xml:space="preserve"><value>Во время сохранения холст изменился. Откройте документ повторно.</value></data>
+  <data name="DocumentOpenFailed" xml:space="preserve"><value>Не удалось открыть документ. Проверьте файл и повторите попытку.</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>Скрывать автоматически</value></data>
+  <data name="Pinned" xml:space="preserve"><value>Закреплено</value></data>
+  <data name="RemoveAsymptotes" xml:space="preserve"><value>Удалить асимптоты?</value></data>
+  <data name="SavingBeforeRestart" xml:space="preserve"><value>Выполняется сохранение документа. Дождитесь завершения перед перезапуском.</value></data>
+  <data name="RestartFailed" xml:space="preserve"><value>Не удалось перезапустить приложение. Сохраните работу и снова откройте FluentCanvas.</value></data>
+  <data name="PngImage" xml:space="preserve"><value>Изображение PNG</value></data>
+  <data name="SelectionExportFailed" xml:space="preserve"><value>Не удалось экспортировать выделение. Выберите меньшую область или проверьте путь сохранения.</value></data>
+  <data name="CloneToBoard" xml:space="preserve"><value>Копировать на доску</value></data>
+  <data name="CloneToNewPage" xml:space="preserve"><value>Копировать на новую страницу</value></data>
+  <data name="EasiNoteAutomaticallyClosed" xml:space="preserve"><value>EasiNote 5 автоматически закрыто.</value></data>
+  <data name="Retry" xml:space="preserve"><value>Повторить</value></data>
+  <data name="ClearWithoutBackup" xml:space="preserve"><value>Очистить без копии</value></data>
+  <data name="SaveAndOpen" xml:space="preserve"><value>Сохранить и открыть</value></data>
+  <data name="OpenWithoutSaving" xml:space="preserve"><value>Открыть без сохранения</value></data>
+</root>

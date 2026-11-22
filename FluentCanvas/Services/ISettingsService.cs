@@ -2,7 +2,6 @@ namespace FluentCanvas.Services
 {
     /// <summary>
     /// Owns the application settings model and its persistence.
-    /// Replaces the former static <c>MainWindow.Settings</c> field.
     /// </summary>
     public interface ISettingsService
     {

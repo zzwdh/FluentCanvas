@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Ready" xml:space="preserve"><value>Hazır</value></data>
+  <data name="Hours" xml:space="preserve"><value>Saat</value></data>
+  <data name="Minutes" xml:space="preserve"><value>Dakika</value></data>
+  <data name="Seconds" xml:space="preserve"><value>Saniye</value></data>
+  <data name="Start" xml:space="preserve"><value>Başlat</value></data>
+  <data name="Reset" xml:space="preserve"><value>Sıfırla</value></data>
+  <data name="Compact" xml:space="preserve"><value>Kompakt</value></data>
+  <data name="FullScreen" xml:space="preserve"><value>Tam ekran</value></data>
+  <data name="TimeRemaining" xml:space="preserve"><value>Kalan süre</value></data>
+  <data name="TimeRemainingProgress" xml:space="preserve"><value>Geri sayım ilerlemesi</value></data>
+  <data name="Paused" xml:space="preserve"><value>Duraklatıldı</value></data>
+  <data name="CountdownEndsAt" xml:space="preserve"><value>Yaklaşık {0:HH:mm:ss} saatinde biter</value></data>
+  <data name="TimeUp" xml:space="preserve"><value>Süre doldu</value></data>
+  <data name="TimeUpAlarmFailed" xml:space="preserve"><value>Süre doldu. Alarm çalınamadı.</value></data>
+  <data name="TimeRemainingSpoken" xml:space="preserve"><value>Kalan süre (saat, dakika, saniye): {0}, {1}, {2}</value></data>
+  <data name="Pause" xml:space="preserve"><value>Duraklat</value></data>
+  <data name="Resume" xml:space="preserve"><value>Sürdür</value></data>
+  <data name="Expand" xml:space="preserve"><value>Genişlet</value></data>
+  <data name="ExitFullScreen" xml:space="preserve"><value>Tam ekrandan çık</value></data>
+  <data name="RosterLoading" xml:space="preserve"><value>Katılımcı listesi yükleniyor…</value></data>
+  <data name="ParticipantCount" xml:space="preserve"><value>Katılımcılar</value></data>
+  <data name="DrawCount" xml:space="preserve"><value>Seçilecek kişi sayısı</value></data>
+  <data name="StartDraw" xml:space="preserve"><value>Seç</value></data>
+  <data name="EditRoster" xml:space="preserve"><value>Katılımcı listesini düzenle</value></data>
+  <data name="DrawOne" xml:space="preserve"><value>Bir kişi seç</value></data>
+  <data name="DrawResult" xml:space="preserve"><value>Sonuç</value></data>
+  <data name="RosterReadFailed" xml:space="preserve"><value>Liste okunamadı. Seçim numaralarla yapılacak.</value></data>
+  <data name="RosterLoaded" xml:space="preserve"><value>Listedeki kişi sayısı: {0}</value></data>
+  <data name="RosterUsingNumbers" xml:space="preserve"><value>Numaralı kayıtlar kullanılıyor</value></data>
+  <data name="InvalidRulesSkipped" xml:space="preserve"><value> · Atlanan geçersiz kurallar: {0}</value></data>
+  <data name="Drawing" xml:space="preserve"><value>Seçiliyor…</value></data>
+  <data name="SingleDrawResult" xml:space="preserve"><value>Sonuç: {0}</value></data>
+  <data name="MultipleDrawResult" xml:space="preserve"><value>{0} kişi seçildi</value></data>
+  <data name="DrawAgain" xml:space="preserve"><value>Yeniden seç</value></data>
+  <data name="NamesPerLine" xml:space="preserve"><value>Her satıra bir ad girin</value></data>
+  <data name="RulesPerLine" xml:space="preserve"><value>Her satıra bir değiştirme kuralı girin</value></data>
+  <data name="Roster" xml:space="preserve"><value>Katılımcı listesi</value></data>
+  <data name="ImportRoster" xml:space="preserve"><value>Adları içe aktar</value></data>
+  <data name="ReplacementRules" xml:space="preserve"><value>Ad değiştirme kuralları</value></data>
+  <data name="ImportReplacementRules" xml:space="preserve"><value>Kuralları içe aktar</value></data>
+  <data name="ReplacementRuleExample" xml:space="preserve"><value>Örnek: Alex--&gt;Al. Adı hariç tutmak için sağ tarafı boş bırakın.</value></data>
+  <data name="RosterAndRules" xml:space="preserve"><value>Katılımcı listesi ve ad değiştirme kuralları</value></data>
+  <data name="Save" xml:space="preserve"><value>Kaydet</value></data>
+  <data name="Cancel" xml:space="preserve"><value>İptal</value></data>
+  <data name="RosterSaved" xml:space="preserve"><value>Katılımcı listesi kaydedildi</value></data>
+  <data name="RosterEditFailed" xml:space="preserve"><value>Katılımcı listesi düzenlenemedi: {0}</value></data>
+  <data name="RosterImportFailed" xml:space="preserve"><value>İçe aktarma başarısız oldu: {0}</value></data>
+  <data name="InvalidReplacementRule" xml:space="preserve"><value>Değiştirme kurallarını denetleyin. Her satırda “asıl ad--&gt;görünen ad” biçimini kullanın.</value></data>
+  <data name="RosterSaveTooLarge" xml:space="preserve"><value>Her liste dosyası en fazla 2 MB olabilir.</value></data>
+  <data name="RosterLocked" xml:space="preserve"><value>Başka bir pencere katılımcı listesini kaydediyor. Biraz sonra yeniden deneyin.</value></data>
+  <data name="RosterChanged" xml:space="preserve"><value>Başka bir pencere katılımcı listesini değiştirdi. Son sürümü yüklemek için düzenleyiciyi yeniden açın.</value></data>
+  <data name="RosterReadTooLarge" xml:space="preserve"><value>Katılımcı listesi dosyası 2 MB sınırını aşıyor.</value></data>
+  <data name="ReplacementRulesChanged" xml:space="preserve"><value>Başka bir işlem değiştirme kurallarını değiştirdi.</value></data>
+  <data name="RosterRollbackFailed" xml:space="preserve"><value>Katılımcı listesi kaydedilemedi ve önceki kurallar geri yüklenemedi. İki dosyayı da denetlemek için düzenleyiciyi yeniden açın.</value></data>
+  <data name="SavingBeforeClose" xml:space="preserve"><value>Belge kaydediliyor. Kapatmadan önce işlemin bitmesini bekleyin.</value></data>
+  <data name="CloseUnsavedWork" xml:space="preserve"><value>FluentCanvas kapatılsın mı? Kaydedilmemiş çalışmalarınız kaybolacak.</value></data>
+  <data name="ConfirmClose" xml:space="preserve"><value>FluentCanvas'ı kapatmak istiyor musunuz?</value></data>
+  <data name="CancelClosing" xml:space="preserve"><value>FluentCanvas'ı kapatma işlemi iptal edilsin mi?</value></data>
+  <data name="StartupEntryInUse" xml:space="preserve"><value>Bu başlangıç girdisini başka bir kurulum kullanıyor.</value></data>
+  <data name="AutoFoldInk" xml:space="preserve"><value>El yazısı temizlendi ve araç çubuğu kenara alındı. El yazısını geri yüklemek için açıklama moduna dönüp Geri al'ı seçin.</value></data>
+  <data name="InsertImageFailed" xml:space="preserve"><value>Görüntü eklenemedi. Dosyayı denetleyip yeniden deneyin.</value></data>
+  <data name="InsertVideoFailed" xml:space="preserve"><value>Video eklenemedi. Dosyayı denetleyip yeniden deneyin.</value></data>
+  <data name="CanvasChangedDuringImport" xml:space="preserve"><value>İçe aktarma sırasında tuval değişti. Dosyayı hedef sayfaya yeniden ekleyin.</value></data>
+  <data name="OpenToolFailed" xml:space="preserve"><value>Araç penceresi açılamadı.</value></data>
+  <data name="OpenDrawOneFailed" xml:space="preserve"><value>Tek kişi seçme penceresi açılamadı.</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>Ayarlar açılamadı.</value></data>
+  <data name="ScreenshotSaved" xml:space="preserve"><value>Ekran görüntüsü şuraya kaydedildi: {0}</value></data>
+  <data name="ScreenshotPathFailed" xml:space="preserve"><value>Ekran görüntüsü kaydedilemedi. Ayarlar'da kayıt konumunu denetleyin.</value></data>
+  <data name="ScreenshotFailed" xml:space="preserve"><value>Ekran görüntüsü kaydedilemedi.</value></data>
+  <data name="SlideCaptureObscured" xml:space="preserve"><value>Slayt gösterisi penceresi gizli veya kaplı olduğu için görüntüsü alınamadı.</value></data>
+  <data name="SlideScreenshotFailed" xml:space="preserve"><value>Slayt gösterisi ekran görüntüsü kaydedilemedi. Kayıt konumunu denetleyin.</value></data>
+  <data name="DocumentSaved" xml:space="preserve"><value>El yazısı ve nesneler şuraya kaydedildi: {0}</value></data>
+  <data name="DocumentSaveFailed" xml:space="preserve"><value>Belge kaydedilemedi. Kayıt konumunu denetleyip yeniden deneyin.</value></data>
+  <data name="CanvasChangedDuringBackup" xml:space="preserve"><value>Yedekleme sırasında tuval değişti. Yeniden temizlemeyi deneyin.</value></data>
+  <data name="BackupFailed" xml:space="preserve"><value>Yedekleme başarısız oldu</value></data>
+  <data name="BackupFailedPrompt" xml:space="preserve"><value>Yedekleme tamamlanamadı. Tuval korundu.</value></data>
+  <data name="CanvasChangedWhileOpening" xml:space="preserve"><value>Belge açılırken tuval değişti. Belgeyi hedef sayfada yeniden açın.</value></data>
+  <data name="UnsavedBoardPrompt" xml:space="preserve"><value>Bu beyaz tahtada kaydedilmemiş değişiklikler var.</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>Belgeyi aç</value></data>
+  <data name="CanvasChangedDuringSave" xml:space="preserve"><value>Kaydetme sırasında tuval değişti. Belgeyi yeniden açın.</value></data>
+  <data name="DocumentOpenFailed" xml:space="preserve"><value>Belge açılamadı. Dosyayı denetleyip yeniden deneyin.</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>Otomatik gizle</value></data>
+  <data name="Pinned" xml:space="preserve"><value>Sabitlendi</value></data>
+  <data name="RemoveAsymptotes" xml:space="preserve"><value>Asimptotlar kaldırılsın mı?</value></data>
+  <data name="SavingBeforeRestart" xml:space="preserve"><value>Belge kaydediliyor. Yeniden başlatmadan önce işlemin bitmesini bekleyin.</value></data>
+  <data name="RestartFailed" xml:space="preserve"><value>Yeniden başlatılamadı. Çalışmanızı kaydedip FluentCanvas'ı yeniden açın.</value></data>
+  <data name="PngImage" xml:space="preserve"><value>PNG görüntüsü</value></data>
+  <data name="SelectionExportFailed" xml:space="preserve"><value>Seçim dışarı aktarılamadı. Daha küçük bir alan seçin veya kayıt konumunu denetleyin.</value></data>
+  <data name="CloneToBoard" xml:space="preserve"><value>Tahtaya kopyala</value></data>
+  <data name="CloneToNewPage" xml:space="preserve"><value>Yeni sayfaya kopyala</value></data>
+  <data name="EasiNoteAutomaticallyClosed" xml:space="preserve"><value>EasiNote 5 otomatik olarak kapatıldı.</value></data>
+  <data name="Retry" xml:space="preserve"><value>Yeniden dene</value></data>
+  <data name="ClearWithoutBackup" xml:space="preserve"><value>Yedeklemeden temizle</value></data>
+  <data name="SaveAndOpen" xml:space="preserve"><value>Kaydet ve aç</value></data>
+  <data name="OpenWithoutSaving" xml:space="preserve"><value>Değişiklikleri at ve aç</value></data>
+</root>

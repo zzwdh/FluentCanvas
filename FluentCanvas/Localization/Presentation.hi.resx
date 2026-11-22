@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>PowerPoint का टिप्पणी पेज नहीं बदला जा सका। {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>प्रस्तुति की सेटिंग - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>{0} का स्लाइड शो बंद नहीं किया जा सका।</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>इस प्रस्तुति में छिपी हुई स्लाइड हैं। क्या उन्हें दिखाएँ?</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>{0} स्लाइड की पुरानी टिप्पणियाँ आयात की गईं।</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>फ़ाइल के नाम और स्लाइड नंबर के आधार पर सहेजी गई पुरानी टिप्पणियाँ मिलीं। पक्का करें कि ये इसी प्रस्तुति की हैं और स्लाइड का क्रम पहले जैसा है। क्या इन्हें इस प्रस्तुति के टिप्पणी फ़ोल्डर में कॉपी करें?</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>पिछला स्लाइड शो स्लाइड {0} पर रुका था। क्या उस स्लाइड पर जाएँ?</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>इस प्रस्तुति में स्लाइड अपने आप बदलती हैं या रिहर्सल का समय लागू है। क्या स्लाइड मैन्युअल रूप से बदलें?</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>PowerPoint में स्लाइड नेविगेशन नहीं खोला जा सका।</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>अगली स्लाइड</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>{0} में अगली स्लाइड पर नहीं जा सके।</value></data>
+  <data name="No" xml:space="preserve"><value>नहीं</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>PowerPoint में कार्रवाई विफल रही। {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>स्लाइड शो में स्थान {0} · प्रस्तुति की स्लाइड {1}</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>पिछली स्लाइड</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>{0} में पिछली स्लाइड पर नहीं जा सके।</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>स्लाइड {0} की सहेजी गई टिप्पणियाँ पढ़ी नहीं जा सकीं। मूल फ़ाइल सुरक्षित है।</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>PowerPoint की टिप्पणियाँ सहेजी नहीं जा सकीं। वे इस सत्र में अभी भी उपलब्ध हैं।</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>PowerPoint की टिप्पणियाँ स्थानीय रिकवरी फ़ोल्डर में सहेजी गईं।</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>PowerPoint की टिप्पणियाँ या स्लाइड शो में स्थान सहेजा नहीं जा सका। {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>मौजूदा स्लाइड शो की विंडो नहीं मिली।</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS स्लाइड शो का आदेश पूरा नहीं कर सका।</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>WPS ऐड-इन ने स्लाइड शो का आदेश मिलने की पुष्टि नहीं की।</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>WPS ऐड-इन को स्लाइड शो का आदेश नहीं भेजा जा सका।</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>हाँ</value></data>
+</root>

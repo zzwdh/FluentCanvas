@@ -167,6 +167,7 @@ namespace FluentCanvas.Helpers
                 IsMuted = originalMediaElement.IsMuted,
                 ScrubbingEnabled = originalMediaElement.ScrubbingEnabled
             };
+            CanvasDocumentMedia.GetOwner(originalMediaElement)?.Attach(clonedMediaElement);
             clonedMediaElement.Loaded += async (sender, args) =>
             {
                 clonedMediaElement.Play();

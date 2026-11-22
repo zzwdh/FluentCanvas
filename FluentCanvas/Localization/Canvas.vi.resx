@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="WindowTitle" xml:space="preserve"><value>Bảng trắng FluentCanvas</value></data>
+  <data name="Undo" xml:space="preserve"><value>Hoàn tác</value></data>
+  <data name="Redo" xml:space="preserve"><value>Làm lại</value></data>
+  <data name="Select" xml:space="preserve"><value>Chọn</value></data>
+  <data name="Pen" xml:space="preserve"><value>Bút</value></data>
+  <data name="Eraser" xml:space="preserve"><value>Tẩy</value></data>
+  <data name="EraseStrokes" xml:space="preserve"><value>Xóa từng nét</value></data>
+  <data name="ExpandToolbar" xml:space="preserve"><value>Mở rộng thanh công cụ nổi</value></data>
+  <data name="CollapseToolbar" xml:space="preserve"><value>Ẩn thanh công cụ nổi</value></data>
+  <data name="ToggleToolbar" xml:space="preserve"><value>Mở rộng hoặc thu gọn thanh công cụ nổi</value></data>
+  <data name="ToolbarDrag" xml:space="preserve"><value>Kéo để di chuyển thanh công cụ</value></data>
+  <data name="ToolbarDragOrToggle" xml:space="preserve"><value>Kéo để di chuyển thanh công cụ. Bấm để mở rộng hoặc thu gọn.</value></data>
+  <data name="ExpandFromLeft" xml:space="preserve"><value>Mở rộng thanh công cụ nổi từ bên trái</value></data>
+  <data name="ExpandFromRight" xml:space="preserve"><value>Mở rộng thanh công cụ nổi từ bên phải</value></data>
+  <data name="SaveInk" xml:space="preserve"><value>Lưu</value></data>
+  <data name="SaveDocument" xml:space="preserve"><value>Lưu bản vẽ</value></data>
+  <data name="OpenInk" xml:space="preserve"><value>Mở</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>Mở bản vẽ</value></data>
+  <data name="Playback" xml:space="preserve"><value>Phát lại</value></data>
+  <data name="ReplayInk" xml:space="preserve"><value>Phát lại nét vẽ</value></data>
+  <data name="ExportImage" xml:space="preserve"><value>Lưu dưới dạng ảnh</value></data>
+  <data name="PenTip" xml:space="preserve"><value>Đầu bút</value></data>
+  <data name="NibMode" xml:space="preserve"><value>Chế độ đầu bút</value></data>
+  <data name="Opacity" xml:space="preserve"><value>Độ đục</value></data>
+  <data name="InsertVideo" xml:space="preserve"><value>Chèn video</value></data>
+  <data name="InsertImage" xml:space="preserve"><value>Chèn ảnh</value></data>
+  <data name="Width" xml:space="preserve"><value>Độ rộng</value></data>
+  <data name="TouchSelectionHint" xml:space="preserve"><value>Cảm ứng: kéo bằng một ngón, chụm hoặc xoay bằng hai ngón</value></data>
+  <data name="MouseSelectionHint" xml:space="preserve"><value>Chuột: kéo để di chuyển, cuộn để thu phóng</value></data>
+  <data name="ParabolaWithFocus" xml:space="preserve"><value>Parabol có tiêu điểm</value></data>
+  <data name="HyperbolaWithFoci" xml:space="preserve"><value>Hyperbol có các tiêu điểm</value></data>
+  <data name="EllipseWithFoci" xml:space="preserve"><value>Elip có các tiêu điểm</value></data>
+  <data name="PickOne" xml:space="preserve"><value>Chọn một người</value></data>
+  <data name="Countdown" xml:space="preserve"><value>Đếm ngược</value></data>
+  <data name="TimerShort" xml:space="preserve"><value>Hẹn giờ</value></data>
+  <data name="ClickToClear" xml:space="preserve"><value>Bấm để xóa</value></data>
+  <data name="PointBasedPenTip" xml:space="preserve"><value>Vuốt nhọn theo điểm</value></data>
+  <data name="DottedLine" xml:space="preserve"><value>Đường chấm</value></data>
+  <data name="MultiFingerInk" xml:space="preserve"><value>Vẽ bằng nhiều ngón</value></data>
+  <data name="More" xml:space="preserve"><value>Thêm</value></data>
+  <data name="MoreTools" xml:space="preserve"><value>Công cụ khác</value></data>
+  <data name="MoreFeatures" xml:space="preserve"><value>Tính năng khác</value></data>
+  <data name="MoreSettings" xml:space="preserve"><value>Cài đặt khác</value></data>
+  <data name="Tools" xml:space="preserve"><value>Công cụ</value></data>
+  <data name="PinShapes" xml:space="preserve"><value>Ghim thanh công cụ hình dạng</value></data>
+  <data name="Off" xml:space="preserve"><value>Tắt</value></data>
+  <data name="On" xml:space="preserve"><value>Bật</value></data>
+  <data name="NoTaper" xml:space="preserve"><value>Không vuốt nhọn</value></data>
+  <data name="HorizontalParabola" xml:space="preserve"><value>Parabol ngang</value></data>
+  <data name="Board" xml:space="preserve"><value>Bảng</value></data>
+  <data name="ColorBlack" xml:space="preserve"><value>Đen</value></data>
+  <data name="ColorWhite" xml:space="preserve"><value>Trắng</value></data>
+  <data name="ColorRed" xml:space="preserve"><value>Đỏ</value></data>
+  <data name="ColorPink" xml:space="preserve"><value>Hồng</value></data>
+  <data name="ColorOrange" xml:space="preserve"><value>Cam</value></data>
+  <data name="ColorYellow" xml:space="preserve"><value>Vàng</value></data>
+  <data name="ColorGreen" xml:space="preserve"><value>Xanh lá</value></data>
+  <data name="ColorCyan" xml:space="preserve"><value>Lục lam</value></data>
+  <data name="ColorBlue" xml:space="preserve"><value>Xanh dương</value></data>
+  <data name="ColorPurple" xml:space="preserve"><value>Tím</value></data>
+  <data name="BlackPen" xml:space="preserve"><value>Bút: đen</value></data>
+  <data name="WhitePen" xml:space="preserve"><value>Bút: trắng</value></data>
+  <data name="RedPen" xml:space="preserve"><value>Bút: đỏ</value></data>
+  <data name="PinkPen" xml:space="preserve"><value>Bút: hồng</value></data>
+  <data name="OrangePen" xml:space="preserve"><value>Bút: cam</value></data>
+  <data name="YellowPen" xml:space="preserve"><value>Bút: vàng</value></data>
+  <data name="GreenPen" xml:space="preserve"><value>Bút: xanh lá</value></data>
+  <data name="CyanPen" xml:space="preserve"><value>Bút: xanh lơ</value></data>
+  <data name="BluePen" xml:space="preserve"><value>Bút: xanh dương</value></data>
+  <data name="Canvas" xml:space="preserve"><value>Vùng vẽ</value></data>
+  <data name="DrawShape" xml:space="preserve"><value>Vẽ hình</value></data>
+  <data name="AddPage" xml:space="preserve"><value>Thêm trang</value></data>
+  <data name="Arrow" xml:space="preserve"><value>Mũi tên</value></data>
+  <data name="EndSlideShow" xml:space="preserve"><value>Kết thúc trình chiếu PowerPoint</value></data>
+  <data name="ScreenCaptureShort" xml:space="preserve"><value>Chụp</value></data>
+  <data name="ScreenCapture" xml:space="preserve"><value>Ảnh chụp màn hình</value></data>
+  <data name="Rectangle" xml:space="preserve"><value>Hình chữ nhật</value></data>
+  <data name="CloneMode" xml:space="preserve"><value>Chế độ nhân bản</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>Hướng dẫn phím tắt</value></data>
+  <data name="LightPalette" xml:space="preserve"><value>Sáng</value></data>
+  <data name="DarkPalette" xml:space="preserve"><value>Tối</value></data>
+  <data name="AreaEraserShort" xml:space="preserve"><value>Vùng</value></data>
+  <data name="Ink" xml:space="preserve"><value>Nét vẽ</value></data>
+  <data name="StrokeEraserShort" xml:space="preserve"><value>Nét</value></data>
+  <data name="InkRecognition" xml:space="preserve"><value>Nhận dạng nét vẽ</value></data>
+  <data name="InkOptions" xml:space="preserve"><value>Tùy chọn nét vẽ</value></data>
+  <data name="RotateLeft" xml:space="preserve"><value>Xoay trái</value></data>
+  <data name="Annotate" xml:space="preserve"><value>Chú thích</value></data>
+  <data name="ParallelLines" xml:space="preserve"><value>Các đường song song</value></data>
+  <data name="SwitchBoard" xml:space="preserve"><value>Chuyển giữa bảng trắng và chú thích trên màn hình</value></data>
+  <data name="SwitchPenPalette" xml:space="preserve"><value>Đổi bảng màu bút</value></data>
+  <data name="ClearAndMouseShort" xml:space="preserve"><value>Xóa</value></data>
+  <data name="Clear" xml:space="preserve"><value>Xóa</value></data>
+  <data name="ClearAnnotations" xml:space="preserve"><value>Xóa chú thích</value></data>
+  <data name="ClearAndMouse" xml:space="preserve"><value>Xóa chú thích và chuyển sang chế độ chuột</value></data>
+  <data name="Delete" xml:space="preserve"><value>Xóa</value></data>
+  <data name="PreviousPage" xml:space="preserve"><value>Trang trước</value></data>
+  <data name="Settings" xml:space="preserve"><value>Cài đặt</value></data>
+  <data name="Video" xml:space="preserve"><value>Video</value></data>
+  <data name="DocumentCamera" xml:space="preserve"><value>Máy chiếu vật thể</value></data>
+  <data name="Gestures" xml:space="preserve"><value>Cử chỉ</value></data>
+  <data name="GestureFeatures" xml:space="preserve"><value>Điều khiển bằng cử chỉ</value></data>
+  <data name="GestureOptions" xml:space="preserve"><value>Tùy chọn cử chỉ</value></data>
+  <data name="Mouse" xml:space="preserve"><value>Chuột</value></data>
+  <data name="MouseMode" xml:space="preserve"><value>Chế độ chuột</value></data>
+  <data name="VerticalParabola" xml:space="preserve"><value>Parabol dọc</value></data>
+  <data name="FlipVertical" xml:space="preserve"><value>Lật dọc</value></data>
+  <data name="Hyperbola" xml:space="preserve"><value>Hyperbol</value></data>
+  <data name="TwoFingerGestures" xml:space="preserve"><value>Cử chỉ hai ngón</value></data>
+  <data name="TwoFingerZoom" xml:space="preserve"><value>Thu phóng bằng hai ngón</value></data>
+  <data name="TwoFingerRotate" xml:space="preserve"><value>Xoay bằng hai ngón</value></data>
+  <data name="TwoFingerPan" xml:space="preserve"><value>Di chuyển bằng hai ngón</value></data>
+  <data name="FlipHorizontal" xml:space="preserve"><value>Lật ngang</value></data>
+  <data name="RotateRight" xml:space="preserve"><value>Xoay phải</value></data>
+  <data name="Tetrahedron" xml:space="preserve"><value>Hình tứ diện</value></data>
+  <data name="SpeedBasedPenTip" xml:space="preserve"><value>Vuốt nhọn theo tốc độ</value></data>
+  <data name="RandomPicker" xml:space="preserve"><value>Chọn ngẫu nhiên</value></data>
+  <data name="RandomPickerShort" xml:space="preserve"><value>Chọn</value></data>
+  <data name="PickOnePerson" xml:space="preserve"><value>Chọn ngẫu nhiên một người</value></data>
+  <data name="Image" xml:space="preserve"><value>Ảnh</value></data>
+  <data name="Shapes" xml:space="preserve"><value>Hình dạng</value></data>
+  <data name="ShapesHint" xml:space="preserve"><value>Hình dạng (nhấn giữ một nút ở hàng đầu để tiếp tục vẽ)</value></data>
+  <data name="Exit" xml:space="preserve"><value>Thoát</value></data>
+  <data name="Ellipse" xml:space="preserve"><value>Hình elip</value></data>
+  <data name="NextPage" xml:space="preserve"><value>Trang tiếp theo</value></data>
+  <data name="DashedLine" xml:space="preserve"><value>Đường đứt nét</value></data>
+  <data name="DashedCircle" xml:space="preserve"><value>Đường tròn đứt nét</value></data>
+  <data name="Colors" xml:space="preserve"><value>Màu</value></data>
+  <data name="SendToBoard" xml:space="preserve"><value>Gửi đến bảng</value></data>
+  <data name="PageNumber" xml:space="preserve"><value>Số trang</value></data>
+  <data name="CenteredRectangle" xml:space="preserve"><value>Vẽ hình chữ nhật từ tâm</value></data>
+  <data name="CenteredEllipse" xml:space="preserve"><value>Vẽ elip từ tâm</value></data>
+  <data name="Hide" xml:space="preserve"><value>Ẩn</value></data>
+  <data name="Highlighter" xml:space="preserve"><value>Bút đánh dấu</value></data>
+  <data name="RedHighlighter" xml:space="preserve"><value>Bút đánh dấu: đỏ</value></data>
+  <data name="OrangeHighlighter" xml:space="preserve"><value>Bút đánh dấu: cam</value></data>
+  <data name="YellowHighlighter" xml:space="preserve"><value>Bút đánh dấu: vàng</value></data>
+  <data name="CyanHighlighter" xml:space="preserve"><value>Bút đánh dấu: xanh lơ</value></data>
+  <data name="BlueHighlighter" xml:space="preserve"><value>Bút đánh dấu: xanh dương</value></data>
+  <data name="PurpleHighlighter" xml:space="preserve"><value>Bút đánh dấu: tím</value></data>
+  <data name="Circle" xml:space="preserve"><value>Hình tròn</value></data>
+  <data name="CircleEraserShort" xml:space="preserve"><value>Hình tròn</value></data>
+  <data name="Cylinder" xml:space="preserve"><value>Hình trụ</value></data>
+  <data name="Cone" xml:space="preserve"><value>Hình nón</value></data>
+  <data name="RepeatShapeHint" xml:space="preserve"><value>Nhấn giữ để tiếp tục vẽ hình này</value></data>
+  <data name="Cuboid" xml:space="preserve"><value>Hình hộp chữ nhật</value></data>
+  <data name="Line" xml:space="preserve"><value>Đường thẳng</value></data>
+  <data name="Guide" xml:space="preserve"><value>Hướng dẫn</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>Tự động ẩn</value></data>
+  <data name="Axis1" xml:space="preserve"><value>Trục tọa độ 1</value></data>
+  <data name="Axis2" xml:space="preserve"><value>Trục tọa độ 2</value></data>
+  <data name="Axis3" xml:space="preserve"><value>Trục tọa độ 3</value></data>
+  <data name="Axis4" xml:space="preserve"><value>Trục tọa độ 4</value></data>
+  <data name="Axis5" xml:space="preserve"><value>Trục tọa độ 5</value></data>
+  <data name="CurrentTool" xml:space="preserve"><value>Công cụ hiện tại</value></data>
+  <data name="CurrentColor" xml:space="preserve"><value>Màu hiện tại</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>Theo Windows</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>Không thể mở cửa sổ công cụ. Hãy kiểm tra xem các tệp ứng dụng còn nguyên vẹn không.</value></data>
+  <data name="ProcessPathMissing" xml:space="preserve"><value>Không tìm thấy tệp thực thi của ứng dụng.</value></data>
+  <data name="ToolStartFailed" xml:space="preserve"><value>Không thể khởi chạy cửa sổ công cụ.</value></data>
+  <data name="UnexpectedError" xml:space="preserve"><value>Đã xảy ra lỗi ngoài dự kiến. Hãy lưu bản vẽ rồi khởi động lại FluentCanvas.</value></data>
+  <data name="ActivationFailed" xml:space="preserve"><value>Không thể gửi tệp đến cửa sổ FluentCanvas đang chạy. Hãy mở tệp bằng thanh công cụ rồi thử lại.</value></data>
+  <data name="SettingsSaveFailed" xml:space="preserve"><value>Không thể lưu cài đặt. Hãy kiểm tra quyền ghi vào thư mục dữ liệu người dùng.</value></data>
+  <data name="SettingsReadFailed" xml:space="preserve"><value>Không thể đọc cài đặt. Tệp gốc đã được giữ lại.</value></data>
+  <data name="TriangleVariants" xml:space="preserve"><value>Các loại tam giác</value></data>
+  <data name="Triangle" xml:space="preserve"><value>Tam giác tùy ý</value></data>
+  <data name="RightTriangle" xml:space="preserve"><value>Tam giác vuông</value></data>
+  <data name="IsoscelesTriangle" xml:space="preserve"><value>Tam giác cân</value></data>
+  <data name="EquilateralTriangle" xml:space="preserve"><value>Tam giác đều</value></data>
+  <data name="Parallelogram" xml:space="preserve"><value>Hình bình hành</value></data>
+  <data name="Trapezoid" xml:space="preserve"><value>Hình thang</value></data>
+  <data name="AngleMarks" xml:space="preserve"><value>Ký hiệu góc</value></data>
+  <data name="AngleMark" xml:space="preserve"><value>Ký hiệu cung góc</value></data>
+  <data name="RightAngleMark" xml:space="preserve"><value>Ký hiệu góc vuông</value></data>
+  <data name="CircularShapes" xml:space="preserve"><value>Cung tròn và hình quạt</value></data>
+  <data name="Arc" xml:space="preserve"><value>Cung tròn</value></data>
+  <data name="Sector" xml:space="preserve"><value>Hình quạt tròn</value></data>
+  <data name="Semicircle" xml:space="preserve"><value>Nửa hình tròn</value></data>
+  <data name="NumberLine" xml:space="preserve"><value>Trục số</value></data>
+  <data name="NumberLineTicks" xml:space="preserve"><value>Trục số có vạch chia</value></data>
+  <data name="NumberLineLabeled" xml:space="preserve"><value>Trục số có vạch chia và số</value></data>
+  <data name="BoundingEllipse" xml:space="preserve"><value>Vẽ elip từ hai góc đối diện của khung</value></data>
+  <data name="Sphere" xml:space="preserve"><value>Hình cầu</value></data>
+  <data name="PlaceTriangleFirstSide" xml:space="preserve"><value>Chạm vào hai đầu mút của cạnh thứ nhất hoặc kéo để vẽ cạnh</value></data>
+  <data name="PlaceTriangleVertex" xml:space="preserve"><value>Chạm để đặt đỉnh thứ ba</value></data>
+  <data name="PlaceAngleFirstSide" xml:space="preserve"><value>Chạm vào đỉnh và một điểm trên cạnh thứ nhất hoặc kéo từ đỉnh</value></data>
+  <data name="PlaceAngleSecondSide" xml:space="preserve"><value>Chạm vào một điểm trên cạnh thứ hai</value></data>
+  <data name="PlaceArcRadius" xml:space="preserve"><value>Chạm vào tâm và điểm đầu hoặc kéo từ tâm để vẽ bán kính</value></data>
+  <data name="PlaceArcEnd" xml:space="preserve"><value>Chạm theo hướng của điểm cuối</value></data>
+  <data name="DrawSemicircle" xml:space="preserve"><value>Kéo để vẽ đường kính. Nửa hình tròn hiện ở bên trái theo hướng kéo.</value></data>
+</root>

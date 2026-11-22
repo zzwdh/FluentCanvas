@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Ink;
@@ -26,8 +28,12 @@ internal static class Program
         try
         {
             Run("Portable artwork with two same-named images, transforms, Chinese and long paths", RoundTrip);
+            Run("Selection PNG keeps offset and rotated images aligned with ink", SelectionExportTests.Verify);
+            Run("Ink replay preserves sample timing, pressure, tilt and stroke identity", InkReplayTests.Run);
+            Run("Staged shape preview stays outside the document, then commits in order", ShapeDraftVisualTests.Run);
             Run("WPF XamlWriter legacy canvas and absolute source resolved from package", ReadLegacy);
             Run("Packaged media opens after deleting its original and can be re-saved", MediaRoundTrip);
+            Run("Detached saves retain imported media and unused folders are reclaimed", ImportedMediaLifetime);
             Run("ZIP entry checksum mismatch preserves current document", BadChecksum);
             Run("Raw ISF and old PowerPoint raw .icart, read-only association", RawInk);
             Run("File association repeated opens preserve per-page undo identities", Reopen);
@@ -47,6 +53,14 @@ internal static class Program
                 Build(p, "<Image Source='bad.png'/>", new() { ["File Dependency/bad.png"] = [1,2,3] })));
             Run("Mid-save error and sharing violation leave original intact", FailedSave);
             Run("Failed commit restores attached elements, strokes and prior history", CommitRollback);
+            Run("A new stroke replaces the redo branch and page snapshots keep their cursor", HistoryBranches);
+            Run("Clear undo and redo restore ink and media in order", ClearMixedPage);
+            Run("Background work reads a detached snapshot and preserves the saved baseline", BackgroundRoundTrip);
+            Run("Direct media import decodes and copies on a worker", BackgroundMediaImport);
+            Run("PowerPoint deck and slide isolation, legacy import and write recovery", () => PowerPointInkStorageTests.Run(root));
+            Run("Queued slideshow ink keeps failed snapshots and saves the newest state on close",
+                () => PowerPointInkStorageTests.VerifyQueuedWrites(root));
+            Run("WPS bridge accepts fresh unambiguous show state and preserves the command mailbox", () => WpsBridgeTests.Run(root));
             Console.WriteLine($"{passed} document regression groups passed.");
             return 0;
         }
@@ -57,6 +71,110 @@ internal static class Program
     private static void Run(string name, Action test) { test(); passed++; Console.WriteLine("PASS " + name); }
     private static void Check(bool result) { if (!result) throw new Exception("Assertion failed."); }
     private static string PathFor(string name) => Path.Combine(root, name);
+
+    private static void HistoryBranches()
+    {
+        var history = new TimeMachine();
+        var first = Sample.Clone();
+        var discarded = Sample.Clone();
+        var replacement = Sample.Clone();
+        history.CommitStrokeUserInputHistory(new StrokeCollection { first });
+        history.MarkSaved();
+        history.CommitStrokeUserInputHistory(new StrokeCollection { discarded });
+        history.Undo();
+        Check(!history.HasUnsavedChanges && history.CanRedo);
+
+        var inactivePage = history.CaptureState();
+        history.ClearStrokeHistory();
+        Check(!history.CanUndo && !history.CanRedo);
+        history.RestoreState(inactivePage);
+        Check(!history.HasUnsavedChanges && history.CanRedo);
+        Check(ReferenceEquals(history.Redo().Entry.CurrentStroke[0], discarded));
+        history.Undo();
+
+        history.CommitStrokeUserInputHistory(new StrokeCollection { replacement });
+        Check(history.HasUnsavedChanges && !history.CanRedo);
+        Check(ReferenceEquals(history.Undo().Entry.CurrentStroke[0], replacement));
+        Check(!history.HasUnsavedChanges);
+        Check(ReferenceEquals(history.Undo().Entry.CurrentStroke[0], first));
+        Check(!history.CanUndo);
+    }
+
+    private static void ClearMixedPage()
+    {
+        var canvas = new InkCanvas();
+        var history = new TimeMachine();
+        var stroke = Sample.Clone();
+        var image = new Image();
+        var video = new MediaElement();
+        canvas.Strokes.Add(stroke);
+        canvas.Children.Add(image);
+        canvas.Children.Add(video);
+        history.CommitCanvasClearHistory(new StrokeCollection(canvas.Strokes), new UIElement[] { image, video });
+        canvas.Strokes.Clear();
+        canvas.Children.Clear();
+
+        var clearedPage = history.CaptureState();
+        var beforeRestoring = history.Undo();
+        history.RestoreState(clearedPage);
+        var afterRestoring = history.Undo();
+        Check(!beforeRestoring.RemoveOriginal && !afterRestoring.RemoveOriginal);
+        afterRestoring.ApplyClear(canvas);
+        Check(canvas.Strokes.Count == 1 && ReferenceEquals(canvas.Strokes[0], stroke));
+        Check(canvas.Children.Count == 2 && canvas.Children[0] == image && canvas.Children[1] == video);
+        history.Redo().ApplyClear(canvas);
+        Check(canvas.Strokes.Count == 0 && canvas.Children.Count == 0);
+    }
+
+    private static void BackgroundRoundTrip()
+    {
+        string path = PathFor("background.icart");
+        var original = new InkCanvas();
+        var stroke = Sample.Clone();
+        original.Strokes.Add(stroke);
+        var image = new Image
+        {
+            Name = "image",
+            Width = 11,
+            Height = 7,
+            Source = BitmapSource.Create(1, 1, 96, 96, PixelFormats.Bgra32, null, new byte[] { 1, 2, 3, 255 }, 4)
+        };
+        original.Children.Add(image);
+        var snapshot = CanvasDocument.Capture(original);
+        stroke.StylusPoints[0] = new StylusPoint(300, 300);
+        image.Width = 80;
+        Task.Run(() => snapshot.Save(path)).GetAwaiter().GetResult();
+
+        using var staged = Task.Run(() => CanvasDocument.Read(path)).GetAwaiter().GetResult();
+        var loaded = new InkCanvas();
+        var history = new TimeMachine();
+        staged.Apply(loaded, history);
+        double persistedX = loaded.Strokes[0].StylusPoints[0].X;
+        if (Math.Abs(persistedX - Sample.StylusPoints[0].X) > 0.05)
+            throw new Exception($"Background snapshot stored the wrong stroke position: {persistedX}.");
+        Check(((Image)loaded.Children[0]).Width == 11);
+        Check(!history.HasUnsavedChanges);
+    }
+
+    private static void BackgroundMediaImport()
+    {
+        string photo = PathFor("wide.png");
+        const int width = 2400, height = 1200;
+        var pixels = BitmapSource.Create(width, height, 96, 96, PixelFormats.Gray8, null, new byte[width * height], width);
+        var encoder = new PngBitmapEncoder();
+        encoder.Frames.Add(BitmapFrame.Create(pixels));
+        using (var file = File.Create(photo)) encoder.Save(file);
+
+        var compressed = Task.Run(() => CanvasDocument.ReadImageForImport(photo, true)).GetAwaiter().GetResult();
+        var original = Task.Run(() => CanvasDocument.ReadImageForImport(photo, false)).GetAwaiter().GetResult();
+        Check(compressed.IsFrozen && compressed.PixelWidth == 1920 && compressed.PixelHeight == 960);
+        Check(original.IsFrozen && original.PixelWidth == width && original.PixelHeight == height);
+
+        string video = Path.Combine(AppContext.BaseDirectory, "Fixtures", "frame.mp4");
+        string copy = PathFor("staged-video.mp4");
+        Task.Run(() => CanvasDocument.CopyVideoForImport(video, copy)).GetAwaiter().GetResult();
+        Check(File.ReadAllBytes(video).SequenceEqual(File.ReadAllBytes(copy)));
+    }
     private static byte[] Pixel(byte blue)
     {
         var pixel = BitmapSource.Create(1, 1, 96, 96, PixelFormats.Bgra32, null, new byte[] {blue, 0, 42, 255}, 4);
@@ -167,6 +285,43 @@ internal static class Program
         CanvasDocument.Save(artwork, canvas);
     }
 
+    private static void ImportedMediaLifetime()
+    {
+        SaveDetachedMedia();
+        string unused = CreateUnusedMediaFolder();
+        GC.Collect();
+        GC.WaitForPendingFinalizers();
+        GC.Collect();
+        CanvasDocumentMedia.SweepUnused();
+        Check(!Directory.Exists(unused));
+    }
+
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    private static string CreateUnusedMediaFolder() => CanvasDocumentMedia.Create().Path;
+
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    private static void SaveDetachedMedia()
+    {
+        var (snapshot, extracted) = CaptureImportedMedia();
+        GC.Collect();
+        CanvasDocumentMedia.SweepUnused();
+        Check(File.Exists(extracted));
+        snapshot.Save(PathFor("detached-media.icart"));
+    }
+
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    private static (CanvasDocument.Snapshot Snapshot, string Extracted) CaptureImportedMedia()
+    {
+        var canvas = new InkCanvas();
+        string original = Path.Combine(AppContext.BaseDirectory, "Fixtures", "frame.mp4");
+        canvas.Children.Add(new MediaElement { Source = new Uri(original), Width = 90, Height = 90 });
+        var artwork = PathFor("temp-media.icart");
+        CanvasDocument.Save(artwork, canvas);
+        CanvasDocument.LoadInto(artwork, canvas, new TimeMachine());
+        var extracted = ((MediaElement)canvas.Children[0]).Source.LocalPath;
+        return (CanvasDocument.Capture(canvas), extracted);
+    }
+
     private static void BadChecksum()
     {
         FailedOpen("checksum.icart", path =>
@@ -186,9 +341,9 @@ internal static class Program
         var canvas = new InkCanvas();
         var history = new TimeMachine();
         CanvasDocument.LoadInto(PathFor("原作.icart"), canvas, history);
-        Check(ReferenceEquals(history.Undo().Element, canvas.Children[1]));
+        Check(ReferenceEquals(history.Undo().Entry.Element, canvas.Children[1]));
         CanvasDocument.LoadInto(PathFor("empty.icart"), canvas, history);
-        Check(canvas.Children.Count == 0 && history.Undo().CurrentStroke[0] == canvas.Strokes[0]);
+        Check(canvas.Children.Count == 0 && history.Undo().Entry.CurrentStroke[0] == canvas.Strokes[0]);
     }
 
     private static void Build(string path, string xml, Dictionary<string, byte[]> assets = null, bool fullXml = false)
@@ -226,7 +381,7 @@ internal static class Program
         history.Undo();
         ExpectFailure(() => CanvasDocument.LoadInto(path, canvas, history));
         Check(canvas.Strokes.Single() == Sample && ReferenceEquals(canvas.Children[0], child));
-        Check(history.Redo().Element == child);
+        Check(history.Redo().Entry.Element == child);
     }
 
     private static void InvalidXml()
@@ -271,8 +426,6 @@ internal static class Program
         history.OnUndoStateChanged += Reject;
         ExpectFailure(() => CanvasDocument.LoadInto(path, canvas, history));
         history.OnUndoStateChanged -= Reject;
-        Check(canvas.Children[0] == child && canvas.Strokes.Single() == Sample && history.Undo().Element == child);
+        Check(canvas.Children[0] == child && canvas.Strokes.Single() == Sample && history.Undo().Entry.Element == child);
     }
 }
-
-

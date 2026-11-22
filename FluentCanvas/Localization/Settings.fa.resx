@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="AnnotateOnSlideShow" xml:space="preserve"><value>با آغاز نمایش اسلاید وارد حالت حاشیه‌نویسی شوید</value></data>
+  <data name="App" xml:space="preserve"><value>برنامه</value></data>
+  <data name="Appearance" xml:space="preserve"><value>ظاهر</value></data>
+  <data name="Apply" xml:space="preserve"><value>اعمال</value></data>
+  <data name="AutosaveLocation" xml:space="preserve"><value>محل ذخیرهٔ خودکار</value></data>
+  <data name="AutosaveRetention" xml:space="preserve"><value>تعداد روزهای نگهداری فایل‌های ذخیره‌شدهٔ خودکار</value></data>
+  <data name="BoardScale" xml:space="preserve"><value>اندازهٔ کنترل‌های تختهٔ سفید (٪)</value></data>
+  <data name="Cancel" xml:space="preserve"><value>لغو</value></data>
+  <data name="CaptureOnClear" xml:space="preserve"><value>پیش از پاک کردن، خودکار از صفحه تصویر بگیرید</value></data>
+  <data name="CaptureSlide" xml:space="preserve"><value>هنگام تغییر اسلاید، خودکار از صفحه تصویر بگیرید</value></data>
+  <data name="ChangeFailed" xml:space="preserve"><value>تنظیم تغییر نکرد. دوباره تلاش کنید.</value></data>
+  <data name="ChooseFolder" xml:space="preserve"><value>انتخاب پوشه…</value></data>
+  <data name="ChooseFolderFailed" xml:space="preserve"><value>انتخاب پوشه ممکن نبود: {0}</value></data>
+  <data name="CleanAutosaves" xml:space="preserve"><value>هنگام راه‌اندازی، فایل‌های قدیمی ذخیرهٔ خودکار را حذف کنید</value></data>
+  <data name="ConnectionFailed" xml:space="preserve"><value>اتصال به FluentCanvas ممکن نبود. تنظیمات را دوباره بارگیری و تلاش کنید.</value></data>
+  <data name="Copied" xml:space="preserve"><value>کپی شد</value></data>
+  <data name="CopyDiagnostics" xml:space="preserve"><value>کپی اطلاعات عیب‌یابی</value></data>
+  <data name="CopyFailed" xml:space="preserve"><value>کپی انجام نشد. دوباره تلاش کنید.</value></data>
+  <data name="Dark" xml:space="preserve"><value>تیره</value></data>
+  <data name="DateFolders" xml:space="preserve"><value>دسته‌بندی تصاویر صفحه در پوشه‌ها بر اساس تاریخ</value></data>
+  <data name="DetectPowerPoint" xml:space="preserve"><value>تشخیص نمایش اسلاید PowerPoint</value></data>
+  <data name="Diagnostics" xml:space="preserve"><value>عیب‌یابی</value></data>
+  <data name="DiagnosticsAndPrivacy" xml:space="preserve"><value>عیب‌یابی و حریم خصوصی</value></data>
+  <data name="DiagnosticsComponents" xml:space="preserve"><value>بوم  WPF
+پنجرهٔ عیب‌یابی  WinUI 3</value></data>
+  <data name="DiagnosticsTitle" xml:space="preserve"><value>FluentCanvas · عیب‌یابی</value></data>
+  <data name="DirectoryNotWritable" xml:space="preserve"><value>نوشتن در پوشهٔ انتخاب‌شده ممکن نبود.</value></data>
+  <data name="DirectoryTimeout" xml:space="preserve"><value>پوشهٔ انتخاب‌شده پاسخ نداد. اتصال را بررسی کنید و دوباره تلاش کنید.</value></data>
+  <data name="EnableWps" xml:space="preserve"><value>نمایش اسلاید WPS (آزمایشی، نیازمند افزونهٔ دسکتاپ)</value></data>
+  <data name="Exit" xml:space="preserve"><value>خروج</value></data>
+  <data name="ExitApp" xml:space="preserve"><value>خروج از FluentCanvas</value></data>
+  <data name="FingerEraserScale" xml:space="preserve"><value>ضریب اندازهٔ پاک‌کن در حالت انگشت</value></data>
+  <data name="FingerEraserThreshold" xml:space="preserve"><value>ضریب آستانهٔ پاک‌کن ناحیه‌ای در حالت انگشت</value></data>
+  <data name="FingerTouchWidth" xml:space="preserve"><value>آستانهٔ پهنای لمس در حالت انگشت</value></data>
+  <data name="FoldAtStartup" xml:space="preserve"><value>در آغاز، نوار ابزار را در لبهٔ صفحه جمع کنید</value></data>
+  <data name="FoldInSlideShow" xml:space="preserve"><value>در نمایش اسلاید، نوار ابزار را خودکار جمع کنید</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>پیروی از زبان ویندوز</value></data>
+  <data name="GlobalHotkeys" xml:space="preserve"><value>میان‌برهای سراسری</value></data>
+  <data name="Guide" xml:space="preserve"><value>راهنمای کاربر</value></data>
+  <data name="GuideCanvas" xml:space="preserve"><value>میان‌برهای بوم</value></data>
+  <data name="GuideCapture" xml:space="preserve"><value>ذخیرهٔ تصویر صفحه در میزکار</value></data>
+  <data name="GuideClear" xml:space="preserve"><value>پاک کردن بوم یا حذف انتخاب فعلی</value></data>
+  <data name="GuideEraser" xml:space="preserve"><value>رفتن به پاک‌کن یا جابه‌جایی بین پاک کردن ناحیه و خط</value></data>
+  <data name="GuideGlobal" xml:space="preserve"><value>میان‌برهای سراسری پیش‌فرض</value></data>
+  <data name="GuideIntro" xml:space="preserve"><value>میان‌برهای سراسری وقتی برنامهٔ دیگری یا نمایش اسلاید فعال است هم کار می‌کنند. برای تغییر میان‌برها یا رفع تداخل، بخش میان‌برهای سراسری را در تنظیمات باز کنید.</value></data>
+  <data name="GuideLine" xml:space="preserve"><value>انتخاب ابزار خط</value></data>
+  <data name="GuideNextKeys" xml:space="preserve"><value>↓ / → / Page Down / N / Space</value></data>
+  <data name="GuidePen" xml:space="preserve"><value>رفتن به قلم یا تغییر مجموعه‌رنگ</value></data>
+  <data name="GuidePointer" xml:space="preserve"><value>خروج از حالت جوهر و بازگشت به نشانگر</value></data>
+  <data name="GuideRedo" xml:space="preserve"><value>انجام دوباره</value></data>
+  <data name="GuideSelect" xml:space="preserve"><value>رفتن به ابزار انتخاب</value></data>
+  <data name="GuideSlides" xml:space="preserve"><value>میان‌برهای نمایش اسلاید وقتی پنجرهٔ حاشیه‌نویسی فعال است</value></data>
+  <data name="GuideTitle" xml:space="preserve"><value>FluentCanvas · راهنمای کاربر</value></data>
+  <data name="GuideTools" xml:space="preserve"><value>نمایش یا پنهان کردن ابزارها در نوار ابزار شناور</value></data>
+  <data name="GuideUndo" xml:space="preserve"><value>واگرد</value></data>
+  <data name="GuideWheel" xml:space="preserve"><value>چرخ ماوس به پایین / بالا</value></data>
+  <data name="GuideWheelSlides" xml:space="preserve"><value>اسلاید بعد / قبل</value></data>
+  <data name="HotkeyApplyName" xml:space="preserve"><value>اعمال میان‌بر سراسری برای {0}</value></data>
+  <data name="HotkeyBoard" xml:space="preserve"><value>جابه‌جایی بین تختهٔ سفید و حاشیه‌نویسی روی میزکار</value></data>
+  <data name="HotkeyCapture" xml:space="preserve"><value>گرفتن تصویر صفحه</value></data>
+  <data name="HotkeyClear" xml:space="preserve"><value>پاک کردن بوم یا حذف انتخاب</value></data>
+  <data name="HotkeyConflict" xml:space="preserve"><value>کنش یا برنامهٔ دیگری از این میان‌بر استفاده می‌کند.</value></data>
+  <data name="HotkeyDisabled" xml:space="preserve"><value>غیرفعال</value></data>
+  <data name="HotkeyDraw" xml:space="preserve"><value>رفتن به قلم</value></data>
+  <data name="HotkeyEndSlides" xml:space="preserve"><value>پایان نمایش اسلاید</value></data>
+  <data name="HotkeyHint" xml:space="preserve"><value>ترکیبی با یک کلید تغییردهنده مانند Ctrl+Shift+B وارد کنید. برای غیرفعال کردن میان‌بر، کادر آن را خالی کنید و «اعمال» را بزنید.</value></data>
+  <data name="HotkeyInputName" xml:space="preserve"><value>میان‌بر سراسری برای {0}</value></data>
+  <data name="HotkeyInvalid" xml:space="preserve"><value>میان‌بر نامعتبر است. از ترکیبی مانند Ctrl+Shift+B استفاده کنید.</value></data>
+  <data name="HotkeyLimit" xml:space="preserve"><value>تعداد میان‌برهای سراسری به سقف مجاز رسیده است.</value></data>
+  <data name="HotkeyModifier" xml:space="preserve"><value>ترکیبی با یک کلید تغییردهنده مانند Ctrl+Shift+B وارد کنید.</value></data>
+  <data name="HotkeyPointer" xml:space="preserve"><value>بازگشت به نشانگر</value></data>
+  <data name="HotkeyResetName" xml:space="preserve"><value>بازگرداندن میان‌بر سراسری پیش‌فرض برای {0}</value></data>
+  <data name="HotkeySaveFailed" xml:space="preserve"><value>میان‌بر ذخیره نشد.</value></data>
+  <data name="HotkeyTools" xml:space="preserve"><value>نمایش یا پنهان کردن گروه‌های ابزار</value></data>
+  <data name="HotkeyUnavailable" xml:space="preserve"><value>ثبت این میان‌برهای سراسری ممکن نبود: {0}. آن‌ها را در تنظیمات تغییر دهید.</value></data>
+  <data name="HotkeyUnknown" xml:space="preserve"><value>میان‌بر سراسری ناشناخته است.</value></data>
+  <data name="HotkeyUnknownKey" xml:space="preserve"><value>ویندوز این کلید را نمی‌شناسد.</value></data>
+  <data name="HotkeyWindowsError" xml:space="preserve"><value>ویندوز نتوانست میان‌بر را ثبت کند ({0}).</value></data>
+  <data name="InstallationMethod" xml:space="preserve"><value>نصب  {0}</value></data>
+  <data name="InvalidSession" xml:space="preserve"><value>نشست تنظیمات نامعتبر است.</value></data>
+  <data name="InvalidValue" xml:space="preserve"><value>مقدار تنظیم نامعتبر است.</value></data>
+  <data name="Language" xml:space="preserve"><value>زبان نمایش</value></data>
+  <data name="LanguageRestart" xml:space="preserve"><value>برای اعمال زبان انتخاب‌شده، FluentCanvas را دوباره راه‌اندازی کنید.</value></data>
+  <data name="Light" xml:space="preserve"><value>روشن</value></data>
+  <data name="MoreOptions" xml:space="preserve"><value>گزینه‌های بیشتر</value></data>
+  <data name="MultiTouch" xml:space="preserve"><value>وقتی جابه‌جایی خودکار خاموش است، نوشتن با چند انگشت مجاز باشد</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>اسلاید بعد</value></data>
+  <data name="NibEraserScale" xml:space="preserve"><value>ضریب اندازهٔ پاک‌کن در حالت نوک قلم</value></data>
+  <data name="NibEraserThreshold" xml:space="preserve"><value>ضریب آستانهٔ پاک‌کن ناحیه‌ای در حالت نوک قلم</value></data>
+  <data name="NibMode" xml:space="preserve"><value>استفاده از حالت نوک قلم</value></data>
+  <data name="NibTouchWidth" xml:space="preserve"><value>آستانهٔ پهنای لمس در حالت نوک قلم</value></data>
+  <data name="Off" xml:space="preserve"><value>خاموش</value></data>
+  <data name="On" xml:space="preserve"><value>روشن</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>تنظیمات باز نشد. دوباره تلاش کنید.</value></data>
+  <data name="PenCursor" xml:space="preserve"><value>نمایش نشانگر قلم</value></data>
+  <data name="PenWidth" xml:space="preserve"><value>ضخامت قلم</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>اسلاید قبل</value></data>
+  <data name="QuadInfrared" xml:space="preserve"><value>استفاده از صفحهٔ لمسی فروسرخ چهارطرفه</value></data>
+  <data name="RecognizeShapes" xml:space="preserve"><value>تشخیص شکل‌های دست‌کشیده</value></data>
+  <data name="Reload" xml:space="preserve"><value>بارگیری دوبارهٔ تنظیمات</value></data>
+  <data name="ReportingStartFailed" xml:space="preserve"><value>گزارش خطاها آغاز نشد.</value></data>
+  <data name="ResetDefault" xml:space="preserve"><value>بازنشانی به پیش‌فرض</value></data>
+  <data name="Restart" xml:space="preserve"><value>راه‌اندازی دوباره</value></data>
+  <data name="RestartApp" xml:space="preserve"><value>راه‌اندازی دوبارهٔ FluentCanvas</value></data>
+  <data name="RunAtStartup" xml:space="preserve"><value>اجرا هنگام ورود به ویندوز</value></data>
+  <data name="SaveBeforeExit" xml:space="preserve"><value>پیش از ادامه، از صفحه‌های ذخیره‌نشدهٔ تخته سفید و یادداشت‌ها نسخهٔ پشتیبان تهیه می‌شود.</value></data>
+  <data name="SavedApplyFailed" xml:space="preserve"><value>تنظیم ذخیره شد، اما روی تختهٔ سفید فعلی اعمال نشد. کارتان را ذخیره و FluentCanvas را دوباره راه‌اندازی کنید.</value></data>
+  <data name="SaveFailed" xml:space="preserve"><value>تنظیم ذخیره نشد.</value></data>
+  <data name="SaveInkOnCapture" xml:space="preserve"><value>ذخیرهٔ نوشته‌های جوهری همراه با تصاویر صفحه</value></data>
+  <data name="SaveSlideInk" xml:space="preserve"><value>ذخیرهٔ خودکار نوشته‌های جوهری هر اسلاید</value></data>
+  <data name="Saving" xml:space="preserve"><value>در حال ذخیره</value></data>
+  <data name="SendErrors" xml:space="preserve"><value>ارسال خطاهای برنامه به Sentry</value></data>
+  <data name="SettingsExited" xml:space="preserve"><value>پنجرهٔ تنظیمات ناگهان بسته شد. دوباره تلاش کنید.</value></data>
+  <data name="SettingUnavailable" xml:space="preserve"><value>این تنظیم قابل تغییر نیست.</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>راهنمای میان‌برها</value></data>
+  <data name="Slides" xml:space="preserve"><value>نمایش اسلاید</value></data>
+  <data name="SpecialTouchScreen" xml:space="preserve"><value>استفاده از کالیبراسیون سفارشی صفحهٔ لمسی</value></data>
+  <data name="Standalone" xml:space="preserve"><value>نسخهٔ مستقل</value></data>
+  <data name="Startup" xml:space="preserve"><value>راه‌اندازی</value></data>
+  <data name="StartupChangeFailed" xml:space="preserve"><value>رفتار راه‌اندازی تغییر نکرد. تنظیمات برنامه‌های راه‌اندازی ویندوز را بررسی کنید.</value></data>
+  <data name="StartupDisabledByUser" xml:space="preserve"><value>می‌توانید این گزینه را در تنظیمات برنامه‌های راه‌اندازی ویندوز فعال کنید.</value></data>
+  <data name="StartupNotEnabled" xml:space="preserve"><value>ویندوز راه‌اندازی خودکار را فعال نکرده است.</value></data>
+  <data name="StartupPolicyDisabled" xml:space="preserve"><value>سازمان شما این ورودی راه‌اندازی را غیرفعال کرده است.</value></data>
+  <data name="StartupPolicyEnabled" xml:space="preserve"><value>سازمان شما این ورودی راه‌اندازی را فعال کرده است.</value></data>
+  <data name="StartupUnreadable" xml:space="preserve"><value>وضعیت راه‌اندازی ویندوز خوانده نشد.</value></data>
+  <data name="StoreAutoDownload" xml:space="preserve"><value>بررسی و بارگیری خودکار به‌روزرسانی‌ها هنگام راه‌اندازی</value></data>
+  <data name="StoreAvailable" xml:space="preserve"><value>به‌روزرسانی در Microsoft Store موجود است.</value></data>
+  <data name="StoreBackingUp" xml:space="preserve"><value>در حال پشتیبان‌گیری از کار ذخیره‌نشده…</value></data>
+  <data name="StoreBackupAndUpdate" xml:space="preserve"><value>پشتیبان‌گیری و به‌روزرسانی</value></data>
+  <data name="StoreBackupFailed" xml:space="preserve"><value>پشتیبان‌گیری از کارتان ممکن نبود. محل ذخیره را بررسی کنید و دوباره تلاش کنید.</value></data>
+  <data name="StoreBackupLocation" xml:space="preserve"><value>
+محل نسخهٔ پشتیبان: ⁨{0}⁩</value></data>
+  <data name="StoreBackupStateChanged" xml:space="preserve"><value>تختهٔ سفید یا نمایش اسلاید هنگام پشتیبان‌گیری تغییر کرد. دوباره تلاش کنید.</value></data>
+  <data name="StoreBoardBusy" xml:space="preserve"><value>تختهٔ سفید مشغول است. تا پایان عملیات جاری صبر کنید و دوباره تلاش کنید.</value></data>
+  <data name="StoreCanceled" xml:space="preserve"><value>به‌روزرسانی لغو شد.</value></data>
+  <data name="StoreCheck" xml:space="preserve"><value>بررسی به‌روزرسانی‌ها</value></data>
+  <data name="StoreChecking" xml:space="preserve"><value>در حال بررسی به‌روزرسانی‌های Microsoft Store…</value></data>
+  <data name="StoreCompleted" xml:space="preserve"><value>Microsoft Store به‌روزرسانی را کامل کرد.</value></data>
+  <data name="StoreDeferred" xml:space="preserve"><value>می‌توانید بعداً به‌روزرسانی را بررسی و نصب کنید.</value></data>
+  <data name="StoreDownloadHint" xml:space="preserve"><value>بارگیری‌های خودکار از تنظیمات شبکه و به‌روزرسانی Microsoft Store پیروی می‌کنند. نصب را Store مدیریت می‌کند.</value></data>
+  <data name="StoreDownloading" xml:space="preserve"><value>Microsoft Store در حال بارگیری به‌روزرسانی است ({0:P0})…</value></data>
+  <data name="StoreFinishing" xml:space="preserve"><value>در انتظار پایان به‌روزرسانی در Microsoft Store…</value></data>
+  <data name="StoreInstallConfirmation" xml:space="preserve"><value>به‌روزرسانی Microsoft Store نصب شود؟</value></data>
+  <data name="StoreInstallHint" xml:space="preserve"><value>از تخته‌های سفید و حاشیه‌نویسی‌های ذخیره‌نشده در پوشه‌ای در محل ذخیرهٔ شما پشتیبان گرفته می‌شود. ویرایش هنگام به‌روزرسانی متوقف می‌شود و نصب ممکن است برنامه را ببندد.</value></data>
+  <data name="StoreInstalling" xml:space="preserve"><value>Microsoft Store در حال نصب به‌روزرسانی است…</value></data>
+  <data name="StoreLater" xml:space="preserve"><value>بعداً</value></data>
+  <data name="StoreLowBattery" xml:space="preserve"><value>شارژ باتری کم است. دستگاه را به برق وصل کنید و دوباره تلاش کنید.</value></data>
+  <data name="StoreNeedsWifi" xml:space="preserve"><value>به Wi-Fi متصل شوید و دوباره تلاش کنید.</value></data>
+  <data name="StoreNonStorePackage" xml:space="preserve"><value>برای امتیاز دادن یا دریافت به‌روزرسانی‌ها، FluentCanvas را از Microsoft Store نصب کنید.</value></data>
+  <data name="StoreNoUpdate" xml:space="preserve"><value>هیچ به‌روزرسانی‌ای در Microsoft Store موجود نیست.</value></data>
+  <data name="StoreOpeningRating" xml:space="preserve"><value>در حال باز کردن پنجرهٔ امتیازدهی Store…</value></data>
+  <data name="StoreRate" xml:space="preserve"><value>امتیاز و نظر بدهید</value></data>
+  <data name="StoreRatingClosed" xml:space="preserve"><value>پنجرهٔ امتیازدهی بسته شد.</value></data>
+  <data name="StoreRatingUpdated" xml:space="preserve"><value>Microsoft Store امتیاز شما را به‌روز کرد.</value></data>
+  <data name="StoreRequestFailed" xml:space="preserve"><value>Microsoft Store نتوانست درخواست را کامل کند (0x{0:X8}). بعداً دوباره تلاش کنید.</value></data>
+  <data name="StoreRequesting" xml:space="preserve"><value>در حال درخواست نصب به‌روزرسانی از Microsoft Store…</value></data>
+  <data name="StoreResumeEditing" xml:space="preserve"><value>
+برای ادامهٔ ویرایش تختهٔ سفید، تنظیمات را ببندید.</value></data>
+  <data name="StoreSlidesActive" xml:space="preserve"><value>پیش از نصب به‌روزرسانی، نمایش اسلاید را پایان دهید و حاشیه‌نویسی‌ها را ذخیره کنید.</value></data>
+  <data name="StoreSlidesUnsaved" xml:space="preserve"><value>حاشیه‌نویسی‌های نمایش اسلاید ذخیره نشده‌اند. محل ذخیره را بررسی کنید و دوباره تلاش کنید.</value></data>
+  <data name="StoreStandalone" xml:space="preserve"><value>این نسخهٔ مستقل است. امتیازدهی و به‌روزرسانی خودکار در نسخهٔ Microsoft Store در دسترس‌اند.</value></data>
+  <data name="StoreUpdateFailed" xml:space="preserve"><value>Microsoft Store به‌روزرسانی را کامل نکرد ({0}).</value></data>
+  <data name="StoreUpdateUnavailable" xml:space="preserve"><value>Microsoft Store نمی‌تواند این نصب را به‌روز کند.</value></data>
+  <data name="StoreUpdating" xml:space="preserve"><value>Microsoft Store در حال به‌روزرسانی FluentCanvas است.</value></data>
+  <data name="SwitchGestures" xml:space="preserve"><value>تغییر خودکار حرکت‌ها بین حالت حاشیه‌نویسی و تختهٔ سفید</value></data>
+  <data name="Theme" xml:space="preserve"><value>پوستهٔ برنامه</value></data>
+  <data name="ToolbarLabels" xml:space="preserve"><value>نمایش برچسب‌های نوار ابزار</value></data>
+  <data name="ToolbarScale" xml:space="preserve"><value>اندازهٔ نوار ابزار شناور (٪)</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>پنجرهٔ ابزار باز نشد. دوباره تلاش کنید.</value></data>
+  <data name="TouchCalibration" xml:space="preserve"><value>کالیبراسیون صفحهٔ لمسی و پاک‌کن</value></data>
+  <data name="TouchMultiplier" xml:space="preserve"><value>ضریب اندازهٔ لمس برای صفحه‌های لمسی سفارشی</value></data>
+  <data name="TwoFingerRotation" xml:space="preserve"><value>اجازهٔ چرخش بوم با دو انگشت</value></data>
+  <data name="WhiteboardAndInk" xml:space="preserve"><value>تختهٔ سفید و جوهر</value></data>
+  <data name="WhiteboardBackground" xml:space="preserve"><value>استفاده از پس‌زمینهٔ سفید تخته</value></data>
+  <data name="WindowTitle" xml:space="preserve"><value>FluentCanvas · تنظیمات</value></data>
+  <data name="FileAssociations" xml:space="preserve"><value>برنامه پیش‌فرض برای ‎.icart و ‎.icstk</value></data>
+  <data name="FileAssociationsConfirm" xml:space="preserve"><value>از این نسخه برای پیوندهای پرونده استفاده شود؟ مکان ثبت‌شده به {0} تغییر می‌کند. برنامه پیش‌فرض را در تنظیمات Windows انتخاب کنید.</value></data>
+  <data name="WindowsStartupSettings" xml:space="preserve"><value>برنامه‌های راه‌اندازی Windows</value></data>
+  <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>غیرفعال کردن حرکت‌های لمسی لبه در حالت تمام‌صفحه</value></data>
+</root>

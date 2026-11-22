@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="AnnotateOnSlideShow" xml:space="preserve"><value>படவில்லைக் காட்சி தொடங்கும்போது குறிப்புரை பயன்முறைக்குச் செல்</value></data>
+  <data name="App" xml:space="preserve"><value>செயலி</value></data>
+  <data name="Appearance" xml:space="preserve"><value>தோற்றம்</value></data>
+  <data name="Apply" xml:space="preserve"><value>பயன்படுத்து</value></data>
+  <data name="AutosaveLocation" xml:space="preserve"><value>தானியங்குச் சேமிப்பிடம்</value></data>
+  <data name="AutosaveRetention" xml:space="preserve"><value>தானாகச் சேமிக்கப்பட்ட கோப்புகளை வைத்திருக்கும் நாட்கள்</value></data>
+  <data name="BoardScale" xml:space="preserve"><value>வெண்பலகைக் கட்டுப்பாடுகளின் அளவு (%)</value></data>
+  <data name="Cancel" xml:space="preserve"><value>ரத்துசெய்</value></data>
+  <data name="CaptureOnClear" xml:space="preserve"><value>அழிக்கும் முன் தானாகத் திரைப்பிடிப்பு எடு</value></data>
+  <data name="CaptureSlide" xml:space="preserve"><value>படவில்லை மாறும்போது தானாகத் திரைப்பிடிப்பு எடு</value></data>
+  <data name="ChangeFailed" xml:space="preserve"><value>அமைப்பை மாற்ற முடியவில்லை. மீண்டும் முயலவும்.</value></data>
+  <data name="ChooseFolder" xml:space="preserve"><value>கோப்புறையைத் தேர்ந்தெடு…</value></data>
+  <data name="ChooseFolderFailed" xml:space="preserve"><value>கோப்புறையைத் தேர்ந்தெடுக்க முடியவில்லை: {0}</value></data>
+  <data name="CleanAutosaves" xml:space="preserve"><value>தொடக்கத்தில் காலாவதியான தானியங்குச் சேமிப்புக் கோப்புகளை நீக்கு</value></data>
+  <data name="ConnectionFailed" xml:space="preserve"><value>FluentCanvas உடன் இணைக்க முடியவில்லை. அமைப்புகளை மீண்டும் ஏற்றி முயலவும்.</value></data>
+  <data name="Copied" xml:space="preserve"><value>நகலெடுக்கப்பட்டது</value></data>
+  <data name="CopyDiagnostics" xml:space="preserve"><value>கண்டறிதல் தகவலை நகலெடு</value></data>
+  <data name="CopyFailed" xml:space="preserve"><value>நகலெடுக்க முடியவில்லை. மீண்டும் முயலவும்.</value></data>
+  <data name="Dark" xml:space="preserve"><value>அடர்</value></data>
+  <data name="DateFolders" xml:space="preserve"><value>திரைப்பிடிப்புகளைத் தேதிவாரிக் கோப்புறைகளில் வை</value></data>
+  <data name="DetectPowerPoint" xml:space="preserve"><value>PowerPoint படவில்லைக் காட்சிகளைக் கண்டறி</value></data>
+  <data name="Diagnostics" xml:space="preserve"><value>கண்டறிதல்</value></data>
+  <data name="DiagnosticsAndPrivacy" xml:space="preserve"><value>கண்டறிதலும் தனியுரிமையும்</value></data>
+  <data name="DiagnosticsComponents" xml:space="preserve"><value>வரைபரப்பு  WPF
+கண்டறிதல் சாளரம்  WinUI 3</value></data>
+  <data name="DiagnosticsTitle" xml:space="preserve"><value>FluentCanvas · கண்டறிதல்</value></data>
+  <data name="DirectoryNotWritable" xml:space="preserve"><value>தேர்ந்தெடுத்த கோப்புறையில் எழுத முடியவில்லை.</value></data>
+  <data name="DirectoryTimeout" xml:space="preserve"><value>தேர்ந்தெடுத்த கோப்புறை பதிலளிக்கவில்லை. இணைப்பைச் சரிபார்த்து மீண்டும் முயலவும்.</value></data>
+  <data name="EnableWps" xml:space="preserve"><value>WPS படவில்லைக் காட்சிகள் (சோதனை, பணித்தளச் செருகுநிரல் தேவை)</value></data>
+  <data name="Exit" xml:space="preserve"><value>வெளியேறு</value></data>
+  <data name="ExitApp" xml:space="preserve"><value>FluentCanvas இலிருந்து வெளியேறு</value></data>
+  <data name="FingerEraserScale" xml:space="preserve"><value>விரல் பயன்முறையில் அழிப்பான் அளவுப் பெருக்கி</value></data>
+  <data name="FingerEraserThreshold" xml:space="preserve"><value>விரல் பயன்முறையில் பகுதி அழிப்பான் வரம்புப் பெருக்கி</value></data>
+  <data name="FingerTouchWidth" xml:space="preserve"><value>விரல் பயன்முறையில் தொடுதல் அகல வரம்பு</value></data>
+  <data name="FoldAtStartup" xml:space="preserve"><value>தொடக்கத்தில் கருவிப்பட்டையைத் திரையின் ஓரத்துக்கு மடக்கு</value></data>
+  <data name="FoldInSlideShow" xml:space="preserve"><value>படவில்லைக் காட்சியின்போது கருவிப்பட்டையைத் தானாக மடக்கு</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>Windows மொழியைப் பின்பற்று</value></data>
+  <data name="GlobalHotkeys" xml:space="preserve"><value>கணினி முழுவதற்குமான குறுக்குவழிகள்</value></data>
+  <data name="Guide" xml:space="preserve"><value>பயனர் வழிகாட்டி</value></data>
+  <data name="GuideCanvas" xml:space="preserve"><value>வரைபரப்புக் குறுக்குவழிகள்</value></data>
+  <data name="GuideCapture" xml:space="preserve"><value>திரைப்பிடிப்பைப் பணித்தளத்தில் சேமி</value></data>
+  <data name="GuideClear" xml:space="preserve"><value>வரைபரப்பை அழி அல்லது தற்போதைய தேர்வை நீக்கு</value></data>
+  <data name="GuideEraser" xml:space="preserve"><value>அழிப்பானுக்கு மாறு அல்லது பகுதி, கோடு அழிப்பான்களுக்கு இடையே மாறு</value></data>
+  <data name="GuideGlobal" xml:space="preserve"><value>இயல்புநிலைக் கணினி குறுக்குவழிகள்</value></data>
+  <data name="GuideIntro" xml:space="preserve"><value>வேறொரு செயலி அல்லது படவில்லைக் காட்சி செயலில் இருந்தாலும் இக்குறுக்குவழிகள் இயங்கும். அவற்றை மாற்ற அல்லது முரண்பாடுகளைச் சரிசெய்ய அமைப்புகளில் கணினி முழுவதற்குமான குறுக்குவழிகளைத் திறக்கவும்.</value></data>
+  <data name="GuideLine" xml:space="preserve"><value>கோட்டுக் கருவியைத் தேர்ந்தெடு</value></data>
+  <data name="GuideNextKeys" xml:space="preserve"><value>↓ / → / Page Down / N / Space</value></data>
+  <data name="GuidePen" xml:space="preserve"><value>பேனாவுக்கு மாறு அல்லது வண்ணத் தொகுப்பை மாற்று</value></data>
+  <data name="GuidePointer" xml:space="preserve"><value>மைப் பயன்முறையிலிருந்து சுட்டிக்குத் திரும்பு</value></data>
+  <data name="GuideRedo" xml:space="preserve"><value>மீளச்செய்</value></data>
+  <data name="GuideSelect" xml:space="preserve"><value>தேர்வுக் கருவிக்கு மாறு</value></data>
+  <data name="GuideSlides" xml:space="preserve"><value>குறிப்புரைச் சாளரம் செயலில் இருக்கும்போதான படவில்லைக் குறுக்குவழிகள்</value></data>
+  <data name="GuideTitle" xml:space="preserve"><value>FluentCanvas · பயனர் வழிகாட்டி</value></data>
+  <data name="GuideTools" xml:space="preserve"><value>மிதக்கும் கருவிப்பட்டைக் கருவிகளைக் காட்டு அல்லது மறை</value></data>
+  <data name="GuideUndo" xml:space="preserve"><value>செயல்தவிர்</value></data>
+  <data name="GuideWheel" xml:space="preserve"><value>சுட்டிச் சக்கரம் கீழே / மேலே</value></data>
+  <data name="GuideWheelSlides" xml:space="preserve"><value>அடுத்த / முந்தைய படவில்லை</value></data>
+  <data name="HotkeyApplyName" xml:space="preserve"><value>{0} என்பதற்கான கணினிக் குறுக்குவழியைப் பயன்படுத்து</value></data>
+  <data name="HotkeyBoard" xml:space="preserve"><value>வெண்பலகை மற்றும் பணித்தளக் குறிப்புரைக்கு இடையே மாறு</value></data>
+  <data name="HotkeyCapture" xml:space="preserve"><value>திரைப்பிடிப்பு எடு</value></data>
+  <data name="HotkeyClear" xml:space="preserve"><value>வரைபரப்பை அழி அல்லது தேர்வை நீக்கு</value></data>
+  <data name="HotkeyConflict" xml:space="preserve"><value>வேறொரு செயல் அல்லது செயலி இதைப் பயன்படுத்துகிறது.</value></data>
+  <data name="HotkeyDisabled" xml:space="preserve"><value>முடக்கப்பட்டது</value></data>
+  <data name="HotkeyDraw" xml:space="preserve"><value>பேனாவுக்கு மாறு</value></data>
+  <data name="HotkeyEndSlides" xml:space="preserve"><value>படவில்லைக் காட்சியை முடி</value></data>
+  <data name="HotkeyHint" xml:space="preserve"><value>Ctrl+Shift+B போன்ற மாற்றி விசையுள்ள சேர்க்கையை உள்ளிடவும். குறுக்குவழியை முடக்க அதன் புலத்தை அழித்து பயன்படுத்து என்பதைத் தேர்ந்தெடுக்கவும்.</value></data>
+  <data name="HotkeyInputName" xml:space="preserve"><value>{0} என்பதற்கான கணினிக் குறுக்குவழி</value></data>
+  <data name="HotkeyInvalid" xml:space="preserve"><value>தவறான குறுக்குவழி. Ctrl+Shift+B போன்ற சேர்க்கையைப் பயன்படுத்தவும்.</value></data>
+  <data name="HotkeyLimit" xml:space="preserve"><value>கணினிக் குறுக்குவழிகளின் அதிகபட்ச எண்ணிக்கை எட்டப்பட்டது.</value></data>
+  <data name="HotkeyModifier" xml:space="preserve"><value>Ctrl+Shift+B போன்ற மாற்றி விசையுள்ள சேர்க்கையை உள்ளிடவும்.</value></data>
+  <data name="HotkeyPointer" xml:space="preserve"><value>சுட்டிக்குத் திரும்பு</value></data>
+  <data name="HotkeyResetName" xml:space="preserve"><value>{0} என்பதற்கான இயல்புநிலைக் குறுக்குவழியை மீட்டமை</value></data>
+  <data name="HotkeySaveFailed" xml:space="preserve"><value>குறுக்குவழியைச் சேமிக்க முடியவில்லை.</value></data>
+  <data name="HotkeyTools" xml:space="preserve"><value>கருவிக் குழுக்களைக் காட்டு அல்லது மறை</value></data>
+  <data name="HotkeyUnavailable" xml:space="preserve"><value>இந்தக் குறுக்குவழிகளைப் பதிவு செய்ய முடியவில்லை: {0}. அவற்றை அமைப்புகளில் மாற்றவும்.</value></data>
+  <data name="HotkeyUnknown" xml:space="preserve"><value>தெரியாத கணினிக் குறுக்குவழி.</value></data>
+  <data name="HotkeyUnknownKey" xml:space="preserve"><value>இந்த விசையை Windows அறியவில்லை.</value></data>
+  <data name="HotkeyWindowsError" xml:space="preserve"><value>குறுக்குவழியை Windows ஆல் பதிவு செய்ய முடியவில்லை ({0}).</value></data>
+  <data name="InstallationMethod" xml:space="preserve"><value>நிறுவல்  {0}</value></data>
+  <data name="InvalidSession" xml:space="preserve"><value>தவறான அமைப்பு அமர்வு.</value></data>
+  <data name="InvalidValue" xml:space="preserve"><value>தவறான அமைப்பு மதிப்பு.</value></data>
+  <data name="Language" xml:space="preserve"><value>காட்சி மொழி</value></data>
+  <data name="LanguageRestart" xml:space="preserve"><value>தேர்ந்தெடுத்த மொழியைப் பயன்படுத்த FluentCanvas-ஐ மறுதொடக்கம் செய்யவும்.</value></data>
+  <data name="Light" xml:space="preserve"><value>வெளிர்</value></data>
+  <data name="MoreOptions" xml:space="preserve"><value>மேலும் விருப்பங்கள்</value></data>
+  <data name="MultiTouch" xml:space="preserve"><value>தானாக மாறுதல் அணைந்திருக்கும்போது பல விரல்களால் எழுத அனுமதி</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>அடுத்த படவில்லை</value></data>
+  <data name="NibEraserScale" xml:space="preserve"><value>பேனா முனைப் பயன்முறையில் அழிப்பான் அளவுப் பெருக்கி</value></data>
+  <data name="NibEraserThreshold" xml:space="preserve"><value>பேனா முனைப் பயன்முறையில் பகுதி அழிப்பான் வரம்புப் பெருக்கி</value></data>
+  <data name="NibMode" xml:space="preserve"><value>பேனா முனைப் பயன்முறையைப் பயன்படுத்து</value></data>
+  <data name="NibTouchWidth" xml:space="preserve"><value>பேனா முனைப் பயன்முறையில் தொடுதல் அகல வரம்பு</value></data>
+  <data name="Off" xml:space="preserve"><value>அணை</value></data>
+  <data name="On" xml:space="preserve"><value>இயக்கு</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>அமைப்புகளைத் திறக்க முடியவில்லை. மீண்டும் முயலவும்.</value></data>
+  <data name="PenCursor" xml:space="preserve"><value>பேனா சுட்டியைக் காட்டு</value></data>
+  <data name="PenWidth" xml:space="preserve"><value>பேனா தடிமன்</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>முந்தைய படவில்லை</value></data>
+  <data name="QuadInfrared" xml:space="preserve"><value>நான்கு பக்க அகச்சிவப்புத் தொடுதிரையைப் பயன்படுத்து</value></data>
+  <data name="RecognizeShapes" xml:space="preserve"><value>கையால் வரைந்த வடிவங்களை அறி</value></data>
+  <data name="Reload" xml:space="preserve"><value>அமைப்புகளை மீண்டும் ஏற்று</value></data>
+  <data name="ReportingStartFailed" xml:space="preserve"><value>பிழை அறிக்கையிடலைத் தொடங்க முடியவில்லை.</value></data>
+  <data name="ResetDefault" xml:space="preserve"><value>இயல்புநிலைக்கு மீட்டமை</value></data>
+  <data name="Restart" xml:space="preserve"><value>மறுதொடக்கம்</value></data>
+  <data name="RestartApp" xml:space="preserve"><value>FluentCanvas-ஐ மறுதொடக்கம் செய்</value></data>
+  <data name="RunAtStartup" xml:space="preserve"><value>Windows இல் உள்நுழையும்போது தொடங்கு</value></data>
+  <data name="SaveBeforeExit" xml:space="preserve"><value>தொடர்வதற்கு முன் சேமிக்காத வெள்ளைப்பலகைப் பக்கங்களும் குறிப்புரைகளும் காப்புப் பிரதி எடுக்கப்படும்.</value></data>
+  <data name="SavedApplyFailed" xml:space="preserve"><value>அமைப்பு சேமிக்கப்பட்டது. தற்போதைய வெண்பலகையில் அதைப் பயன்படுத்த முடியவில்லை. உங்கள் பணியைச் சேமித்து FluentCanvas-ஐ மறுதொடக்கம் செய்யவும்.</value></data>
+  <data name="SaveFailed" xml:space="preserve"><value>அமைப்பைச் சேமிக்க முடியவில்லை.</value></data>
+  <data name="SaveInkOnCapture" xml:space="preserve"><value>திரைப்பிடிப்புகளுடன் மையையும் சேமி</value></data>
+  <data name="SaveSlideInk" xml:space="preserve"><value>ஒவ்வொரு படவில்லைக்கும் மையைத் தானாகச் சேமி</value></data>
+  <data name="Saving" xml:space="preserve"><value>சேமிக்கப்படுகிறது</value></data>
+  <data name="SendErrors" xml:space="preserve"><value>செயலிப் பிழைகளை Sentry க்கு அனுப்பு</value></data>
+  <data name="SettingsExited" xml:space="preserve"><value>அமைப்புச் சாளரம் எதிர்பாராமல் மூடியது. மீண்டும் முயலவும்.</value></data>
+  <data name="SettingUnavailable" xml:space="preserve"><value>இந்த அமைப்பை மாற்ற முடியாது.</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>குறுக்குவழி வழிகாட்டி</value></data>
+  <data name="Slides" xml:space="preserve"><value>படவில்லைக் காட்சிகள்</value></data>
+  <data name="SpecialTouchScreen" xml:space="preserve"><value>தனிப்பயன் தொடுதிரை அளவுத்திருத்தத்தைப் பயன்படுத்து</value></data>
+  <data name="Standalone" xml:space="preserve"><value>தனிப்பதிப்பு</value></data>
+  <data name="Startup" xml:space="preserve"><value>தொடக்கம்</value></data>
+  <data name="StartupChangeFailed" xml:space="preserve"><value>தொடக்க நடத்தையை மாற்ற முடியவில்லை. Windows தொடக்கச் செயலிகள் அமைப்புகளைச் சரிபார்க்கவும்.</value></data>
+  <data name="StartupDisabledByUser" xml:space="preserve"><value>இதை Windows தொடக்கச் செயலிகள் அமைப்புகளில் இயக்கலாம்.</value></data>
+  <data name="StartupNotEnabled" xml:space="preserve"><value>தானாகத் தொடங்குவதை Windows இயக்கவில்லை.</value></data>
+  <data name="StartupPolicyDisabled" xml:space="preserve"><value>உங்கள் நிறுவனம் இந்தத் தொடக்கப் பதிவை முடக்கியுள்ளது.</value></data>
+  <data name="StartupPolicyEnabled" xml:space="preserve"><value>உங்கள் நிறுவனம் இந்தத் தொடக்கப் பதிவை இயக்கியுள்ளது.</value></data>
+  <data name="StartupUnreadable" xml:space="preserve"><value>Windows தொடக்க நிலையைப் படிக்க முடியவில்லை.</value></data>
+  <data name="StoreAutoDownload" xml:space="preserve"><value>தொடக்கத்தில் புதுப்பிப்புகளைத் தானாகச் சரிபார்த்துப் பதிவிறக்கு</value></data>
+  <data name="StoreAvailable" xml:space="preserve"><value>Microsoft Store இல் புதுப்பிப்பு கிடைக்கிறது.</value></data>
+  <data name="StoreBackingUp" xml:space="preserve"><value>சேமிக்காத பணிக்குக் காப்புப்பிரதி எடுக்கப்படுகிறது…</value></data>
+  <data name="StoreBackupAndUpdate" xml:space="preserve"><value>காப்புப்பிரதி எடுத்து புதுப்பி</value></data>
+  <data name="StoreBackupFailed" xml:space="preserve"><value>உங்கள் பணிக்குக் காப்புப்பிரதி எடுக்க முடியவில்லை. சேமிப்பிடத்தைச் சரிபார்த்து மீண்டும் முயலவும்.</value></data>
+  <data name="StoreBackupLocation" xml:space="preserve"><value>
+காப்புப்பிரதி இடம்: {0}</value></data>
+  <data name="StoreBackupStateChanged" xml:space="preserve"><value>காப்புப்பிரதி எடுக்கும்போது வெண்பலகை அல்லது படவில்லைக் காட்சி மாறிவிட்டது. மீண்டும் முயலவும்.</value></data>
+  <data name="StoreBoardBusy" xml:space="preserve"><value>வெண்பலகை இப்போது பயன்பாட்டில் உள்ளது. தற்போதைய செயல் முடியும்வரை காத்திருந்து மீண்டும் முயலவும்.</value></data>
+  <data name="StoreCanceled" xml:space="preserve"><value>புதுப்பிப்பு ரத்தானது.</value></data>
+  <data name="StoreCheck" xml:space="preserve"><value>புதுப்பிப்புகளைச் சரிபார்</value></data>
+  <data name="StoreChecking" xml:space="preserve"><value>Microsoft Store புதுப்பிப்புகள் சரிபார்க்கப்படுகின்றன…</value></data>
+  <data name="StoreCompleted" xml:space="preserve"><value>Microsoft Store புதுப்பிப்பை முடித்துவிட்டது.</value></data>
+  <data name="StoreDeferred" xml:space="preserve"><value>பின்னர் புதுப்பிப்பைச் சரிபார்த்து நிறுவலாம்.</value></data>
+  <data name="StoreDownloadHint" xml:space="preserve"><value>தானியங்குப் பதிவிறக்கங்கள் Microsoft Store இன் புதுப்பிப்பு மற்றும் பிணைய அமைப்புகளைப் பின்பற்றும். நிறுவலை Store நிர்வகிக்கும்.</value></data>
+  <data name="StoreDownloading" xml:space="preserve"><value>Microsoft Store புதுப்பிப்பைப் பதிவிறக்குகிறது ({0:P0})…</value></data>
+  <data name="StoreFinishing" xml:space="preserve"><value>Microsoft Store புதுப்பிப்பை முடிக்கக் காத்திருக்கிறது…</value></data>
+  <data name="StoreInstallConfirmation" xml:space="preserve"><value>Microsoft Store புதுப்பிப்பை நிறுவவா?</value></data>
+  <data name="StoreInstallHint" xml:space="preserve"><value>சேமிக்காத வெண்பலகைகளும் குறிப்புரைகளும் உங்கள் சேமிப்பிடத்திலுள்ள ஒரு கோப்புறையில் காப்புப்பிரதியாக வைக்கப்படும். புதுப்பிப்பின்போது திருத்தம் இடைநிறுத்தப்படும், மேலும் நிறுவல் செயலியை மூடக்கூடும்.</value></data>
+  <data name="StoreInstalling" xml:space="preserve"><value>Microsoft Store புதுப்பிப்பை நிறுவுகிறது…</value></data>
+  <data name="StoreLater" xml:space="preserve"><value>பிறகு</value></data>
+  <data name="StoreLowBattery" xml:space="preserve"><value>மின்கலத்தில் மின்னேற்றம் குறைவு. மின்னூட்டியை இணைத்து மீண்டும் முயலவும்.</value></data>
+  <data name="StoreNeedsWifi" xml:space="preserve"><value>Wi-Fi உடன் இணைத்து மீண்டும் முயலவும்.</value></data>
+  <data name="StoreNonStorePackage" xml:space="preserve"><value>மதிப்பிட அல்லது புதுப்பிப்புகளைப் பெற Microsoft Store இலிருந்து FluentCanvas-ஐ நிறுவவும்.</value></data>
+  <data name="StoreNoUpdate" xml:space="preserve"><value>Microsoft Store புதுப்பிப்புகள் எதுவும் கிடைக்கவில்லை.</value></data>
+  <data name="StoreOpeningRating" xml:space="preserve"><value>Store மதிப்பீட்டுச் சாளரம் திறக்கப்படுகிறது…</value></data>
+  <data name="StoreRate" xml:space="preserve"><value>மதிப்பிட்டு கருத்து தெரிவி</value></data>
+  <data name="StoreRatingClosed" xml:space="preserve"><value>மதிப்பீட்டுச் சாளரம் மூடப்பட்டது.</value></data>
+  <data name="StoreRatingUpdated" xml:space="preserve"><value>Microsoft Store உங்கள் மதிப்பீட்டைப் புதுப்பித்தது.</value></data>
+  <data name="StoreRequestFailed" xml:space="preserve"><value>Microsoft Store கோரிக்கையை முடிக்கவில்லை (0x{0:X8}). பின்னர் மீண்டும் முயலவும்.</value></data>
+  <data name="StoreRequesting" xml:space="preserve"><value>புதுப்பிப்பை நிறுவ Microsoft Store இடம் கோரப்படுகிறது…</value></data>
+  <data name="StoreResumeEditing" xml:space="preserve"><value>
+வெண்பலகைத் திருத்தத்தைத் தொடர அமைப்புகளை மூடவும்.</value></data>
+  <data name="StoreSlidesActive" xml:space="preserve"><value>புதுப்பிப்பை நிறுவுவதற்கு முன் படவில்லைக் காட்சியை முடித்துக் குறிப்புரைகளைச் சேமிக்கவும்.</value></data>
+  <data name="StoreSlidesUnsaved" xml:space="preserve"><value>படவில்லைக் காட்சிக் குறிப்புரைகள் சேமிக்கப்படவில்லை. சேமிப்பிடத்தைச் சரிபார்த்து மீண்டும் முயலவும்.</value></data>
+  <data name="StoreStandalone" xml:space="preserve"><value>இது தனிப்பதிப்பு. மதிப்பீடுகளும் தானியங்குப் புதுப்பிப்புகளும் Microsoft Store பதிப்பில் கிடைக்கும்.</value></data>
+  <data name="StoreUpdateFailed" xml:space="preserve"><value>Microsoft Store புதுப்பிப்பை முடிக்கவில்லை ({0}).</value></data>
+  <data name="StoreUpdateUnavailable" xml:space="preserve"><value>இந்த நிறுவலை Microsoft Store ஆல் புதுப்பிக்க முடியாது.</value></data>
+  <data name="StoreUpdating" xml:space="preserve"><value>Microsoft Store FluentCanvas-ஐப் புதுப்பிக்கிறது.</value></data>
+  <data name="SwitchGestures" xml:space="preserve"><value>குறிப்புரை மற்றும் வெண்பலகைப் பயன்முறைகளுக்கு இடையில் சைகைகளைத் தானாக மாற்று</value></data>
+  <data name="Theme" xml:space="preserve"><value>செயலித் தோற்றம்</value></data>
+  <data name="ToolbarLabels" xml:space="preserve"><value>கருவிப்பட்டைப் பெயர்களைக் காட்டு</value></data>
+  <data name="ToolbarScale" xml:space="preserve"><value>மிதக்கும் கருவிப்பட்டையின் அளவு (%)</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>கருவிச் சாளரத்தைத் திறக்க முடியவில்லை. மீண்டும் முயலவும்.</value></data>
+  <data name="TouchCalibration" xml:space="preserve"><value>தொடுதிரை அளவுத்திருத்தமும் அழிப்பானும்</value></data>
+  <data name="TouchMultiplier" xml:space="preserve"><value>தனிப்பயன் தொடுதிரைக்கான தொடுதல் அளவுப் பெருக்கி</value></data>
+  <data name="TwoFingerRotation" xml:space="preserve"><value>இரு விரல்களால் வரைபரப்பைச் சுழற்ற அனுமதி</value></data>
+  <data name="WhiteboardAndInk" xml:space="preserve"><value>வெண்பலகையும் மையும்</value></data>
+  <data name="WhiteboardBackground" xml:space="preserve"><value>வெள்ளைப் பலகைப் பின்னணியைப் பயன்படுத்து</value></data>
+  <data name="WindowTitle" xml:space="preserve"><value>FluentCanvas · அமைப்புகள்</value></data>
+  <data name="FileAssociations" xml:space="preserve"><value>.icart மற்றும் .icstk கோப்புகளுக்கான இயல்புநிலைச் செயலி</value></data>
+  <data name="FileAssociationsConfirm" xml:space="preserve"><value>கோப்பு இணைப்புகளுக்கு இந்த நகலைப் பயன்படுத்தவா? பதிவு செய்யப்பட்ட இடம் {0} என மாறும். இயல்புநிலைச் செயலியை Windows அமைப்புகளில் தேர்வுசெய்யவும்.</value></data>
+  <data name="WindowsStartupSettings" xml:space="preserve"><value>Windows தொடக்கச் செயலிகள்</value></data>
+  <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>முழுத்திரையில் விளிம்புத் தொடு சைகைகளை முடக்கு</value></data>
+</root>

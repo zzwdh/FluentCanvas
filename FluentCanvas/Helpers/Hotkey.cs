@@ -1,5 +1,7 @@
-﻿using System;
+using FluentCanvas.Localization;
+using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
@@ -7,81 +9,72 @@ using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.UI.Input.KeyboardAndMouse;
 
-namespace FluentCanvas
+namespace FluentCanvas;
+
+internal sealed class Hotkey : IDisposable
 {
-    static class Hotkey
+    private const int HotkeyAlreadyRegistered = 1409;
+    private readonly HwndSource source;
+    private readonly Dictionary<int, Action> callbacks = new();
+    private int nextId;
+
+    internal Hotkey(Window window)
     {
-        /// <summary>
-        /// 注册快捷键
-        /// </summary>
-        /// <param name="window">持有快捷键窗口</param>
-        /// <param name="fsModifiers">组合键</param>
-        /// <param name="key">快捷键</param>
-        /// <param name="callBack">回调函数</param>
-        public static bool Regist(Window window, HotkeyModifiers fsModifiers, Key key, HotKeyCallBackHanlder callBack)
-        {
-            var hwnd = new WindowInteropHelper(window).Handle;
-            var _hwndSource = HwndSource.FromHwnd(hwnd);
-
-            if (keyid == 10)
-            {
-                _hwndSource.AddHook(WndProc);
-            }
-
-            int id = keyid++;
-
-            var vk = KeyInterop.VirtualKeyFromKey(key);
-            if (!PInvoke.RegisterHotKey((HWND)hwnd, id, (HOT_KEY_MODIFIERS)fsModifiers, (uint)vk))
-            {
-                //throw new Exception("regist hotkey fail.");
-                return false;
-            }
-            keymap[id] = callBack;
-            return true;
-        }
-
-        /// <summary> 
-        /// 快捷键消息处理 
-        /// </summary> 
-        static IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
-        {
-            if (msg == (int)PInvoke.WM_HOTKEY)
-            {
-                int id = wParam.ToInt32();
-                if (keymap.TryGetValue(id, out var callback))
-                {
-                    callback();
-                }
-                handled = true;
-            }
-            return IntPtr.Zero;
-        }
-
-        /// <summary> 
-        /// 注销快捷键 
-        /// </summary> 
-        /// <param name="hWnd">持有快捷键窗口的句柄</param> 
-        /// <param name="callBack">回调函数</param> 
-        public static void UnRegist(IntPtr hWnd, HotKeyCallBackHanlder callBack)
-        {
-            foreach (KeyValuePair<int, HotKeyCallBackHanlder> var in keymap)
-            {
-                if (var.Value == callBack)
-                    PInvoke.UnregisterHotKey((HWND)hWnd, var.Key);
-            }
-        }
-
-        static int keyid = 10;
-        static Dictionary<int, HotKeyCallBackHanlder> keymap = new Dictionary<int, HotKeyCallBackHanlder>();
-
-        public delegate void HotKeyCallBackHanlder();
+        source = HwndSource.FromHwnd(new WindowInteropHelper(window).EnsureHandle());
+        source.AddHook(WndProc);
     }
 
-    enum HotkeyModifiers
+    internal (int Id, string Error) Register(KeyGesture gesture, Action callback)
     {
-        MOD_ALT = 0x1,
-        MOD_CONTROL = 0x2,
-        MOD_SHIFT = 0x4,
-        MOD_WIN = 0x8
+        int id = nextId;
+        // Window-owned identifiers passed to RegisterHotKey must stay in 0x0000–0xBFFF.
+        do
+        {
+            id = (id + 1) % 0xC000;
+            if (!callbacks.ContainsKey(id)) break;
+        }
+        while (id != nextId);
+        if (callbacks.ContainsKey(id)) return (-1, UiText.Get("Settings.HotkeyLimit"));
+        var modifiers = HOT_KEY_MODIFIERS.MOD_NOREPEAT;
+        if (gesture.Modifiers.HasFlag(ModifierKeys.Alt)) modifiers |= HOT_KEY_MODIFIERS.MOD_ALT;
+        if (gesture.Modifiers.HasFlag(ModifierKeys.Control)) modifiers |= HOT_KEY_MODIFIERS.MOD_CONTROL;
+        if (gesture.Modifiers.HasFlag(ModifierKeys.Shift)) modifiers |= HOT_KEY_MODIFIERS.MOD_SHIFT;
+        if (gesture.Modifiers.HasFlag(ModifierKeys.Windows)) modifiers |= HOT_KEY_MODIFIERS.MOD_WIN;
+        var key = KeyInterop.VirtualKeyFromKey(gesture.Key);
+        if (key == 0) return (-1, UiText.Get("Settings.HotkeyUnknownKey"));
+        if (!PInvoke.RegisterHotKey((HWND)source.Handle, id, modifiers, (uint)key))
+        {
+            int error = Marshal.GetLastPInvokeError();
+            return (-1, error == HotkeyAlreadyRegistered ? UiText.Get("Settings.HotkeyConflict") : UiText.Format("Settings.HotkeyWindowsError", error));
+        }
+        nextId = id;
+        callbacks.Add(id, callback);
+        return (id, null);
+    }
+
+    internal void Unregister(int id)
+    {
+        if (callbacks.Remove(id)) PInvoke.UnregisterHotKey((HWND)source.Handle, id);
+    }
+
+    private nint WndProc(nint hwnd, int msg, nint wParam, nint lParam, ref bool handled)
+    {
+        if (msg == PInvoke.WM_HOTKEY && callbacks.TryGetValue((int)wParam, out var callback))
+        {
+            handled = true;
+            callback();
+        }
+        return 0;
+    }
+
+    public void Dispose()
+    {
+        nint window = source.Handle;
+        if (window != 0)
+        {
+            foreach (int id in callbacks.Keys) PInvoke.UnregisterHotKey((HWND)window, id);
+        }
+        callbacks.Clear();
+        if (!source.IsDisposed) source.RemoveHook(WndProc);
     }
 }

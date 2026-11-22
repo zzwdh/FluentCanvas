@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotateOnSlideShow" xml:space="preserve"><value>স্লাইড শো শুরু হলে টীকা মোড চালু করুন</value></data>
+  <data name="App" xml:space="preserve"><value>অ্যাপ</value></data>
+  <data name="Appearance" xml:space="preserve"><value>চেহারা</value></data>
+  <data name="Apply" xml:space="preserve"><value>প্রয়োগ করুন</value></data>
+  <data name="AutosaveLocation" xml:space="preserve"><value>স্বয়ংক্রিয় সংরক্ষণের অবস্থান</value></data>
+  <data name="AutosaveRetention" xml:space="preserve"><value>স্বয়ংক্রিয়ভাবে সংরক্ষিত ফাইল রাখার দিনসংখ্যা</value></data>
+  <data name="BoardScale" xml:space="preserve"><value>হোয়াইটবোর্ড নিয়ন্ত্রণের আকার (%)</value></data>
+  <data name="Cancel" xml:space="preserve"><value>বাতিল করুন</value></data>
+  <data name="CaptureOnClear" xml:space="preserve"><value>মোছার আগে স্বয়ংক্রিয়ভাবে স্ক্রিনশট নিন</value></data>
+  <data name="CaptureSlide" xml:space="preserve"><value>স্লাইড বদলালে স্বয়ংক্রিয়ভাবে স্ক্রিনশট নিন</value></data>
+  <data name="ChangeFailed" xml:space="preserve"><value>সেটিংস বদলানো যায়নি। আবার চেষ্টা করুন।</value></data>
+  <data name="ChooseFolder" xml:space="preserve"><value>ফোল্ডার বেছে নিন…</value></data>
+  <data name="ChooseFolderFailed" xml:space="preserve"><value>ফোল্ডার নির্বাচন করা যায়নি: {0}</value></data>
+  <data name="CleanAutosaves" xml:space="preserve"><value>অ্যাপ চালু হলে মেয়াদ ফুরানো স্বয়ংক্রিয়ভাবে সংরক্ষিত ফাইল মুছুন</value></data>
+  <data name="ConnectionFailed" xml:space="preserve"><value>FluentCanvas-এর সঙ্গে সংযোগ করা যায়নি। সেটিংস আবার লোড করে চেষ্টা করুন।</value></data>
+  <data name="Copied" xml:space="preserve"><value>কপি হয়েছে</value></data>
+  <data name="CopyDiagnostics" xml:space="preserve"><value>ডায়াগনস্টিক তথ্য কপি করুন</value></data>
+  <data name="CopyFailed" xml:space="preserve"><value>কপি করা যায়নি। আবার চেষ্টা করুন।</value></data>
+  <data name="Dark" xml:space="preserve"><value>গাঢ়</value></data>
+  <data name="DateFolders" xml:space="preserve"><value>তারিখ অনুযায়ী ফোল্ডারে স্ক্রিনশট সাজান</value></data>
+  <data name="DetectPowerPoint" xml:space="preserve"><value>PowerPoint স্লাইড শো শনাক্ত করুন</value></data>
+  <data name="Diagnostics" xml:space="preserve"><value>ডায়াগনস্টিকস</value></data>
+  <data name="DiagnosticsAndPrivacy" xml:space="preserve"><value>ডায়াগনস্টিকস ও গোপনীয়তা</value></data>
+  <data name="DiagnosticsComponents" xml:space="preserve"><value>ক্যানভাস  WPF
+ডায়াগনস্টিকস উইন্ডো  WinUI 3</value></data>
+  <data name="DiagnosticsTitle" xml:space="preserve"><value>FluentCanvas · ডায়াগনস্টিকস</value></data>
+  <data name="DirectoryNotWritable" xml:space="preserve"><value>নির্বাচিত ফোল্ডারে লেখা যায়নি।</value></data>
+  <data name="DirectoryTimeout" xml:space="preserve"><value>নির্বাচিত ফোল্ডার সাড়া দেয়নি। সংযোগ পরীক্ষা করে আবার চেষ্টা করুন।</value></data>
+  <data name="EnableWps" xml:space="preserve"><value>WPS স্লাইড শো (পরীক্ষামূলক, ডেস্কটপ অ্যাড-ইন প্রয়োজন)</value></data>
+  <data name="Exit" xml:space="preserve"><value>বেরিয়ে যান</value></data>
+  <data name="ExitApp" xml:space="preserve"><value>FluentCanvas থেকে বেরিয়ে যান</value></data>
+  <data name="FingerEraserScale" xml:space="preserve"><value>আঙুল মোডে ইরেজারের আকারের গুণক</value></data>
+  <data name="FingerEraserThreshold" xml:space="preserve"><value>আঙুল মোডে অঞ্চল মোছার সীমার গুণক</value></data>
+  <data name="FingerTouchWidth" xml:space="preserve"><value>আঙুল মোডে স্পর্শের প্রস্থের সীমা</value></data>
+  <data name="FoldAtStartup" xml:space="preserve"><value>অ্যাপ চালু হলে টুলবার স্ক্রিনের প্রান্তে গুটিয়ে রাখুন</value></data>
+  <data name="FoldInSlideShow" xml:space="preserve"><value>স্লাইড শো চলাকালে টুলবার স্বয়ংক্রিয়ভাবে গুটিয়ে রাখুন</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>Windows অনুসরণ করুন</value></data>
+  <data name="GlobalHotkeys" xml:space="preserve"><value>গ্লোবাল শর্টকাট</value></data>
+  <data name="Guide" xml:space="preserve"><value>ব্যবহার নির্দেশিকা</value></data>
+  <data name="GuideCanvas" xml:space="preserve"><value>ক্যানভাসের শর্টকাট</value></data>
+  <data name="GuideCapture" xml:space="preserve"><value>ডেস্কটপে স্ক্রিনশট সংরক্ষণ করুন</value></data>
+  <data name="GuideClear" xml:space="preserve"><value>ক্যানভাস পরিষ্কার করুন বা বর্তমান নির্বাচন মুছুন</value></data>
+  <data name="GuideEraser" xml:space="preserve"><value>ইরেজারে যান বা অঞ্চল ও সম্পূর্ণ আঁচড় মোছার মধ্যে বদলান</value></data>
+  <data name="GuideGlobal" xml:space="preserve"><value>ডিফল্ট গ্লোবাল শর্টকাট</value></data>
+  <data name="GuideIntro" xml:space="preserve"><value>অন্য অ্যাপ বা স্লাইড শো সক্রিয় থাকলেও গ্লোবাল শর্টকাট কাজ করে। শর্টকাট বদলাতে বা বিরোধ মেটাতে সেটিংসে গ্লোবাল শর্টকাট খুলুন।</value></data>
+  <data name="GuideLine" xml:space="preserve"><value>রেখা টুল বেছে নিন</value></data>
+  <data name="GuideNextKeys" xml:space="preserve"><value>↓ / → / Page Down / N / স্পেস</value></data>
+  <data name="GuidePen" xml:space="preserve"><value>কলমে যান অথবা রঙের প্যালেট দেখান বা লুকান</value></data>
+  <data name="GuidePointer" xml:space="preserve"><value>লেখা থামিয়ে পয়েন্টারে ফিরুন</value></data>
+  <data name="GuideRedo" xml:space="preserve"><value>আবার করুন</value></data>
+  <data name="GuideSelect" xml:space="preserve"><value>নির্বাচন টুলে যান</value></data>
+  <data name="GuideSlides" xml:space="preserve"><value>টীকার উইন্ডো সক্রিয় থাকাকালে স্লাইড শোর শর্টকাট</value></data>
+  <data name="GuideTitle" xml:space="preserve"><value>FluentCanvas · ব্যবহার নির্দেশিকা</value></data>
+  <data name="GuideTools" xml:space="preserve"><value>ভাসমান টুলবারের টুল দেখান বা লুকান</value></data>
+  <data name="GuideUndo" xml:space="preserve"><value>পূর্বাবস্থায় ফেরান</value></data>
+  <data name="GuideWheel" xml:space="preserve"><value>মাউসের চাকা নিচে বা উপরে</value></data>
+  <data name="GuideWheelSlides" xml:space="preserve"><value>পরবর্তী বা আগের স্লাইড</value></data>
+  <data name="HotkeyApplyName" xml:space="preserve"><value>{0}-এর গ্লোবাল শর্টকাট প্রয়োগ করুন</value></data>
+  <data name="HotkeyBoard" xml:space="preserve"><value>হোয়াইটবোর্ড ও ডেস্কটপ টীকার মধ্যে বদলান</value></data>
+  <data name="HotkeyCapture" xml:space="preserve"><value>স্ক্রিনশট নিন</value></data>
+  <data name="HotkeyClear" xml:space="preserve"><value>ক্যানভাস পরিষ্কার করুন বা নির্বাচন মুছুন</value></data>
+  <data name="HotkeyConflict" xml:space="preserve"><value>এই সমন্বয় অন্য কোনো কাজ বা অ্যাপে ব্যবহৃত হচ্ছে।</value></data>
+  <data name="HotkeyDisabled" xml:space="preserve"><value>নিষ্ক্রিয়</value></data>
+  <data name="HotkeyDraw" xml:space="preserve"><value>কলমে যান</value></data>
+  <data name="HotkeyEndSlides" xml:space="preserve"><value>স্লাইড শো শেষ করুন</value></data>
+  <data name="HotkeyHint" xml:space="preserve"><value>Ctrl+Shift+B-এর মতো একটি পরিবর্তক কী-সহ সমন্বয় লিখুন। শর্টকাট নিষ্ক্রিয় করতে তার ঘর খালি করে প্রয়োগ করুন নির্বাচন করুন।</value></data>
+  <data name="HotkeyInputName" xml:space="preserve"><value>{0}-এর গ্লোবাল শর্টকাট</value></data>
+  <data name="HotkeyInvalid" xml:space="preserve"><value>অবৈধ শর্টকাট। Ctrl+Shift+B-এর মতো একটি সমন্বয় ব্যবহার করুন।</value></data>
+  <data name="HotkeyLimit" xml:space="preserve"><value>গ্লোবাল শর্টকাটের সর্বোচ্চ সংখ্যায় পৌঁছে গেছেন।</value></data>
+  <data name="HotkeyModifier" xml:space="preserve"><value>Ctrl+Shift+B-এর মতো একটি পরিবর্তক কী-সহ সমন্বয় লিখুন।</value></data>
+  <data name="HotkeyPointer" xml:space="preserve"><value>পয়েন্টারে ফিরুন</value></data>
+  <data name="HotkeyResetName" xml:space="preserve"><value>{0}-এর ডিফল্ট গ্লোবাল শর্টকাট ফিরিয়ে আনুন</value></data>
+  <data name="HotkeySaveFailed" xml:space="preserve"><value>শর্টকাট সংরক্ষণ করা যায়নি।</value></data>
+  <data name="HotkeyTools" xml:space="preserve"><value>টুলের গ্রুপ দেখান বা লুকান</value></data>
+  <data name="HotkeyUnavailable" xml:space="preserve"><value>এই গ্লোবাল শর্টকাটগুলো নিবন্ধন করা যায়নি: {0}। সেটিংসে এগুলো বদলান।</value></data>
+  <data name="HotkeyUnknown" xml:space="preserve"><value>অজানা গ্লোবাল শর্টকাট।</value></data>
+  <data name="HotkeyUnknownKey" xml:space="preserve"><value>Windows এই কীটি শনাক্ত করতে পারছে না।</value></data>
+  <data name="HotkeyWindowsError" xml:space="preserve"><value>Windows শর্টকাটটি নিবন্ধন করতে পারেনি ({0})।</value></data>
+  <data name="InstallationMethod" xml:space="preserve"><value>ইনস্টলেশন  {0}</value></data>
+  <data name="InvalidSession" xml:space="preserve"><value>সেটিংস সেশনটি অবৈধ।</value></data>
+  <data name="InvalidValue" xml:space="preserve"><value>সেটিংসের মান অবৈধ।</value></data>
+  <data name="Language" xml:space="preserve"><value>প্রদর্শনের ভাষা</value></data>
+  <data name="LanguageRestart" xml:space="preserve"><value>নির্বাচিত ভাষা প্রয়োগ করতে FluentCanvas পুনরায় চালু করুন।</value></data>
+  <data name="Light" xml:space="preserve"><value>হালকা</value></data>
+  <data name="MoreOptions" xml:space="preserve"><value>আরও বিকল্প</value></data>
+  <data name="MultiTouch" xml:space="preserve"><value>স্বয়ংক্রিয় বদল বন্ধ থাকলে একাধিক আঙুল দিয়ে লিখতে দিন</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>পরবর্তী স্লাইড</value></data>
+  <data name="NibEraserScale" xml:space="preserve"><value>নিব মোডে ইরেজারের আকারের গুণক</value></data>
+  <data name="NibEraserThreshold" xml:space="preserve"><value>নিব মোডে অঞ্চল মোছার সীমার গুণক</value></data>
+  <data name="NibMode" xml:space="preserve"><value>কলমের নিব মোড ব্যবহার করুন</value></data>
+  <data name="NibTouchWidth" xml:space="preserve"><value>নিব মোডে স্পর্শের প্রস্থের সীমা</value></data>
+  <data name="Off" xml:space="preserve"><value>বন্ধ</value></data>
+  <data name="On" xml:space="preserve"><value>চালু</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>সেটিংস খোলা যায়নি। আবার চেষ্টা করুন।</value></data>
+  <data name="PenCursor" xml:space="preserve"><value>কলমের কার্সর দেখান</value></data>
+  <data name="PenWidth" xml:space="preserve"><value>কলমের পুরুত্ব</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>আগের স্লাইড</value></data>
+  <data name="QuadInfrared" xml:space="preserve"><value>চার পাশের ইনফ্রারেড টাচস্ক্রিন ব্যবহার করুন</value></data>
+  <data name="RecognizeShapes" xml:space="preserve"><value>হাতে আঁকা আকৃতি শনাক্ত করুন</value></data>
+  <data name="Reload" xml:space="preserve"><value>সেটিংস আবার লোড করুন</value></data>
+  <data name="ReportingStartFailed" xml:space="preserve"><value>ত্রুটি প্রতিবেদন চালু করা যায়নি।</value></data>
+  <data name="ResetDefault" xml:space="preserve"><value>ডিফল্ট ফিরিয়ে আনুন</value></data>
+  <data name="Restart" xml:space="preserve"><value>পুনরায় চালু করুন</value></data>
+  <data name="RestartApp" xml:space="preserve"><value>FluentCanvas পুনরায় চালু করুন</value></data>
+  <data name="RunAtStartup" xml:space="preserve"><value>Windows-এ সাইন ইন করলে চালু করুন</value></data>
+  <data name="SaveBeforeExit" xml:space="preserve"><value>এগিয়ে যাওয়ার আগে হোয়াইটবোর্ডের অসংরক্ষিত পৃষ্ঠা ও টীকাগুলোর ব্যাকআপ নেওয়া হবে।</value></data>
+  <data name="SavedApplyFailed" xml:space="preserve"><value>সেটিংটি সংরক্ষিত হয়েছে, তবে বর্তমান হোয়াইটবোর্ডে প্রয়োগ করা যায়নি। কাজ সংরক্ষণ করে FluentCanvas পুনরায় চালু করুন।</value></data>
+  <data name="SaveFailed" xml:space="preserve"><value>সেটিংটি সংরক্ষণ করা যায়নি।</value></data>
+  <data name="SaveInkOnCapture" xml:space="preserve"><value>স্ক্রিনশটের সঙ্গে লেখাও সংরক্ষণ করুন</value></data>
+  <data name="SaveSlideInk" xml:space="preserve"><value>প্রতিটি স্লাইডের লেখা স্বয়ংক্রিয়ভাবে সংরক্ষণ করুন</value></data>
+  <data name="Saving" xml:space="preserve"><value>সংরক্ষণ</value></data>
+  <data name="SendErrors" xml:space="preserve"><value>অ্যাপের ত্রুটি Sentry-তে পাঠান</value></data>
+  <data name="SettingsExited" xml:space="preserve"><value>সেটিংস উইন্ডো অপ্রত্যাশিতভাবে বন্ধ হয়েছে। আবার চেষ্টা করুন।</value></data>
+  <data name="SettingUnavailable" xml:space="preserve"><value>এই সেটিং বদলানো যায় না।</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>শর্টকাট নির্দেশিকা</value></data>
+  <data name="Slides" xml:space="preserve"><value>স্লাইড শো</value></data>
+  <data name="SpecialTouchScreen" xml:space="preserve"><value>টাচস্ক্রিনের জন্য নিজস্ব ক্যালিব্রেশন ব্যবহার করুন</value></data>
+  <data name="Standalone" xml:space="preserve"><value>স্বতন্ত্র সংস্করণ</value></data>
+  <data name="Startup" xml:space="preserve"><value>চালু হওয়া</value></data>
+  <data name="StartupChangeFailed" xml:space="preserve"><value>স্টার্টআপ আচরণ বদলানো যায়নি। Windows-এর স্টার্টআপ অ্যাপস সেটিংস দেখুন।</value></data>
+  <data name="StartupDisabledByUser" xml:space="preserve"><value>Windows-এর স্টার্টআপ অ্যাপস সেটিংসে এটি চালু করতে পারেন।</value></data>
+  <data name="StartupNotEnabled" xml:space="preserve"><value>Windows-এ স্বয়ংক্রিয় স্টার্টআপ চালু নেই।</value></data>
+  <data name="StartupPolicyDisabled" xml:space="preserve"><value>আপনার প্রতিষ্ঠান এই স্টার্টআপ আইটেমটি নিষ্ক্রিয় করেছে।</value></data>
+  <data name="StartupPolicyEnabled" xml:space="preserve"><value>আপনার প্রতিষ্ঠান এই স্টার্টআপ আইটেমটি সক্রিয় করেছে।</value></data>
+  <data name="StartupUnreadable" xml:space="preserve"><value>Windows স্টার্টআপের অবস্থা পড়া যায়নি।</value></data>
+  <data name="StoreAutoDownload" xml:space="preserve"><value>অ্যাপ চালু হলে স্বয়ংক্রিয়ভাবে আপডেট খুঁজে ডাউনলোড করুন</value></data>
+  <data name="StoreAvailable" xml:space="preserve"><value>Microsoft Store-এ একটি আপডেট পাওয়া যাচ্ছে।</value></data>
+  <data name="StoreBackingUp" xml:space="preserve"><value>অসংরক্ষিত কাজের ব্যাকআপ নেওয়া হচ্ছে…</value></data>
+  <data name="StoreBackupAndUpdate" xml:space="preserve"><value>ব্যাকআপ নিয়ে আপডেট করুন</value></data>
+  <data name="StoreBackupFailed" xml:space="preserve"><value>কাজের ব্যাকআপ নেওয়া যায়নি। সংরক্ষণের অবস্থান দেখে আবার চেষ্টা করুন।</value></data>
+  <data name="StoreBackupLocation" xml:space="preserve"><value>
+ব্যাকআপের অবস্থান: {0}</value></data>
+  <data name="StoreBackupStateChanged" xml:space="preserve"><value>ব্যাকআপের সময় হোয়াইটবোর্ড বা স্লাইড শো বদলেছে। আবার চেষ্টা করুন।</value></data>
+  <data name="StoreBoardBusy" xml:space="preserve"><value>হোয়াইটবোর্ড ব্যস্ত আছে। বর্তমান কাজ শেষ হলে আবার চেষ্টা করুন।</value></data>
+  <data name="StoreCanceled" xml:space="preserve"><value>আপডেট বাতিল হয়েছে।</value></data>
+  <data name="StoreCheck" xml:space="preserve"><value>আপডেট খুঁজুন</value></data>
+  <data name="StoreChecking" xml:space="preserve"><value>Microsoft Store-এর আপডেট খোঁজা হচ্ছে…</value></data>
+  <data name="StoreCompleted" xml:space="preserve"><value>Microsoft Store আপডেট সম্পন্ন করেছে।</value></data>
+  <data name="StoreDeferred" xml:space="preserve"><value>পরে আপডেট খুঁজে ইনস্টল করতে পারেন।</value></data>
+  <data name="StoreDownloadHint" xml:space="preserve"><value>স্বয়ংক্রিয় ডাউনলোড Microsoft Store-এর আপডেট ও নেটওয়ার্ক সেটিংস অনুসরণ করে। স্টোর ইনস্টলেশন পরিচালনা করে।</value></data>
+  <data name="StoreDownloading" xml:space="preserve"><value>Microsoft Store আপডেট ডাউনলোড করছে ({0:P0})…</value></data>
+  <data name="StoreFinishing" xml:space="preserve"><value>Microsoft Store-এর আপডেট শেষ হওয়ার জন্য অপেক্ষা করা হচ্ছে…</value></data>
+  <data name="StoreInstallConfirmation" xml:space="preserve"><value>Microsoft Store-এর আপডেট ইনস্টল করবেন?</value></data>
+  <data name="StoreInstallHint" xml:space="preserve"><value>অসংরক্ষিত হোয়াইটবোর্ড ও টীকার ব্যাকআপ সংরক্ষণের অবস্থানের একটি ফোল্ডারে নেওয়া হবে। আপডেটের সময় সম্পাদনা থামবে এবং ইনস্টলেশনের সময় অ্যাপ বন্ধ হতে পারে।</value></data>
+  <data name="StoreInstalling" xml:space="preserve"><value>Microsoft Store আপডেট ইনস্টল করছে…</value></data>
+  <data name="StoreLater" xml:space="preserve"><value>পরে</value></data>
+  <data name="StoreLowBattery" xml:space="preserve"><value>ব্যাটারির চার্জ কম। চার্জার লাগিয়ে আবার চেষ্টা করুন।</value></data>
+  <data name="StoreNeedsWifi" xml:space="preserve"><value>Wi-Fi-এ সংযোগ করে আবার চেষ্টা করুন।</value></data>
+  <data name="StoreNonStorePackage" xml:space="preserve"><value>রেটিং দিতে বা স্টোরের আপডেট পেতে Microsoft Store থেকে FluentCanvas ইনস্টল করুন।</value></data>
+  <data name="StoreNoUpdate" xml:space="preserve"><value>Microsoft Store-এ কোনো আপডেট নেই।</value></data>
+  <data name="StoreOpeningRating" xml:space="preserve"><value>স্টোরের রেটিং উইন্ডো খোলা হচ্ছে…</value></data>
+  <data name="StoreRate" xml:space="preserve"><value>রেটিং ও পর্যালোচনা দিন</value></data>
+  <data name="StoreRatingClosed" xml:space="preserve"><value>রেটিং উইন্ডো বন্ধ হয়েছে।</value></data>
+  <data name="StoreRatingUpdated" xml:space="preserve"><value>Microsoft Store আপনার রেটিং আপডেট করেছে।</value></data>
+  <data name="StoreRequestFailed" xml:space="preserve"><value>Microsoft Store অনুরোধটি সম্পন্ন করতে পারেনি (0x{0:X8})। পরে আবার চেষ্টা করুন।</value></data>
+  <data name="StoreRequesting" xml:space="preserve"><value>Microsoft Store-কে আপডেট ইনস্টলের অনুরোধ জানানো হচ্ছে…</value></data>
+  <data name="StoreResumeEditing" xml:space="preserve"><value>
+হোয়াইটবোর্ড সম্পাদনা চালিয়ে যেতে সেটিংস বন্ধ করুন।</value></data>
+  <data name="StoreSlidesActive" xml:space="preserve"><value>আপডেট ইনস্টল করার আগে স্লাইড শো শেষ করে টীকা সংরক্ষণ করুন।</value></data>
+  <data name="StoreSlidesUnsaved" xml:space="preserve"><value>স্লাইড শোর টীকা সংরক্ষিত হয়নি। সংরক্ষণের অবস্থান দেখে আবার চেষ্টা করুন।</value></data>
+  <data name="StoreStandalone" xml:space="preserve"><value>এটি স্বতন্ত্র সংস্করণ। রেটিং ও স্বয়ংক্রিয় আপডেট Microsoft Store সংস্করণে পাওয়া যায়।</value></data>
+  <data name="StoreUpdateFailed" xml:space="preserve"><value>Microsoft Store আপডেট শেষ করতে পারেনি ({0})।</value></data>
+  <data name="StoreUpdateUnavailable" xml:space="preserve"><value>Microsoft Store এই ইনস্টলেশনটি আপডেট করতে পারে না।</value></data>
+  <data name="StoreUpdating" xml:space="preserve"><value>Microsoft Store FluentCanvas আপডেট করছে।</value></data>
+  <data name="SwitchGestures" xml:space="preserve"><value>টীকা ও হোয়াইটবোর্ড মোডের মধ্যে অঙ্গভঙ্গি স্বয়ংক্রিয়ভাবে বদলান</value></data>
+  <data name="Theme" xml:space="preserve"><value>অ্যাপের থিম</value></data>
+  <data name="ToolbarLabels" xml:space="preserve"><value>টুলবারের লেবেল দেখান</value></data>
+  <data name="ToolbarScale" xml:space="preserve"><value>ভাসমান টুলবারের আকার (%)</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>টুলের উইন্ডো খোলা যায়নি। আবার চেষ্টা করুন।</value></data>
+  <data name="TouchCalibration" xml:space="preserve"><value>টাচস্ক্রিন ক্যালিব্রেশন ও ইরেজার</value></data>
+  <data name="TouchMultiplier" xml:space="preserve"><value>বিশেষ টাচস্ক্রিনে স্পর্শের আকারের গুণক</value></data>
+  <data name="TwoFingerRotation" xml:space="preserve"><value>দুই আঙুল দিয়ে ক্যানভাস ঘোরাতে দিন</value></data>
+  <data name="WhiteboardAndInk" xml:space="preserve"><value>হোয়াইটবোর্ড ও হাতের লেখা</value></data>
+  <data name="WhiteboardBackground" xml:space="preserve"><value>বোর্ডের পটভূমি সাদা রাখুন</value></data>
+  <data name="WindowTitle" xml:space="preserve"><value>FluentCanvas · সেটিংস</value></data>
+  <data name="FileAssociations" xml:space="preserve"><value>.icart ও .icstk-এর ডিফল্ট অ্যাপ</value></data>
+  <data name="FileAssociationsConfirm" xml:space="preserve"><value>ফাইল অ্যাসোসিয়েশনের জন্য এই কপিটি ব্যবহার করবেন? নিবন্ধিত অবস্থান {0} হবে। Windows সেটিংসে ডিফল্ট অ্যাপ বেছে নিন।</value></data>
+  <data name="WindowsStartupSettings" xml:space="preserve"><value>Windows স্টার্টআপ অ্যাপ</value></data>
+  <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>পূর্ণ পর্দায় প্রান্তের স্পর্শ অঙ্গভঙ্গি বন্ধ করুন</value></data>
+</root>

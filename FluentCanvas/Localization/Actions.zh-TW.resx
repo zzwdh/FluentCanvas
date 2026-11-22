@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Ready" xml:space="preserve"><value>準備就緒</value></data>
+  <data name="Hours" xml:space="preserve"><value>小時</value></data>
+  <data name="Minutes" xml:space="preserve"><value>分鐘</value></data>
+  <data name="Seconds" xml:space="preserve"><value>秒</value></data>
+  <data name="Start" xml:space="preserve"><value>開始</value></data>
+  <data name="Reset" xml:space="preserve"><value>重設</value></data>
+  <data name="Compact" xml:space="preserve"><value>精簡</value></data>
+  <data name="FullScreen" xml:space="preserve"><value>全螢幕</value></data>
+  <data name="TimeRemaining" xml:space="preserve"><value>剩餘時間</value></data>
+  <data name="TimeRemainingProgress" xml:space="preserve"><value>剩餘時間進度</value></data>
+  <data name="Paused" xml:space="preserve"><value>已暫停</value></data>
+  <data name="CountdownEndsAt" xml:space="preserve"><value>預計 {0:HH:mm:ss} 結束</value></data>
+  <data name="TimeUp" xml:space="preserve"><value>時間到</value></data>
+  <data name="TimeUpAlarmFailed" xml:space="preserve"><value>時間到，無法播放鈴聲。</value></data>
+  <data name="TimeRemainingSpoken" xml:space="preserve"><value>剩餘 {0} 小時 {1} 分 {2} 秒</value></data>
+  <data name="Pause" xml:space="preserve"><value>暫停</value></data>
+  <data name="Resume" xml:space="preserve"><value>繼續</value></data>
+  <data name="Expand" xml:space="preserve"><value>展開</value></data>
+  <data name="ExitFullScreen" xml:space="preserve"><value>結束全螢幕</value></data>
+  <data name="RosterLoading" xml:space="preserve"><value>正在讀取名單…</value></data>
+  <data name="ParticipantCount" xml:space="preserve"><value>參與人數</value></data>
+  <data name="DrawCount" xml:space="preserve"><value>抽選人數</value></data>
+  <data name="StartDraw" xml:space="preserve"><value>開始抽選</value></data>
+  <data name="EditRoster" xml:space="preserve"><value>編輯名單</value></data>
+  <data name="DrawOne" xml:space="preserve"><value>抽選一人</value></data>
+  <data name="DrawResult" xml:space="preserve"><value>抽選結果</value></data>
+  <data name="RosterReadFailed" xml:space="preserve"><value>無法讀取名單，將改用數字編號。</value></data>
+  <data name="RosterLoaded" xml:space="preserve"><value>已載入 {0} 人</value></data>
+  <data name="RosterUsingNumbers" xml:space="preserve"><value>使用數字編號</value></data>
+  <data name="InvalidRulesSkipped" xml:space="preserve"><value> · 已略過 {0} 條無效的取代規則</value></data>
+  <data name="Drawing" xml:space="preserve"><value>抽選中…</value></data>
+  <data name="SingleDrawResult" xml:space="preserve"><value>抽選結果：{0}</value></data>
+  <data name="MultipleDrawResult" xml:space="preserve"><value>已抽出 {0} 人</value></data>
+  <data name="DrawAgain" xml:space="preserve"><value>再抽一次</value></data>
+  <data name="NamesPerLine" xml:space="preserve"><value>每行輸入一個名字</value></data>
+  <data name="RulesPerLine" xml:space="preserve"><value>每行輸入一條取代規則</value></data>
+  <data name="Roster" xml:space="preserve"><value>名單</value></data>
+  <data name="ImportRoster" xml:space="preserve"><value>匯入名單文字</value></data>
+  <data name="ReplacementRules" xml:space="preserve"><value>取代規則</value></data>
+  <data name="ImportReplacementRules" xml:space="preserve"><value>匯入規則文字</value></data>
+  <data name="ReplacementRuleExample" xml:space="preserve"><value>範例：張三--&gt;小張。將右側留白即可排除該名字。</value></data>
+  <data name="RosterAndRules" xml:space="preserve"><value>名單與取代規則</value></data>
+  <data name="Save" xml:space="preserve"><value>儲存</value></data>
+  <data name="Cancel" xml:space="preserve"><value>取消</value></data>
+  <data name="RosterSaved" xml:space="preserve"><value>名單已儲存</value></data>
+  <data name="RosterEditFailed" xml:space="preserve"><value>無法編輯名單：{0}</value></data>
+  <data name="RosterImportFailed" xml:space="preserve"><value>匯入失敗：{0}</value></data>
+  <data name="InvalidReplacementRule" xml:space="preserve"><value>請檢查取代規則，每行須使用「原名--&gt;顯示名稱」。</value></data>
+  <data name="RosterSaveTooLarge" xml:space="preserve"><value>每個名單檔案上限為 2 MB。</value></data>
+  <data name="RosterLocked" xml:space="preserve"><value>另一個視窗正在儲存名單，請稍後再試。</value></data>
+  <data name="RosterChanged" xml:space="preserve"><value>名單已在另一個視窗變更。請重新開啟編輯器以載入最新內容。</value></data>
+  <data name="RosterReadTooLarge" xml:space="preserve"><value>名單檔案超過 2 MB。</value></data>
+  <data name="ReplacementRulesChanged" xml:space="preserve"><value>另一個程序已修改取代規則。</value></data>
+  <data name="RosterRollbackFailed" xml:space="preserve"><value>無法儲存名單，也無法還原原有的取代規則。請重新開啟編輯器檢查兩個檔案。</value></data>
+  <data name="SavingBeforeClose" xml:space="preserve"><value>正在儲存作品，請等儲存完成後再關閉。</value></data>
+  <data name="CloseUnsavedWork" xml:space="preserve"><value>要關閉 FluentCanvas 嗎？尚未儲存的內容將會遺失。</value></data>
+  <data name="ConfirmClose" xml:space="preserve"><value>確定要關閉 FluentCanvas 嗎？</value></data>
+  <data name="CancelClosing" xml:space="preserve"><value>要取消關閉 FluentCanvas 嗎？</value></data>
+  <data name="StartupEntryInUse" xml:space="preserve"><value>另一個安裝位置正在使用同名的啟動項目。</value></data>
+  <data name="AutoFoldInk" xml:space="preserve"><value>已清除筆跡，並將工具列收至側邊。返回註解模式後，選取「復原」即可還原筆跡。</value></data>
+  <data name="InsertImageFailed" xml:space="preserve"><value>無法插入圖片。請檢查檔案後再試一次。</value></data>
+  <data name="InsertVideoFailed" xml:space="preserve"><value>無法插入影片。請檢查檔案後再試一次。</value></data>
+  <data name="CanvasChangedDuringImport" xml:space="preserve"><value>匯入時已切換畫布，請在目標頁面重新插入檔案。</value></data>
+  <data name="OpenToolFailed" xml:space="preserve"><value>無法開啟工具視窗。</value></data>
+  <data name="OpenDrawOneFailed" xml:space="preserve"><value>無法開啟單次抽選視窗。</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>無法開啟設定。</value></data>
+  <data name="ScreenshotSaved" xml:space="preserve"><value>螢幕擷取已儲存至 {0}</value></data>
+  <data name="ScreenshotPathFailed" xml:space="preserve"><value>無法儲存螢幕擷取。請檢查設定中的儲存位置。</value></data>
+  <data name="ScreenshotFailed" xml:space="preserve"><value>無法儲存螢幕擷取。</value></data>
+  <data name="SlideCaptureObscured" xml:space="preserve"><value>投影片放映視窗已隱藏或被遮蔽，無法擷取畫面。</value></data>
+  <data name="SlideScreenshotFailed" xml:space="preserve"><value>無法儲存投影片放映的螢幕擷取。請檢查儲存位置。</value></data>
+  <data name="DocumentSaved" xml:space="preserve"><value>筆跡與物件已儲存至 {0}</value></data>
+  <data name="DocumentSaveFailed" xml:space="preserve"><value>無法儲存作品。請檢查儲存位置後再試一次。</value></data>
+  <data name="CanvasChangedDuringBackup" xml:space="preserve"><value>備份期間畫布已變更，請重新執行清除操作。</value></data>
+  <data name="BackupFailed" xml:space="preserve"><value>備份失敗</value></data>
+  <data name="BackupFailedPrompt" xml:space="preserve"><value>備份失敗，已保留目前的畫布。</value></data>
+  <data name="CanvasChangedWhileOpening" xml:space="preserve"><value>開啟作品時已切換畫布，請在目標頁面重新開啟作品。</value></data>
+  <data name="UnsavedBoardPrompt" xml:space="preserve"><value>目前的白板有尚未儲存的變更。</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>開啟作品</value></data>
+  <data name="CanvasChangedDuringSave" xml:space="preserve"><value>儲存時畫布已變更，請重新開啟作品。</value></data>
+  <data name="DocumentOpenFailed" xml:space="preserve"><value>無法開啟作品。請檢查檔案後再試一次。</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>自動隱藏</value></data>
+  <data name="Pinned" xml:space="preserve"><value>已釘選</value></data>
+  <data name="RemoveAsymptotes" xml:space="preserve"><value>要移除漸近線嗎？</value></data>
+  <data name="SavingBeforeRestart" xml:space="preserve"><value>正在儲存作品，請等儲存完成後再重新啟動。</value></data>
+  <data name="RestartFailed" xml:space="preserve"><value>無法重新啟動。請儲存作品後手動重新開啟 FluentCanvas。</value></data>
+  <data name="PngImage" xml:space="preserve"><value>PNG 影像</value></data>
+  <data name="SelectionExportFailed" xml:space="preserve"><value>無法匯出選取範圍。請選取較小的區域或檢查儲存位置。</value></data>
+  <data name="CloneToBoard" xml:space="preserve"><value>複製到白板</value></data>
+  <data name="CloneToNewPage" xml:space="preserve"><value>複製到新頁面</value></data>
+  <data name="EasiNoteAutomaticallyClosed" xml:space="preserve"><value>「希沃白板 5」已自動關閉。</value></data>
+  <data name="Retry" xml:space="preserve"><value>重試</value></data>
+  <data name="ClearWithoutBackup" xml:space="preserve"><value>直接清除</value></data>
+  <data name="SaveAndOpen" xml:space="preserve"><value>儲存後開啟</value></data>
+  <data name="OpenWithoutSaving" xml:space="preserve"><value>捨棄變更並開啟</value></data>
+</root>

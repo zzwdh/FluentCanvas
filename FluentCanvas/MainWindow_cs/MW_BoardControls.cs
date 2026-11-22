@@ -1,5 +1,8 @@
 ﻿using FluentCanvas.Helpers;
+using FluentCanvas.Localization;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Ink;
 
@@ -7,184 +10,132 @@ namespace FluentCanvas
 {
     public partial class MainWindow : Window
     {
-        StrokeCollection[] strokeCollections = new StrokeCollection[101];
-        StrokeCollection lastTouchDownStrokeCollection = new StrokeCollection();
+        private CanvasPageBook pageBook;
+        private CanvasPageBook Pages => pageBook ??= new CanvasPageBook(CaptureCanvasPage, DisplayCanvasPage);
+        private int CurrentWhiteboardIndex => Pages.WhiteboardIndex;
+        private int WhiteboardTotalCount => Pages.WhiteboardCount;
+        private int activeCanvasPage => Pages.ActiveIndex;
+        private long canvasContextVersion;
 
-        int CurrentWhiteboardIndex = 1, WhiteboardTotalCount = 1;
-        TimeMachineHistory[][] TimeMachineHistories = new TimeMachineHistory[101][]; //最多99页，0用来存储非白板时的墨迹以便还原
+        private IEnumerable<UIElement> EnumerateCanvasElements() =>
+            inkCanvas.Children.Cast<UIElement>().Where(element => !MultiTouchInkPreview.IsTransient(element));
 
-        private void SaveStrokes(bool isBackupMain = false)
-        {
-            if (isBackupMain)
-            {
-                var timeMachineHistory = timeMachine.ExportTimeMachineHistory();
-                TimeMachineHistories[0] = timeMachineHistory;
-                timeMachine.ClearStrokeHistory();
-
-            }
-            else
-            {
-                var timeMachineHistory = timeMachine.ExportTimeMachineHistory();
-                TimeMachineHistories[CurrentWhiteboardIndex] = timeMachineHistory;
-                timeMachine.ClearStrokeHistory();
-            }
-        }
+        private bool HasCanvasContent => EnumerateCommittedStrokes().Any() || EnumerateCanvasElements().Any();
 
         private void ClearStrokes(bool isErasedByCode)
         {
-            _currentCommitType = CommitReason.ClearingCanvas;
-            if (isErasedByCode) _currentCommitType = CommitReason.CodeInput;
-            inkCanvas.Strokes.Clear();
-            inkCanvas.Children.Clear();
-            _currentCommitType = CommitReason.UserInput;
-        }
-
-        private void RestoreStrokes(bool isBackupMain = false)
-        {
+            if (!isErasedByCode) CommitPendingCanvasEdits();
+            ResetCanvasContext();
+            StrokeCollection removedStrokes = isErasedByCode ? null : new StrokeCollection(inkCanvas.Strokes);
+            UIElement[] removedElements = isErasedByCode ? null : EnumerateCanvasElements().ToArray();
+            var previous = _currentCommitType;
+            _currentCommitType = CommitReason.CodeInput;
             try
             {
-                if (TimeMachineHistories[CurrentWhiteboardIndex] == null) return; //防止白板打开后不居中
-                if (isBackupMain)
-                {
-                    timeMachine.ImportTimeMachineHistory(TimeMachineHistories[0]);
-                    foreach (var item in TimeMachineHistories[0])
-                    {
-                        ApplyHistoryToCanvas(item);
-                    }
-                }
-                else
-                {
-                    timeMachine.ImportTimeMachineHistory(TimeMachineHistories[CurrentWhiteboardIndex]);
-                    foreach (var item in TimeMachineHistories[CurrentWhiteboardIndex])
-                    {
-                        ApplyHistoryToCanvas(item);
-                    }
-                }
+                inkCanvas.Strokes.Clear();
+                inkCanvas.Children.Clear();
             }
-            catch { }
+            finally { _currentCommitType = previous; }
+            if (!isErasedByCode && (removedStrokes.Count > 0 || removedElements.Length > 0))
+                timeMachine.CommitCanvasClearHistory(removedStrokes, removedElements);
         }
 
-        private void BtnWhiteBoardSwitchPrevious_Click(object sender, EventArgs e)
+        private void ResetCanvasContext()
         {
-            if (CurrentWhiteboardIndex <= 1) return;
-            SaveStrokes();
+            canvasContextVersion++;
+            CancelPendingCanvasInput();
+            strokeManipulationHistory.Clear();
+            ElementsManipulationHistory = null;
+            ElementsInitialHistory.Clear();
+            DrawingAttributesHistory.Clear();
+            foreach (var flag in DrawingAttributesHistoryFlag.Values) flag.Clear();
+            ReplacedStroke = null;
+            AddedStroke = null;
+        }
+
+        private CanvasPage CaptureCanvasPage()
+        {
+            CommitPendingCanvasEdits();
+            return new CanvasPage(new StrokeCollection(EnumerateCommittedStrokes()),
+                EnumerateCanvasElements().ToArray(), timeMachine.CaptureState());
+        }
+
+        private void SwitchCanvasPage(int index) => Pages.SwitchTo(index);
+
+        private void DisplayCanvasPage(CanvasPage page)
+        {
             ClearStrokes(true);
-            CurrentWhiteboardIndex--;
-            RestoreStrokes();
-            UpdateIndexInfoDisplay();
-        }
-
-        private void BtnWhiteBoardSwitchNext_Click(object sender, EventArgs e)
-        {
-            if (Settings.Automation.IsAutoSaveStrokesAtClear && inkCanvas.Strokes.Count > Settings.Automation.MinimumAutomationStrokeNumber)
+            if (page == null)
             {
-                SaveScreenshot(true);
-            }
-            if (CurrentWhiteboardIndex >= WhiteboardTotalCount)
-            {
-                BtnWhiteBoardAdd_Click(sender, e);
+                timeMachine.ClearStrokeHistory();
                 return;
             }
-            SaveStrokes();
-            ClearStrokes(true);
-            CurrentWhiteboardIndex++;
-            RestoreStrokes();
+
+            var previous = _currentCommitType;
+            _currentCommitType = CommitReason.CodeInput;
+            try
+            {
+                if (page.Strokes.Count > 0) inkCanvas.Strokes.Add(page.Strokes);
+                foreach (var element in page.Elements) inkCanvas.Children.Add(element);
+                timeMachine.RestoreState(page.History);
+            }
+            finally { _currentCommitType = previous; }
+        }
+
+        private void BtnWhiteBoardSwitchPrevious_Click(object sender, EventArgs e) => ShowPreviousWhiteboard();
+
+        private void ShowPreviousWhiteboard()
+        {
+            if (CurrentWhiteboardIndex <= 1) return;
+            SwitchCanvasPage(CurrentWhiteboardIndex - 1);
             UpdateIndexInfoDisplay();
         }
 
-        private void BtnWhiteBoardAdd_Click(object sender, EventArgs e)
+        private void BtnWhiteBoardSwitchNext_Click(object sender, EventArgs e) => ShowNextWhiteboard();
+
+        private void ShowNextWhiteboard()
         {
-            if (WhiteboardTotalCount >= 99) return;
-            if (Settings.Automation.IsAutoSaveStrokesAtClear && inkCanvas.Strokes.Count > Settings.Automation.MinimumAutomationStrokeNumber)
+            if (CurrentWhiteboardIndex >= WhiteboardTotalCount)
             {
-                SaveScreenshot(true);
+                AddWhiteboard();
+                return;
             }
-            SaveStrokes();
-            ClearStrokes(true);
-            WhiteboardTotalCount++;
-            CurrentWhiteboardIndex++;
-            if (CurrentWhiteboardIndex != WhiteboardTotalCount)
-            {
-                for (int i = WhiteboardTotalCount; i > CurrentWhiteboardIndex; i--)
-                {
-                    TimeMachineHistories[i] = TimeMachineHistories[i - 1];
-                }
-            }
+            ArchiveCanvasForTransition();
+            SwitchCanvasPage(CurrentWhiteboardIndex + 1);
             UpdateIndexInfoDisplay();
         }
 
-        private void BtnWhiteBoardDelete_Click(object sender, RoutedEventArgs e)
+        private void BtnWhiteBoardAdd_Click(object sender, EventArgs e) => AddWhiteboard();
+
+        private void AddWhiteboard()
         {
-            ClearStrokes(true);
-            if (CurrentWhiteboardIndex != WhiteboardTotalCount)
+            if (!Pages.CanInsert) return;
+            ArchiveCanvasForTransition();
+            Pages.InsertWhiteboard();
+            UpdateIndexInfoDisplay();
+        }
+
+        private async void BtnWhiteBoardDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (!await TryBackupBeforeClearAsync()) return;
+            if (!Pages.DeleteWhiteboard())
             {
-                for (int i = CurrentWhiteboardIndex; i <= WhiteboardTotalCount; i++)
-                {
-                    TimeMachineHistories[i] = TimeMachineHistories[i + 1];
-                }
+                ClearStrokes(false);
+                return;
             }
-            else
-            {
-                CurrentWhiteboardIndex--;
-            }
-            WhiteboardTotalCount--;
-            RestoreStrokes();
             UpdateIndexInfoDisplay();
         }
 
         private void UpdateIndexInfoDisplay()
         {
-            TextBlockWhiteBoardIndexInfo.Text = string.Format("{0} / {1}", CurrentWhiteboardIndex, WhiteboardTotalCount);
-
-            if (CurrentWhiteboardIndex == WhiteboardTotalCount)
-            {
-                BoardLeftPannelNextPage1.Width = 26;
-                BoardLeftPannelNextPage2.Width = 0;
-                BoardLeftPannelNextPageTextBlock.Text = "加页";
-            }
-            else
-            {
-                BoardLeftPannelNextPage1.Width = 0;
-                BoardLeftPannelNextPage2.Width = 26;
-                BoardLeftPannelNextPageTextBlock.Text = "下一页";
-            }
-
-            if (CurrentWhiteboardIndex == 1)
-            {
-                BtnWhiteBoardSwitchPrevious.IsEnabled = false;
-            }
-            else
-            {
-                BtnWhiteBoardSwitchPrevious.IsEnabled = true;
-            }
-
-            if (CurrentWhiteboardIndex == 99)
-            {
-                BoardLeftPannelNextPage1.IsEnabled = false;
-            }
-            else
-            {
-                BoardLeftPannelNextPage1.IsEnabled = true;
-            }
-
-            if (WhiteboardTotalCount == 99)
-            {
-                BtnBoardAddPage.IsEnabled = false;
-            }
-            else
-            {
-                BtnBoardAddPage.IsEnabled = true;
-            }
-            /*
-            if (WhiteboardTotalCount == 1)
-            {
-                //BtnWhiteBoardDelete.IsEnabled = false;
-            }
-            else
-            {
-                //BtnWhiteBoardDelete.IsEnabled = true;
-            }
-            */
+            TextBlockWhiteBoardIndexInfo.Text = $"{CurrentWhiteboardIndex} / {WhiteboardTotalCount}";
+            bool onLastPage = CurrentWhiteboardIndex == WhiteboardTotalCount;
+            BoardLeftPannelNextPage1.Width = onLastPage ? 26 : 0;
+            BoardLeftPannelNextPage2.Width = onLastPage ? 0 : 26;
+            BoardLeftPannelNextPageTextBlock.Text = UiText.Get(onLastPage ? "Canvas.AddPage" : "Canvas.NextPage");
+            BtnWhiteBoardSwitchPrevious.IsEnabled = CurrentWhiteboardIndex > 1;
+            BoardLeftPannelNextPage1.IsEnabled = !onLastPage || Pages.CanInsert;
+            BtnBoardAddPage.IsEnabled = Pages.CanInsert;
         }
     }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>PowerPoint-এর টীকার পৃষ্ঠা বদলানো যায়নি। {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>উপস্থাপনার সেটিংস - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>{0}-এর স্লাইড শো শেষ করা যায়নি।</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>এই উপস্থাপনায় লুকানো স্লাইড আছে। সেগুলো কি দেখাবেন?</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>{0}টি স্লাইডের পুরোনো টীকা আমদানি করা হয়েছে।</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>ফাইলের নাম ও স্লাইড নম্বর দিয়ে সংরক্ষণ করা পুরোনো টীকা পাওয়া গেছে। টীকাগুলো এই উপস্থাপনার এবং স্লাইডগুলো আগের ক্রমেই আছে কি না নিশ্চিত করুন। এই উপস্থাপনার টীকা ফোল্ডারে সেগুলো কপি করবেন?</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>গতবার স্লাইড শো {0} নম্বর স্লাইডে থেমেছিল। সেই স্লাইডে যাবেন?</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>এই উপস্থাপনায় স্লাইড স্বয়ংক্রিয়ভাবে বদলায় অথবা মহড়ার সময়সূচি চালু আছে। নিজে স্লাইড বদলাতে চান?</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>PowerPoint-এর স্লাইড নেভিগেশন খোলা যায়নি।</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>পরের স্লাইড</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>{0}-এ পরের স্লাইডে যাওয়া যায়নি।</value></data>
+  <data name="No" xml:space="preserve"><value>না</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>PowerPoint-এর কাজটি ব্যর্থ হয়েছে। {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>স্লাইড শোতে অবস্থান {0} · উপস্থাপনায় স্লাইড {1}</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>আগের স্লাইড</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>{0}-এ আগের স্লাইডে ফেরা যায়নি।</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>{0} নম্বর স্লাইডের সংরক্ষিত টীকা পড়া যায়নি। মূল ফাইলটি রাখা হয়েছে।</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>PowerPoint-এর টীকা সংরক্ষণ করা যায়নি। এই সেশন চলাকালীন টীকাগুলো পাওয়া যাবে।</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>PowerPoint-এর টীকা স্থানীয় পুনরুদ্ধার ফোল্ডারে সংরক্ষণ করা হয়েছে।</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>PowerPoint-এর টীকা বা স্লাইড শোর অবস্থান সংরক্ষণ করা যায়নি। {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>বর্তমান স্লাইড শোর উইন্ডো খুঁজে পাওয়া যায়নি।</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS স্লাইড শোর নির্দেশ সম্পন্ন করতে পারেনি।</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>WPS অ্যাড-ইন স্লাইড শোর নির্দেশ পাওয়ার কথা নিশ্চিত করেনি।</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>WPS অ্যাড-ইনে স্লাইড শোর নির্দেশ পাঠানো যায়নি।</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>হ্যাঁ</value></data>
+</root>

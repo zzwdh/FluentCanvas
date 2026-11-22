@@ -2,6 +2,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Windows.UI.ViewManagement;
 
 namespace FluentCanvas.ViewModels
 {
@@ -11,6 +12,7 @@ namespace FluentCanvas.ViewModels
     /// </summary>
     public sealed partial class NotificationsViewModel : ObservableObject
     {
+        private readonly UISettings uiSettings = new();
         private CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
         public NotificationsViewModel()
@@ -37,7 +39,7 @@ namespace FluentCanvas.ViewModels
 
             try
             {
-                await Task.Delay(2000, token);
+                await Task.Delay(TimeSpan.FromSeconds(uiSettings.MessageDuration), token);
             }
             catch (TaskCanceledException)
             {

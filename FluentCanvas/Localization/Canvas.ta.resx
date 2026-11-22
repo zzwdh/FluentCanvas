@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="WindowTitle" xml:space="preserve"><value>FluentCanvas வெண்பலகை</value></data>
+  <data name="Undo" xml:space="preserve"><value>செயல்தவிர்</value></data>
+  <data name="Redo" xml:space="preserve"><value>மீளச்செய்</value></data>
+  <data name="Select" xml:space="preserve"><value>தேர்ந்தெடு</value></data>
+  <data name="Pen" xml:space="preserve"><value>பேனா</value></data>
+  <data name="Eraser" xml:space="preserve"><value>அழிப்பான்</value></data>
+  <data name="EraseStrokes" xml:space="preserve"><value>கோடு வாரியாக அழி</value></data>
+  <data name="ExpandToolbar" xml:space="preserve"><value>மிதக்கும் கருவிப்பட்டையை விரிவாக்கு</value></data>
+  <data name="CollapseToolbar" xml:space="preserve"><value>மிதக்கும் கருவிப்பட்டையை மறை</value></data>
+  <data name="ToggleToolbar" xml:space="preserve"><value>மிதக்கும் கருவிப்பட்டையை விரிவாக்கு அல்லது மடக்கு</value></data>
+  <data name="ToolbarDrag" xml:space="preserve"><value>கருவிப்பட்டையை நகர்த்த இழுக்கவும்</value></data>
+  <data name="ToolbarDragOrToggle" xml:space="preserve"><value>கருவிப்பட்டையை நகர்த்த இழுக்கவும். விரிவாக்க அல்லது மடக்க கிளிக் செய்யவும்.</value></data>
+  <data name="ExpandFromLeft" xml:space="preserve"><value>இடப்புறத்திலிருந்து மிதக்கும் கருவிப்பட்டையை விரிவாக்கு</value></data>
+  <data name="ExpandFromRight" xml:space="preserve"><value>வலப்புறத்திலிருந்து மிதக்கும் கருவிப்பட்டையை விரிவாக்கு</value></data>
+  <data name="SaveInk" xml:space="preserve"><value>சேமி</value></data>
+  <data name="SaveDocument" xml:space="preserve"><value>வரைபடத்தைச் சேமி</value></data>
+  <data name="OpenInk" xml:space="preserve"><value>திற</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>வரைபடத்தைத் திற</value></data>
+  <data name="Playback" xml:space="preserve"><value>மீளியக்கு</value></data>
+  <data name="ReplayInk" xml:space="preserve"><value>மைக்கோடுகளை மீண்டும் காட்டு</value></data>
+  <data name="ExportImage" xml:space="preserve"><value>படமாகச் சேமி</value></data>
+  <data name="PenTip" xml:space="preserve"><value>பேனா முனை</value></data>
+  <data name="NibMode" xml:space="preserve"><value>பேனா முனைப் பயன்முறை</value></data>
+  <data name="Opacity" xml:space="preserve"><value>ஒளிபுகாமை</value></data>
+  <data name="InsertVideo" xml:space="preserve"><value>காணொளியைச் சேர்</value></data>
+  <data name="InsertImage" xml:space="preserve"><value>படத்தைச் சேர்</value></data>
+  <data name="Width" xml:space="preserve"><value>அகலம்</value></data>
+  <data name="TouchSelectionHint" xml:space="preserve"><value>தொடுதல்: ஒரு விரலால் இழுக்கவும், இரு விரல்களால் பெரிதாக்கவும் அல்லது சுழற்றவும்</value></data>
+  <data name="MouseSelectionHint" xml:space="preserve"><value>சுட்டி: நகர்த்த இழுக்கவும், பெரிதாக்க உருட்டவும்</value></data>
+  <data name="ParabolaWithFocus" xml:space="preserve"><value>குவியத்துடன் பரவளையம்</value></data>
+  <data name="HyperbolaWithFoci" xml:space="preserve"><value>குவியங்களுடன் அதிபரவளையம்</value></data>
+  <data name="EllipseWithFoci" xml:space="preserve"><value>குவியங்களுடன் நீள்வட்டம்</value></data>
+  <data name="PickOne" xml:space="preserve"><value>ஒருவரைத் தேர்ந்தெடு</value></data>
+  <data name="Countdown" xml:space="preserve"><value>பின்னோக்கு எண்ணிக்கை</value></data>
+  <data name="TimerShort" xml:space="preserve"><value>நேரமானி</value></data>
+  <data name="ClickToClear" xml:space="preserve"><value>அழிக்க கிளிக் செய்யவும்</value></data>
+  <data name="PointBasedPenTip" xml:space="preserve"><value>புள்ளி அடிப்படையில் குறுகும் முனை</value></data>
+  <data name="DottedLine" xml:space="preserve"><value>புள்ளிக்கோடு</value></data>
+  <data name="MultiFingerInk" xml:space="preserve"><value>பல விரல்களால் எழுதுதல்</value></data>
+  <data name="More" xml:space="preserve"><value>மேலும்</value></data>
+  <data name="MoreTools" xml:space="preserve"><value>மேலும் கருவிகள்</value></data>
+  <data name="MoreFeatures" xml:space="preserve"><value>மேலும் அம்சங்கள்</value></data>
+  <data name="MoreSettings" xml:space="preserve"><value>மேலும் அமைப்புகள்</value></data>
+  <data name="Tools" xml:space="preserve"><value>கருவிகள்</value></data>
+  <data name="PinShapes" xml:space="preserve"><value>வடிவக் கருவிப்பட்டையைப் பொருத்து</value></data>
+  <data name="Off" xml:space="preserve"><value>அணை</value></data>
+  <data name="On" xml:space="preserve"><value>இயக்கு</value></data>
+  <data name="NoTaper" xml:space="preserve"><value>குறுகாத முனை</value></data>
+  <data name="HorizontalParabola" xml:space="preserve"><value>கிடைமட்டப் பரவளையம்</value></data>
+  <data name="Board" xml:space="preserve"><value>பலகை</value></data>
+  <data name="ColorBlack" xml:space="preserve"><value>கருப்பு</value></data>
+  <data name="ColorWhite" xml:space="preserve"><value>வெள்ளை</value></data>
+  <data name="ColorRed" xml:space="preserve"><value>சிவப்பு</value></data>
+  <data name="ColorPink" xml:space="preserve"><value>இளஞ்சிவப்பு</value></data>
+  <data name="ColorOrange" xml:space="preserve"><value>ஆரஞ்சு</value></data>
+  <data name="ColorYellow" xml:space="preserve"><value>மஞ்சள்</value></data>
+  <data name="ColorGreen" xml:space="preserve"><value>பச்சை</value></data>
+  <data name="ColorCyan" xml:space="preserve"><value>சியான்</value></data>
+  <data name="ColorBlue" xml:space="preserve"><value>நீலம்</value></data>
+  <data name="ColorPurple" xml:space="preserve"><value>ஊதா</value></data>
+  <data name="BlackPen" xml:space="preserve"><value>பேனா: கருப்பு</value></data>
+  <data name="WhitePen" xml:space="preserve"><value>பேனா: வெள்ளை</value></data>
+  <data name="RedPen" xml:space="preserve"><value>பேனா: சிவப்பு</value></data>
+  <data name="PinkPen" xml:space="preserve"><value>பேனா: இளஞ்சிவப்பு</value></data>
+  <data name="OrangePen" xml:space="preserve"><value>பேனா: ஆரஞ்சு</value></data>
+  <data name="YellowPen" xml:space="preserve"><value>பேனா: மஞ்சள்</value></data>
+  <data name="GreenPen" xml:space="preserve"><value>பேனா: பச்சை</value></data>
+  <data name="CyanPen" xml:space="preserve"><value>பேனா: நீலப்பச்சை</value></data>
+  <data name="BluePen" xml:space="preserve"><value>பேனா: நீலம்</value></data>
+  <data name="Canvas" xml:space="preserve"><value>வரைபரப்பு</value></data>
+  <data name="DrawShape" xml:space="preserve"><value>வடிவங்களை வரை</value></data>
+  <data name="AddPage" xml:space="preserve"><value>பக்கத்தைச் சேர்</value></data>
+  <data name="Arrow" xml:space="preserve"><value>அம்பு</value></data>
+  <data name="EndSlideShow" xml:space="preserve"><value>PowerPoint படவில்லைக் காட்சியை முடி</value></data>
+  <data name="ScreenCaptureShort" xml:space="preserve"><value>பிடிப்பு</value></data>
+  <data name="ScreenCapture" xml:space="preserve"><value>திரைப்பிடிப்பு</value></data>
+  <data name="Rectangle" xml:space="preserve"><value>செவ்வகம்</value></data>
+  <data name="CloneMode" xml:space="preserve"><value>நகலெடுக்கும் பயன்முறை</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>விசைப்பலகைக் குறுக்குவழி வழிகாட்டி</value></data>
+  <data name="LightPalette" xml:space="preserve"><value>வெளிர்</value></data>
+  <data name="DarkPalette" xml:space="preserve"><value>அடர்</value></data>
+  <data name="AreaEraserShort" xml:space="preserve"><value>பகுதி</value></data>
+  <data name="Ink" xml:space="preserve"><value>மை</value></data>
+  <data name="StrokeEraserShort" xml:space="preserve"><value>கோடு</value></data>
+  <data name="InkRecognition" xml:space="preserve"><value>மைக்கோடு அறிதல்</value></data>
+  <data name="InkOptions" xml:space="preserve"><value>மை விருப்பங்கள்</value></data>
+  <data name="RotateLeft" xml:space="preserve"><value>இடப்புறம் சுழற்று</value></data>
+  <data name="Annotate" xml:space="preserve"><value>குறிப்புரை எழுது</value></data>
+  <data name="ParallelLines" xml:space="preserve"><value>இணைகோடுகள்</value></data>
+  <data name="SwitchBoard" xml:space="preserve"><value>வெண்பலகை மற்றும் பணித்தளக் குறிப்புரைக்கு இடையே மாறு</value></data>
+  <data name="SwitchPenPalette" xml:space="preserve"><value>பேனா வண்ணத் தொகுப்பை மாற்று</value></data>
+  <data name="ClearAndMouseShort" xml:space="preserve"><value>அழி</value></data>
+  <data name="Clear" xml:space="preserve"><value>அழி</value></data>
+  <data name="ClearAnnotations" xml:space="preserve"><value>குறிப்புரைகளை அழி</value></data>
+  <data name="ClearAndMouse" xml:space="preserve"><value>குறிப்புரைகளை அழித்துச் சுட்டிப் பயன்முறைக்கு மாறு</value></data>
+  <data name="Delete" xml:space="preserve"><value>நீக்கு</value></data>
+  <data name="PreviousPage" xml:space="preserve"><value>முந்தைய பக்கம்</value></data>
+  <data name="Settings" xml:space="preserve"><value>அமைப்புகள்</value></data>
+  <data name="Video" xml:space="preserve"><value>காணொளி</value></data>
+  <data name="DocumentCamera" xml:space="preserve"><value>ஆவணப் படக்கருவி</value></data>
+  <data name="Gestures" xml:space="preserve"><value>சைகைகள்</value></data>
+  <data name="GestureFeatures" xml:space="preserve"><value>சைகைக் கட்டுப்பாடுகள்</value></data>
+  <data name="GestureOptions" xml:space="preserve"><value>சைகை விருப்பங்கள்</value></data>
+  <data name="Mouse" xml:space="preserve"><value>சுட்டி</value></data>
+  <data name="MouseMode" xml:space="preserve"><value>சுட்டிப் பயன்முறை</value></data>
+  <data name="VerticalParabola" xml:space="preserve"><value>செங்குத்துப் பரவளையம்</value></data>
+  <data name="FlipVertical" xml:space="preserve"><value>செங்குத்தாகப் புரட்டு</value></data>
+  <data name="Hyperbola" xml:space="preserve"><value>அதிபரவளையம்</value></data>
+  <data name="TwoFingerGestures" xml:space="preserve"><value>இருவிரல் சைகைகள்</value></data>
+  <data name="TwoFingerZoom" xml:space="preserve"><value>இரு விரல்களால் பெரிதாக்கு</value></data>
+  <data name="TwoFingerRotate" xml:space="preserve"><value>இரு விரல்களால் சுழற்று</value></data>
+  <data name="TwoFingerPan" xml:space="preserve"><value>இரு விரல்களால் நகர்த்து</value></data>
+  <data name="FlipHorizontal" xml:space="preserve"><value>கிடைமட்டமாகப் புரட்டு</value></data>
+  <data name="RotateRight" xml:space="preserve"><value>வலப்புறம் சுழற்று</value></data>
+  <data name="Tetrahedron" xml:space="preserve"><value>நான்முகி</value></data>
+  <data name="SpeedBasedPenTip" xml:space="preserve"><value>வேக அடிப்படையில் குறுகும் முனை</value></data>
+  <data name="RandomPicker" xml:space="preserve"><value>சீரற்ற தேர்வு</value></data>
+  <data name="RandomPickerShort" xml:space="preserve"><value>தேர்ந்தெடு</value></data>
+  <data name="PickOnePerson" xml:space="preserve"><value>ஒருவரைச் சீரற்ற முறையில் தேர்ந்தெடு</value></data>
+  <data name="Image" xml:space="preserve"><value>படம்</value></data>
+  <data name="Shapes" xml:space="preserve"><value>வடிவங்கள்</value></data>
+  <data name="ShapesHint" xml:space="preserve"><value>வடிவங்கள் (தொடர்ந்து வரைய முதல் வரிசைப் பொத்தானை அழுத்திப் பிடிக்கவும்)</value></data>
+  <data name="Exit" xml:space="preserve"><value>வெளியேறு</value></data>
+  <data name="Ellipse" xml:space="preserve"><value>நீள்வட்டம்</value></data>
+  <data name="NextPage" xml:space="preserve"><value>அடுத்த பக்கம்</value></data>
+  <data name="DashedLine" xml:space="preserve"><value>துண்டுக்கோடு</value></data>
+  <data name="DashedCircle" xml:space="preserve"><value>துண்டுக்கோட்டு வட்டம்</value></data>
+  <data name="Colors" xml:space="preserve"><value>வண்ணங்கள்</value></data>
+  <data name="SendToBoard" xml:space="preserve"><value>பலகைக்கு அனுப்பு</value></data>
+  <data name="PageNumber" xml:space="preserve"><value>பக்க எண்</value></data>
+  <data name="CenteredRectangle" xml:space="preserve"><value>மையத்திலிருந்து செவ்வகத்தை வரை</value></data>
+  <data name="CenteredEllipse" xml:space="preserve"><value>மையத்திலிருந்து நீள்வட்டத்தை வரை</value></data>
+  <data name="Hide" xml:space="preserve"><value>மறை</value></data>
+  <data name="Highlighter" xml:space="preserve"><value>தனிப்படுத்தி</value></data>
+  <data name="RedHighlighter" xml:space="preserve"><value>தனிப்படுத்தி: சிவப்பு</value></data>
+  <data name="OrangeHighlighter" xml:space="preserve"><value>தனிப்படுத்தி: ஆரஞ்சு</value></data>
+  <data name="YellowHighlighter" xml:space="preserve"><value>தனிப்படுத்தி: மஞ்சள்</value></data>
+  <data name="CyanHighlighter" xml:space="preserve"><value>தனிப்படுத்தி: நீலப்பச்சை</value></data>
+  <data name="BlueHighlighter" xml:space="preserve"><value>தனிப்படுத்தி: நீலம்</value></data>
+  <data name="PurpleHighlighter" xml:space="preserve"><value>தனிப்படுத்தி: ஊதா</value></data>
+  <data name="Circle" xml:space="preserve"><value>வட்டம்</value></data>
+  <data name="CircleEraserShort" xml:space="preserve"><value>வட்டம்</value></data>
+  <data name="Cylinder" xml:space="preserve"><value>உருளை</value></data>
+  <data name="Cone" xml:space="preserve"><value>கூம்பு</value></data>
+  <data name="RepeatShapeHint" xml:space="preserve"><value>இந்த வடிவத்தைத் தொடர்ந்து வரைய அழுத்திப் பிடிக்கவும்</value></data>
+  <data name="Cuboid" xml:space="preserve"><value>செவ்வகக் கனவுரு</value></data>
+  <data name="Line" xml:space="preserve"><value>நேர்க்கோடு</value></data>
+  <data name="Guide" xml:space="preserve"><value>வழிகாட்டி</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>தானாக மறை</value></data>
+  <data name="Axis1" xml:space="preserve"><value>ஆய அச்சுகள் 1</value></data>
+  <data name="Axis2" xml:space="preserve"><value>ஆய அச்சுகள் 2</value></data>
+  <data name="Axis3" xml:space="preserve"><value>ஆய அச்சுகள் 3</value></data>
+  <data name="Axis4" xml:space="preserve"><value>ஆய அச்சுகள் 4</value></data>
+  <data name="Axis5" xml:space="preserve"><value>ஆய அச்சுகள் 5</value></data>
+  <data name="CurrentTool" xml:space="preserve"><value>தற்போதைய கருவி</value></data>
+  <data name="CurrentColor" xml:space="preserve"><value>தற்போதைய வண்ணம்</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>Windows மொழியைப் பின்பற்று</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>கருவிச் சாளரத்தைத் திறக்க முடியவில்லை. செயலிக் கோப்புகள் சரியாக உள்ளனவா எனச் சரிபார்க்கவும்.</value></data>
+  <data name="ProcessPathMissing" xml:space="preserve"><value>செயலியைத் தொடங்கும் கோப்பைக் கண்டறிய முடியவில்லை.</value></data>
+  <data name="ToolStartFailed" xml:space="preserve"><value>கருவிச் சாளரத்தைத் தொடங்க முடியவில்லை.</value></data>
+  <data name="UnexpectedError" xml:space="preserve"><value>எதிர்பாராத பிழை ஏற்பட்டது. வரைபடத்தைச் சேமித்து FluentCanvas-ஐ மறுதொடக்கம் செய்யவும்.</value></data>
+  <data name="ActivationFailed" xml:space="preserve"><value>இயங்கும் FluentCanvas சாளரத்திற்குக் கோப்பை அனுப்ப முடியவில்லை. கருவிப்பட்டையிலிருந்து திறந்து மீண்டும் முயலவும்.</value></data>
+  <data name="SettingsSaveFailed" xml:space="preserve"><value>அமைப்புகளைச் சேமிக்க முடியவில்லை. பயனர் தரவுக் கோப்புறையில் எழுதும் அனுமதியைச் சரிபார்க்கவும்.</value></data>
+  <data name="SettingsReadFailed" xml:space="preserve"><value>அமைப்புகளைப் படிக்க முடியவில்லை. அசல் கோப்பு அப்படியே உள்ளது.</value></data>
+  <data name="TriangleVariants" xml:space="preserve"><value>முக்கோண வகைகள்</value></data>
+  <data name="Triangle" xml:space="preserve"><value>விருப்ப முக்கோணம்</value></data>
+  <data name="RightTriangle" xml:space="preserve"><value>செங்கோண முக்கோணம்</value></data>
+  <data name="IsoscelesTriangle" xml:space="preserve"><value>இருசமபக்க முக்கோணம்</value></data>
+  <data name="EquilateralTriangle" xml:space="preserve"><value>சமபக்க முக்கோணம்</value></data>
+  <data name="Parallelogram" xml:space="preserve"><value>இணைகரம்</value></data>
+  <data name="Trapezoid" xml:space="preserve"><value>சரிவகம்</value></data>
+  <data name="AngleMarks" xml:space="preserve"><value>கோணக் குறிகள்</value></data>
+  <data name="AngleMark" xml:space="preserve"><value>கோண வில் குறி</value></data>
+  <data name="RightAngleMark" xml:space="preserve"><value>செங்கோணக் குறி</value></data>
+  <data name="CircularShapes" xml:space="preserve"><value>வட்ட வில்களும் வட்டச் சிறைகளும்</value></data>
+  <data name="Arc" xml:space="preserve"><value>வட்ட வில்</value></data>
+  <data name="Sector" xml:space="preserve"><value>வட்டச் சிறை</value></data>
+  <data name="Semicircle" xml:space="preserve"><value>அரைவட்டம்</value></data>
+  <data name="NumberLine" xml:space="preserve"><value>எண் கோடு</value></data>
+  <data name="NumberLineTicks" xml:space="preserve"><value>பிரிவுக் குறிகளுடன் எண் கோடு</value></data>
+  <data name="NumberLineLabeled" xml:space="preserve"><value>பிரிவுக் குறிகள் மற்றும் எண்களுடன் எண் கோடு</value></data>
+  <data name="BoundingEllipse" xml:space="preserve"><value>எதிரெதிர் மூலைகளிலிருந்து நீள்வட்டம் வரையவும்</value></data>
+  <data name="Sphere" xml:space="preserve"><value>கோளம்</value></data>
+  <data name="PlaceTriangleFirstSide" xml:space="preserve"><value>முதல் பக்கத்தின் இரண்டு முனைகளையும் தட்டவும் அல்லது இழுத்து வரையவும்</value></data>
+  <data name="PlaceTriangleVertex" xml:space="preserve"><value>மூன்றாவது உச்சியை வைக்கத் தட்டவும்</value></data>
+  <data name="PlaceAngleFirstSide" xml:space="preserve"><value>உச்சியையும் முதல் பக்கத்தில் ஒரு புள்ளியையும் தட்டவும் அல்லது உச்சியிலிருந்து இழுக்கவும்</value></data>
+  <data name="PlaceAngleSecondSide" xml:space="preserve"><value>இரண்டாவது பக்கத்தில் ஒரு புள்ளியைத் தட்டவும்</value></data>
+  <data name="PlaceArcRadius" xml:space="preserve"><value>மையத்தையும் தொடக்கப் புள்ளியையும் தட்டவும் அல்லது மையத்திலிருந்து ஆரத்தை இழுத்து வரையவும்</value></data>
+  <data name="PlaceArcEnd" xml:space="preserve"><value>இறுதிப் புள்ளியின் திசையில் தட்டவும்</value></data>
+  <data name="DrawSemicircle" xml:space="preserve"><value>இழுத்து விட்டம் வரையவும். இழுக்கும் திசையின் இடப்புறத்தில் அரைவட்டம் தோன்றும்.</value></data>
+</root>

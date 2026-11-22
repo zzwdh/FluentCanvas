@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>Tidak dapat beralih ke halaman anotasi PowerPoint. {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>Pengaturan presentasi - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>Tidak dapat mengakhiri tayangan slide di {0}.</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>Presentasi ini berisi slide tersembunyi. Tampilkan slide tersebut?</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>Anotasi lama untuk {0} slide telah diimpor.</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>Ditemukan anotasi lama yang disimpan berdasarkan nama file dan nomor slide. Pastikan anotasi ini milik presentasi ini dan urutan slide masih sama seperti semula. Salin ke folder anotasi presentasi ini?</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>Tayangan terakhir berhenti di slide {0}. Buka slide tersebut?</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>Presentasi ini menggunakan pergantian slide otomatis atau waktu yang direkam saat latihan. Ganti slide secara manual?</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>Tidak dapat membuka navigasi slide PowerPoint.</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>Slide berikutnya</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>Tidak dapat beralih ke slide berikutnya di {0}.</value></data>
+  <data name="No" xml:space="preserve"><value>Tidak</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>Operasi PowerPoint gagal. {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>Posisi tayangan {0} · Slide {1} dalam presentasi</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>Slide sebelumnya</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>Tidak dapat kembali ke slide sebelumnya di {0}.</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>Tidak dapat membaca anotasi yang tersimpan untuk slide {0}. File asli tetap disimpan.</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>Tidak dapat menyimpan anotasi PowerPoint. Anotasi masih tersedia dalam sesi ini.</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>Anotasi PowerPoint telah disimpan di folder pemulihan lokal.</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>Tidak dapat menyimpan anotasi PowerPoint atau posisi tayangan. {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>Tidak dapat menemukan jendela tayangan slide saat ini.</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS tidak dapat menjalankan perintah tayangan slide.</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>Add-in WPS tidak mengonfirmasi bahwa perintah tayangan slide telah diterima.</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>Tidak dapat mengirim perintah tayangan slide ke add-in WPS.</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>Ya</value></data>
+</root>

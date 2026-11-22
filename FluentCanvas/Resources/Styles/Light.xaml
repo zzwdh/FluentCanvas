@@ -6,6 +6,19 @@
     <SolidColorBrush x:Key="FloatBarForeground" Color="Black" />
     <Color x:Key="FloatBarForegroundColor">#FF666666</Color>
 
+    <SolidColorBrush x:Key="FloatingToolbarSurfaceBrush" Color="#FAF8F9FB" />
+    <LinearGradientBrush x:Key="FloatingToolbarColorfulSurfaceBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Offset="0" Color="#FAE5EDFF" />
+        <GradientStop Offset="1" Color="#FAE4F6ED" />
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="FloatingToolbarHeaderBrush" Color="#FFF0F2F5" />
+    <SolidColorBrush x:Key="FloatingToolbarStrokeBrush" Color="#260F172A" />
+    <SolidColorBrush x:Key="FloatingToolbarHoverBrush" Color="#100F172A" />
+    <SolidColorBrush x:Key="FloatingToolbarPressedBrush" Color="#200F172A" />
+    <SolidColorBrush x:Key="FloatingToolbarHoverStrokeBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="FloatingToolbarSelectedBrush" Color="#140F172A" />
+    <SolidColorBrush x:Key="FloatingToolbarAccentBrush" Color="{DynamicResource {x:Static SystemColors.AccentColorKey}}" />
+
     <SolidColorBrush x:Key="SettingsPageForeground" Color="Black" />
     <SolidColorBrush x:Key="SettingsPageAnnotationForeground" Color="#666666" />
     <SolidColorBrush x:Key="SettingsPageBorderBrush" Opacity="0.8" Color="Black" />

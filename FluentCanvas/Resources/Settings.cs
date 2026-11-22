@@ -1,5 +1,6 @@
 ﻿using FluentCanvas.Helpers;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace FluentCanvas
 {
@@ -23,6 +24,8 @@ namespace FluentCanvas
         public Startup Startup { get; set; } = new Startup();
         [JsonProperty("randSettings")]
         public RandSettings RandSettings { get; set; } = new RandSettings();
+        [JsonProperty("globalHotkeys")]
+        public Dictionary<string, string> GlobalHotkeys { get; set; } = new();
     }
 
     public class Canvas
@@ -111,6 +114,9 @@ namespace FluentCanvas
 
     public class Appearance
     {
+        [JsonProperty("language")]
+        public string Language { get; set; } = "";
+
         [JsonProperty("isEnableDisPlayFloatBarText")]
         public bool IsEnableDisPlayFloatBarText { get; set; } = false;
 
@@ -182,14 +188,14 @@ namespace FluentCanvas
         public bool IsEnableTwoFingerGestureInPresentationMode { get; set; } = false;
         [JsonProperty("isEnableFingerGestureSlideShowControl")]
         public bool IsEnableFingerGestureSlideShowControl { get; set; } = true;
-        [JsonProperty("isSupportWPS")]
-        public bool IsSupportWPS { get; set; } = true;
+        [JsonProperty("enableWpsSlideShow")]
+        public bool IsSupportWPS { get; set; }
     }
 
     public class Automation
     {
         [JsonIgnore]
-        public bool IsEnableAutoFold => 
+        public bool IsForegroundAutoFoldEnabled =>
             IsAutoFoldInEasiNote
             || IsAutoFoldInEasiCamera
             || IsAutoFoldInEasiNote3C
@@ -198,7 +204,6 @@ namespace FluentCanvas
             || IsAutoFoldInHiteCamera
             || IsAutoFoldInWxBoardMain
             || IsAutoFoldInOldZyBoard
-            || IsAutoFoldInPPTSlideShow
             || IsAutoFoldInMSWhiteboard;
 
         [JsonProperty("isAutoFoldInEasiNote")]
@@ -236,12 +241,6 @@ namespace FluentCanvas
 
         [JsonProperty("isAutoFoldInPPTSlideShow")]
         public bool IsAutoFoldInPPTSlideShow { get; set; } = false;
-
-        [JsonProperty("isAutoKillPptService")]
-        public bool IsAutoKillPptService { get; set; } = false;
-
-        [JsonProperty("isAutoKillEasiNote")]
-        public bool IsAutoKillEasiNote { get; set; } = false;
 
         [JsonProperty("isSaveScreenshotsInDateFolders")]
         public bool IsSaveScreenshotsInDateFolders { get; set; } = false;

@@ -1,0 +1,35 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+                    xmlns:modernStyles="clr-namespace:iNKORE.UI.WPF.Modern.Helpers.Styles;assembly=iNKORE.UI.WPF.Modern">
+    <ui:ElementTheme x:Key="BoardTheme">Default</ui:ElementTheme>
+    <SolidColorBrush x:Key="BoardCanvasBackground" Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}" />
+    <sys:Double x:Key="OverlayChromeOpacity">1</sys:Double>
+    <sys:Double x:Key="PresentationToolbarOpacity">1</sys:Double>
+    <sys:Double x:Key="NotificationSurfaceOpacity">1</sys:Double>
+    <ui:ElementTheme x:Key="LightConfirmationTheme">Default</ui:ElementTheme>
+    <ui:ElementTheme x:Key="DarkConfirmationTheme">Default</ui:ElementTheme>
+    <modernStyles:BackdropType x:Key="ConfirmationBackdrop">None</modernStyles:BackdropType>
+
+    <SolidColorBrush x:Key="FloatBarBackground" Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}" />
+    <SolidColorBrush x:Key="FloatBarBackgroundWithoutOpacity" Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}" />
+    <SolidColorBrush x:Key="FloatBarTitleBackground" Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}" />
+    <SolidColorBrush x:Key="FloatBarBorderBrush" Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}" />
+    <SolidColorBrush x:Key="FloatBarForeground" Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}" />
+    <SolidColorBrush x:Key="FloatingToolbarSurfaceBrush" Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}" />
+    <SolidColorBrush x:Key="FloatingToolbarHeaderBrush" Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}" />
+    <SolidColorBrush x:Key="FloatingToolbarStrokeBrush" Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}" />
+    <SolidColorBrush x:Key="FloatingToolbarHoverBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="FloatingToolbarPressedBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="FloatingToolbarHoverStrokeBrush" Color="{DynamicResource {x:Static SystemColors.HighlightColorKey}}" />
+    <SolidColorBrush x:Key="FloatingToolbarSelectedBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="FloatingToolbarAccentBrush" Color="{DynamicResource {x:Static SystemColors.HighlightColorKey}}" />
+    <SolidColorBrush x:Key="BoardBarBackground" Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}" />
+    <SolidColorBrush x:Key="BoardBarTitleBackground" Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}" />
+    <SolidColorBrush x:Key="BoardBarBorderBrush" Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}" />
+    <SolidColorBrush x:Key="BoardBarForeground" Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}" />
+    <SolidColorBrush x:Key="NotificationSurfaceBrush" Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}" />
+    <SolidColorBrush x:Key="NotificationBorderBrush" Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}" />
+    <SolidColorBrush x:Key="NotificationTextBrush" Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}" />
+</ResourceDictionary>

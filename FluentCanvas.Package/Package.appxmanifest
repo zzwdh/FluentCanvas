@@ -6,7 +6,7 @@
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
   IgnorableNamespaces="uap desktop rescap">
 
-  <Identity Name="FluentCanvas.LocalTest" Publisher="CN=FluentCanvas Local Test" Version="5.0.2.0" />
+  <Identity Name="FluentCanvas.LocalTest" Publisher="CN=FluentCanvas Local Test" Version="26.11.22.0" />
 
   <Properties>
     <DisplayName>FluentCanvas</DisplayName>
@@ -15,12 +15,34 @@
   </Properties>
 
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19044.0" MaxVersionTested="10.0.26100.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26100.0" />
   </Dependencies>
 
   <Resources>
     <Resource Language="zh-CN" />
     <Resource Language="en-US" />
+    <Resource Language="zh-TW" />
+    <Resource Language="ja-JP" />
+    <Resource Language="hi" />
+    <Resource Language="es" />
+    <Resource Language="ar" />
+    <Resource Language="fr" />
+    <Resource Language="bn" />
+    <Resource Language="pt" />
+    <Resource Language="ru" />
+    <Resource Language="id" />
+    <Resource Language="ur" />
+    <Resource Language="de" />
+    <Resource Language="mr" />
+    <Resource Language="vi" />
+    <Resource Language="te" />
+    <Resource Language="tr" />
+    <Resource Language="ta" />
+    <Resource Language="ko" />
+    <Resource Language="fa" />
+    <Resource Language="ha-Latn-NG" />
+    <Resource Language="sw-KE" />
+    <Resource Language="th" />
   </Resources>
 
   <Applications>

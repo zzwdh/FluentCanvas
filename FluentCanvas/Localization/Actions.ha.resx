@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Ready" xml:space="preserve"><value>A shirye</value></data>
+  <data name="Hours" xml:space="preserve"><value>Awanni</value></data>
+  <data name="Minutes" xml:space="preserve"><value>Mintuna</value></data>
+  <data name="Seconds" xml:space="preserve"><value>Daƙiƙu</value></data>
+  <data name="Start" xml:space="preserve"><value>Fara</value></data>
+  <data name="Reset" xml:space="preserve"><value>Sake saiti</value></data>
+  <data name="Compact" xml:space="preserve"><value>Ƙaramin nuni</value></data>
+  <data name="FullScreen" xml:space="preserve"><value>Cikakken allo</value></data>
+  <data name="TimeRemaining" xml:space="preserve"><value>Lokacin da ya rage</value></data>
+  <data name="TimeRemainingProgress" xml:space="preserve"><value>Ci gaban ƙidayar baya</value></data>
+  <data name="Paused" xml:space="preserve"><value>An dakatar na ɗan lokaci</value></data>
+  <data name="CountdownEndsAt" xml:space="preserve"><value>Zai ƙare da misalin {0:HH:mm:ss}</value></data>
+  <data name="TimeUp" xml:space="preserve"><value>Lokaci ya ƙare</value></data>
+  <data name="TimeUpAlarmFailed" xml:space="preserve"><value>Lokaci ya ƙare. An kasa kunna ƙararrawa.</value></data>
+  <data name="TimeRemainingSpoken" xml:space="preserve"><value>Lokacin da ya rage (awanni, mintuna, daƙiƙu): {0}, {1}, {2}</value></data>
+  <data name="Pause" xml:space="preserve"><value>Dakatar na ɗan lokaci</value></data>
+  <data name="Resume" xml:space="preserve"><value>Ci gaba</value></data>
+  <data name="Expand" xml:space="preserve"><value>Faɗaɗa</value></data>
+  <data name="ExitFullScreen" xml:space="preserve"><value>Fita daga cikakken allo</value></data>
+  <data name="RosterLoading" xml:space="preserve"><value>Ana loda jerin mahalarta…</value></data>
+  <data name="ParticipantCount" xml:space="preserve"><value>Mahalarta</value></data>
+  <data name="DrawCount" xml:space="preserve"><value>Adadin zaɓa</value></data>
+  <data name="StartDraw" xml:space="preserve"><value>Zaɓa</value></data>
+  <data name="EditRoster" xml:space="preserve"><value>Gyara jerin mahalarta</value></data>
+  <data name="DrawOne" xml:space="preserve"><value>Zaɓi mutum ɗaya</value></data>
+  <data name="DrawResult" xml:space="preserve"><value>Sakamako</value></data>
+  <data name="RosterReadFailed" xml:space="preserve"><value>An kasa karanta jerin mahalarta. Za a yi amfani da lambobi wajen zaɓe.</value></data>
+  <data name="RosterLoaded" xml:space="preserve"><value>Adadin sunaye a jeri: {0}</value></data>
+  <data name="RosterUsingNumbers" xml:space="preserve"><value>Ana amfani da lambobi</value></data>
+  <data name="InvalidRulesSkipped" xml:space="preserve"><value> · An tsallake ƙa'idojin da ba su inganta ba: {0}</value></data>
+  <data name="Drawing" xml:space="preserve"><value>Ana zaɓa…</value></data>
+  <data name="SingleDrawResult" xml:space="preserve"><value>Sakamako: {0}</value></data>
+  <data name="MultipleDrawResult" xml:space="preserve"><value>An zaɓi mutane {0}</value></data>
+  <data name="DrawAgain" xml:space="preserve"><value>Sake zaɓa</value></data>
+  <data name="NamesPerLine" xml:space="preserve"><value>Shigar da suna ɗaya a kowane layi</value></data>
+  <data name="RulesPerLine" xml:space="preserve"><value>Shigar da ƙa'idar sauya suna ɗaya a kowane layi</value></data>
+  <data name="Roster" xml:space="preserve"><value>Jerin mahalarta</value></data>
+  <data name="ImportRoster" xml:space="preserve"><value>Shigo da sunaye</value></data>
+  <data name="ReplacementRules" xml:space="preserve"><value>Ƙa'idojin sauya suna</value></data>
+  <data name="ImportReplacementRules" xml:space="preserve"><value>Shigo da ƙa'idoji</value></data>
+  <data name="ReplacementRuleExample" xml:space="preserve"><value>Misali: Alex--&gt;Al. Bar gefen dama babu rubutu don cire sunan.</value></data>
+  <data name="RosterAndRules" xml:space="preserve"><value>Jerin mahalarta da ƙa'idojin sauya suna</value></data>
+  <data name="Save" xml:space="preserve"><value>Adana</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Soke</value></data>
+  <data name="RosterSaved" xml:space="preserve"><value>An adana jerin mahalarta</value></data>
+  <data name="RosterEditFailed" xml:space="preserve"><value>An kasa gyara jerin mahalarta: {0}</value></data>
+  <data name="RosterImportFailed" xml:space="preserve"><value>Shigo da bayanai ya gaza: {0}</value></data>
+  <data name="InvalidReplacementRule" xml:space="preserve"><value>Duba ƙa'idojin sauya suna. Yi amfani da “asalin suna--&gt;sunan da za a nuna” a kowane layi.</value></data>
+  <data name="RosterSaveTooLarge" xml:space="preserve"><value>Kowane fayil ɗin jerin zai iya kaiwa 2 MB.</value></data>
+  <data name="RosterLocked" xml:space="preserve"><value>Wata taga tana adana jerin mahalarta. Ɗan jira ka sake gwadawa.</value></data>
+  <data name="RosterChanged" xml:space="preserve"><value>Wata taga ta sauya jerin mahalarta. Sake buɗe editan don loda sabon jeri.</value></data>
+  <data name="RosterReadTooLarge" xml:space="preserve"><value>Fayil ɗin jerin mahalarta ya wuce 2 MB.</value></data>
+  <data name="ReplacementRulesChanged" xml:space="preserve"><value>Wani aiki ya sauya ƙa'idojin sauya suna.</value></data>
+  <data name="RosterRollbackFailed" xml:space="preserve"><value>An kasa adana jerin mahalarta kuma an kasa maido da tsoffin ƙa'idoji. Sake buɗe editan don duba fayilolin biyu.</value></data>
+  <data name="SavingBeforeClose" xml:space="preserve"><value>Ana adana takarda. Jira ya gama kafin rufewa.</value></data>
+  <data name="CloseUnsavedWork" xml:space="preserve"><value>A rufe FluentCanvas? Aikin da ba a adana ba zai ɓace.</value></data>
+  <data name="ConfirmClose" xml:space="preserve"><value>Kana son rufe FluentCanvas?</value></data>
+  <data name="CancelClosing" xml:space="preserve"><value>A soke rufe FluentCanvas?</value></data>
+  <data name="StartupEntryInUse" xml:space="preserve"><value>Wata girkawa tana amfani da wannan zaɓin farawa.</value></data>
+  <data name="AutoFoldInk" xml:space="preserve"><value>An goge rubutu kuma an sa sandar kayan aiki a gefen allo. Koma yanayin rubuta bayani ka zaɓi Warware don maido da rubutun.</value></data>
+  <data name="InsertImageFailed" xml:space="preserve"><value>An kasa saka hoto. Duba fayil ɗin ka sake gwadawa.</value></data>
+  <data name="InsertVideoFailed" xml:space="preserve"><value>An kasa saka bidiyo. Duba fayil ɗin ka sake gwadawa.</value></data>
+  <data name="CanvasChangedDuringImport" xml:space="preserve"><value>Filin zane ya canza yayin shigo da fayil. Sake saka fayil ɗin a shafin da kake so.</value></data>
+  <data name="OpenToolFailed" xml:space="preserve"><value>An kasa buɗe tagar kayan aiki.</value></data>
+  <data name="OpenDrawOneFailed" xml:space="preserve"><value>An kasa buɗe tagar zaɓar mutum ɗaya.</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>An kasa buɗe Saituna.</value></data>
+  <data name="ScreenshotSaved" xml:space="preserve"><value>An adana hoton allo a {0}</value></data>
+  <data name="ScreenshotPathFailed" xml:space="preserve"><value>An kasa adana hoton allo. Duba wurin adanawa a Saituna.</value></data>
+  <data name="ScreenshotFailed" xml:space="preserve"><value>An kasa adana hoton allo.</value></data>
+  <data name="SlideCaptureObscured" xml:space="preserve"><value>An kasa ɗaukar hoton nunin silayid domin tagar a ɓoye take ko an rufe ta da wata taga.</value></data>
+  <data name="SlideScreenshotFailed" xml:space="preserve"><value>An kasa adana hoton nunin silayid. Duba wurin adanawa.</value></data>
+  <data name="DocumentSaved" xml:space="preserve"><value>An adana rubutu da abubuwa a {0}</value></data>
+  <data name="DocumentSaveFailed" xml:space="preserve"><value>An kasa adana takarda. Duba wurin adanawa ka sake gwadawa.</value></data>
+  <data name="CanvasChangedDuringBackup" xml:space="preserve"><value>Filin zane ya canza yayin adana kwafin ajiya. Sake gwada gogewa.</value></data>
+  <data name="BackupFailed" xml:space="preserve"><value>An kasa adana kwafin ajiya</value></data>
+  <data name="BackupFailedPrompt" xml:space="preserve"><value>An kasa adana kwafin ajiya. An bar filin zane yadda yake.</value></data>
+  <data name="CanvasChangedWhileOpening" xml:space="preserve"><value>Filin zane ya canza yayin buɗe takardar. Sake buɗe ta a shafin da kake so.</value></data>
+  <data name="UnsavedBoardPrompt" xml:space="preserve"><value>Akwai canje-canjen da ba a adana ba a wannan farin allo.</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>Buɗe takarda</value></data>
+  <data name="CanvasChangedDuringSave" xml:space="preserve"><value>Filin zane ya canza yayin adanawa. Sake buɗe takardar.</value></data>
+  <data name="DocumentOpenFailed" xml:space="preserve"><value>An kasa buɗe takarda. Duba fayil ɗin ka sake gwadawa.</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>Ɓoye ta atomatik</value></data>
+  <data name="Pinned" xml:space="preserve"><value>An liƙa</value></data>
+  <data name="RemoveAsymptotes" xml:space="preserve"><value>A cire layukan asimtot?</value></data>
+  <data name="SavingBeforeRestart" xml:space="preserve"><value>Ana adana takarda. Jira ya gama kafin sake kunnawa.</value></data>
+  <data name="RestartFailed" xml:space="preserve"><value>An kasa sake kunnawa. Adana aikinka sannan ka sake buɗe FluentCanvas.</value></data>
+  <data name="PngImage" xml:space="preserve"><value>Hoton PNG</value></data>
+  <data name="SelectionExportFailed" xml:space="preserve"><value>An kasa fitar da abin da aka zaɓa. Zaɓi yanki mafi ƙanƙanta ko duba wurin adanawa.</value></data>
+  <data name="CloneToBoard" xml:space="preserve"><value>Kwafe zuwa allo</value></data>
+  <data name="CloneToNewPage" xml:space="preserve"><value>Kwafe zuwa sabon shafi</value></data>
+  <data name="EasiNoteAutomaticallyClosed" xml:space="preserve"><value>An rufe EasiNote 5 ta atomatik.</value></data>
+  <data name="Retry" xml:space="preserve"><value>Sake gwadawa</value></data>
+  <data name="ClearWithoutBackup" xml:space="preserve"><value>Goge ba tare da kwafin ajiya ba</value></data>
+  <data name="SaveAndOpen" xml:space="preserve"><value>Adana sannan buɗe</value></data>
+  <data name="OpenWithoutSaving" xml:space="preserve"><value>Yi watsi da canje-canje sannan buɗe</value></data>
+</root>

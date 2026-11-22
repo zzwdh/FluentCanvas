@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="FluentCanvas" />
+    <InternalsVisibleTo Include="Document.Tests" />
+    <InternalsVisibleTo Include="CanvasInput.Tests" />
+  </ItemGroup>
+</Project>

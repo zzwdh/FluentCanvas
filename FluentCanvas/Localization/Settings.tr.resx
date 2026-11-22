@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotateOnSlideShow" xml:space="preserve"><value>Slayt gösterisi başladığında açıklama moduna geç</value></data>
+  <data name="App" xml:space="preserve"><value>Uygulama</value></data>
+  <data name="Appearance" xml:space="preserve"><value>Görünüm</value></data>
+  <data name="Apply" xml:space="preserve"><value>Uygula</value></data>
+  <data name="AutosaveLocation" xml:space="preserve"><value>Otomatik kaydetme konumu</value></data>
+  <data name="AutosaveRetention" xml:space="preserve"><value>Otomatik kaydedilen dosyaların saklanacağı gün sayısı</value></data>
+  <data name="BoardScale" xml:space="preserve"><value>Beyaz tahta denetimlerinin boyutu (%)</value></data>
+  <data name="Cancel" xml:space="preserve"><value>İptal</value></data>
+  <data name="CaptureOnClear" xml:space="preserve"><value>Temizlemeden önce otomatik ekran görüntüsü al</value></data>
+  <data name="CaptureSlide" xml:space="preserve"><value>Slayt değiştiğinde otomatik ekran görüntüsü al</value></data>
+  <data name="ChangeFailed" xml:space="preserve"><value>Ayar değiştirilemedi. Yeniden deneyin.</value></data>
+  <data name="ChooseFolder" xml:space="preserve"><value>Klasör seç…</value></data>
+  <data name="ChooseFolderFailed" xml:space="preserve"><value>Klasör seçilemedi: {0}</value></data>
+  <data name="CleanAutosaves" xml:space="preserve"><value>Süresi dolan otomatik kayıtları başlangıçta sil</value></data>
+  <data name="ConnectionFailed" xml:space="preserve"><value>FluentCanvas'a bağlanılamadı. Ayarları yeniden yükleyip tekrar deneyin.</value></data>
+  <data name="Copied" xml:space="preserve"><value>Kopyalandı</value></data>
+  <data name="CopyDiagnostics" xml:space="preserve"><value>Tanılama bilgilerini kopyala</value></data>
+  <data name="CopyFailed" xml:space="preserve"><value>Kopyalanamadı. Yeniden deneyin.</value></data>
+  <data name="Dark" xml:space="preserve"><value>Koyu</value></data>
+  <data name="DateFolders" xml:space="preserve"><value>Ekran görüntülerini tarihe göre klasörlere ayır</value></data>
+  <data name="DetectPowerPoint" xml:space="preserve"><value>PowerPoint slayt gösterilerini algıla</value></data>
+  <data name="Diagnostics" xml:space="preserve"><value>Tanılama</value></data>
+  <data name="DiagnosticsAndPrivacy" xml:space="preserve"><value>Tanılama ve gizlilik</value></data>
+  <data name="DiagnosticsComponents" xml:space="preserve"><value>Tuval  WPF
+Tanılama penceresi  WinUI 3</value></data>
+  <data name="DiagnosticsTitle" xml:space="preserve"><value>FluentCanvas · Tanılama</value></data>
+  <data name="DirectoryNotWritable" xml:space="preserve"><value>Seçilen klasöre yazılamadı.</value></data>
+  <data name="DirectoryTimeout" xml:space="preserve"><value>Seçilen klasör yanıt vermedi. Bağlantıyı denetleyip yeniden deneyin.</value></data>
+  <data name="EnableWps" xml:space="preserve"><value>WPS slayt gösterileri (deneysel, masaüstü eklentisi gerekir)</value></data>
+  <data name="Exit" xml:space="preserve"><value>Çık</value></data>
+  <data name="ExitApp" xml:space="preserve"><value>FluentCanvas'tan çık</value></data>
+  <data name="FingerEraserScale" xml:space="preserve"><value>Parmak modunda silgi boyutu çarpanı</value></data>
+  <data name="FingerEraserThreshold" xml:space="preserve"><value>Parmak modunda alan silgisi eşik çarpanı</value></data>
+  <data name="FingerTouchWidth" xml:space="preserve"><value>Parmak modunda temas genişliği eşiği</value></data>
+  <data name="FoldAtStartup" xml:space="preserve"><value>Başlangıçta araç çubuğunu ekran kenarına daralt</value></data>
+  <data name="FoldInSlideShow" xml:space="preserve"><value>Slayt gösterisi sırasında araç çubuğunu otomatik daralt</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>Windows ayarını kullan</value></data>
+  <data name="GlobalHotkeys" xml:space="preserve"><value>Genel klavye kısayolları</value></data>
+  <data name="Guide" xml:space="preserve"><value>Kullanım kılavuzu</value></data>
+  <data name="GuideCanvas" xml:space="preserve"><value>Tuval kısayolları</value></data>
+  <data name="GuideCapture" xml:space="preserve"><value>Masaüstüne ekran görüntüsü kaydet</value></data>
+  <data name="GuideClear" xml:space="preserve"><value>Tuvali temizle veya geçerli seçimi sil</value></data>
+  <data name="GuideEraser" xml:space="preserve"><value>Silgiye geç veya alan silme ile çizgi silme arasında değiştir</value></data>
+  <data name="GuideGlobal" xml:space="preserve"><value>Varsayılan genel kısayollar</value></data>
+  <data name="GuideIntro" xml:space="preserve"><value>Başka bir uygulama veya slayt gösterisi etkinken de genel kısayolları kullanabilirsiniz. Kısayolları değiştirmek veya çakışmaları gidermek için Ayarlar'da Genel klavye kısayolları bölümünü açın.</value></data>
+  <data name="GuideLine" xml:space="preserve"><value>Çizgi aracını seç</value></data>
+  <data name="GuideNextKeys" xml:space="preserve"><value>↓ / → / Page Down / N / Boşluk</value></data>
+  <data name="GuidePen" xml:space="preserve"><value>Kaleme geç veya renk paletini açıp kapat</value></data>
+  <data name="GuidePointer" xml:space="preserve"><value>Yazmayı bırak ve işaretçiye dön</value></data>
+  <data name="GuideRedo" xml:space="preserve"><value>Yinele</value></data>
+  <data name="GuideSelect" xml:space="preserve"><value>Seçim aracına geç</value></data>
+  <data name="GuideSlides" xml:space="preserve"><value>Açıklama penceresi etkinken slayt gösterisi kısayolları</value></data>
+  <data name="GuideTitle" xml:space="preserve"><value>FluentCanvas · Kullanım kılavuzu</value></data>
+  <data name="GuideTools" xml:space="preserve"><value>Kayan araç çubuğundaki araçları göster veya gizle</value></data>
+  <data name="GuideUndo" xml:space="preserve"><value>Geri al</value></data>
+  <data name="GuideWheel" xml:space="preserve"><value>Fare tekerleğini aşağı veya yukarı kaydır</value></data>
+  <data name="GuideWheelSlides" xml:space="preserve"><value>Sonraki veya önceki slayt</value></data>
+  <data name="HotkeyApplyName" xml:space="preserve"><value>{0} için genel klavye kısayolunu uygula</value></data>
+  <data name="HotkeyBoard" xml:space="preserve"><value>Beyaz tahta ile masaüstü açıklamaları arasında geçiş yap</value></data>
+  <data name="HotkeyCapture" xml:space="preserve"><value>Ekran görüntüsü al</value></data>
+  <data name="HotkeyClear" xml:space="preserve"><value>Tuvali temizle veya seçimi sil</value></data>
+  <data name="HotkeyConflict" xml:space="preserve"><value>Başka bir işlem veya uygulama tarafından kullanılıyor.</value></data>
+  <data name="HotkeyDisabled" xml:space="preserve"><value>Devre dışı</value></data>
+  <data name="HotkeyDraw" xml:space="preserve"><value>Kaleme geç</value></data>
+  <data name="HotkeyEndSlides" xml:space="preserve"><value>Slayt gösterisini sonlandır</value></data>
+  <data name="HotkeyHint" xml:space="preserve"><value>Ctrl+Shift+B gibi bir düzenleyici tuş içeren birleşim girin. Bir kısayolu kapatmak için kutusunu boşaltıp Uygula'yı seçin.</value></data>
+  <data name="HotkeyInputName" xml:space="preserve"><value>{0} için genel klavye kısayolu</value></data>
+  <data name="HotkeyInvalid" xml:space="preserve"><value>Geçersiz kısayol. Ctrl+Shift+B gibi bir birleşim kullanın.</value></data>
+  <data name="HotkeyLimit" xml:space="preserve"><value>Genel kısayol sınırına ulaşıldı.</value></data>
+  <data name="HotkeyModifier" xml:space="preserve"><value>Ctrl+Shift+B gibi düzenleyici tuş içeren bir birleşim girin.</value></data>
+  <data name="HotkeyPointer" xml:space="preserve"><value>İşaretçiye dön</value></data>
+  <data name="HotkeyResetName" xml:space="preserve"><value>{0} için varsayılan genel klavye kısayolunu geri yükle</value></data>
+  <data name="HotkeySaveFailed" xml:space="preserve"><value>Kısayol kaydedilemedi.</value></data>
+  <data name="HotkeyTools" xml:space="preserve"><value>Araç gruplarını göster veya gizle</value></data>
+  <data name="HotkeyUnavailable" xml:space="preserve"><value>Şu genel kısayollar kaydedilemedi: {0}. Bunları Ayarlar'dan değiştirin.</value></data>
+  <data name="HotkeyUnknown" xml:space="preserve"><value>Bilinmeyen genel klavye kısayolu.</value></data>
+  <data name="HotkeyUnknownKey" xml:space="preserve"><value>Windows bu tuşu tanımıyor.</value></data>
+  <data name="HotkeyWindowsError" xml:space="preserve"><value>Windows kısayolu kaydedemedi ({0}).</value></data>
+  <data name="InstallationMethod" xml:space="preserve"><value>Kurulum  {0}</value></data>
+  <data name="InvalidSession" xml:space="preserve"><value>Geçersiz ayarlar oturumu.</value></data>
+  <data name="InvalidValue" xml:space="preserve"><value>Geçersiz ayar değeri.</value></data>
+  <data name="Language" xml:space="preserve"><value>Arayüz dili</value></data>
+  <data name="LanguageRestart" xml:space="preserve"><value>Seçilen dili uygulamak için FluentCanvas'ı yeniden başlatın.</value></data>
+  <data name="Light" xml:space="preserve"><value>Açık</value></data>
+  <data name="MoreOptions" xml:space="preserve"><value>Diğer seçenekler</value></data>
+  <data name="MultiTouch" xml:space="preserve"><value>Otomatik geçiş kapalıyken birden fazla parmakla yazmaya izin ver</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>Sonraki slayt</value></data>
+  <data name="NibEraserScale" xml:space="preserve"><value>Kalem ucu modunda silgi boyutu çarpanı</value></data>
+  <data name="NibEraserThreshold" xml:space="preserve"><value>Kalem ucu modunda alan silgisi eşik çarpanı</value></data>
+  <data name="NibMode" xml:space="preserve"><value>Kalem ucu modunu kullan</value></data>
+  <data name="NibTouchWidth" xml:space="preserve"><value>Kalem ucu modunda temas genişliği eşiği</value></data>
+  <data name="Off" xml:space="preserve"><value>Kapalı</value></data>
+  <data name="On" xml:space="preserve"><value>Açık</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>Ayarlar açılamadı. Yeniden deneyin.</value></data>
+  <data name="PenCursor" xml:space="preserve"><value>Kalem imlecini göster</value></data>
+  <data name="PenWidth" xml:space="preserve"><value>Kalem kalınlığı</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>Önceki slayt</value></data>
+  <data name="QuadInfrared" xml:space="preserve"><value>Dört kenarlı kızılötesi dokunmatik ekran kullan</value></data>
+  <data name="RecognizeShapes" xml:space="preserve"><value>Elle çizilen şekilleri tanı</value></data>
+  <data name="Reload" xml:space="preserve"><value>Ayarları yeniden yükle</value></data>
+  <data name="ReportingStartFailed" xml:space="preserve"><value>Hata raporlama başlatılamadı.</value></data>
+  <data name="ResetDefault" xml:space="preserve"><value>Varsayılana dön</value></data>
+  <data name="Restart" xml:space="preserve"><value>Yeniden başlat</value></data>
+  <data name="RestartApp" xml:space="preserve"><value>FluentCanvas'ı yeniden başlat</value></data>
+  <data name="RunAtStartup" xml:space="preserve"><value>Windows'ta oturum açıldığında başlat</value></data>
+  <data name="SaveBeforeExit" xml:space="preserve"><value>Devam etmeden önce kaydedilmemiş beyaz tahta sayfaları ve ek açıklamalar yedeklenecek.</value></data>
+  <data name="SavedApplyFailed" xml:space="preserve"><value>Ayar kaydedildi ancak geçerli tahtaya uygulanamadı. Çalışmanızı kaydedip FluentCanvas'ı yeniden başlatın.</value></data>
+  <data name="SaveFailed" xml:space="preserve"><value>Ayar kaydedilemedi.</value></data>
+  <data name="SaveInkOnCapture" xml:space="preserve"><value>Ekran görüntüleriyle birlikte el yazısını kaydet</value></data>
+  <data name="SaveSlideInk" xml:space="preserve"><value>Her slaydın el yazısını otomatik kaydet</value></data>
+  <data name="Saving" xml:space="preserve"><value>Kaydetme</value></data>
+  <data name="SendErrors" xml:space="preserve"><value>Uygulama hatalarını Sentry'ye gönder</value></data>
+  <data name="SettingsExited" xml:space="preserve"><value>Ayarlar penceresi beklenmedik şekilde kapandı. Yeniden deneyin.</value></data>
+  <data name="SettingUnavailable" xml:space="preserve"><value>Bu ayar değiştirilemez.</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>Kısayol kılavuzu</value></data>
+  <data name="Slides" xml:space="preserve"><value>Slayt gösterileri</value></data>
+  <data name="SpecialTouchScreen" xml:space="preserve"><value>Özel dokunmatik ekran kalibrasyonu kullan</value></data>
+  <data name="Standalone" xml:space="preserve"><value>Bağımsız</value></data>
+  <data name="Startup" xml:space="preserve"><value>Başlangıç</value></data>
+  <data name="StartupChangeFailed" xml:space="preserve"><value>Başlangıç davranışı değiştirilemedi. Windows Başlangıç Uygulamaları ayarlarını denetleyin.</value></data>
+  <data name="StartupDisabledByUser" xml:space="preserve"><value>Bunu Windows Başlangıç Uygulamaları ayarlarından etkinleştirebilirsiniz.</value></data>
+  <data name="StartupNotEnabled" xml:space="preserve"><value>Windows otomatik başlatmayı etkinleştirmedi.</value></data>
+  <data name="StartupPolicyDisabled" xml:space="preserve"><value>Kuruluşunuz bu başlangıç öğesini devre dışı bıraktı.</value></data>
+  <data name="StartupPolicyEnabled" xml:space="preserve"><value>Kuruluşunuz bu başlangıç öğesini etkinleştirdi.</value></data>
+  <data name="StartupUnreadable" xml:space="preserve"><value>Windows başlangıç durumu okunamadı.</value></data>
+  <data name="StoreAutoDownload" xml:space="preserve"><value>Başlangıçta güncellemeleri otomatik denetle ve indir</value></data>
+  <data name="StoreAvailable" xml:space="preserve"><value>Microsoft Store'da bir güncelleme var.</value></data>
+  <data name="StoreBackingUp" xml:space="preserve"><value>Kaydedilmemiş çalışmalar yedekleniyor…</value></data>
+  <data name="StoreBackupAndUpdate" xml:space="preserve"><value>Yedekle ve güncelle</value></data>
+  <data name="StoreBackupFailed" xml:space="preserve"><value>Çalışmanız yedeklenemedi. Kayıt konumunu denetleyip yeniden deneyin.</value></data>
+  <data name="StoreBackupLocation" xml:space="preserve"><value>
+Yedek konumu: {0}</value></data>
+  <data name="StoreBackupStateChanged" xml:space="preserve"><value>Yedekleme sırasında beyaz tahta veya slayt gösterisi değişti. Yeniden deneyin.</value></data>
+  <data name="StoreBoardBusy" xml:space="preserve"><value>Beyaz tahta meşgul. İşlemin bitmesini bekleyip yeniden deneyin.</value></data>
+  <data name="StoreCanceled" xml:space="preserve"><value>Güncelleme iptal edildi.</value></data>
+  <data name="StoreCheck" xml:space="preserve"><value>Güncellemeleri denetle</value></data>
+  <data name="StoreChecking" xml:space="preserve"><value>Microsoft Store güncellemeleri denetleniyor…</value></data>
+  <data name="StoreCompleted" xml:space="preserve"><value>Microsoft Store güncellemeyi tamamladı.</value></data>
+  <data name="StoreDeferred" xml:space="preserve"><value>Güncellemeyi daha sonra denetleyip yükleyebilirsiniz.</value></data>
+  <data name="StoreDownloadHint" xml:space="preserve"><value>Otomatik indirmeler Microsoft Store'un güncelleme ve ağ ayarlarını kullanır. Kurulumu mağaza yönetir.</value></data>
+  <data name="StoreDownloading" xml:space="preserve"><value>Microsoft Store güncellemeyi indiriyor ({0:P0})…</value></data>
+  <data name="StoreFinishing" xml:space="preserve"><value>Microsoft Store'un güncellemeyi bitirmesi bekleniyor…</value></data>
+  <data name="StoreInstallConfirmation" xml:space="preserve"><value>Microsoft Store güncellemesi yüklensin mi?</value></data>
+  <data name="StoreInstallHint" xml:space="preserve"><value>Kaydedilmemiş tahtalar ve açıklamalar kayıt konumundaki bir klasöre yedeklenir. Güncelleme sırasında düzenleme duraklatılır ve kurulum uygulamayı kapatabilir.</value></data>
+  <data name="StoreInstalling" xml:space="preserve"><value>Microsoft Store güncellemeyi yüklüyor…</value></data>
+  <data name="StoreLater" xml:space="preserve"><value>Daha sonra</value></data>
+  <data name="StoreLowBattery" xml:space="preserve"><value>Pil seviyesi düşük. Cihazı şarja takıp yeniden deneyin.</value></data>
+  <data name="StoreNeedsWifi" xml:space="preserve"><value>Wi-Fi ağına bağlanıp yeniden deneyin.</value></data>
+  <data name="StoreNonStorePackage" xml:space="preserve"><value>Uygulamayı değerlendirmek veya mağaza güncellemelerini almak için FluentCanvas'ı Microsoft Store'dan yükleyin.</value></data>
+  <data name="StoreNoUpdate" xml:space="preserve"><value>Microsoft Store'da kullanılabilir güncelleme yok.</value></data>
+  <data name="StoreOpeningRating" xml:space="preserve"><value>Mağaza değerlendirme penceresi açılıyor…</value></data>
+  <data name="StoreRate" xml:space="preserve"><value>Puan ver ve değerlendir</value></data>
+  <data name="StoreRatingClosed" xml:space="preserve"><value>Değerlendirme penceresi kapatıldı.</value></data>
+  <data name="StoreRatingUpdated" xml:space="preserve"><value>Microsoft Store değerlendirmenizi güncelledi.</value></data>
+  <data name="StoreRequestFailed" xml:space="preserve"><value>Microsoft Store isteği tamamlayamadı (0x{0:X8}). Daha sonra yeniden deneyin.</value></data>
+  <data name="StoreRequesting" xml:space="preserve"><value>Microsoft Store'dan güncellemeyi yüklemesi isteniyor…</value></data>
+  <data name="StoreResumeEditing" xml:space="preserve"><value>
+Beyaz tahtayı düzenlemeye devam etmek için Ayarlar'ı kapatın.</value></data>
+  <data name="StoreSlidesActive" xml:space="preserve"><value>Güncellemeyi yüklemeden önce slayt gösterisini sonlandırın ve açıklamaları kaydedin.</value></data>
+  <data name="StoreSlidesUnsaved" xml:space="preserve"><value>Slayt gösterisi açıklamaları kaydedilmedi. Kayıt konumunu denetleyip yeniden deneyin.</value></data>
+  <data name="StoreStandalone" xml:space="preserve"><value>Bağımsız sürümü kullanıyorsunuz. Değerlendirmeler ve otomatik güncellemeler Microsoft Store sürümünde kullanılabilir.</value></data>
+  <data name="StoreUpdateFailed" xml:space="preserve"><value>Microsoft Store güncellemeyi tamamlayamadı ({0}).</value></data>
+  <data name="StoreUpdateUnavailable" xml:space="preserve"><value>Microsoft Store bu kurulumu güncelleyemiyor.</value></data>
+  <data name="StoreUpdating" xml:space="preserve"><value>Microsoft Store FluentCanvas'ı güncelliyor.</value></data>
+  <data name="SwitchGestures" xml:space="preserve"><value>Açıklama ve tahta modları arasında hareketleri otomatik değiştir</value></data>
+  <data name="Theme" xml:space="preserve"><value>Uygulama teması</value></data>
+  <data name="ToolbarLabels" xml:space="preserve"><value>Araç çubuğu etiketlerini göster</value></data>
+  <data name="ToolbarScale" xml:space="preserve"><value>Kayan araç çubuğu boyutu (%)</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>Araç penceresi açılamadı. Yeniden deneyin.</value></data>
+  <data name="TouchCalibration" xml:space="preserve"><value>Dokunmatik ekran kalibrasyonu ve silgi</value></data>
+  <data name="TouchMultiplier" xml:space="preserve"><value>Özel dokunmatik ekranlar için temas boyutu çarpanı</value></data>
+  <data name="TwoFingerRotation" xml:space="preserve"><value>Tuvali iki parmakla döndürmeye izin ver</value></data>
+  <data name="WhiteboardAndInk" xml:space="preserve"><value>Beyaz tahta ve el yazısı</value></data>
+  <data name="WhiteboardBackground" xml:space="preserve"><value>Tahtada beyaz arka plan kullan</value></data>
+  <data name="WindowTitle" xml:space="preserve"><value>FluentCanvas · Ayarlar</value></data>
+  <data name="FileAssociations" xml:space="preserve"><value>.icart ve .icstk için varsayılan uygulama</value></data>
+  <data name="FileAssociationsConfirm" xml:space="preserve"><value>Dosya ilişkilendirmeleri için bu kopya kullanılsın mı? Kayıtlı konum {0} olarak güncellenir. Varsayılan uygulamayı Windows Ayarları&apos;ndan seçin.</value></data>
+  <data name="WindowsStartupSettings" xml:space="preserve"><value>Windows başlangıç uygulamaları</value></data>
+  <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>Tam ekranda kenar dokunma hareketlerini devre dışı bırak</value></data>
+</root>

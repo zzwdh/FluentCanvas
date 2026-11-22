@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotateOnSlideShow" xml:space="preserve"><value>Activar las anotaciones al iniciar una presentación</value></data>
+  <data name="App" xml:space="preserve"><value>Aplicación</value></data>
+  <data name="Appearance" xml:space="preserve"><value>Aspecto</value></data>
+  <data name="Apply" xml:space="preserve"><value>Aplicar</value></data>
+  <data name="AutosaveLocation" xml:space="preserve"><value>Ubicación de guardado automático</value></data>
+  <data name="AutosaveRetention" xml:space="preserve"><value>Días para conservar los archivos guardados automáticamente</value></data>
+  <data name="BoardScale" xml:space="preserve"><value>Tamaño de los controles de la pizarra (%)</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Cancelar</value></data>
+  <data name="CaptureOnClear" xml:space="preserve"><value>Capturar la pantalla antes de borrar</value></data>
+  <data name="CaptureSlide" xml:space="preserve"><value>Capturar la pantalla automáticamente al cambiar de diapositiva</value></data>
+  <data name="ChangeFailed" xml:space="preserve"><value>No se pudo cambiar el ajuste. Inténtalo de nuevo.</value></data>
+  <data name="ChooseFolder" xml:space="preserve"><value>Elegir carpeta…</value></data>
+  <data name="ChooseFolderFailed" xml:space="preserve"><value>No se pudo seleccionar la carpeta: {0}</value></data>
+  <data name="CleanAutosaves" xml:space="preserve"><value>Eliminar archivos de guardado automático caducados al iniciar</value></data>
+  <data name="ConnectionFailed" xml:space="preserve"><value>No se pudo conectar con FluentCanvas. Vuelve a cargar los ajustes e inténtalo de nuevo.</value></data>
+  <data name="Copied" xml:space="preserve"><value>Copiado</value></data>
+  <data name="CopyDiagnostics" xml:space="preserve"><value>Copiar datos de diagnóstico</value></data>
+  <data name="CopyFailed" xml:space="preserve"><value>No se pudo copiar. Inténtalo de nuevo.</value></data>
+  <data name="Dark" xml:space="preserve"><value>Oscuro</value></data>
+  <data name="DateFolders" xml:space="preserve"><value>Organizar las capturas en carpetas por fecha</value></data>
+  <data name="DetectPowerPoint" xml:space="preserve"><value>Detectar presentaciones de PowerPoint</value></data>
+  <data name="Diagnostics" xml:space="preserve"><value>Diagnóstico</value></data>
+  <data name="DiagnosticsAndPrivacy" xml:space="preserve"><value>Diagnóstico y privacidad</value></data>
+  <data name="DiagnosticsComponents" xml:space="preserve"><value>Lienzo  WPF
+Ventana de diagnóstico  WinUI 3</value></data>
+  <data name="DiagnosticsTitle" xml:space="preserve"><value>FluentCanvas · Diagnóstico</value></data>
+  <data name="DirectoryNotWritable" xml:space="preserve"><value>No se pudo escribir en la carpeta seleccionada.</value></data>
+  <data name="DirectoryTimeout" xml:space="preserve"><value>La carpeta seleccionada no respondió. Revisa la conexión e inténtalo de nuevo.</value></data>
+  <data name="EnableWps" xml:space="preserve"><value>Presentaciones de WPS (experimental, requiere el complemento de escritorio)</value></data>
+  <data name="Exit" xml:space="preserve"><value>Salir</value></data>
+  <data name="ExitApp" xml:space="preserve"><value>Salir de FluentCanvas</value></data>
+  <data name="FingerEraserScale" xml:space="preserve"><value>Multiplicador del tamaño de la goma en modo dedo</value></data>
+  <data name="FingerEraserThreshold" xml:space="preserve"><value>Multiplicador del umbral de borrado por área en modo dedo</value></data>
+  <data name="FingerTouchWidth" xml:space="preserve"><value>Umbral de ancho táctil en modo dedo</value></data>
+  <data name="FoldAtStartup" xml:space="preserve"><value>Plegar la barra al borde de la pantalla al iniciar</value></data>
+  <data name="FoldInSlideShow" xml:space="preserve"><value>Plegar la barra de herramientas durante las presentaciones</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>Según Windows</value></data>
+  <data name="GlobalHotkeys" xml:space="preserve"><value>Atajos globales</value></data>
+  <data name="Guide" xml:space="preserve"><value>Guía de uso</value></data>
+  <data name="GuideCanvas" xml:space="preserve"><value>Atajos del lienzo</value></data>
+  <data name="GuideCapture" xml:space="preserve"><value>Guardar una captura de pantalla en el escritorio</value></data>
+  <data name="GuideClear" xml:space="preserve"><value>Borrar el lienzo o eliminar la selección actual</value></data>
+  <data name="GuideEraser" xml:space="preserve"><value>Seleccionar la goma o alternar entre borrar áreas y trazos</value></data>
+  <data name="GuideGlobal" xml:space="preserve"><value>Atajos globales predeterminados</value></data>
+  <data name="GuideIntro" xml:space="preserve"><value>Los atajos globales funcionan mientras está activa otra aplicación o una presentación. Modifícalos o resuelve conflictos en Configuración, en Atajos globales.</value></data>
+  <data name="GuideLine" xml:space="preserve"><value>Seleccionar la herramienta de línea</value></data>
+  <data name="GuideNextKeys" xml:space="preserve"><value>↓ / → / Av Pág / N / Espacio</value></data>
+  <data name="GuidePen" xml:space="preserve"><value>Cambiar al lápiz o mostrar u ocultar la paleta</value></data>
+  <data name="GuidePointer" xml:space="preserve"><value>Dejar de escribir y volver al puntero</value></data>
+  <data name="GuideRedo" xml:space="preserve"><value>Rehacer</value></data>
+  <data name="GuideSelect" xml:space="preserve"><value>Cambiar a la herramienta de selección</value></data>
+  <data name="GuideSlides" xml:space="preserve"><value>Atajos de presentación con la ventana de anotaciones activa</value></data>
+  <data name="GuideTitle" xml:space="preserve"><value>FluentCanvas · Guía de uso</value></data>
+  <data name="GuideTools" xml:space="preserve"><value>Mostrar u ocultar las herramientas de la barra flotante</value></data>
+  <data name="GuideUndo" xml:space="preserve"><value>Deshacer</value></data>
+  <data name="GuideWheel" xml:space="preserve"><value>Rueda del ratón hacia abajo o arriba</value></data>
+  <data name="GuideWheelSlides" xml:space="preserve"><value>Siguiente o anterior diapositiva</value></data>
+  <data name="HotkeyApplyName" xml:space="preserve"><value>Aplicar el atajo global de {0}</value></data>
+  <data name="HotkeyBoard" xml:space="preserve"><value>Cambiar entre la pizarra y las anotaciones de escritorio</value></data>
+  <data name="HotkeyCapture" xml:space="preserve"><value>Hacer una captura de pantalla</value></data>
+  <data name="HotkeyClear" xml:space="preserve"><value>Borrar el lienzo o eliminar la selección</value></data>
+  <data name="HotkeyConflict" xml:space="preserve"><value>Otra acción o aplicación ya lo usa.</value></data>
+  <data name="HotkeyDisabled" xml:space="preserve"><value>Desactivado</value></data>
+  <data name="HotkeyDraw" xml:space="preserve"><value>Cambiar al lápiz</value></data>
+  <data name="HotkeyEndSlides" xml:space="preserve"><value>Finalizar la presentación</value></data>
+  <data name="HotkeyHint" xml:space="preserve"><value>Introduce una combinación con una tecla modificadora, como Ctrl+Shift+B. Para desactivar un atajo, borra su campo y selecciona Aplicar.</value></data>
+  <data name="HotkeyInputName" xml:space="preserve"><value>Atajo global para {0}</value></data>
+  <data name="HotkeyInvalid" xml:space="preserve"><value>Atajo no válido. Usa una combinación como Ctrl+Shift+B.</value></data>
+  <data name="HotkeyLimit" xml:space="preserve"><value>Se ha alcanzado el límite de atajos globales.</value></data>
+  <data name="HotkeyModifier" xml:space="preserve"><value>Introduce una combinación con una tecla modificadora, como Ctrl+Shift+B.</value></data>
+  <data name="HotkeyPointer" xml:space="preserve"><value>Volver al puntero</value></data>
+  <data name="HotkeyResetName" xml:space="preserve"><value>Restaurar el atajo global predeterminado de {0}</value></data>
+  <data name="HotkeySaveFailed" xml:space="preserve"><value>No se pudo guardar el atajo.</value></data>
+  <data name="HotkeyTools" xml:space="preserve"><value>Mostrar u ocultar los grupos de herramientas</value></data>
+  <data name="HotkeyUnavailable" xml:space="preserve"><value>No se pudieron registrar estos atajos globales: {0}. Puedes cambiarlos en Configuración.</value></data>
+  <data name="HotkeyUnknown" xml:space="preserve"><value>Atajo global desconocido.</value></data>
+  <data name="HotkeyUnknownKey" xml:space="preserve"><value>Windows no reconoce esta tecla.</value></data>
+  <data name="HotkeyWindowsError" xml:space="preserve"><value>Windows no pudo registrar el atajo ({0}).</value></data>
+  <data name="InstallationMethod" xml:space="preserve"><value>Instalación  {0}</value></data>
+  <data name="InvalidSession" xml:space="preserve"><value>Sesión de configuración no válida.</value></data>
+  <data name="InvalidValue" xml:space="preserve"><value>Valor de configuración no válido.</value></data>
+  <data name="Language" xml:space="preserve"><value>Idioma de la interfaz</value></data>
+  <data name="LanguageRestart" xml:space="preserve"><value>Reinicia FluentCanvas para aplicar el idioma seleccionado.</value></data>
+  <data name="Light" xml:space="preserve"><value>Claro</value></data>
+  <data name="MoreOptions" xml:space="preserve"><value>Más opciones</value></data>
+  <data name="MultiTouch" xml:space="preserve"><value>Escribir con varios dedos sin cambio automático</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>Diapositiva siguiente</value></data>
+  <data name="NibEraserScale" xml:space="preserve"><value>Multiplicador del tamaño de la goma en modo punta</value></data>
+  <data name="NibEraserThreshold" xml:space="preserve"><value>Multiplicador del umbral de borrado por área en modo punta</value></data>
+  <data name="NibMode" xml:space="preserve"><value>Usar el modo punta de lápiz</value></data>
+  <data name="NibTouchWidth" xml:space="preserve"><value>Umbral de ancho táctil en modo punta</value></data>
+  <data name="Off" xml:space="preserve"><value>Desactivado</value></data>
+  <data name="On" xml:space="preserve"><value>Activado</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>No se pudo abrir Configuración. Inténtalo de nuevo.</value></data>
+  <data name="PenCursor" xml:space="preserve"><value>Mostrar el cursor del lápiz</value></data>
+  <data name="PenWidth" xml:space="preserve"><value>Grosor del lápiz</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>Diapositiva anterior</value></data>
+  <data name="QuadInfrared" xml:space="preserve"><value>Usar una pantalla táctil infrarroja de cuatro lados</value></data>
+  <data name="RecognizeShapes" xml:space="preserve"><value>Reconocer figuras dibujadas a mano</value></data>
+  <data name="Reload" xml:space="preserve"><value>Volver a cargar los ajustes</value></data>
+  <data name="ReportingStartFailed" xml:space="preserve"><value>No se pudo iniciar el servicio de informes de errores.</value></data>
+  <data name="ResetDefault" xml:space="preserve"><value>Restaurar valor predeterminado</value></data>
+  <data name="Restart" xml:space="preserve"><value>Reiniciar</value></data>
+  <data name="RestartApp" xml:space="preserve"><value>Reiniciar FluentCanvas</value></data>
+  <data name="RunAtStartup" xml:space="preserve"><value>Iniciar al abrir sesión en Windows</value></data>
+  <data name="SaveBeforeExit" xml:space="preserve"><value>Se hará una copia de las páginas de la pizarra y las anotaciones sin guardar antes de continuar.</value></data>
+  <data name="SavedApplyFailed" xml:space="preserve"><value>El ajuste se guardó, pero no se pudo aplicar en esta pizarra. Guarda el trabajo y reinicia FluentCanvas.</value></data>
+  <data name="SaveFailed" xml:space="preserve"><value>No se pudo guardar el ajuste.</value></data>
+  <data name="SaveInkOnCapture" xml:space="preserve"><value>Guardar los trazos junto con las capturas</value></data>
+  <data name="SaveSlideInk" xml:space="preserve"><value>Guardar automáticamente los trazos por diapositiva</value></data>
+  <data name="Saving" xml:space="preserve"><value>Guardado</value></data>
+  <data name="SendErrors" xml:space="preserve"><value>Enviar errores de la aplicación a Sentry</value></data>
+  <data name="SettingsExited" xml:space="preserve"><value>La ventana de configuración se cerró inesperadamente. Inténtalo de nuevo.</value></data>
+  <data name="SettingUnavailable" xml:space="preserve"><value>Este ajuste no se puede modificar.</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>Guía de atajos</value></data>
+  <data name="Slides" xml:space="preserve"><value>Presentaciones</value></data>
+  <data name="SpecialTouchScreen" xml:space="preserve"><value>Usar una calibración táctil personalizada</value></data>
+  <data name="Standalone" xml:space="preserve"><value>Independiente</value></data>
+  <data name="Startup" xml:space="preserve"><value>Inicio</value></data>
+  <data name="StartupChangeFailed" xml:space="preserve"><value>No se pudo cambiar el inicio automático. Revisa la configuración de aplicaciones de inicio de Windows.</value></data>
+  <data name="StartupDisabledByUser" xml:space="preserve"><value>Puedes activarlo en la configuración de aplicaciones de inicio de Windows.</value></data>
+  <data name="StartupNotEnabled" xml:space="preserve"><value>Windows no ha activado el inicio automático.</value></data>
+  <data name="StartupPolicyDisabled" xml:space="preserve"><value>Tu organización ha desactivado este elemento de inicio.</value></data>
+  <data name="StartupPolicyEnabled" xml:space="preserve"><value>Tu organización ha activado este elemento de inicio.</value></data>
+  <data name="StartupUnreadable" xml:space="preserve"><value>No se pudo consultar el estado de inicio en Windows.</value></data>
+  <data name="StoreAutoDownload" xml:space="preserve"><value>Buscar y descargar actualizaciones automáticamente al iniciar</value></data>
+  <data name="StoreAvailable" xml:space="preserve"><value>Hay una actualización disponible en Microsoft Store.</value></data>
+  <data name="StoreBackingUp" xml:space="preserve"><value>Creando una copia del trabajo sin guardar…</value></data>
+  <data name="StoreBackupAndUpdate" xml:space="preserve"><value>Crear copia y actualizar</value></data>
+  <data name="StoreBackupFailed" xml:space="preserve"><value>No se pudo crear una copia de tu trabajo. Revisa la ubicación de guardado e inténtalo de nuevo.</value></data>
+  <data name="StoreBackupLocation" xml:space="preserve"><value>
+Ubicación de la copia: {0}</value></data>
+  <data name="StoreBackupStateChanged" xml:space="preserve"><value>La pizarra o la presentación cambió durante la copia. Inténtalo de nuevo.</value></data>
+  <data name="StoreBoardBusy" xml:space="preserve"><value>La pizarra está ocupada. Espera a que termine la operación e inténtalo de nuevo.</value></data>
+  <data name="StoreCanceled" xml:space="preserve"><value>Actualización cancelada.</value></data>
+  <data name="StoreCheck" xml:space="preserve"><value>Buscar actualizaciones</value></data>
+  <data name="StoreChecking" xml:space="preserve"><value>Buscando actualizaciones de Microsoft Store…</value></data>
+  <data name="StoreCompleted" xml:space="preserve"><value>Microsoft Store ha terminado la actualización.</value></data>
+  <data name="StoreDeferred" xml:space="preserve"><value>Puedes volver a buscar e instalar la actualización más tarde.</value></data>
+  <data name="StoreDownloadHint" xml:space="preserve"><value>Las descargas automáticas siguen los ajustes de actualización y de red de Microsoft Store. La tienda gestiona la instalación.</value></data>
+  <data name="StoreDownloading" xml:space="preserve"><value>Microsoft Store está descargando la actualización ({0:P0})…</value></data>
+  <data name="StoreFinishing" xml:space="preserve"><value>Esperando a que Microsoft Store termine la actualización…</value></data>
+  <data name="StoreInstallConfirmation" xml:space="preserve"><value>¿Instalar la actualización de Microsoft Store?</value></data>
+  <data name="StoreInstallHint" xml:space="preserve"><value>Las pizarras y las anotaciones sin guardar se copiarán a una carpeta de la ubicación de guardado. La edición se pausará y la instalación podría cerrar la aplicación.</value></data>
+  <data name="StoreInstalling" xml:space="preserve"><value>Microsoft Store está instalando la actualización…</value></data>
+  <data name="StoreLater" xml:space="preserve"><value>Más tarde</value></data>
+  <data name="StoreLowBattery" xml:space="preserve"><value>Batería baja. Conecta el equipo a la corriente e inténtalo de nuevo.</value></data>
+  <data name="StoreNeedsWifi" xml:space="preserve"><value>Conéctate a una red Wi-Fi e inténtalo de nuevo.</value></data>
+  <data name="StoreNonStorePackage" xml:space="preserve"><value>Instala FluentCanvas desde Microsoft Store para valorarlo o recibir actualizaciones de la tienda.</value></data>
+  <data name="StoreNoUpdate" xml:space="preserve"><value>No hay actualizaciones disponibles en Microsoft Store.</value></data>
+  <data name="StoreOpeningRating" xml:space="preserve"><value>Abriendo la ventana de valoración de la tienda…</value></data>
+  <data name="StoreRate" xml:space="preserve"><value>Valorar y reseñar</value></data>
+  <data name="StoreRatingClosed" xml:space="preserve"><value>Se ha cerrado la ventana de valoración.</value></data>
+  <data name="StoreRatingUpdated" xml:space="preserve"><value>Microsoft Store ha actualizado tu valoración.</value></data>
+  <data name="StoreRequestFailed" xml:space="preserve"><value>Microsoft Store no pudo completar la solicitud (0x{0:X8}). Inténtalo más tarde.</value></data>
+  <data name="StoreRequesting" xml:space="preserve"><value>Solicitando a Microsoft Store que instale la actualización…</value></data>
+  <data name="StoreResumeEditing" xml:space="preserve"><value>
+Cierra Configuración para volver a editar la pizarra.</value></data>
+  <data name="StoreSlidesActive" xml:space="preserve"><value>Finaliza la presentación y guarda las anotaciones antes de instalar la actualización.</value></data>
+  <data name="StoreSlidesUnsaved" xml:space="preserve"><value>Las anotaciones siguen sin guardar. Revisa la ubicación de guardado e inténtalo de nuevo.</value></data>
+  <data name="StoreStandalone" xml:space="preserve"><value>Esta es la versión independiente. La versión de Microsoft Store permite valorar la aplicación y recibir actualizaciones automáticas.</value></data>
+  <data name="StoreUpdateFailed" xml:space="preserve"><value>Microsoft Store no pudo terminar la actualización ({0}).</value></data>
+  <data name="StoreUpdateUnavailable" xml:space="preserve"><value>Microsoft Store no puede actualizar esta instalación.</value></data>
+  <data name="StoreUpdating" xml:space="preserve"><value>Microsoft Store está actualizando FluentCanvas.</value></data>
+  <data name="SwitchGestures" xml:space="preserve"><value>Cambiar gestos automáticamente entre anotaciones y pizarra</value></data>
+  <data name="Theme" xml:space="preserve"><value>Tema de la aplicación</value></data>
+  <data name="ToolbarLabels" xml:space="preserve"><value>Mostrar etiquetas en la barra de herramientas</value></data>
+  <data name="ToolbarScale" xml:space="preserve"><value>Tamaño de la barra flotante (%)</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>No se pudo abrir la ventana de herramientas. Inténtalo de nuevo.</value></data>
+  <data name="TouchCalibration" xml:space="preserve"><value>Calibración táctil y borrado</value></data>
+  <data name="TouchMultiplier" xml:space="preserve"><value>Multiplicador del tamaño táctil personalizado</value></data>
+  <data name="TwoFingerRotation" xml:space="preserve"><value>Girar el lienzo con dos dedos</value></data>
+  <data name="WhiteboardAndInk" xml:space="preserve"><value>Pizarra y escritura</value></data>
+  <data name="WhiteboardBackground" xml:space="preserve"><value>Usar un fondo blanco para la pizarra</value></data>
+  <data name="WindowTitle" xml:space="preserve"><value>FluentCanvas · Configuración</value></data>
+  <data name="FileAssociations" xml:space="preserve"><value>Aplicación predeterminada para .icart y .icstk</value></data>
+  <data name="FileAssociationsConfirm" xml:space="preserve"><value>¿Usar esta copia para las asociaciones de archivos? La ubicación registrada cambiará a {0}. Elige la aplicación predeterminada en Configuración de Windows.</value></data>
+  <data name="WindowsStartupSettings" xml:space="preserve"><value>Aplicaciones de inicio de Windows</value></data>
+  <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>Desactivar los gestos táctiles de borde en pantalla completa</value></data>
+</root>

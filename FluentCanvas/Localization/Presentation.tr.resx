@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>PowerPoint açıklama sayfasına geçilemedi: {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>Sunum ayarları - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>{0} slayt gösterisi sonlandırılamadı.</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>Bu sunumda gizli slaytlar var. Gösterilsinler mi?</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>{0} slaydın eski açıklamaları içe aktarıldı.</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>FluentCanvas, dosya adı ve slayt numarasıyla kaydedilmiş eski açıklamalar buldu. Açıklamaların bu sunuma ait olduğunu ve slayt sırasının değişmediğini doğrulayın. Açıklamalar bu sunumun klasörüne kopyalansın mı?</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>Önceki slayt gösterisi {0}. slaytta sona erdi. O slayda gidilsin mi?</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>Bu sunum otomatik ilerleme veya prova zamanlaması kullanıyor. Slaytlar elle ilerletilsin mi?</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>PowerPoint slayt gezintisi açılamadı.</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>Sonraki slayt</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>{0} içinde sonraki slayda geçilemedi.</value></data>
+  <data name="No" xml:space="preserve"><value>Hayır</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>PowerPoint işlemi başarısız oldu: {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>Gösterideki konum {0} · Sunumdaki slayt {1}</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>Önceki slayt</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>{0} içinde önceki slayda geçilemedi.</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>{0}. slaydın kayıtlı açıklamaları okunamadı. Özgün dosya korundu.</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>PowerPoint açıklamaları kaydedilemedi. Bu oturumda hâlâ kullanılabilirler.</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>PowerPoint açıklamaları yerel kurtarma klasörüne kaydedildi.</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>PowerPoint açıklamaları veya gösterinin konumu kaydedilemedi: {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>Geçerli slayt gösterisinin penceresi bulunamadı.</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS slayt gösterisi komutunu tamamlayamadı.</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>WPS eklentisi slayt gösterisi komutunu onaylamadı.</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>Slayt gösterisi komutu WPS eklentisine gönderilemedi.</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>Evet</value></data>
+</root>

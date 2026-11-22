@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="WindowTitle" xml:space="preserve"><value>Доска FluentCanvas</value></data>
+  <data name="Undo" xml:space="preserve"><value>Отменить</value></data>
+  <data name="Redo" xml:space="preserve"><value>Повторить</value></data>
+  <data name="Select" xml:space="preserve"><value>Выбрать</value></data>
+  <data name="Pen" xml:space="preserve"><value>Перо</value></data>
+  <data name="Eraser" xml:space="preserve"><value>Ластик</value></data>
+  <data name="EraseStrokes" xml:space="preserve"><value>Стирать целые штрихи</value></data>
+  <data name="ExpandToolbar" xml:space="preserve"><value>Развернуть плавающую панель инструментов</value></data>
+  <data name="CollapseToolbar" xml:space="preserve"><value>Скрыть плавающую панель инструментов</value></data>
+  <data name="ToggleToolbar" xml:space="preserve"><value>Развернуть или свернуть плавающую панель</value></data>
+  <data name="ToolbarDrag" xml:space="preserve"><value>Перетащите панель, чтобы переместить её</value></data>
+  <data name="ToolbarDragOrToggle" xml:space="preserve"><value>Перетащите панель для перемещения. Нажмите, чтобы развернуть или свернуть её.</value></data>
+  <data name="ExpandFromLeft" xml:space="preserve"><value>Развернуть панель слева</value></data>
+  <data name="ExpandFromRight" xml:space="preserve"><value>Развернуть панель справа</value></data>
+  <data name="SaveInk" xml:space="preserve"><value>Сохранить</value></data>
+  <data name="SaveDocument" xml:space="preserve"><value>Сохранить рисунок</value></data>
+  <data name="OpenInk" xml:space="preserve"><value>Открыть</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>Открыть рисунок</value></data>
+  <data name="Playback" xml:space="preserve"><value>Повтор</value></data>
+  <data name="ReplayInk" xml:space="preserve"><value>Воспроизвести штрихи</value></data>
+  <data name="ExportImage" xml:space="preserve"><value>Сохранить как изображение</value></data>
+  <data name="PenTip" xml:space="preserve"><value>Наконечник пера</value></data>
+  <data name="NibMode" xml:space="preserve"><value>Режим тонкого пера</value></data>
+  <data name="Opacity" xml:space="preserve"><value>Непрозрачность</value></data>
+  <data name="InsertVideo" xml:space="preserve"><value>Вставить видео</value></data>
+  <data name="InsertImage" xml:space="preserve"><value>Вставить изображение</value></data>
+  <data name="Width" xml:space="preserve"><value>Толщина</value></data>
+  <data name="TouchSelectionHint" xml:space="preserve"><value>Сенсорный экран: один палец для перемещения, два — для масштаба и поворота.</value></data>
+  <data name="MouseSelectionHint" xml:space="preserve"><value>Мышь: перетаскивание для перемещения, колёсико для масштаба.</value></data>
+  <data name="ParabolaWithFocus" xml:space="preserve"><value>Парабола с фокусом</value></data>
+  <data name="HyperbolaWithFoci" xml:space="preserve"><value>Гипербола с фокусами</value></data>
+  <data name="EllipseWithFoci" xml:space="preserve"><value>Эллипс с фокусами</value></data>
+  <data name="PickOne" xml:space="preserve"><value>Выбрать одного</value></data>
+  <data name="Countdown" xml:space="preserve"><value>Обратный отсчёт</value></data>
+  <data name="TimerShort" xml:space="preserve"><value>Таймер</value></data>
+  <data name="ClickToClear" xml:space="preserve"><value>Нажмите, чтобы очистить</value></data>
+  <data name="PointBasedPenTip" xml:space="preserve"><value>Сужение по точкам</value></data>
+  <data name="DottedLine" xml:space="preserve"><value>Точечная линия</value></data>
+  <data name="MultiFingerInk" xml:space="preserve"><value>Рисование несколькими пальцами</value></data>
+  <data name="More" xml:space="preserve"><value>Ещё</value></data>
+  <data name="MoreTools" xml:space="preserve"><value>Другие инструменты</value></data>
+  <data name="MoreFeatures" xml:space="preserve"><value>Другие функции</value></data>
+  <data name="MoreSettings" xml:space="preserve"><value>Другие настройки</value></data>
+  <data name="Tools" xml:space="preserve"><value>Инструменты</value></data>
+  <data name="PinShapes" xml:space="preserve"><value>Закрепить панель фигур</value></data>
+  <data name="Off" xml:space="preserve"><value>Выкл.</value></data>
+  <data name="On" xml:space="preserve"><value>Вкл.</value></data>
+  <data name="NoTaper" xml:space="preserve"><value>Без сужения</value></data>
+  <data name="HorizontalParabola" xml:space="preserve"><value>Горизонтальная парабола</value></data>
+  <data name="Board" xml:space="preserve"><value>Доска</value></data>
+  <data name="ColorBlack" xml:space="preserve"><value>Чёрный</value></data>
+  <data name="ColorWhite" xml:space="preserve"><value>Белый</value></data>
+  <data name="ColorRed" xml:space="preserve"><value>Красный</value></data>
+  <data name="ColorPink" xml:space="preserve"><value>Розовый</value></data>
+  <data name="ColorOrange" xml:space="preserve"><value>Оранжевый</value></data>
+  <data name="ColorYellow" xml:space="preserve"><value>Жёлтый</value></data>
+  <data name="ColorGreen" xml:space="preserve"><value>Зелёный</value></data>
+  <data name="ColorCyan" xml:space="preserve"><value>Голубой</value></data>
+  <data name="ColorBlue" xml:space="preserve"><value>Синий</value></data>
+  <data name="ColorPurple" xml:space="preserve"><value>Фиолетовый</value></data>
+  <data name="BlackPen" xml:space="preserve"><value>Перо · чёрный</value></data>
+  <data name="WhitePen" xml:space="preserve"><value>Перо · белый</value></data>
+  <data name="RedPen" xml:space="preserve"><value>Перо · красный</value></data>
+  <data name="PinkPen" xml:space="preserve"><value>Перо · розовый</value></data>
+  <data name="OrangePen" xml:space="preserve"><value>Перо · оранжевый</value></data>
+  <data name="YellowPen" xml:space="preserve"><value>Перо · жёлтый</value></data>
+  <data name="GreenPen" xml:space="preserve"><value>Перо · зелёный</value></data>
+  <data name="CyanPen" xml:space="preserve"><value>Перо · голубой</value></data>
+  <data name="BluePen" xml:space="preserve"><value>Перо · синий</value></data>
+  <data name="Canvas" xml:space="preserve"><value>Холст</value></data>
+  <data name="DrawShape" xml:space="preserve"><value>Рисовать фигуры</value></data>
+  <data name="AddPage" xml:space="preserve"><value>Добавить страницу</value></data>
+  <data name="Arrow" xml:space="preserve"><value>Стрелка</value></data>
+  <data name="EndSlideShow" xml:space="preserve"><value>Завершить показ PowerPoint</value></data>
+  <data name="ScreenCaptureShort" xml:space="preserve"><value>Снимок</value></data>
+  <data name="ScreenCapture" xml:space="preserve"><value>Снимок экрана</value></data>
+  <data name="Rectangle" xml:space="preserve"><value>Прямоугольник</value></data>
+  <data name="CloneMode" xml:space="preserve"><value>Режим копирования</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>Справочник сочетаний клавиш</value></data>
+  <data name="LightPalette" xml:space="preserve"><value>Светлая</value></data>
+  <data name="DarkPalette" xml:space="preserve"><value>Тёмная</value></data>
+  <data name="AreaEraserShort" xml:space="preserve"><value>Область</value></data>
+  <data name="Ink" xml:space="preserve"><value>Чернила</value></data>
+  <data name="StrokeEraserShort" xml:space="preserve"><value>Штрих</value></data>
+  <data name="InkRecognition" xml:space="preserve"><value>Распознавание рукописного ввода</value></data>
+  <data name="InkOptions" xml:space="preserve"><value>Параметры чернил</value></data>
+  <data name="RotateLeft" xml:space="preserve"><value>Повернуть влево</value></data>
+  <data name="Annotate" xml:space="preserve"><value>Пометки</value></data>
+  <data name="ParallelLines" xml:space="preserve"><value>Параллельные прямые</value></data>
+  <data name="SwitchBoard" xml:space="preserve"><value>Переключиться между доской и заметками на рабочем столе</value></data>
+  <data name="SwitchPenPalette" xml:space="preserve"><value>Сменить палитру пера</value></data>
+  <data name="ClearAndMouseShort" xml:space="preserve"><value>Очистить</value></data>
+  <data name="Clear" xml:space="preserve"><value>Очистить</value></data>
+  <data name="ClearAnnotations" xml:space="preserve"><value>Очистить пометки</value></data>
+  <data name="ClearAndMouse" xml:space="preserve"><value>Очистить пометки и перейти в режим мыши</value></data>
+  <data name="Delete" xml:space="preserve"><value>Удалить</value></data>
+  <data name="PreviousPage" xml:space="preserve"><value>Предыдущая страница</value></data>
+  <data name="Settings" xml:space="preserve"><value>Настройки</value></data>
+  <data name="Video" xml:space="preserve"><value>Видео</value></data>
+  <data name="DocumentCamera" xml:space="preserve"><value>Документ-камера</value></data>
+  <data name="Gestures" xml:space="preserve"><value>Жесты</value></data>
+  <data name="GestureFeatures" xml:space="preserve"><value>Управление жестами</value></data>
+  <data name="GestureOptions" xml:space="preserve"><value>Параметры жестов</value></data>
+  <data name="Mouse" xml:space="preserve"><value>Мышь</value></data>
+  <data name="MouseMode" xml:space="preserve"><value>Режим мыши</value></data>
+  <data name="VerticalParabola" xml:space="preserve"><value>Вертикальная парабола</value></data>
+  <data name="FlipVertical" xml:space="preserve"><value>Отразить по вертикали</value></data>
+  <data name="Hyperbola" xml:space="preserve"><value>Гипербола</value></data>
+  <data name="TwoFingerGestures" xml:space="preserve"><value>Жесты двумя пальцами</value></data>
+  <data name="TwoFingerZoom" xml:space="preserve"><value>Масштабирование двумя пальцами</value></data>
+  <data name="TwoFingerRotate" xml:space="preserve"><value>Поворот двумя пальцами</value></data>
+  <data name="TwoFingerPan" xml:space="preserve"><value>Перемещение двумя пальцами</value></data>
+  <data name="FlipHorizontal" xml:space="preserve"><value>Отразить по горизонтали</value></data>
+  <data name="RotateRight" xml:space="preserve"><value>Повернуть вправо</value></data>
+  <data name="Tetrahedron" xml:space="preserve"><value>Тетраэдр</value></data>
+  <data name="SpeedBasedPenTip" xml:space="preserve"><value>Сужение по скорости</value></data>
+  <data name="RandomPicker" xml:space="preserve"><value>Случайный выбор</value></data>
+  <data name="RandomPickerShort" xml:space="preserve"><value>Выбор</value></data>
+  <data name="PickOnePerson" xml:space="preserve"><value>Выбрать одного человека случайно</value></data>
+  <data name="Image" xml:space="preserve"><value>Рисунок</value></data>
+  <data name="Shapes" xml:space="preserve"><value>Фигуры</value></data>
+  <data name="ShapesHint" xml:space="preserve"><value>Фигуры (удерживайте кнопку в первом ряду для непрерывного рисования)</value></data>
+  <data name="Exit" xml:space="preserve"><value>Выход</value></data>
+  <data name="Ellipse" xml:space="preserve"><value>Эллипс</value></data>
+  <data name="NextPage" xml:space="preserve"><value>Следующая страница</value></data>
+  <data name="DashedLine" xml:space="preserve"><value>Штриховая линия</value></data>
+  <data name="DashedCircle" xml:space="preserve"><value>Штриховая окружность</value></data>
+  <data name="Colors" xml:space="preserve"><value>Цвета</value></data>
+  <data name="SendToBoard" xml:space="preserve"><value>Отправить на доску</value></data>
+  <data name="PageNumber" xml:space="preserve"><value>Номер страницы</value></data>
+  <data name="CenteredRectangle" xml:space="preserve"><value>Нарисовать прямоугольник из центра</value></data>
+  <data name="CenteredEllipse" xml:space="preserve"><value>Нарисовать эллипс из центра</value></data>
+  <data name="Hide" xml:space="preserve"><value>Скрыть</value></data>
+  <data name="Highlighter" xml:space="preserve"><value>Маркер</value></data>
+  <data name="RedHighlighter" xml:space="preserve"><value>Маркер · красный</value></data>
+  <data name="OrangeHighlighter" xml:space="preserve"><value>Маркер · оранжевый</value></data>
+  <data name="YellowHighlighter" xml:space="preserve"><value>Маркер · жёлтый</value></data>
+  <data name="CyanHighlighter" xml:space="preserve"><value>Маркер · голубой</value></data>
+  <data name="BlueHighlighter" xml:space="preserve"><value>Маркер · синий</value></data>
+  <data name="PurpleHighlighter" xml:space="preserve"><value>Маркер · фиолетовый</value></data>
+  <data name="Circle" xml:space="preserve"><value>Окружность</value></data>
+  <data name="CircleEraserShort" xml:space="preserve"><value>Круг</value></data>
+  <data name="Cylinder" xml:space="preserve"><value>Цилиндр</value></data>
+  <data name="Cone" xml:space="preserve"><value>Конус</value></data>
+  <data name="RepeatShapeHint" xml:space="preserve"><value>Удерживайте кнопку, чтобы рисовать эту фигуру несколько раз</value></data>
+  <data name="Cuboid" xml:space="preserve"><value>Прямоугольный параллелепипед</value></data>
+  <data name="Line" xml:space="preserve"><value>Прямая линия</value></data>
+  <data name="Guide" xml:space="preserve"><value>Справка</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>Автоскрытие</value></data>
+  <data name="Axis1" xml:space="preserve"><value>Координатные оси 1</value></data>
+  <data name="Axis2" xml:space="preserve"><value>Координатные оси 2</value></data>
+  <data name="Axis3" xml:space="preserve"><value>Координатные оси 3</value></data>
+  <data name="Axis4" xml:space="preserve"><value>Координатные оси 4</value></data>
+  <data name="Axis5" xml:space="preserve"><value>Координатные оси 5</value></data>
+  <data name="CurrentTool" xml:space="preserve"><value>Текущий инструмент</value></data>
+  <data name="CurrentColor" xml:space="preserve"><value>Текущий цвет</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>Как в Windows</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>Не удалось открыть окно инструмента. Проверьте файлы приложения.</value></data>
+  <data name="ProcessPathMissing" xml:space="preserve"><value>Не найден исполняемый файл приложения.</value></data>
+  <data name="ToolStartFailed" xml:space="preserve"><value>Не удалось запустить инструмент.</value></data>
+  <data name="UnexpectedError" xml:space="preserve"><value>Произошла непредвиденная ошибка. Сохраните рисунок и перезапустите FluentCanvas.</value></data>
+  <data name="ActivationFailed" xml:space="preserve"><value>Не удалось передать файл в FluentCanvas. Попробуйте открыть его через панель инструментов.</value></data>
+  <data name="SettingsSaveFailed" xml:space="preserve"><value>Не удалось сохранить настройки. Проверьте права записи в папку данных пользователя.</value></data>
+  <data name="SettingsReadFailed" xml:space="preserve"><value>Не удалось прочитать настройки. Исходный файл сохранён.</value></data>
+  <data name="TriangleVariants" xml:space="preserve"><value>Треугольники</value></data>
+  <data name="Triangle" xml:space="preserve"><value>Произвольный треугольник</value></data>
+  <data name="RightTriangle" xml:space="preserve"><value>Прямоугольный треугольник</value></data>
+  <data name="IsoscelesTriangle" xml:space="preserve"><value>Равнобедренный треугольник</value></data>
+  <data name="EquilateralTriangle" xml:space="preserve"><value>Равносторонний треугольник</value></data>
+  <data name="Parallelogram" xml:space="preserve"><value>Параллелограмм</value></data>
+  <data name="Trapezoid" xml:space="preserve"><value>Трапеция</value></data>
+  <data name="AngleMarks" xml:space="preserve"><value>Обозначения углов</value></data>
+  <data name="AngleMark" xml:space="preserve"><value>Дуга угла</value></data>
+  <data name="RightAngleMark" xml:space="preserve"><value>Обозначение прямого угла</value></data>
+  <data name="CircularShapes" xml:space="preserve"><value>Дуги и секторы</value></data>
+  <data name="Arc" xml:space="preserve"><value>Дуга</value></data>
+  <data name="Sector" xml:space="preserve"><value>Круговой сектор</value></data>
+  <data name="Semicircle" xml:space="preserve"><value>Полукруг</value></data>
+  <data name="NumberLine" xml:space="preserve"><value>Числовая прямая</value></data>
+  <data name="NumberLineTicks" xml:space="preserve"><value>Числовая прямая с делениями</value></data>
+  <data name="NumberLineLabeled" xml:space="preserve"><value>Числовая прямая с делениями и числами</value></data>
+  <data name="BoundingEllipse" xml:space="preserve"><value>Построить эллипс по противоположным углам рамки</value></data>
+  <data name="Sphere" xml:space="preserve"><value>Шар</value></data>
+  <data name="PlaceTriangleFirstSide" xml:space="preserve"><value>Коснитесь концов первой стороны или проведите её</value></data>
+  <data name="PlaceTriangleVertex" xml:space="preserve"><value>Коснитесь экрана, чтобы поставить третью вершину</value></data>
+  <data name="PlaceAngleFirstSide" xml:space="preserve"><value>Коснитесь вершины и точки на первой стороне или проведите линию от вершины</value></data>
+  <data name="PlaceAngleSecondSide" xml:space="preserve"><value>Коснитесь точки на второй стороне</value></data>
+  <data name="PlaceArcRadius" xml:space="preserve"><value>Коснитесь центра и начальной точки или проведите радиус от центра</value></data>
+  <data name="PlaceArcEnd" xml:space="preserve"><value>Коснитесь экрана в направлении конечной точки</value></data>
+  <data name="DrawSemicircle" xml:space="preserve"><value>Проведите диаметр. Полукруг появится слева по направлению движения.</value></data>
+</root>

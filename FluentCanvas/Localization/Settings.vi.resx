@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotateOnSlideShow" xml:space="preserve"><value>Vào chế độ chú thích khi bắt đầu trình chiếu</value></data>
+  <data name="App" xml:space="preserve"><value>Ứng dụng</value></data>
+  <data name="Appearance" xml:space="preserve"><value>Giao diện</value></data>
+  <data name="Apply" xml:space="preserve"><value>Áp dụng</value></data>
+  <data name="AutosaveLocation" xml:space="preserve"><value>Vị trí lưu tự động</value></data>
+  <data name="AutosaveRetention" xml:space="preserve"><value>Số ngày giữ tệp lưu tự động</value></data>
+  <data name="BoardScale" xml:space="preserve"><value>Kích thước điều khiển bảng trắng (%)</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Hủy</value></data>
+  <data name="CaptureOnClear" xml:space="preserve"><value>Tự động chụp màn hình trước khi xóa</value></data>
+  <data name="CaptureSlide" xml:space="preserve"><value>Tự động chụp màn hình khi chuyển trang chiếu</value></data>
+  <data name="ChangeFailed" xml:space="preserve"><value>Không thể thay đổi cài đặt. Vui lòng thử lại.</value></data>
+  <data name="ChooseFolder" xml:space="preserve"><value>Chọn thư mục…</value></data>
+  <data name="ChooseFolderFailed" xml:space="preserve"><value>Không thể chọn thư mục: {0}</value></data>
+  <data name="CleanAutosaves" xml:space="preserve"><value>Xóa tệp lưu tự động đã quá hạn khi khởi động</value></data>
+  <data name="ConnectionFailed" xml:space="preserve"><value>Không thể kết nối với FluentCanvas. Hãy tải lại cài đặt rồi thử lại.</value></data>
+  <data name="Copied" xml:space="preserve"><value>Đã sao chép</value></data>
+  <data name="CopyDiagnostics" xml:space="preserve"><value>Sao chép thông tin chẩn đoán</value></data>
+  <data name="CopyFailed" xml:space="preserve"><value>Không thể sao chép. Vui lòng thử lại.</value></data>
+  <data name="Dark" xml:space="preserve"><value>Tối</value></data>
+  <data name="DateFolders" xml:space="preserve"><value>Sắp xếp ảnh chụp màn hình vào thư mục theo ngày</value></data>
+  <data name="DetectPowerPoint" xml:space="preserve"><value>Phát hiện trình chiếu PowerPoint</value></data>
+  <data name="Diagnostics" xml:space="preserve"><value>Chẩn đoán</value></data>
+  <data name="DiagnosticsAndPrivacy" xml:space="preserve"><value>Chẩn đoán và quyền riêng tư</value></data>
+  <data name="DiagnosticsComponents" xml:space="preserve"><value>Vùng vẽ  WPF
+Cửa sổ chẩn đoán  WinUI 3</value></data>
+  <data name="DiagnosticsTitle" xml:space="preserve"><value>FluentCanvas · Chẩn đoán</value></data>
+  <data name="DirectoryNotWritable" xml:space="preserve"><value>Không thể ghi vào thư mục đã chọn.</value></data>
+  <data name="DirectoryTimeout" xml:space="preserve"><value>Thư mục đã chọn không phản hồi. Hãy kiểm tra kết nối rồi thử lại.</value></data>
+  <data name="EnableWps" xml:space="preserve"><value>Trình chiếu WPS (thử nghiệm, cần phần bổ trợ cho ứng dụng máy tính)</value></data>
+  <data name="Exit" xml:space="preserve"><value>Thoát</value></data>
+  <data name="ExitApp" xml:space="preserve"><value>Thoát FluentCanvas</value></data>
+  <data name="FingerEraserScale" xml:space="preserve"><value>Hệ số kích thước tẩy ở chế độ ngón tay</value></data>
+  <data name="FingerEraserThreshold" xml:space="preserve"><value>Hệ số ngưỡng tẩy theo vùng ở chế độ ngón tay</value></data>
+  <data name="FingerTouchWidth" xml:space="preserve"><value>Ngưỡng độ rộng vùng chạm ở chế độ ngón tay</value></data>
+  <data name="FoldAtStartup" xml:space="preserve"><value>Thu thanh công cụ sát cạnh màn hình khi khởi động</value></data>
+  <data name="FoldInSlideShow" xml:space="preserve"><value>Tự động thu thanh công cụ khi trình chiếu</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>Theo Windows</value></data>
+  <data name="GlobalHotkeys" xml:space="preserve"><value>Phím tắt toàn hệ thống</value></data>
+  <data name="Guide" xml:space="preserve"><value>Hướng dẫn sử dụng</value></data>
+  <data name="GuideCanvas" xml:space="preserve"><value>Phím tắt vùng vẽ</value></data>
+  <data name="GuideCapture" xml:space="preserve"><value>Lưu ảnh chụp màn hình vào màn hình nền</value></data>
+  <data name="GuideClear" xml:space="preserve"><value>Xóa vùng vẽ hoặc phần đang chọn</value></data>
+  <data name="GuideEraser" xml:space="preserve"><value>Chuyển sang tẩy hoặc đổi giữa tẩy theo vùng và tẩy theo nét</value></data>
+  <data name="GuideGlobal" xml:space="preserve"><value>Phím tắt toàn hệ thống mặc định</value></data>
+  <data name="GuideIntro" xml:space="preserve"><value>Phím tắt toàn hệ thống hoạt động khi một ứng dụng khác hoặc trình chiếu đang được dùng. Bạn có thể đổi phím tắt hoặc xử lý xung đột trong mục Phím tắt toàn hệ thống của Cài đặt.</value></data>
+  <data name="GuideLine" xml:space="preserve"><value>Chọn công cụ đường thẳng</value></data>
+  <data name="GuideNextKeys" xml:space="preserve"><value>↓ / → / Page Down / N / Phím cách</value></data>
+  <data name="GuidePen" xml:space="preserve"><value>Chuyển sang bút hoặc bật/tắt bảng màu</value></data>
+  <data name="GuidePointer" xml:space="preserve"><value>Thoát chế độ vẽ và trở về con trỏ</value></data>
+  <data name="GuideRedo" xml:space="preserve"><value>Làm lại</value></data>
+  <data name="GuideSelect" xml:space="preserve"><value>Chuyển sang công cụ chọn</value></data>
+  <data name="GuideSlides" xml:space="preserve"><value>Phím tắt trình chiếu khi cửa sổ chú thích đang được dùng</value></data>
+  <data name="GuideTitle" xml:space="preserve"><value>FluentCanvas · Hướng dẫn sử dụng</value></data>
+  <data name="GuideTools" xml:space="preserve"><value>Hiện hoặc ẩn các công cụ trên thanh công cụ nổi</value></data>
+  <data name="GuideUndo" xml:space="preserve"><value>Hoàn tác</value></data>
+  <data name="GuideWheel" xml:space="preserve"><value>Cuộn chuột xuống / lên</value></data>
+  <data name="GuideWheelSlides" xml:space="preserve"><value>Trang chiếu tiếp theo / trước đó</value></data>
+  <data name="HotkeyApplyName" xml:space="preserve"><value>Áp dụng phím tắt toàn hệ thống cho {0}</value></data>
+  <data name="HotkeyBoard" xml:space="preserve"><value>Chuyển giữa bảng trắng và chú thích trên màn hình</value></data>
+  <data name="HotkeyCapture" xml:space="preserve"><value>Chụp ảnh màn hình</value></data>
+  <data name="HotkeyClear" xml:space="preserve"><value>Xóa vùng vẽ hoặc phần đang chọn</value></data>
+  <data name="HotkeyConflict" xml:space="preserve"><value>Một thao tác hoặc ứng dụng khác đang dùng phím tắt này.</value></data>
+  <data name="HotkeyDisabled" xml:space="preserve"><value>Đã tắt</value></data>
+  <data name="HotkeyDraw" xml:space="preserve"><value>Chuyển sang bút</value></data>
+  <data name="HotkeyEndSlides" xml:space="preserve"><value>Kết thúc trình chiếu</value></data>
+  <data name="HotkeyHint" xml:space="preserve"><value>Nhập tổ hợp có phím bổ trợ, ví dụ Ctrl+Shift+B. Để tắt phím tắt, hãy xóa nội dung trong ô rồi chọn Áp dụng.</value></data>
+  <data name="HotkeyInputName" xml:space="preserve"><value>Phím tắt toàn hệ thống cho {0}</value></data>
+  <data name="HotkeyInvalid" xml:space="preserve"><value>Phím tắt không hợp lệ. Hãy dùng tổ hợp như Ctrl+Shift+B.</value></data>
+  <data name="HotkeyLimit" xml:space="preserve"><value>Đã đạt giới hạn số phím tắt toàn hệ thống.</value></data>
+  <data name="HotkeyModifier" xml:space="preserve"><value>Nhập tổ hợp có phím bổ trợ, ví dụ Ctrl+Shift+B.</value></data>
+  <data name="HotkeyPointer" xml:space="preserve"><value>Trở về con trỏ</value></data>
+  <data name="HotkeyResetName" xml:space="preserve"><value>Khôi phục phím tắt toàn hệ thống mặc định cho {0}</value></data>
+  <data name="HotkeySaveFailed" xml:space="preserve"><value>Không thể lưu phím tắt.</value></data>
+  <data name="HotkeyTools" xml:space="preserve"><value>Hiện hoặc ẩn các nhóm công cụ</value></data>
+  <data name="HotkeyUnavailable" xml:space="preserve"><value>Không thể đăng ký các phím tắt toàn hệ thống sau: {0}. Hãy đổi chúng trong Cài đặt.</value></data>
+  <data name="HotkeyUnknown" xml:space="preserve"><value>Phím tắt toàn hệ thống không xác định.</value></data>
+  <data name="HotkeyUnknownKey" xml:space="preserve"><value>Windows không nhận ra phím này.</value></data>
+  <data name="HotkeyWindowsError" xml:space="preserve"><value>Windows không thể đăng ký phím tắt ({0}).</value></data>
+  <data name="InstallationMethod" xml:space="preserve"><value>Hình thức cài đặt  {0}</value></data>
+  <data name="InvalidSession" xml:space="preserve"><value>Phiên cài đặt không hợp lệ.</value></data>
+  <data name="InvalidValue" xml:space="preserve"><value>Giá trị cài đặt không hợp lệ.</value></data>
+  <data name="Language" xml:space="preserve"><value>Ngôn ngữ hiển thị</value></data>
+  <data name="LanguageRestart" xml:space="preserve"><value>Khởi động lại FluentCanvas để áp dụng ngôn ngữ đã chọn.</value></data>
+  <data name="Light" xml:space="preserve"><value>Sáng</value></data>
+  <data name="MoreOptions" xml:space="preserve"><value>Tùy chọn khác</value></data>
+  <data name="MultiTouch" xml:space="preserve"><value>Cho phép vẽ bằng nhiều ngón khi tắt chuyển chế độ tự động</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>Trang chiếu tiếp theo</value></data>
+  <data name="NibEraserScale" xml:space="preserve"><value>Hệ số kích thước tẩy ở chế độ đầu bút</value></data>
+  <data name="NibEraserThreshold" xml:space="preserve"><value>Hệ số ngưỡng tẩy theo vùng ở chế độ đầu bút</value></data>
+  <data name="NibMode" xml:space="preserve"><value>Dùng chế độ đầu bút</value></data>
+  <data name="NibTouchWidth" xml:space="preserve"><value>Ngưỡng độ rộng vùng chạm ở chế độ đầu bút</value></data>
+  <data name="Off" xml:space="preserve"><value>Tắt</value></data>
+  <data name="On" xml:space="preserve"><value>Bật</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>Không thể mở Cài đặt. Vui lòng thử lại.</value></data>
+  <data name="PenCursor" xml:space="preserve"><value>Hiện con trỏ bút</value></data>
+  <data name="PenWidth" xml:space="preserve"><value>Độ dày nét bút</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>Trang chiếu trước</value></data>
+  <data name="QuadInfrared" xml:space="preserve"><value>Dùng màn hình cảm ứng hồng ngoại bốn cạnh</value></data>
+  <data name="RecognizeShapes" xml:space="preserve"><value>Nhận dạng hình vẽ tay</value></data>
+  <data name="Reload" xml:space="preserve"><value>Tải lại cài đặt</value></data>
+  <data name="ReportingStartFailed" xml:space="preserve"><value>Không thể bắt đầu báo cáo lỗi.</value></data>
+  <data name="ResetDefault" xml:space="preserve"><value>Đặt lại về mặc định</value></data>
+  <data name="Restart" xml:space="preserve"><value>Khởi động lại</value></data>
+  <data name="RestartApp" xml:space="preserve"><value>Khởi động lại FluentCanvas</value></data>
+  <data name="RunAtStartup" xml:space="preserve"><value>Mở ứng dụng khi đăng nhập vào Windows</value></data>
+  <data name="SaveBeforeExit" xml:space="preserve"><value>Các trang bảng trắng và chú thích chưa lưu sẽ được sao lưu trước khi tiếp tục.</value></data>
+  <data name="SavedApplyFailed" xml:space="preserve"><value>Đã lưu cài đặt, nhưng chưa thể áp dụng cho bảng trắng hiện tại. Hãy lưu công việc rồi khởi động lại FluentCanvas.</value></data>
+  <data name="SaveFailed" xml:space="preserve"><value>Không thể lưu cài đặt.</value></data>
+  <data name="SaveInkOnCapture" xml:space="preserve"><value>Lưu nét vẽ cùng ảnh chụp màn hình</value></data>
+  <data name="SaveSlideInk" xml:space="preserve"><value>Tự động lưu nét vẽ theo từng trang chiếu</value></data>
+  <data name="Saving" xml:space="preserve"><value>Đang lưu</value></data>
+  <data name="SendErrors" xml:space="preserve"><value>Gửi lỗi ứng dụng đến Sentry</value></data>
+  <data name="SettingsExited" xml:space="preserve"><value>Cửa sổ cài đặt đã đóng ngoài dự kiến. Vui lòng thử lại.</value></data>
+  <data name="SettingUnavailable" xml:space="preserve"><value>Không thể thay đổi cài đặt này.</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>Hướng dẫn phím tắt</value></data>
+  <data name="Slides" xml:space="preserve"><value>Trình chiếu</value></data>
+  <data name="SpecialTouchScreen" xml:space="preserve"><value>Dùng hiệu chỉnh màn hình cảm ứng tùy chỉnh</value></data>
+  <data name="Standalone" xml:space="preserve"><value>Bản độc lập</value></data>
+  <data name="Startup" xml:space="preserve"><value>Khởi động</value></data>
+  <data name="StartupChangeFailed" xml:space="preserve"><value>Không thể thay đổi cách khởi động. Hãy kiểm tra mục Ứng dụng khởi động trong Cài đặt Windows.</value></data>
+  <data name="StartupDisabledByUser" xml:space="preserve"><value>Bạn có thể bật tùy chọn này trong mục Ứng dụng khởi động của Windows.</value></data>
+  <data name="StartupNotEnabled" xml:space="preserve"><value>Windows chưa bật tự động khởi động.</value></data>
+  <data name="StartupPolicyDisabled" xml:space="preserve"><value>Tổ chức của bạn đã tắt mục khởi động này.</value></data>
+  <data name="StartupPolicyEnabled" xml:space="preserve"><value>Tổ chức của bạn đã bật mục khởi động này.</value></data>
+  <data name="StartupUnreadable" xml:space="preserve"><value>Không thể đọc trạng thái khởi động của Windows.</value></data>
+  <data name="StoreAutoDownload" xml:space="preserve"><value>Tự động kiểm tra và tải bản cập nhật khi khởi động</value></data>
+  <data name="StoreAvailable" xml:space="preserve"><value>Có bản cập nhật trên Microsoft Store.</value></data>
+  <data name="StoreBackingUp" xml:space="preserve"><value>Đang sao lưu nội dung chưa lưu…</value></data>
+  <data name="StoreBackupAndUpdate" xml:space="preserve"><value>Sao lưu và cập nhật</value></data>
+  <data name="StoreBackupFailed" xml:space="preserve"><value>Không thể sao lưu công việc. Hãy kiểm tra vị trí lưu rồi thử lại.</value></data>
+  <data name="StoreBackupLocation" xml:space="preserve"><value>
+Vị trí bản sao lưu: {0}</value></data>
+  <data name="StoreBackupStateChanged" xml:space="preserve"><value>Bảng trắng hoặc trình chiếu đã thay đổi trong khi sao lưu. Vui lòng thử lại.</value></data>
+  <data name="StoreBoardBusy" xml:space="preserve"><value>Bảng trắng đang bận. Hãy đợi thao tác hiện tại hoàn tất rồi thử lại.</value></data>
+  <data name="StoreCanceled" xml:space="preserve"><value>Đã hủy cập nhật.</value></data>
+  <data name="StoreCheck" xml:space="preserve"><value>Kiểm tra bản cập nhật</value></data>
+  <data name="StoreChecking" xml:space="preserve"><value>Đang kiểm tra bản cập nhật trên Microsoft Store…</value></data>
+  <data name="StoreCompleted" xml:space="preserve"><value>Microsoft Store đã hoàn tất cập nhật.</value></data>
+  <data name="StoreDeferred" xml:space="preserve"><value>Bạn có thể kiểm tra và cài đặt bản cập nhật sau.</value></data>
+  <data name="StoreDownloadHint" xml:space="preserve"><value>Tải xuống tự động theo cài đặt cập nhật và mạng của Microsoft Store. Store quản lý quá trình cài đặt.</value></data>
+  <data name="StoreDownloading" xml:space="preserve"><value>Microsoft Store đang tải bản cập nhật ({0:P0})…</value></data>
+  <data name="StoreFinishing" xml:space="preserve"><value>Đang chờ Microsoft Store hoàn tất cập nhật…</value></data>
+  <data name="StoreInstallConfirmation" xml:space="preserve"><value>Cài đặt bản cập nhật từ Microsoft Store?</value></data>
+  <data name="StoreInstallHint" xml:space="preserve"><value>Bảng trắng và chú thích chưa lưu sẽ được sao lưu vào một thư mục tại vị trí lưu của bạn. Chỉnh sửa sẽ tạm dừng trong lúc cập nhật và quá trình cài đặt có thể đóng ứng dụng.</value></data>
+  <data name="StoreInstalling" xml:space="preserve"><value>Microsoft Store đang cài đặt bản cập nhật…</value></data>
+  <data name="StoreLater" xml:space="preserve"><value>Để sau</value></data>
+  <data name="StoreLowBattery" xml:space="preserve"><value>Pin yếu. Hãy cắm sạc rồi thử lại.</value></data>
+  <data name="StoreNeedsWifi" xml:space="preserve"><value>Hãy kết nối Wi-Fi rồi thử lại.</value></data>
+  <data name="StoreNonStorePackage" xml:space="preserve"><value>Hãy cài đặt FluentCanvas từ Microsoft Store để đánh giá ứng dụng hoặc nhận bản cập nhật từ Store.</value></data>
+  <data name="StoreNoUpdate" xml:space="preserve"><value>Không có bản cập nhật trên Microsoft Store.</value></data>
+  <data name="StoreOpeningRating" xml:space="preserve"><value>Đang mở cửa sổ đánh giá của Store…</value></data>
+  <data name="StoreRate" xml:space="preserve"><value>Xếp hạng và đánh giá</value></data>
+  <data name="StoreRatingClosed" xml:space="preserve"><value>Cửa sổ đánh giá đã đóng.</value></data>
+  <data name="StoreRatingUpdated" xml:space="preserve"><value>Microsoft Store đã cập nhật xếp hạng của bạn.</value></data>
+  <data name="StoreRequestFailed" xml:space="preserve"><value>Microsoft Store không thể hoàn tất yêu cầu (0x{0:X8}). Vui lòng thử lại sau.</value></data>
+  <data name="StoreRequesting" xml:space="preserve"><value>Đang yêu cầu Microsoft Store cài đặt bản cập nhật…</value></data>
+  <data name="StoreResumeEditing" xml:space="preserve"><value>
+Đóng Cài đặt để tiếp tục chỉnh sửa bảng trắng.</value></data>
+  <data name="StoreSlidesActive" xml:space="preserve"><value>Hãy kết thúc trình chiếu và lưu chú thích trước khi cài đặt bản cập nhật.</value></data>
+  <data name="StoreSlidesUnsaved" xml:space="preserve"><value>Chú thích trình chiếu chưa được lưu. Hãy kiểm tra vị trí lưu rồi thử lại.</value></data>
+  <data name="StoreStandalone" xml:space="preserve"><value>Đây là bản độc lập. Bản Microsoft Store hỗ trợ xếp hạng và cập nhật tự động.</value></data>
+  <data name="StoreUpdateFailed" xml:space="preserve"><value>Microsoft Store không thể hoàn tất cập nhật ({0}).</value></data>
+  <data name="StoreUpdateUnavailable" xml:space="preserve"><value>Microsoft Store không thể cập nhật bản cài đặt này.</value></data>
+  <data name="StoreUpdating" xml:space="preserve"><value>Microsoft Store đang cập nhật FluentCanvas.</value></data>
+  <data name="SwitchGestures" xml:space="preserve"><value>Tự động chuyển cử chỉ giữa chế độ chú thích và chế độ bảng trắng</value></data>
+  <data name="Theme" xml:space="preserve"><value>Chủ đề ứng dụng</value></data>
+  <data name="ToolbarLabels" xml:space="preserve"><value>Hiện nhãn trên thanh công cụ</value></data>
+  <data name="ToolbarScale" xml:space="preserve"><value>Kích thước thanh công cụ nổi (%)</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>Không thể mở cửa sổ công cụ. Vui lòng thử lại.</value></data>
+  <data name="TouchCalibration" xml:space="preserve"><value>Hiệu chỉnh cảm ứng và tẩy</value></data>
+  <data name="TouchMultiplier" xml:space="preserve"><value>Hệ số kích thước vùng chạm cho màn hình cảm ứng tùy chỉnh</value></data>
+  <data name="TwoFingerRotation" xml:space="preserve"><value>Cho phép xoay vùng vẽ bằng hai ngón</value></data>
+  <data name="WhiteboardAndInk" xml:space="preserve"><value>Bảng trắng và nét vẽ</value></data>
+  <data name="WhiteboardBackground" xml:space="preserve"><value>Dùng nền bảng màu trắng</value></data>
+  <data name="WindowTitle" xml:space="preserve"><value>FluentCanvas · Cài đặt</value></data>
+  <data name="FileAssociations" xml:space="preserve"><value>Ứng dụng mặc định cho .icart và .icstk</value></data>
+  <data name="FileAssociationsConfirm" xml:space="preserve"><value>Dùng bản sao này để liên kết tệp? Vị trí đã đăng ký sẽ đổi thành {0}. Chọn ứng dụng mặc định trong Cài đặt Windows.</value></data>
+  <data name="WindowsStartupSettings" xml:space="preserve"><value>Ứng dụng khởi động của Windows</value></data>
+  <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>Tắt cử chỉ chạm ở cạnh màn hình khi ở chế độ toàn màn hình</value></data>
+</root>

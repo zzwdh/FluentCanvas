@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>สลับหน้าคำอธิบายประกอบ PowerPoint ไม่ได้: {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>การตั้งค่างานนำเสนอ – FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>จบการนำเสนอสไลด์ใน {0} ไม่ได้</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>งานนำเสนอนี้มีสไลด์ที่ซ่อนไว้ ต้องการแสดงสไลด์เหล่านั้นหรือไม่</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>นำเข้าคำอธิบายประกอบแบบเดิมสำหรับ {0} สไลด์แล้ว</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>FluentCanvas พบคำอธิบายประกอบแบบเดิมที่บันทึกตามชื่อไฟล์และหมายเลขสไลด์ ตรวจสอบว่าเป็นของงานนำเสนอนี้และสไลด์ยังอยู่ในลำดับเดิม ต้องการคัดลอกไปยังโฟลเดอร์คำอธิบายประกอบของงานนำเสนอนี้หรือไม่</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>การนำเสนอครั้งก่อนหยุดที่สไลด์ {0} ต้องการไปยังสไลด์นั้นหรือไม่</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>งานนำเสนอนี้ใช้การเปลี่ยนสไลด์อัตโนมัติหรือเวลาที่บันทึกขณะซ้อม ต้องการเปลี่ยนสไลด์เองหรือไม่</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>เปิดการนำทางสไลด์ใน PowerPoint ไม่ได้</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>สไลด์ถัดไป</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>ไปยังสไลด์ถัดไปใน {0} ไม่ได้</value></data>
+  <data name="No" xml:space="preserve"><value>ไม่</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>การทำงานใน PowerPoint ล้มเหลว: {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>ตำแหน่งในโหมดนำเสนอ {0} · สไลด์ {1} ในงานนำเสนอ</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>สไลด์ก่อนหน้า</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>กลับไปยังสไลด์ก่อนหน้าใน {0} ไม่ได้</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>อ่านคำอธิบายประกอบที่บันทึกไว้สำหรับสไลด์ {0} ไม่ได้ ไฟล์ต้นฉบับยังคงอยู่</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>บันทึกคำอธิบายประกอบ PowerPoint ไม่ได้ คำอธิบายประกอบยังใช้ได้ในเซสชันนี้</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>บันทึกคำอธิบายประกอบ PowerPoint ลงในโฟลเดอร์กู้คืนบนเครื่องแล้ว</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>บันทึกคำอธิบายประกอบ PowerPoint หรือตำแหน่งในการนำเสนอไม่ได้: {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>ไม่พบหน้าต่างการนำเสนอสไลด์ปัจจุบัน</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS ไม่สามารถดำเนินการตามคำสั่งการนำเสนอสไลด์ได้</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>Add-in ของ WPS ไม่ได้ยืนยันการรับคำสั่งการนำเสนอสไลด์</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>ส่งคำสั่งการนำเสนอสไลด์ไปยัง Add-in ของ WPS ไม่ได้</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>ใช่</value></data>
+</root>

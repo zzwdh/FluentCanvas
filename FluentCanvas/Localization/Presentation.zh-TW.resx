@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>無法切換 PowerPoint 註解頁面：{0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>簡報設定 - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>無法結束 {0} 放映。</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>此簡報包含隱藏的投影片。要取消隱藏嗎？</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>已匯入 {0} 張投影片的舊版註解。</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>找到以檔案名稱和頁碼儲存的舊版註解。請確認這些註解屬於目前的簡報，並且投影片仍維持原本的順序。要將註解複製到目前簡報的註解資料夾嗎？</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>上次放映至第 {0} 張投影片。要跳到該張投影片嗎？</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>此簡報使用自動換頁或預演計時。要改為手動換頁嗎？</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>無法開啟 PowerPoint 放映導覽。</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>下一張投影片</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>無法切換到 {0} 的下一張投影片。</value></data>
+  <data name="No" xml:space="preserve"><value>否</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>PowerPoint 操作失敗：{0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>放映位置 {0} · 簡報第 {1} 張投影片</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>上一張投影片</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>無法切換到 {0} 的上一張投影片。</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>無法讀取第 {0} 張投影片已儲存的註解。原始檔案已保留。</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>無法儲存 PowerPoint 註解。此工作階段仍保留這些註解。</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>PowerPoint 註解已儲存到本機的復原資料夾。</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>無法儲存 PowerPoint 註解或放映位置：{0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>無法找到目前的放映視窗。</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS 無法完成放映命令。</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>WPS 增益集未確認放映命令。</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>無法將放映命令傳送至 WPS 增益集。</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS 簡報</value></data>
+  <data name="Yes" xml:space="preserve"><value>是</value></data>
+</root>

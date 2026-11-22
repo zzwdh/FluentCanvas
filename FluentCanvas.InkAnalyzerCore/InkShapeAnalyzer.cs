@@ -7,27 +7,18 @@ namespace FluentCanvas.InkAnalyzerCore;
 
 public sealed class InkShapeAnalyzer
 {
-    public async Task<InkShapeAnalysisResult?> AnalyzeLatestShapeAsync(
+    public Task<InkShapeAnalysisResult?> AnalyzeLatestShapeAsync(
         IReadOnlyList<InkStrokeData> strokes,
-        CancellationToken cancellationToken = default)
-    {
-        if (strokes.Count == 0)
-        {
-            return null;
-        }
+        CancellationToken cancellationToken = default) =>
+        AnalyzeLatestShapeAsync(strokes, preferCircleOrEllipse: false, cancellationToken);
 
-        for (var startIndex = 0; startIndex < strokes.Count; startIndex++)
-        {
-            cancellationToken.ThrowIfCancellationRequested();
-            var result = await AnalyzeAsync(strokes, startIndex, strokes[^1].SourceId, cancellationToken);
-            if (result is not null)
-            {
-                return result;
-            }
-        }
-
-        return null;
-    }
+    public Task<InkShapeAnalysisResult?> AnalyzeLatestShapeAsync(
+        IReadOnlyList<InkStrokeData> strokes,
+        bool preferCircleOrEllipse,
+        CancellationToken cancellationToken = default) =>
+        InkShapeCandidates.FindAsync(strokes.Count,
+            start => AnalyzeAsync(strokes, start, strokes[^1].SourceId, cancellationToken),
+            preferCircleOrEllipse, cancellationToken);
 
     private static async Task<InkShapeAnalysisResult?> AnalyzeAsync(
         IReadOnlyList<InkStrokeData> strokes,

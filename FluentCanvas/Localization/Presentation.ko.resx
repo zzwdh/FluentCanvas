@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>PowerPoint 주석 페이지를 전환할 수 없습니다. {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>프레젠테이션 설정 - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>{0} 슬라이드 쇼를 끝낼 수 없습니다.</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>이 프레젠테이션에 숨겨진 슬라이드가 있습니다. 숨기기를 해제할까요?</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>슬라이드 {0}개의 이전 주석을 가져왔습니다.</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>FluentCanvas에서 파일 이름과 슬라이드 번호로 저장된 이전 주석을 찾았습니다. 주석이 이 프레젠테이션에 속하고 슬라이드가 원래 순서대로 있는지 확인하세요. 이 프레젠테이션의 주석 폴더에 복사할까요?</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>이전 슬라이드 쇼가 {0}번 슬라이드에서 끝났습니다. 해당 슬라이드로 이동할까요?</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>이 프레젠테이션은 자동 전환 또는 연습한 시간을 사용합니다. 슬라이드를 수동으로 넘길까요?</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>PowerPoint 슬라이드 탐색을 열 수 없습니다.</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>다음 슬라이드</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>{0}에서 다음 슬라이드로 이동할 수 없습니다.</value></data>
+  <data name="No" xml:space="preserve"><value>아니요</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>PowerPoint 작업에 실패했습니다. {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>쇼 위치 {0} · 프레젠테이션의 {1}번 슬라이드</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>이전 슬라이드</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>{0}에서 이전 슬라이드로 이동할 수 없습니다.</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>{0}번 슬라이드의 저장된 주석을 읽을 수 없습니다. 원본 파일이 유지되었습니다.</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>PowerPoint 주석을 저장할 수 없습니다. 현재 세션에서는 계속 사용할 수 있습니다.</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>PowerPoint 주석을 로컬 복구 폴더에 저장했습니다.</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>PowerPoint 주석 또는 슬라이드 쇼 위치를 저장할 수 없습니다. {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>현재 슬라이드 쇼 창을 찾을 수 없습니다.</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS에서 슬라이드 쇼 명령을 완료할 수 없습니다.</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>WPS 추가 기능이 슬라이드 쇼 명령에 응답하지 않았습니다.</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>슬라이드 쇼 명령을 WPS 추가 기능에 보낼 수 없습니다.</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>예</value></data>
+</root>

@@ -1,3 +1,4 @@
+using FluentCanvas.Localization;
 using FluentCanvas.Helpers;
 using Sentry;
 using Sentry.Protocol;
@@ -24,7 +25,7 @@ internal static class ErrorReporting
     private static bool IsVerification => Environment.GetCommandLineArgs().Skip(1).SequenceEqual(new[] { "--verify-sentry" });
     internal static bool Enabled => SentrySdk.IsEnabled;
 
-    internal static void Initialize()
+    internal static void Initialize(Func<HttpMessageHandler> createHttpMessageHandler = null)
     {
         try
         {
@@ -41,7 +42,8 @@ internal static class ErrorReporting
                     options.Environment = IsVerification ? "verification" : App.IsPackaged ? "packaged" : "desktop";
                     options.SendDefaultPii = false;
                     options.AutoSessionTracking = false;
-                    options.EnableLogs = false;
+                    options.SetBeforeSendLog(static _ => null);
+                    options.SetBeforeSendMetric(static _ => null);
                     options.MaxBreadcrumbs = 0;
                     options.SendClientReports = false;
                     options.ReportAssembliesMode = ReportAssembliesMode.None;
@@ -62,7 +64,10 @@ internal static class ErrorReporting
                         evt.SetTag("windows.build", Environment.OSVersion.Version.Build.ToString());
                         return evt;
                     });
-                    if (IsVerification) options.CreateHttpMessageHandler = () => new DeliveryProbe();
+                    if (createHttpMessageHandler != null)
+                        options.CreateHttpMessageHandler = createHttpMessageHandler;
+                    else if (IsVerification)
+                        options.CreateHttpMessageHandler = () => new DeliveryProbe();
                 });
                 AppDomain.CurrentDomain.UnhandledException += OnFatal;
                 TaskScheduler.UnobservedTaskException += OnUnobserved;
@@ -75,15 +80,15 @@ internal static class ErrorReporting
         }
     }
 
-    internal static void SetEnabled(bool enabled)
+    internal static void SetEnabled(bool enabled, Func<HttpMessageHandler> createHttpMessageHandler = null)
     {
         lock (Gate)
         {
             if (enabled)
             {
                 File.Delete(DisabledMarker);
-                Initialize();
-                if (!Enabled) throw new InvalidOperationException("错误上报服务未能启动。");
+                Initialize(createHttpMessageHandler);
+                if (!Enabled) throw new InvalidOperationException(UiText.Get("Settings.ReportingStartFailed"));
             }
             else
             {

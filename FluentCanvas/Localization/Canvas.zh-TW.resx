@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="WindowTitle" xml:space="preserve"><value>FluentCanvas 白板</value></data>
+  <data name="Undo" xml:space="preserve"><value>復原</value></data>
+  <data name="Redo" xml:space="preserve"><value>重做</value></data>
+  <data name="Select" xml:space="preserve"><value>選取</value></data>
+  <data name="Pen" xml:space="preserve"><value>畫筆</value></data>
+  <data name="Eraser" xml:space="preserve"><value>橡皮擦</value></data>
+  <data name="EraseStrokes" xml:space="preserve"><value>依筆畫擦除</value></data>
+  <data name="ExpandToolbar" xml:space="preserve"><value>展開浮動工具列</value></data>
+  <data name="CollapseToolbar" xml:space="preserve"><value>隱藏浮動工具列</value></data>
+  <data name="ToggleToolbar" xml:space="preserve"><value>展開或收合浮動工具列</value></data>
+  <data name="ToolbarDrag" xml:space="preserve"><value>拖曳以移動工具列</value></data>
+  <data name="ToolbarDragOrToggle" xml:space="preserve"><value>拖曳以移動工具列，按一下可展開或收合</value></data>
+  <data name="ExpandFromLeft" xml:space="preserve"><value>從左側展開浮動工具列</value></data>
+  <data name="ExpandFromRight" xml:space="preserve"><value>從右側展開浮動工具列</value></data>
+  <data name="SaveInk" xml:space="preserve"><value>儲存墨跡</value></data>
+  <data name="SaveDocument" xml:space="preserve"><value>儲存作品</value></data>
+  <data name="OpenInk" xml:space="preserve"><value>開啟墨跡</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>開啟作品</value></data>
+  <data name="Playback" xml:space="preserve"><value>播放墨跡</value></data>
+  <data name="ReplayInk" xml:space="preserve"><value>重播墨跡</value></data>
+  <data name="ExportImage" xml:space="preserve"><value>另存為圖片</value></data>
+  <data name="PenTip" xml:space="preserve"><value>筆鋒</value></data>
+  <data name="NibMode" xml:space="preserve"><value>筆尖模式</value></data>
+  <data name="Opacity" xml:space="preserve"><value>不透明度</value></data>
+  <data name="InsertVideo" xml:space="preserve"><value>插入影片</value></data>
+  <data name="InsertImage" xml:space="preserve"><value>插入圖片</value></data>
+  <data name="Width" xml:space="preserve"><value>粗細</value></data>
+  <data name="TouchSelectionHint" xml:space="preserve"><value>觸控：單指移動，雙指縮放或旋轉</value></data>
+  <data name="MouseSelectionHint" xml:space="preserve"><value>滑鼠：拖曳移動，滾輪縮放</value></data>
+  <data name="ParabolaWithFocus" xml:space="preserve"><value>帶焦點的拋物線</value></data>
+  <data name="HyperbolaWithFoci" xml:space="preserve"><value>帶焦點的雙曲線</value></data>
+  <data name="EllipseWithFoci" xml:space="preserve"><value>帶焦點的橢圓</value></data>
+  <data name="PickOne" xml:space="preserve"><value>抽選一人</value></data>
+  <data name="Countdown" xml:space="preserve"><value>倒數計時</value></data>
+  <data name="TimerShort" xml:space="preserve"><value>倒數計時</value></data>
+  <data name="ClickToClear" xml:space="preserve"><value>點一下清除畫面</value></data>
+  <data name="PointBasedPenTip" xml:space="preserve"><value>點集筆鋒</value></data>
+  <data name="DottedLine" xml:space="preserve"><value>點線</value></data>
+  <data name="MultiFingerInk" xml:space="preserve"><value>多指書寫</value></data>
+  <data name="More" xml:space="preserve"><value>更多</value></data>
+  <data name="MoreTools" xml:space="preserve"><value>更多工具</value></data>
+  <data name="MoreFeatures" xml:space="preserve"><value>更多功能</value></data>
+  <data name="MoreSettings" xml:space="preserve"><value>更多設定</value></data>
+  <data name="Tools" xml:space="preserve"><value>工具</value></data>
+  <data name="PinShapes" xml:space="preserve"><value>釘選圖形工具列</value></data>
+  <data name="Off" xml:space="preserve"><value>關</value></data>
+  <data name="On" xml:space="preserve"><value>開</value></data>
+  <data name="NoTaper" xml:space="preserve"><value>關閉筆鋒</value></data>
+  <data name="HorizontalParabola" xml:space="preserve"><value>橫向拋物線</value></data>
+  <data name="Board" xml:space="preserve"><value>白板</value></data>
+  <data name="ColorBlack" xml:space="preserve"><value>黑色</value></data>
+  <data name="ColorWhite" xml:space="preserve"><value>白色</value></data>
+  <data name="ColorRed" xml:space="preserve"><value>紅色</value></data>
+  <data name="ColorPink" xml:space="preserve"><value>粉紅</value></data>
+  <data name="ColorOrange" xml:space="preserve"><value>橙色</value></data>
+  <data name="ColorYellow" xml:space="preserve"><value>黃色</value></data>
+  <data name="ColorGreen" xml:space="preserve"><value>綠色</value></data>
+  <data name="ColorCyan" xml:space="preserve"><value>青色</value></data>
+  <data name="ColorBlue" xml:space="preserve"><value>藍色</value></data>
+  <data name="ColorPurple" xml:space="preserve"><value>紫色</value></data>
+  <data name="BlackPen" xml:space="preserve"><value>畫筆 · 黑色</value></data>
+  <data name="WhitePen" xml:space="preserve"><value>畫筆 · 白色</value></data>
+  <data name="RedPen" xml:space="preserve"><value>畫筆 · 紅色</value></data>
+  <data name="PinkPen" xml:space="preserve"><value>畫筆 · 粉色</value></data>
+  <data name="OrangePen" xml:space="preserve"><value>畫筆 · 橘色</value></data>
+  <data name="YellowPen" xml:space="preserve"><value>畫筆 · 黃色</value></data>
+  <data name="GreenPen" xml:space="preserve"><value>畫筆 · 綠色</value></data>
+  <data name="CyanPen" xml:space="preserve"><value>畫筆 · 青色</value></data>
+  <data name="BluePen" xml:space="preserve"><value>畫筆 · 藍色</value></data>
+  <data name="Canvas" xml:space="preserve"><value>畫布</value></data>
+  <data name="DrawShape" xml:space="preserve"><value>繪製圖形</value></data>
+  <data name="AddPage" xml:space="preserve"><value>新增頁面</value></data>
+  <data name="Arrow" xml:space="preserve"><value>箭頭</value></data>
+  <data name="EndSlideShow" xml:space="preserve"><value>結束 PowerPoint 投影片放映</value></data>
+  <data name="ScreenCaptureShort" xml:space="preserve"><value>擷取畫面</value></data>
+  <data name="ScreenCapture" xml:space="preserve"><value>螢幕擷取</value></data>
+  <data name="Rectangle" xml:space="preserve"><value>矩形</value></data>
+  <data name="CloneMode" xml:space="preserve"><value>複製模式</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>快速鍵指南</value></data>
+  <data name="LightPalette" xml:space="preserve"><value>亮色</value></data>
+  <data name="DarkPalette" xml:space="preserve"><value>暗色</value></data>
+  <data name="AreaEraserShort" xml:space="preserve"><value>區域擦</value></data>
+  <data name="Ink" xml:space="preserve"><value>墨跡</value></data>
+  <data name="StrokeEraserShort" xml:space="preserve"><value>筆畫擦</value></data>
+  <data name="InkRecognition" xml:space="preserve"><value>墨跡辨識</value></data>
+  <data name="InkOptions" xml:space="preserve"><value>墨跡選項</value></data>
+  <data name="RotateLeft" xml:space="preserve"><value>向左旋轉</value></data>
+  <data name="Annotate" xml:space="preserve"><value>註記</value></data>
+  <data name="ParallelLines" xml:space="preserve"><value>平行線</value></data>
+  <data name="SwitchBoard" xml:space="preserve"><value>切換白板與桌面註記</value></data>
+  <data name="SwitchPenPalette" xml:space="preserve"><value>切換畫筆色盤</value></data>
+  <data name="ClearAndMouseShort" xml:space="preserve"><value>清除並切換</value></data>
+  <data name="Clear" xml:space="preserve"><value>清除</value></data>
+  <data name="ClearAnnotations" xml:space="preserve"><value>清除註記</value></data>
+  <data name="ClearAndMouse" xml:space="preserve"><value>清除註記並切換至滑鼠模式</value></data>
+  <data name="Delete" xml:space="preserve"><value>刪除</value></data>
+  <data name="PreviousPage" xml:space="preserve"><value>上一頁</value></data>
+  <data name="Settings" xml:space="preserve"><value>設定</value></data>
+  <data name="Video" xml:space="preserve"><value>影片</value></data>
+  <data name="DocumentCamera" xml:space="preserve"><value>實物攝影機</value></data>
+  <data name="Gestures" xml:space="preserve"><value>手勢</value></data>
+  <data name="GestureFeatures" xml:space="preserve"><value>手勢功能</value></data>
+  <data name="GestureOptions" xml:space="preserve"><value>手勢選項</value></data>
+  <data name="Mouse" xml:space="preserve"><value>滑鼠</value></data>
+  <data name="MouseMode" xml:space="preserve"><value>滑鼠模式</value></data>
+  <data name="VerticalParabola" xml:space="preserve"><value>縱向拋物線</value></data>
+  <data name="FlipVertical" xml:space="preserve"><value>垂直翻轉</value></data>
+  <data name="Hyperbola" xml:space="preserve"><value>雙曲線</value></data>
+  <data name="TwoFingerGestures" xml:space="preserve"><value>雙指手勢</value></data>
+  <data name="TwoFingerZoom" xml:space="preserve"><value>雙指縮放</value></data>
+  <data name="TwoFingerRotate" xml:space="preserve"><value>雙指旋轉</value></data>
+  <data name="TwoFingerPan" xml:space="preserve"><value>雙指移動</value></data>
+  <data name="FlipHorizontal" xml:space="preserve"><value>水平翻轉</value></data>
+  <data name="RotateRight" xml:space="preserve"><value>向右旋轉</value></data>
+  <data name="Tetrahedron" xml:space="preserve"><value>四面體</value></data>
+  <data name="SpeedBasedPenTip" xml:space="preserve"><value>速度筆鋒</value></data>
+  <data name="RandomPicker" xml:space="preserve"><value>隨機抽選</value></data>
+  <data name="RandomPickerShort" xml:space="preserve"><value>隨機抽選</value></data>
+  <data name="PickOnePerson" xml:space="preserve"><value>隨機抽選一人</value></data>
+  <data name="Image" xml:space="preserve"><value>圖片</value></data>
+  <data name="Shapes" xml:space="preserve"><value>圖形</value></data>
+  <data name="ShapesHint" xml:space="preserve"><value>圖形（長按第一列的圖示可連續繪製）</value></data>
+  <data name="Exit" xml:space="preserve"><value>結束</value></data>
+  <data name="Ellipse" xml:space="preserve"><value>橢圓</value></data>
+  <data name="NextPage" xml:space="preserve"><value>下一頁</value></data>
+  <data name="DashedLine" xml:space="preserve"><value>虛線</value></data>
+  <data name="DashedCircle" xml:space="preserve"><value>虛線圓</value></data>
+  <data name="Colors" xml:space="preserve"><value>色彩</value></data>
+  <data name="SendToBoard" xml:space="preserve"><value>移至白板</value></data>
+  <data name="PageNumber" xml:space="preserve"><value>頁碼</value></data>
+  <data name="CenteredRectangle" xml:space="preserve"><value>從中心繪製矩形</value></data>
+  <data name="CenteredEllipse" xml:space="preserve"><value>從中心繪製橢圓</value></data>
+  <data name="Hide" xml:space="preserve"><value>隱藏</value></data>
+  <data name="Highlighter" xml:space="preserve"><value>螢光筆</value></data>
+  <data name="RedHighlighter" xml:space="preserve"><value>螢光筆 · 紅色</value></data>
+  <data name="OrangeHighlighter" xml:space="preserve"><value>螢光筆 · 橘色</value></data>
+  <data name="YellowHighlighter" xml:space="preserve"><value>螢光筆 · 黃色</value></data>
+  <data name="CyanHighlighter" xml:space="preserve"><value>螢光筆 · 青色</value></data>
+  <data name="BlueHighlighter" xml:space="preserve"><value>螢光筆 · 藍色</value></data>
+  <data name="PurpleHighlighter" xml:space="preserve"><value>螢光筆 · 紫色</value></data>
+  <data name="Circle" xml:space="preserve"><value>圓</value></data>
+  <data name="CircleEraserShort" xml:space="preserve"><value>圓形擦</value></data>
+  <data name="Cylinder" xml:space="preserve"><value>圓柱</value></data>
+  <data name="Cone" xml:space="preserve"><value>圓錐</value></data>
+  <data name="RepeatShapeHint" xml:space="preserve"><value>長按可連續繪製</value></data>
+  <data name="Cuboid" xml:space="preserve"><value>長方體</value></data>
+  <data name="Line" xml:space="preserve"><value>直線</value></data>
+  <data name="Guide" xml:space="preserve"><value>指南</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>自動隱藏</value></data>
+  <data name="Axis1" xml:space="preserve"><value>座標系 1</value></data>
+  <data name="Axis2" xml:space="preserve"><value>座標系 2</value></data>
+  <data name="Axis3" xml:space="preserve"><value>座標系 3</value></data>
+  <data name="Axis4" xml:space="preserve"><value>座標系 4</value></data>
+  <data name="Axis5" xml:space="preserve"><value>座標系 5</value></data>
+  <data name="CurrentTool" xml:space="preserve"><value>目前的工具</value></data>
+  <data name="CurrentColor" xml:space="preserve"><value>目前的色彩</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>跟隨 Windows</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>無法開啟工具視窗。請確認應用程式檔案是否完整。</value></data>
+  <data name="ProcessPathMissing" xml:space="preserve"><value>找不到應用程式的執行檔。</value></data>
+  <data name="ToolStartFailed" xml:space="preserve"><value>無法啟動工具視窗。</value></data>
+  <data name="UnexpectedError" xml:space="preserve"><value>發生未預期的錯誤。請儲存作品後重新啟動 FluentCanvas。</value></data>
+  <data name="ActivationFailed" xml:space="preserve"><value>無法將檔案傳送至已開啟的 FluentCanvas。請使用白板工具列中的「開啟」再試一次。</value></data>
+  <data name="SettingsSaveFailed" xml:space="preserve"><value>無法儲存設定。請確認使用者資料資料夾可寫入。</value></data>
+  <data name="SettingsReadFailed" xml:space="preserve"><value>無法讀取設定，已保留原始檔案。</value></data>
+  <data name="TriangleVariants" xml:space="preserve"><value>三角形選項</value></data>
+  <data name="Triangle" xml:space="preserve"><value>任意三角形</value></data>
+  <data name="RightTriangle" xml:space="preserve"><value>直角三角形</value></data>
+  <data name="IsoscelesTriangle" xml:space="preserve"><value>等腰三角形</value></data>
+  <data name="EquilateralTriangle" xml:space="preserve"><value>等邊三角形</value></data>
+  <data name="Parallelogram" xml:space="preserve"><value>平行四邊形</value></data>
+  <data name="Trapezoid" xml:space="preserve"><value>梯形</value></data>
+  <data name="AngleMarks" xml:space="preserve"><value>角度標記</value></data>
+  <data name="AngleMark" xml:space="preserve"><value>角弧標記</value></data>
+  <data name="RightAngleMark" xml:space="preserve"><value>直角標記</value></data>
+  <data name="CircularShapes" xml:space="preserve"><value>圓弧與扇形</value></data>
+  <data name="Arc" xml:space="preserve"><value>圓弧</value></data>
+  <data name="Sector" xml:space="preserve"><value>扇形</value></data>
+  <data name="Semicircle" xml:space="preserve"><value>半圓</value></data>
+  <data name="NumberLine" xml:space="preserve"><value>數線</value></data>
+  <data name="NumberLineTicks" xml:space="preserve"><value>帶刻度數線</value></data>
+  <data name="NumberLineLabeled" xml:space="preserve"><value>帶數字和刻度數線</value></data>
+  <data name="BoundingEllipse" xml:space="preserve"><value>沿外框對角繪製橢圓</value></data>
+  <data name="Sphere" xml:space="preserve"><value>球</value></data>
+  <data name="PlaceTriangleFirstSide" xml:space="preserve"><value>點選第一條邊的兩個端點，或直接拖曳畫出這條邊</value></data>
+  <data name="PlaceTriangleVertex" xml:space="preserve"><value>點選第三個頂點</value></data>
+  <data name="PlaceAngleFirstSide" xml:space="preserve"><value>點選頂點和第一條邊上的一點，或從頂點拖曳畫出第一條邊</value></data>
+  <data name="PlaceAngleSecondSide" xml:space="preserve"><value>點選第二條邊上的一點</value></data>
+  <data name="PlaceArcRadius" xml:space="preserve"><value>點選圓心和起點，或從圓心拖曳畫出半徑</value></data>
+  <data name="PlaceArcEnd" xml:space="preserve"><value>點選結束方向</value></data>
+  <data name="DrawSemicircle" xml:space="preserve"><value>拖曳畫出直徑，半圓畫在拖曳方向的左側</value></data>
+</root>

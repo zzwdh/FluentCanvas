@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>无法切换 PowerPoint 批注页：{0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>演示文档设置 - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>无法结束 {0} 放映。</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>检测到此演示文档中包含隐藏的幻灯片，是否取消隐藏？</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>已导入 {0} 页旧版批注。</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>找到了按文件名和页码保存的旧版批注。请确认这些批注属于当前演示，且幻灯片仍是原来的顺序。是否复制到当前演示的批注目录？</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>上次播放到了第 {0} 页，是否立即跳转？</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>此演示已启用自动播放或排练计时。是否切换为手动翻页？</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>无法打开 PowerPoint 放映导航。</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>下一张幻灯片</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>无法控制 {0} 播放下一页。</value></data>
+  <data name="No" xml:space="preserve"><value>否</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>PowerPoint 操作失败：{0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>放映位置 {0} · 文稿第 {1} 页</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>上一张幻灯片</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>无法控制 {0} 播放上一页。</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>无法读取第 {0} 页的历史批注，原文件已保留。</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>PowerPoint 批注保存失败，批注保留在本次会话中。</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>PowerPoint 批注已保存到本机恢复目录。</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>PowerPoint 批注或播放位置保存失败：{0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>当前放映未提供可定位的放映窗口。</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS 未能完成放映操作。</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>WPS 加载项未确认放映操作。</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>无法向 WPS 加载项发送放映操作。</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS 演示</value></data>
+  <data name="Yes" xml:space="preserve"><value>是</value></data>
+</root>

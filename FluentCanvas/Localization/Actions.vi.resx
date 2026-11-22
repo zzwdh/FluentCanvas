@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Ready" xml:space="preserve"><value>Sẵn sàng</value></data>
+  <data name="Hours" xml:space="preserve"><value>Giờ</value></data>
+  <data name="Minutes" xml:space="preserve"><value>Phút</value></data>
+  <data name="Seconds" xml:space="preserve"><value>Giây</value></data>
+  <data name="Start" xml:space="preserve"><value>Bắt đầu</value></data>
+  <data name="Reset" xml:space="preserve"><value>Đặt lại</value></data>
+  <data name="Compact" xml:space="preserve"><value>Thu gọn</value></data>
+  <data name="FullScreen" xml:space="preserve"><value>Toàn màn hình</value></data>
+  <data name="TimeRemaining" xml:space="preserve"><value>Thời gian còn lại</value></data>
+  <data name="TimeRemainingProgress" xml:space="preserve"><value>Tiến độ đếm ngược</value></data>
+  <data name="Paused" xml:space="preserve"><value>Đã tạm dừng</value></data>
+  <data name="CountdownEndsAt" xml:space="preserve"><value>Kết thúc vào khoảng {0:HH:mm:ss}</value></data>
+  <data name="TimeUp" xml:space="preserve"><value>Hết giờ</value></data>
+  <data name="TimeUpAlarmFailed" xml:space="preserve"><value>Đã hết giờ. Không thể phát chuông báo.</value></data>
+  <data name="TimeRemainingSpoken" xml:space="preserve"><value>Thời gian còn lại (giờ, phút, giây): {0}, {1}, {2}</value></data>
+  <data name="Pause" xml:space="preserve"><value>Tạm dừng</value></data>
+  <data name="Resume" xml:space="preserve"><value>Tiếp tục</value></data>
+  <data name="Expand" xml:space="preserve"><value>Mở rộng</value></data>
+  <data name="ExitFullScreen" xml:space="preserve"><value>Thoát toàn màn hình</value></data>
+  <data name="RosterLoading" xml:space="preserve"><value>Đang tải danh sách…</value></data>
+  <data name="ParticipantCount" xml:space="preserve"><value>Người tham gia</value></data>
+  <data name="DrawCount" xml:space="preserve"><value>Số người cần chọn</value></data>
+  <data name="StartDraw" xml:space="preserve"><value>Chọn</value></data>
+  <data name="EditRoster" xml:space="preserve"><value>Sửa danh sách</value></data>
+  <data name="DrawOne" xml:space="preserve"><value>Chọn một người</value></data>
+  <data name="DrawResult" xml:space="preserve"><value>Kết quả</value></data>
+  <data name="RosterReadFailed" xml:space="preserve"><value>Không thể đọc danh sách. Công cụ sẽ dùng số thứ tự.</value></data>
+  <data name="RosterLoaded" xml:space="preserve"><value>Số người trong danh sách: {0}</value></data>
+  <data name="RosterUsingNumbers" xml:space="preserve"><value>Đang dùng số thứ tự</value></data>
+  <data name="InvalidRulesSkipped" xml:space="preserve"><value> · Số quy tắc không hợp lệ đã bỏ qua: {0}</value></data>
+  <data name="Drawing" xml:space="preserve"><value>Đang chọn…</value></data>
+  <data name="SingleDrawResult" xml:space="preserve"><value>Kết quả: {0}</value></data>
+  <data name="MultipleDrawResult" xml:space="preserve"><value>Đã chọn {0} người</value></data>
+  <data name="DrawAgain" xml:space="preserve"><value>Chọn lại</value></data>
+  <data name="NamesPerLine" xml:space="preserve"><value>Nhập mỗi tên trên một dòng</value></data>
+  <data name="RulesPerLine" xml:space="preserve"><value>Nhập mỗi quy tắc thay thế trên một dòng</value></data>
+  <data name="Roster" xml:space="preserve"><value>Danh sách</value></data>
+  <data name="ImportRoster" xml:space="preserve"><value>Nhập tên</value></data>
+  <data name="ReplacementRules" xml:space="preserve"><value>Quy tắc thay thế</value></data>
+  <data name="ImportReplacementRules" xml:space="preserve"><value>Nhập quy tắc</value></data>
+  <data name="ReplacementRuleExample" xml:space="preserve"><value>Ví dụ: An--&gt;Bạn An. Để trống bên phải nếu muốn loại tên đó.</value></data>
+  <data name="RosterAndRules" xml:space="preserve"><value>Danh sách và quy tắc thay thế</value></data>
+  <data name="Save" xml:space="preserve"><value>Lưu</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Hủy</value></data>
+  <data name="RosterSaved" xml:space="preserve"><value>Đã lưu danh sách</value></data>
+  <data name="RosterEditFailed" xml:space="preserve"><value>Không thể sửa danh sách: {0}</value></data>
+  <data name="RosterImportFailed" xml:space="preserve"><value>Không thể nhập: {0}</value></data>
+  <data name="InvalidReplacementRule" xml:space="preserve"><value>Hãy kiểm tra quy tắc thay thế. Mỗi dòng dùng định dạng “tên gốc--&gt;tên hiển thị”.</value></data>
+  <data name="RosterSaveTooLarge" xml:space="preserve"><value>Mỗi tệp danh sách có thể có dung lượng tối đa 2 MB.</value></data>
+  <data name="RosterLocked" xml:space="preserve"><value>Một cửa sổ khác đang lưu danh sách. Vui lòng thử lại sau ít phút.</value></data>
+  <data name="RosterChanged" xml:space="preserve"><value>Một cửa sổ khác đã thay đổi danh sách. Hãy mở lại trình chỉnh sửa để tải bản mới nhất.</value></data>
+  <data name="RosterReadTooLarge" xml:space="preserve"><value>Tệp danh sách vượt quá 2 MB.</value></data>
+  <data name="ReplacementRulesChanged" xml:space="preserve"><value>Một tiến trình khác đã sửa quy tắc thay thế.</value></data>
+  <data name="RosterRollbackFailed" xml:space="preserve"><value>Không thể lưu danh sách hoặc khôi phục quy tắc trước đó. Hãy mở lại trình chỉnh sửa để kiểm tra cả hai tệp.</value></data>
+  <data name="SavingBeforeClose" xml:space="preserve"><value>Đang lưu tài liệu. Hãy đợi lưu xong rồi đóng ứng dụng.</value></data>
+  <data name="CloseUnsavedWork" xml:space="preserve"><value>Đóng FluentCanvas? Những thay đổi chưa lưu sẽ bị mất.</value></data>
+  <data name="ConfirmClose" xml:space="preserve"><value>Bạn có chắc chắn muốn đóng FluentCanvas không?</value></data>
+  <data name="CancelClosing" xml:space="preserve"><value>Hủy việc đóng FluentCanvas?</value></data>
+  <data name="StartupEntryInUse" xml:space="preserve"><value>Một bản cài đặt khác đang dùng mục khởi động này.</value></data>
+  <data name="AutoFoldInk" xml:space="preserve"><value>Đã xóa nét vẽ và thu thanh công cụ về cạnh màn hình. Hãy quay lại chế độ chú thích và chọn Hoàn tác để khôi phục nét vẽ.</value></data>
+  <data name="InsertImageFailed" xml:space="preserve"><value>Không thể chèn ảnh. Hãy kiểm tra tệp rồi thử lại.</value></data>
+  <data name="InsertVideoFailed" xml:space="preserve"><value>Không thể chèn video. Hãy kiểm tra tệp rồi thử lại.</value></data>
+  <data name="CanvasChangedDuringImport" xml:space="preserve"><value>Vùng vẽ đã thay đổi trong khi nhập. Hãy chèn lại tệp trên trang cần dùng.</value></data>
+  <data name="OpenToolFailed" xml:space="preserve"><value>Không thể mở cửa sổ công cụ.</value></data>
+  <data name="OpenDrawOneFailed" xml:space="preserve"><value>Không thể mở cửa sổ chọn một người.</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>Không thể mở Cài đặt.</value></data>
+  <data name="ScreenshotSaved" xml:space="preserve"><value>Đã lưu ảnh chụp màn hình vào {0}</value></data>
+  <data name="ScreenshotPathFailed" xml:space="preserve"><value>Không thể lưu ảnh chụp màn hình. Hãy kiểm tra vị trí lưu trong Cài đặt.</value></data>
+  <data name="ScreenshotFailed" xml:space="preserve"><value>Không thể lưu ảnh chụp màn hình.</value></data>
+  <data name="SlideCaptureObscured" xml:space="preserve"><value>Không thể chụp trình chiếu vì cửa sổ trình chiếu đang ẩn hoặc bị che.</value></data>
+  <data name="SlideScreenshotFailed" xml:space="preserve"><value>Không thể lưu ảnh chụp trình chiếu. Hãy kiểm tra vị trí lưu.</value></data>
+  <data name="DocumentSaved" xml:space="preserve"><value>Đã lưu nét vẽ và đối tượng vào {0}</value></data>
+  <data name="DocumentSaveFailed" xml:space="preserve"><value>Không thể lưu tài liệu. Hãy kiểm tra vị trí lưu rồi thử lại.</value></data>
+  <data name="CanvasChangedDuringBackup" xml:space="preserve"><value>Vùng vẽ đã thay đổi trong khi sao lưu. Hãy thử xóa lại.</value></data>
+  <data name="BackupFailed" xml:space="preserve"><value>Không thể sao lưu</value></data>
+  <data name="BackupFailedPrompt" xml:space="preserve"><value>Không thể sao lưu. Vùng vẽ được giữ nguyên.</value></data>
+  <data name="CanvasChangedWhileOpening" xml:space="preserve"><value>Vùng vẽ đã thay đổi trong khi mở tài liệu. Hãy mở lại trên trang cần dùng.</value></data>
+  <data name="UnsavedBoardPrompt" xml:space="preserve"><value>Bảng trắng này có thay đổi chưa lưu.</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>Mở tài liệu</value></data>
+  <data name="CanvasChangedDuringSave" xml:space="preserve"><value>Vùng vẽ đã thay đổi trong khi lưu. Hãy mở lại tài liệu.</value></data>
+  <data name="DocumentOpenFailed" xml:space="preserve"><value>Không thể mở tài liệu. Hãy kiểm tra tệp rồi thử lại.</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>Tự động ẩn</value></data>
+  <data name="Pinned" xml:space="preserve"><value>Đã ghim</value></data>
+  <data name="RemoveAsymptotes" xml:space="preserve"><value>Xóa các đường tiệm cận?</value></data>
+  <data name="SavingBeforeRestart" xml:space="preserve"><value>Đang lưu tài liệu. Hãy đợi lưu xong rồi khởi động lại ứng dụng.</value></data>
+  <data name="RestartFailed" xml:space="preserve"><value>Không thể khởi động lại. Hãy lưu công việc rồi mở lại FluentCanvas.</value></data>
+  <data name="PngImage" xml:space="preserve"><value>Ảnh PNG</value></data>
+  <data name="SelectionExportFailed" xml:space="preserve"><value>Không thể xuất vùng đã chọn. Hãy chọn vùng nhỏ hơn hoặc kiểm tra vị trí lưu.</value></data>
+  <data name="CloneToBoard" xml:space="preserve"><value>Sao chép vào bảng</value></data>
+  <data name="CloneToNewPage" xml:space="preserve"><value>Sao chép vào trang mới</value></data>
+  <data name="EasiNoteAutomaticallyClosed" xml:space="preserve"><value>EasiNote 5 đã tự động đóng.</value></data>
+  <data name="Retry" xml:space="preserve"><value>Thử lại</value></data>
+  <data name="ClearWithoutBackup" xml:space="preserve"><value>Xóa mà không sao lưu</value></data>
+  <data name="SaveAndOpen" xml:space="preserve"><value>Lưu và mở</value></data>
+  <data name="OpenWithoutSaving" xml:space="preserve"><value>Bỏ thay đổi và mở</value></data>
+</root>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>Die PowerPoint-Anmerkungsseite konnte nicht gewechselt werden. {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>Präsentationseinstellungen – FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>Die Bildschirmpräsentation in {0} konnte nicht beendet werden.</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>Diese Präsentation enthält ausgeblendete Folien. Sollen sie eingeblendet werden?</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>Ältere Anmerkungen für {0} Folien wurden importiert.</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>FluentCanvas hat ältere Anmerkungen gefunden, die nach Dateiname und Foliennummer gespeichert wurden. Prüfen Sie, ob sie zu dieser Präsentation gehören und die Folien noch in der ursprünglichen Reihenfolge stehen. Anmerkungen in den zugehörigen Ordner dieser Präsentation kopieren?</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>Die letzte Bildschirmpräsentation endete auf Folie {0}. Zu dieser Folie wechseln?</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>Diese Präsentation verwendet einen automatischen Folienwechsel oder aufgezeichnete Anzeigedauern. Sollen die Folien manuell gewechselt werden?</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>Die Foliennavigation in PowerPoint konnte nicht geöffnet werden.</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>Nächste Folie</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>In {0} konnte nicht zur nächsten Folie gewechselt werden.</value></data>
+  <data name="No" xml:space="preserve"><value>Nein</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>Die Aktion in PowerPoint ist fehlgeschlagen. {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>Position in der Bildschirmpräsentation {0} · Folie {1} in der Datei</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>Vorherige Folie</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>In {0} konnte nicht zur vorherigen Folie gewechselt werden.</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>Die gespeicherten Anmerkungen zu Folie {0} konnten nicht gelesen werden. Die Originaldatei wurde beibehalten.</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>Die PowerPoint-Anmerkungen konnten nicht gespeichert werden. Sie sind in dieser Sitzung weiterhin verfügbar.</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>Die PowerPoint-Anmerkungen wurden im lokalen Wiederherstellungsordner gespeichert.</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>Die PowerPoint-Anmerkungen oder die Position in der Bildschirmpräsentation konnten nicht gespeichert werden. {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>Das Fenster der aktuellen Bildschirmpräsentation wurde nicht gefunden.</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS konnte den Befehl zur Bildschirmpräsentation nicht ausführen.</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>Das WPS-Add-in hat den Befehl zur Bildschirmpräsentation nicht bestätigt.</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>Der Befehl zur Bildschirmpräsentation konnte nicht an das WPS-Add-in gesendet werden.</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>Ja</value></data>
+</root>

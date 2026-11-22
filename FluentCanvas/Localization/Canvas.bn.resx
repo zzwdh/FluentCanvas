@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="WindowTitle" xml:space="preserve"><value>FluentCanvas হোয়াইটবোর্ড</value></data>
+  <data name="Undo" xml:space="preserve"><value>পূর্বাবস্থায় ফেরান</value></data>
+  <data name="Redo" xml:space="preserve"><value>আবার করুন</value></data>
+  <data name="Select" xml:space="preserve"><value>নির্বাচন</value></data>
+  <data name="Pen" xml:space="preserve"><value>কলম</value></data>
+  <data name="Eraser" xml:space="preserve"><value>রবার</value></data>
+  <data name="EraseStrokes" xml:space="preserve"><value>পুরো রেখা মুছুন</value></data>
+  <data name="ExpandToolbar" xml:space="preserve"><value>ভাসমান টুলবার প্রসারিত করুন</value></data>
+  <data name="CollapseToolbar" xml:space="preserve"><value>ভাসমান টুলবার লুকান</value></data>
+  <data name="ToggleToolbar" xml:space="preserve"><value>ভাসমান টুলবার প্রসারিত বা সংকুচিত করুন</value></data>
+  <data name="ToolbarDrag" xml:space="preserve"><value>টুলবার সরাতে টানুন</value></data>
+  <data name="ToolbarDragOrToggle" xml:space="preserve"><value>টুলবার সরাতে টানুন। প্রসারিত বা সংকুচিত করতে ক্লিক করুন।</value></data>
+  <data name="ExpandFromLeft" xml:space="preserve"><value>বাঁ দিক থেকে টুলবার খুলুন</value></data>
+  <data name="ExpandFromRight" xml:space="preserve"><value>ডান দিক থেকে টুলবার খুলুন</value></data>
+  <data name="SaveInk" xml:space="preserve"><value>সংরক্ষণ</value></data>
+  <data name="SaveDocument" xml:space="preserve"><value>আঁকা ছবি সংরক্ষণ করুন</value></data>
+  <data name="OpenInk" xml:space="preserve"><value>খুলুন</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>আঁকা ছবি খুলুন</value></data>
+  <data name="Playback" xml:space="preserve"><value>আবার দেখান</value></data>
+  <data name="ReplayInk" xml:space="preserve"><value>কলমের রেখাগুলি আবার দেখান</value></data>
+  <data name="ExportImage" xml:space="preserve"><value>ছবি হিসেবে সংরক্ষণ করুন</value></data>
+  <data name="PenTip" xml:space="preserve"><value>কলমের নিব</value></data>
+  <data name="NibMode" xml:space="preserve"><value>নিব মোড</value></data>
+  <data name="Opacity" xml:space="preserve"><value>অস্বচ্ছতা</value></data>
+  <data name="InsertVideo" xml:space="preserve"><value>ভিডিও যোগ করুন</value></data>
+  <data name="InsertImage" xml:space="preserve"><value>ছবি যোগ করুন</value></data>
+  <data name="Width" xml:space="preserve"><value>পুরুত্ব</value></data>
+  <data name="TouchSelectionHint" xml:space="preserve"><value>স্পর্শ: এক আঙুলে সরান, দুই আঙুলে জুম করুন বা ঘোরান।</value></data>
+  <data name="MouseSelectionHint" xml:space="preserve"><value>মাউস: সরাতে টানুন, জুম করতে স্ক্রল করুন।</value></data>
+  <data name="ParabolaWithFocus" xml:space="preserve"><value>ফোকাসসহ পরাবৃত্ত</value></data>
+  <data name="HyperbolaWithFoci" xml:space="preserve"><value>ফোকাসসহ অধিবৃত্ত</value></data>
+  <data name="EllipseWithFoci" xml:space="preserve"><value>ফোকাসসহ উপবৃত্ত</value></data>
+  <data name="PickOne" xml:space="preserve"><value>একজন বাছুন</value></data>
+  <data name="Countdown" xml:space="preserve"><value>উল্টো গণনা</value></data>
+  <data name="TimerShort" xml:space="preserve"><value>টাইমার</value></data>
+  <data name="ClickToClear" xml:space="preserve"><value>পরিষ্কার করতে ক্লিক করুন</value></data>
+  <data name="PointBasedPenTip" xml:space="preserve"><value>বিন্দু অনুযায়ী সরু নিব</value></data>
+  <data name="DottedLine" xml:space="preserve"><value>বিন্দুরেখা</value></data>
+  <data name="MultiFingerInk" xml:space="preserve"><value>একাধিক আঙুলে লিখুন</value></data>
+  <data name="More" xml:space="preserve"><value>আরও</value></data>
+  <data name="MoreTools" xml:space="preserve"><value>আরও সরঞ্জাম</value></data>
+  <data name="MoreFeatures" xml:space="preserve"><value>আরও বৈশিষ্ট্য</value></data>
+  <data name="MoreSettings" xml:space="preserve"><value>আরও সেটিংস</value></data>
+  <data name="Tools" xml:space="preserve"><value>সরঞ্জাম</value></data>
+  <data name="PinShapes" xml:space="preserve"><value>আকৃতির টুলবার পিন করুন</value></data>
+  <data name="Off" xml:space="preserve"><value>বন্ধ</value></data>
+  <data name="On" xml:space="preserve"><value>চালু</value></data>
+  <data name="NoTaper" xml:space="preserve"><value>সমান পুরুত্ব</value></data>
+  <data name="HorizontalParabola" xml:space="preserve"><value>অনুভূমিক পরাবৃত্ত</value></data>
+  <data name="Board" xml:space="preserve"><value>বোর্ড</value></data>
+  <data name="ColorBlack" xml:space="preserve"><value>কালো</value></data>
+  <data name="ColorWhite" xml:space="preserve"><value>সাদা</value></data>
+  <data name="ColorRed" xml:space="preserve"><value>লাল</value></data>
+  <data name="ColorPink" xml:space="preserve"><value>গোলাপি</value></data>
+  <data name="ColorOrange" xml:space="preserve"><value>কমলা</value></data>
+  <data name="ColorYellow" xml:space="preserve"><value>হলুদ</value></data>
+  <data name="ColorGreen" xml:space="preserve"><value>সবুজ</value></data>
+  <data name="ColorCyan" xml:space="preserve"><value>সায়ান</value></data>
+  <data name="ColorBlue" xml:space="preserve"><value>নীল</value></data>
+  <data name="ColorPurple" xml:space="preserve"><value>বেগুনি</value></data>
+  <data name="BlackPen" xml:space="preserve"><value>কলম · কালো</value></data>
+  <data name="WhitePen" xml:space="preserve"><value>কলম · সাদা</value></data>
+  <data name="RedPen" xml:space="preserve"><value>কলম · লাল</value></data>
+  <data name="PinkPen" xml:space="preserve"><value>কলম · গোলাপি</value></data>
+  <data name="OrangePen" xml:space="preserve"><value>কলম · কমলা</value></data>
+  <data name="YellowPen" xml:space="preserve"><value>কলম · হলুদ</value></data>
+  <data name="GreenPen" xml:space="preserve"><value>কলম · সবুজ</value></data>
+  <data name="CyanPen" xml:space="preserve"><value>কলম · সায়ান</value></data>
+  <data name="BluePen" xml:space="preserve"><value>কলম · নীল</value></data>
+  <data name="Canvas" xml:space="preserve"><value>ক্যানভাস</value></data>
+  <data name="DrawShape" xml:space="preserve"><value>আকৃতি আঁকুন</value></data>
+  <data name="AddPage" xml:space="preserve"><value>পৃষ্ঠা যোগ করুন</value></data>
+  <data name="Arrow" xml:space="preserve"><value>তীর</value></data>
+  <data name="EndSlideShow" xml:space="preserve"><value>PowerPoint স্লাইড শো শেষ করুন</value></data>
+  <data name="ScreenCaptureShort" xml:space="preserve"><value>ক্যাপচার</value></data>
+  <data name="ScreenCapture" xml:space="preserve"><value>স্ক্রিনশট</value></data>
+  <data name="Rectangle" xml:space="preserve"><value>আয়তক্ষেত্র</value></data>
+  <data name="CloneMode" xml:space="preserve"><value>অনুলিপি মোড</value></data>
+  <data name="ShortcutGuide" xml:space="preserve"><value>কিবোর্ড শর্টকাট নির্দেশিকা</value></data>
+  <data name="LightPalette" xml:space="preserve"><value>হালকা</value></data>
+  <data name="DarkPalette" xml:space="preserve"><value>গাঢ়</value></data>
+  <data name="AreaEraserShort" xml:space="preserve"><value>এলাকা</value></data>
+  <data name="Ink" xml:space="preserve"><value>কালি</value></data>
+  <data name="StrokeEraserShort" xml:space="preserve"><value>রেখা</value></data>
+  <data name="InkRecognition" xml:space="preserve"><value>কালির রেখা শনাক্তকরণ</value></data>
+  <data name="InkOptions" xml:space="preserve"><value>কালির বিকল্প</value></data>
+  <data name="RotateLeft" xml:space="preserve"><value>বাঁ দিকে ঘোরান</value></data>
+  <data name="Annotate" xml:space="preserve"><value>টীকা লিখুন</value></data>
+  <data name="ParallelLines" xml:space="preserve"><value>সমান্তরাল রেখা</value></data>
+  <data name="SwitchBoard" xml:space="preserve"><value>হোয়াইটবোর্ড ও ডেস্কটপে টীকা লেখার মধ্যে বদল করুন</value></data>
+  <data name="SwitchPenPalette" xml:space="preserve"><value>কলমের রঙের প্যালেট বদলান</value></data>
+  <data name="ClearAndMouseShort" xml:space="preserve"><value>মুছুন</value></data>
+  <data name="Clear" xml:space="preserve"><value>মুছুন</value></data>
+  <data name="ClearAnnotations" xml:space="preserve"><value>টীকা মুছুন</value></data>
+  <data name="ClearAndMouse" xml:space="preserve"><value>টীকা মুছে মাউস মোডে যান</value></data>
+  <data name="Delete" xml:space="preserve"><value>মুছুন</value></data>
+  <data name="PreviousPage" xml:space="preserve"><value>আগের পৃষ্ঠা</value></data>
+  <data name="Settings" xml:space="preserve"><value>সেটিংস</value></data>
+  <data name="Video" xml:space="preserve"><value>ভিডিও</value></data>
+  <data name="DocumentCamera" xml:space="preserve"><value>ডকুমেন্ট ক্যামেরা</value></data>
+  <data name="Gestures" xml:space="preserve"><value>অঙ্গভঙ্গি</value></data>
+  <data name="GestureFeatures" xml:space="preserve"><value>অঙ্গভঙ্গি নিয়ন্ত্রণ</value></data>
+  <data name="GestureOptions" xml:space="preserve"><value>অঙ্গভঙ্গির বিকল্প</value></data>
+  <data name="Mouse" xml:space="preserve"><value>মাউস</value></data>
+  <data name="MouseMode" xml:space="preserve"><value>মাউস মোড</value></data>
+  <data name="VerticalParabola" xml:space="preserve"><value>উল্লম্ব পরাবৃত্ত</value></data>
+  <data name="FlipVertical" xml:space="preserve"><value>উল্লম্বভাবে উল্টান</value></data>
+  <data name="Hyperbola" xml:space="preserve"><value>অধিবৃত্ত</value></data>
+  <data name="TwoFingerGestures" xml:space="preserve"><value>দুই আঙুলের অঙ্গভঙ্গি</value></data>
+  <data name="TwoFingerZoom" xml:space="preserve"><value>দুই আঙুলে জুম</value></data>
+  <data name="TwoFingerRotate" xml:space="preserve"><value>দুই আঙুলে ঘোরান</value></data>
+  <data name="TwoFingerPan" xml:space="preserve"><value>দুই আঙুলে সরান</value></data>
+  <data name="FlipHorizontal" xml:space="preserve"><value>অনুভূমিকভাবে উল্টান</value></data>
+  <data name="RotateRight" xml:space="preserve"><value>ডান দিকে ঘোরান</value></data>
+  <data name="Tetrahedron" xml:space="preserve"><value>চতুস্তলক</value></data>
+  <data name="SpeedBasedPenTip" xml:space="preserve"><value>গতি অনুযায়ী সরু নিব</value></data>
+  <data name="RandomPicker" xml:space="preserve"><value>দৈবচয়ন</value></data>
+  <data name="RandomPickerShort" xml:space="preserve"><value>বাছুন</value></data>
+  <data name="PickOnePerson" xml:space="preserve"><value>দৈবভাবে একজন বাছুন</value></data>
+  <data name="Image" xml:space="preserve"><value>ছবি</value></data>
+  <data name="Shapes" xml:space="preserve"><value>আকৃতি</value></data>
+  <data name="ShapesHint" xml:space="preserve"><value>আকৃতি (একটানা আঁকতে প্রথম সারির বোতাম চেপে রাখুন)</value></data>
+  <data name="Exit" xml:space="preserve"><value>প্রস্থান</value></data>
+  <data name="Ellipse" xml:space="preserve"><value>উপবৃত্ত</value></data>
+  <data name="NextPage" xml:space="preserve"><value>পরের পৃষ্ঠা</value></data>
+  <data name="DashedLine" xml:space="preserve"><value>ড্যাশ রেখা</value></data>
+  <data name="DashedCircle" xml:space="preserve"><value>ড্যাশ বৃত্ত</value></data>
+  <data name="Colors" xml:space="preserve"><value>রং</value></data>
+  <data name="SendToBoard" xml:space="preserve"><value>বোর্ডে পাঠান</value></data>
+  <data name="PageNumber" xml:space="preserve"><value>পৃষ্ঠা নম্বর</value></data>
+  <data name="CenteredRectangle" xml:space="preserve"><value>কেন্দ্র থেকে আয়তক্ষেত্র আঁকুন</value></data>
+  <data name="CenteredEllipse" xml:space="preserve"><value>কেন্দ্র থেকে উপবৃত্ত আঁকুন</value></data>
+  <data name="Hide" xml:space="preserve"><value>লুকান</value></data>
+  <data name="Highlighter" xml:space="preserve"><value>হাইলাইটার</value></data>
+  <data name="RedHighlighter" xml:space="preserve"><value>হাইলাইটার · লাল</value></data>
+  <data name="OrangeHighlighter" xml:space="preserve"><value>হাইলাইটার · কমলা</value></data>
+  <data name="YellowHighlighter" xml:space="preserve"><value>হাইলাইটার · হলুদ</value></data>
+  <data name="CyanHighlighter" xml:space="preserve"><value>হাইলাইটার · সায়ান</value></data>
+  <data name="BlueHighlighter" xml:space="preserve"><value>হাইলাইটার · নীল</value></data>
+  <data name="PurpleHighlighter" xml:space="preserve"><value>হাইলাইটার · বেগুনি</value></data>
+  <data name="Circle" xml:space="preserve"><value>বৃত্ত</value></data>
+  <data name="CircleEraserShort" xml:space="preserve"><value>গোল</value></data>
+  <data name="Cylinder" xml:space="preserve"><value>বেলন</value></data>
+  <data name="Cone" xml:space="preserve"><value>শঙ্কু</value></data>
+  <data name="RepeatShapeHint" xml:space="preserve"><value>একই আকৃতি বারবার আঁকতে চেপে রাখুন</value></data>
+  <data name="Cuboid" xml:space="preserve"><value>আয়তঘন</value></data>
+  <data name="Line" xml:space="preserve"><value>সরল রেখা</value></data>
+  <data name="Guide" xml:space="preserve"><value>নির্দেশিকা</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>স্বয়ংক্রিয়ভাবে লুকান</value></data>
+  <data name="Axis1" xml:space="preserve"><value>স্থানাঙ্ক অক্ষ 1</value></data>
+  <data name="Axis2" xml:space="preserve"><value>স্থানাঙ্ক অক্ষ 2</value></data>
+  <data name="Axis3" xml:space="preserve"><value>স্থানাঙ্ক অক্ষ 3</value></data>
+  <data name="Axis4" xml:space="preserve"><value>স্থানাঙ্ক অক্ষ 4</value></data>
+  <data name="Axis5" xml:space="preserve"><value>স্থানাঙ্ক অক্ষ 5</value></data>
+  <data name="CurrentTool" xml:space="preserve"><value>বর্তমান সরঞ্জাম</value></data>
+  <data name="CurrentColor" xml:space="preserve"><value>বর্তমান রং</value></data>
+  <data name="FollowWindows" xml:space="preserve"><value>Windows-এর ভাষা অনুসরণ করুন</value></data>
+  <data name="ToolWindowFailed" xml:space="preserve"><value>সরঞ্জামের উইন্ডো খোলা যায়নি। অ্যাপের ফাইলগুলি অক্ষত আছে কি না দেখুন।</value></data>
+  <data name="ProcessPathMissing" xml:space="preserve"><value>অ্যাপ চালানোর ফাইলটি পাওয়া যায়নি।</value></data>
+  <data name="ToolStartFailed" xml:space="preserve"><value>সরঞ্জামের উইন্ডো চালু করা যায়নি।</value></data>
+  <data name="UnexpectedError" xml:space="preserve"><value>একটি অপ্রত্যাশিত ত্রুটি ঘটেছে। আঁকা ছবি সংরক্ষণ করে FluentCanvas আবার চালু করুন।</value></data>
+  <data name="ActivationFailed" xml:space="preserve"><value>চালু থাকা FluentCanvas-এ ফাইল পাঠানো যায়নি। টুলবার থেকে ফাইলটি খুলে আবার চেষ্টা করুন।</value></data>
+  <data name="SettingsSaveFailed" xml:space="preserve"><value>সেটিংস সংরক্ষণ করা যায়নি। ব্যবহারকারীর ডেটা ফোল্ডারে লেখার অনুমতি দেখুন।</value></data>
+  <data name="SettingsReadFailed" xml:space="preserve"><value>সেটিংস পড়া যায়নি। মূল ফাইলটি রাখা হয়েছে।</value></data>
+  <data name="TriangleVariants" xml:space="preserve"><value>ত্রিভুজের বিকল্প</value></data>
+  <data name="Triangle" xml:space="preserve"><value>যেকোনো ত্রিভুজ</value></data>
+  <data name="RightTriangle" xml:space="preserve"><value>সমকোণী ত্রিভুজ</value></data>
+  <data name="IsoscelesTriangle" xml:space="preserve"><value>সমদ্বিবাহু ত্রিভুজ</value></data>
+  <data name="EquilateralTriangle" xml:space="preserve"><value>সমবাহু ত্রিভুজ</value></data>
+  <data name="Parallelogram" xml:space="preserve"><value>সামান্তরিক</value></data>
+  <data name="Trapezoid" xml:space="preserve"><value>ট্রাপিজিয়াম</value></data>
+  <data name="AngleMarks" xml:space="preserve"><value>কোণের চিহ্ন</value></data>
+  <data name="AngleMark" xml:space="preserve"><value>কোণের চাপের চিহ্ন</value></data>
+  <data name="RightAngleMark" xml:space="preserve"><value>সমকোণের চিহ্ন</value></data>
+  <data name="CircularShapes" xml:space="preserve"><value>বৃত্তচাপ ও বৃত্তকলা</value></data>
+  <data name="Arc" xml:space="preserve"><value>বৃত্তচাপ</value></data>
+  <data name="Sector" xml:space="preserve"><value>বৃত্তকলা</value></data>
+  <data name="Semicircle" xml:space="preserve"><value>অর্ধবৃত্ত</value></data>
+  <data name="NumberLine" xml:space="preserve"><value>সংখ্যারেখা</value></data>
+  <data name="NumberLineTicks" xml:space="preserve"><value>দাগসহ সংখ্যারেখা</value></data>
+  <data name="NumberLineLabeled" xml:space="preserve"><value>দাগ ও সংখ্যাসহ সংখ্যারেখা</value></data>
+  <data name="BoundingEllipse" xml:space="preserve"><value>বিপরীত কোণ থেকে উপবৃত্ত আঁকুন</value></data>
+  <data name="Sphere" xml:space="preserve"><value>গোলক</value></data>
+  <data name="PlaceTriangleFirstSide" xml:space="preserve"><value>প্রথম বাহুর দুই প্রান্তে ট্যাপ করুন বা টেনে বাহুটি আঁকুন</value></data>
+  <data name="PlaceTriangleVertex" xml:space="preserve"><value>তৃতীয় শীর্ষবিন্দু বসাতে ট্যাপ করুন</value></data>
+  <data name="PlaceAngleFirstSide" xml:space="preserve"><value>শীর্ষবিন্দু ও প্রথম বাহুর একটি বিন্দুতে ট্যাপ করুন অথবা শীর্ষবিন্দু থেকে টানুন</value></data>
+  <data name="PlaceAngleSecondSide" xml:space="preserve"><value>দ্বিতীয় বাহুর একটি বিন্দুতে ট্যাপ করুন</value></data>
+  <data name="PlaceArcRadius" xml:space="preserve"><value>কেন্দ্র ও শুরুর বিন্দুতে ট্যাপ করুন বা কেন্দ্র থেকে ব্যাসার্ধ টেনে আঁকুন</value></data>
+  <data name="PlaceArcEnd" xml:space="preserve"><value>শেষ বিন্দুর দিকে ট্যাপ করুন</value></data>
+  <data name="DrawSemicircle" xml:space="preserve"><value>টেনে ব্যাস আঁকুন। টানার দিকের বাঁ পাশে অর্ধবৃত্ত দেখা যাবে।</value></data>
+</root>

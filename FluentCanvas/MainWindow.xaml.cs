@@ -1,17 +1,15 @@
 using FluentCanvas.Helpers;
+using FluentCanvas.Localization;
 using FluentCanvas.Services;
 using FluentCanvas.ViewModels;
-using iNKORE.UI.WPF.Modern;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Ink;
 using System.Windows.Media;
 using File = System.IO.File;
-using MessageBox = System.Windows.MessageBox;
 
 namespace FluentCanvas
 {
@@ -19,35 +17,29 @@ namespace FluentCanvas
     {
         #region Window Initialization
 
-        public MainViewModel ViewModel { get; }
+        private readonly SettingsWindowHost settingsWindow = new();
+        private readonly ISettingsService settingsService;
+        private readonly NotificationsViewModel notifications = new();
+        private readonly PptNavigationViewModel navigation = new();
 
-        public MainWindow()
+        internal MainWindow(ISettingsService settingsService, IPowerPointService powerPoint,
+            PresentationSlideShowService slideShows)
         {
-            /*
-                处于画板模式内：Topmost == false / currentMode != 0
-                处于 PPT 放映内：BtnPPTSlideShowEnd.Visibility
-            */
+            this.settingsService = settingsService;
+            this.pptService = powerPoint;
+            this.slideShows = slideShows;
             InitializeComponent();
-
-            ViewModel = Locator.Get<MainViewModel>();
-            DataContext = ViewModel;
-
-            Locator.Get<IInkBoardService>().Attach(inkCanvas);
-            ShellService.Window = this;
-
-            SettingsPanel.ToggleSwitchEnableTwoFingerRotationOnSelection.Toggled += ToggleSwitchEnableTwoFingerRotation_Toggled;
-            SettingsPanel.ToggleSwitchEnableInkToShape.Toggled += ToggleSwitchEnableInkToShape_Toggled;
+            NotificationPanel.DataContext = notifications;
+            PresentationNavigation.DataContext = navigation;
 
             BlackboardLeftSide.Visibility = Visibility.Collapsed;
             BlackboardCenterSide.Visibility = Visibility.Collapsed;
             BlackboardRightSide.Visibility = Visibility.Collapsed;
 
             BorderTools.Visibility = Visibility.Collapsed;
-            SettingsPanel.Visibility = Visibility.Collapsed;
 
             BtnPPTSlideShowEnd.Visibility = Visibility.Collapsed;
 
-            SettingsPanel.Margin = new Thickness(0, 150, 0, 150);
 
             TwoFingerGestureBorder.Visibility = Visibility.Collapsed;
             BoardTwoFingerGestureBorder.Visibility = Visibility.Collapsed;
@@ -59,32 +51,6 @@ namespace FluentCanvas
             ViewboxFloatingBar.Margin = new Thickness((SystemParameters.WorkArea.Width - 284) / 2, SystemParameters.WorkArea.Height - 60, -2000, -200);
             ViewboxFloatingBarMarginAnimation();
 
-            try
-            {
-                var logPath = Path.Combine(StorageHelper.UserDataFolder, LogHelper.LogFile);
-                if (File.Exists(logPath))
-                {
-                    FileInfo fileInfo = new FileInfo(logPath);
-                    long fileSizeInKB = fileInfo.Length / 1024;
-                    if (fileSizeInKB > 512)
-                    {
-                        try
-                        {
-                            File.Delete(logPath);
-                            LogHelper.WriteLogToFile("The Log.txt file has been successfully deleted. Original file size: " + fileSizeInKB + " KB", LogHelper.LogType.Info);
-                        }
-                        catch (Exception ex)
-                        {
-                            LogHelper.WriteLogToFile(ex + " | Can not delete the Log.txt file. File size: " + fileSizeInKB + " KB", LogHelper.LogType.Error);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                LogHelper.WriteLogToFile(ex.ToString(), LogHelper.LogType.Error);
-            }
-
             InitTimers();
             InitPowerPoint();
             timeMachine.OnRedoStateChanged += TimeMachine_OnRedoStateChanged;
@@ -92,9 +58,11 @@ namespace FluentCanvas
             inkCanvas.Strokes.StrokesChanged += StrokesOnStrokesChanged;
 
             Microsoft.Win32.SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
+            SystemParameters.StaticPropertyChanged += SystemParameters_StaticPropertyChanged;
+            systemVisualSettings.AdvancedEffectsEnabledChanged += SystemVisualSettings_AdvancedEffectsEnabledChanged;
             try
             {
-                if (File.Exists(Path.Combine(AppContext.BaseDirectory, "SpecialVersion.ini"))) SettingsPanel.SpecialVersionReset();
+                if (File.Exists(Path.Combine(AppContext.BaseDirectory, "SpecialVersion.ini"))) _ = ApplySpecialVersionSettingsAsync();
             }
             catch (Exception ex)
             {
@@ -154,7 +122,7 @@ namespace FluentCanvas
             if (inkCanvas1 == null) return;
             if (Settings.Canvas.IsShowCursor)
             {
-                if (inkCanvas1.EditingMode == InkCanvasEditingMode.Ink || drawingShapeMode != 0)
+                if (inkCanvas1.EditingMode == InkCanvasEditingMode.Ink || drawingShapeMode != ShapeTool.Pen)
                 {
                     inkCanvas1.ForceCursor = true;
                 }
@@ -174,10 +142,10 @@ namespace FluentCanvas
 
         #region Definations and Loading
 
-        public static Settings Settings
+        private Settings Settings
         {
-            get => Locator.Get<ISettingsService>().Model;
-            private set => Locator.Get<ISettingsService>().Model = value;
+            get => settingsService.Model;
+            set => settingsService.Model = value;
         }
         bool isLoaded = false;
 
@@ -186,41 +154,32 @@ namespace FluentCanvas
             loadPenCanvas();
             //加载设置
             LoadSettings(true);
-            ThemeManager.Current.ApplicationTheme = ApplicationTheme.Light;
             SystemEvents_UserPreferenceChanged(null, null);
 
-            SettingsPanel.AppVersionTextBlock.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             LogHelper.WriteLogToFile("FluentCanvas Loaded", LogHelper.LogType.Event);
             isLoaded = true;
             RegisterGlobalHotkeys();
-            ((App)Application.Current).EnableFileActivation(this);
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            LogHelper.WriteLogToFile("FluentCanvas closing", LogHelper.LogType.Event);
-            if (!CloseIsFromButton && Settings.Advanced.IsSecondConfimeWhenShutdownApp)
+            if (sessionCloseApproved)
             {
-                e.Cancel = true;
-                if (MessageBox.Show("是否继续关闭 FluentCanvas 画板，这将丢失当前未保存的工作。", "FluentCanvas 画板", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
-                {
-                    if (MessageBox.Show("真的狠心关闭 FluentCanvas 画板吗？", "FluentCanvas 画板", MessageBoxButton.OKCancel, MessageBoxImage.Error) == MessageBoxResult.OK)
-                    {
-                        if (MessageBox.Show("是否取消关闭 FluentCanvas 画板？", "FluentCanvas 画板", MessageBoxButton.OKCancel, MessageBoxImage.Error) != MessageBoxResult.OK)
-                        {
-                            e.Cancel = false;
-                        }
-                    }
-                }
+                LogHelper.WriteLogToFile("FluentCanvas closing", LogHelper.LogType.Event);
+                return;
             }
-            if (e.Cancel)
-            {
-                LogHelper.WriteLogToFile("FluentCanvas closing cancelled", LogHelper.LogType.Event);
-            }
+            e.Cancel = true;
+            // WPF must finish raising Closing before a replacement Close can run.
+            if (!sessionEndPending)
+                _ = Dispatcher.BeginInvoke(new Action(() => _ = FinishSessionAsync(restart: false,
+                    confirmWindowClose: Settings.Advanced.IsSecondConfimeWhenShutdownApp)));
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
+            Microsoft.Win32.SystemEvents.UserPreferenceChanged -= SystemEvents_UserPreferenceChanged;
+            SystemParameters.StaticPropertyChanged -= SystemParameters_StaticPropertyChanged;
+            systemVisualSettings.AdvancedEffectsEnabledChanged -= SystemVisualSettings_AdvancedEffectsEnabledChanged;
             LogHelper.WriteLogToFile("FluentCanvas closed", LogHelper.LogType.Event);
         }
 

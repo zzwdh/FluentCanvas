@@ -8,13 +8,19 @@ param(
     [string]$DotnetPath = 'dotnet',
     [string]$WindowsSdkBin,
     [string]$OutputDirectory,
-    [string[]]$RestoreSource
+    [string[]]$RestoreSource,
+    [switch]$WindowsAppSdkComponents,
+    [switch]$LockedRestore
 )
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 $root = Split-Path -Parent $PSScriptRoot
 $project = Join-Path $root 'FluentCanvas/FluentCanvas.csproj'
 $template = Join-Path $root 'FluentCanvas.Package/Package.appxmanifest'
+$requiredSdk = (Get-Content -LiteralPath (Join-Path $root 'global.json') -Raw | ConvertFrom-Json).sdk.version
+[xml]$buildProperties = Get-Content -LiteralPath (Join-Path $root 'Directory.Build.props') -Raw
+$desktopRuntimeVersion = $buildProperties.Project.PropertyGroup.FluentCanvasDesktopRuntimeVersion
+$minimumWindowsVersion = $buildProperties.Project.PropertyGroup.FluentCanvasMinimumWindowsVersion
 if (-not $OutputDirectory) { $OutputDirectory = Join-Path $root "artifacts/packages/$Mode" }
 $OutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)
 if ($Mode -eq 'Store') {
@@ -58,8 +64,14 @@ $architectures = @($Architecture | ForEach-Object { $_.ToLowerInvariant() } | Se
 Push-Location $root
 try {
     $selected = & $DotnetPath --version
-    if ($LASTEXITCODE -or $selected -ne '11.0.100') { throw "Install SDK 11.0.100 (found $selected)." }
+    if ($LASTEXITCODE -or $selected -ne $requiredSdk) { throw "Install SDK $requiredSdk (found $selected)." }
     [xml]$manifest = Get-Content -LiteralPath $template -Raw
+    [xml]$wap = Get-Content -LiteralPath (Join-Path $root 'FluentCanvas.Package/FluentCanvas.Package.wapproj') -Raw
+    $wapMinimum = $wap.SelectSingleNode("//*[local-name()='TargetPlatformMinVersion']")
+    if (!$wapMinimum -or $wapMinimum.InnerText -ne $minimumWindowsVersion -or
+        $manifest.Package.Dependencies.TargetDeviceFamily.MinVersion -ne $minimumWindowsVersion) {
+        throw "Both MSIX build inputs must declare the Windows minimum $minimumWindowsVersion."
+    }
     $app = $manifest.Package.Applications.Application
     if ($Mode -eq 'Store') {
         $manifest.Package.Identity.Name = $identity.Name
@@ -80,7 +92,6 @@ try {
     $configXml.Save($priConfig)
     $assetLayout = New-Item -ItemType Directory (Join-Path $stage 'logos')
     $assets = New-Item -ItemType Directory (Join-Path $assetLayout 'Assets')
-    [xml]$wap = Get-Content -LiteralPath (Join-Path $root 'FluentCanvas.Package/FluentCanvas.Package.wapproj') -Raw
     foreach ($content in $wap.SelectNodes("//*[local-name()='Content']")) {
         $include = $content.GetAttribute('Include')
         if ($include.StartsWith('Assets\')) {
@@ -93,16 +104,23 @@ try {
     foreach ($arch in $architectures) {
         $platform = if ($arch -eq 'arm64') { 'ARM64' } else { 'x64' }
         $rid = "win-$arch"
+        $managedArtifacts = Join-Path $stage "managed-$arch"
         $layout = New-Item -ItemType Directory (Join-Path $stage $arch)
-        $argsCommon = @($project,"-p:Platform=$platform",'-r',$rid)
-        Run $DotnetPath (@('restore') + $argsCommon + @($sources | Where-Object { $_ }))
-        Run $DotnetPath (@('publish') + $argsCommon + @('-c','Release','--no-restore','--self-contained','true',
-            "-p:PublishProfile=$rid","-p:ManifestTool=$(Join-Path $WindowsSdkBin 'mt.exe')",'-o',$layout.FullName))
+        $argsCommon = @($project,"-p:Platform=$platform",'--artifacts-path',$managedArtifacts,'-m:1','-nr:false')
+        if ($WindowsAppSdkComponents) { $argsCommon += '-p:FluentCanvasUseWindowsAppSdkComponents=true' }
+        $restoreOptions = if ($LockedRestore) { '--locked-mode' }
+        Run $DotnetPath (@('restore') + $argsCommon + @($restoreOptions | Where-Object { $_ }) + @($sources | Where-Object { $_ }))
+        Run $DotnetPath (@('publish') + $argsCommon + @('-r',$rid,'-c','Release','--no-restore','--self-contained','true',
+            "-p:PublishProfile=$rid","-p:ManifestTool=$(Join-Path $WindowsSdkBin 'mt.exe')","-p:MakePriExeFullPath=$makepri",'-o',$layout.FullName))
         $embeddedManifest = Join-Path $stage "$arch-executable.manifest"
         Run (Join-Path $WindowsSdkBin 'mt.exe') @('-nologo',"-inputresource:$(Join-Path $layout 'FluentCanvas.exe');#1","-out:$embeddedManifest")
         [xml]$native = Get-Content -LiteralPath $embeddedManifest -Raw
         $dpi = $native.GetElementsByTagName('dpiAwareness','http://schemas.microsoft.com/SMI/2016/WindowsSettings')
         if ($dpi.Count -ne 1 -or $dpi.Item(0).InnerText -ne 'PerMonitorV2') { throw 'Executable manifest missing PerMonitorV2 DPI awareness.' }
+        $supportedOS = $native.GetElementsByTagName('supportedOS','urn:schemas-microsoft-com:compatibility.v1')
+        if ('{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}' -notin @($supportedOS | ForEach-Object { $_.Id })) {
+            throw 'Executable manifest missing the Windows 10 compatibility declaration.'
+        }
         $appVersion = [version](Get-Item -LiteralPath (Join-Path $layout 'FluentCanvas.exe')).VersionInfo.FileVersion
         if ($appVersion -ne $version) { throw "Executable $appVersion and package $version differ." }
         $manifest.Package.Identity.SetAttribute('ProcessorArchitecture', $arch)
@@ -126,9 +144,9 @@ try {
         Copy-Item -LiteralPath (Join-Path $root 'LICENSE') -Destination (Join-Path $layout 'LICENSE')
         $storeDocs = New-Item -ItemType Directory (Join-Path $layout 'docs/store')
         Copy-Item -LiteralPath "$root/docs/store/THIRD-PARTY.md","$root/docs/store/PRIVACY.zh-CN.md" -Destination $storeDocs.FullName
-        $resolved = Get-Content -LiteralPath "$root/FluentCanvas/obj/project.assets.json" -Raw | ConvertFrom-Json -AsHashtable
+        $resolved = Get-Content -LiteralPath (Join-Path $managedArtifacts 'obj/FluentCanvas/project.assets.json') -Raw | ConvertFrom-Json -AsHashtable
         $packages = @($resolved.libraries.Values | Where-Object type -eq 'package' | ForEach-Object { $_.path })
-        $packages += "microsoft.netcore.app.runtime.$rid/11.0.0","microsoft.windowsdesktop.app.runtime.$rid/11.0.0"
+        $packages += "microsoft.netcore.app.runtime.$rid/$desktopRuntimeVersion","microsoft.windowsdesktop.app.runtime.$rid/$desktopRuntimeVersion"
         foreach ($packagePath in ($packages | Sort-Object -Unique)) {
             $packageDir = $resolved.packageFolders.Keys | ForEach-Object { Join-Path $_ $packagePath } | Where-Object { Test-Path -LiteralPath $_ } | Select-Object -First 1
             if (!$packageDir) { continue }
@@ -153,7 +171,7 @@ try {
     if ($Mode -eq 'Store') {
         $uploadLayout = New-Item -ItemType Directory (Join-Path $stage 'submission')
         Copy-Item -LiteralPath $bundle -Destination $uploadLayout.FullName
-        [IO.Compression.ZipFile]::CreateFromDirectory($symbolDir.FullName,(Join-Path $uploadLayout "${name}.appxsym"))
+        # Portable PDBs contain local source paths; keep them out of the Store upload.
         [IO.Compression.ZipFile]::CreateFromDirectory($uploadLayout.FullName,(Join-Path $results "${name}_${version}.msixupload"))
     } else {
         & "$PSScriptRoot/Sign-TestPackage.ps1" -Files @($bundle; (Get-ChildItem $innerPackages -Filter '*.msix').FullName) `

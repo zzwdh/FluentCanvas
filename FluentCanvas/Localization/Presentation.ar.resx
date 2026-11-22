@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>تعذّر تبديل صفحة التعليقات التوضيحية في PowerPoint. {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>إعدادات العرض التقديمي - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>تعذّر إنهاء عرض الشرائح في {0}.</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>يتضمن هذا العرض التقديمي شرائح مخفية. هل تريد إظهارها؟</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>تم استيراد التعليقات التوضيحية القديمة لعدد من الشرائح: {0}.</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>تم العثور على تعليقات توضيحية قديمة محفوظة حسب اسم الملف ورقم الشريحة. تأكد من أنها تخص هذا العرض التقديمي وأن الشرائح ما زالت بترتيبها الأصلي. هل تريد نسخها إلى مجلد التعليقات التوضيحية لهذا العرض؟</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>توقف عرض الشرائح السابق عند الشريحة {0}. هل تريد الانتقال إليها؟</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>يستخدم هذا العرض التقديمي تقدم الشرائح تلقائيًا أو توقيتات التمرين. هل تريد التنقل بين الشرائح يدويًا؟</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>تعذّر فتح التنقل بين الشرائح في PowerPoint.</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>الشريحة التالية</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>تعذّر الانتقال إلى الشريحة التالية في {0}.</value></data>
+  <data name="No" xml:space="preserve"><value>لا</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>فشل تنفيذ العملية في PowerPoint. {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>الموضع في عرض الشرائح {0} · الشريحة {1} في العرض التقديمي</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>الشريحة السابقة</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>تعذّر الرجوع إلى الشريحة السابقة في {0}.</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>تعذّرت قراءة التعليقات التوضيحية المحفوظة للشريحة {0}. تم الاحتفاظ بالملف الأصلي.</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>تعذّر حفظ التعليقات التوضيحية في PowerPoint. لا تزال متاحة في هذه الجلسة.</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>تم حفظ التعليقات التوضيحية في PowerPoint في مجلد الاسترداد المحلي.</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>تعذّر حفظ التعليقات التوضيحية في PowerPoint أو موضع عرض الشرائح. {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>تعذّر العثور على نافذة عرض الشرائح الحالي.</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>تعذّر على WPS إكمال أمر عرض الشرائح.</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>لم تؤكد وظيفة WPS الإضافية استلام أمر عرض الشرائح.</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>تعذّر إرسال أمر عرض الشرائح إلى وظيفة WPS الإضافية.</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>نعم</value></data>
+</root>

@@ -1,0 +1,245 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:helpers="clr-namespace:FluentCanvas.Helpers"
+    xmlns:loc="clr-namespace:FluentCanvas.Localization">
+    <DataTemplate x:Key="CompactToolCaptionTemplate">
+        <Viewbox Width="40" Height="15" StretchDirection="DownOnly">
+            <TextBlock Text="{Binding}" FlowDirection="{x:Static loc:WpfLanguage.TextDirection}" />
+        </Viewbox>
+    </DataTemplate>
+
+    <Style x:Key="ToolbarKeyboardFocus">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border
+                        Margin="1"
+                        BorderBrush="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"
+                        BorderThickness="1"
+                        CornerRadius="4"
+                        IsHitTestVisible="False">
+                        <Border
+                            BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"
+                            BorderThickness="2"
+                            CornerRadius="3" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ToolbarPressContent" TargetType="ContentPresenter">
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
+        <Setter Property="helpers:ToolbarPressFeedback.IsPressed" Value="{Binding IsPressed, RelativeSource={RelativeSource TemplatedParent}}" />
+        <Setter Property="helpers:ToolbarPressFeedback.AnimationsEnabled" Value="{DynamicResource {x:Static SystemParameters.ClientAreaAnimationKey}}" />
+        <Setter Property="helpers:ToolbarPressFeedback.HighContrast" Value="{DynamicResource {x:Static SystemParameters.HighContrastKey}}" />
+    </Style>
+
+    <Style x:Key="ToolbarButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(AutomationProperties.Name)}" />
+        <Setter Property="FocusVisualStyle" Value="{StaticResource ToolbarKeyboardFocus}" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border
+                            Padding="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource ToolbarPressContent}" />
+                        </Border>
+                        <Border
+                            x:Name="PointerFeedback"
+                            Margin="1"
+                            BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"
+                            BorderThickness="1"
+                            CornerRadius="4"
+                            IsHitTestVisible="False"
+                            Opacity="0" />
+                        <Border
+                            x:Name="ActiveTool"
+                            Height="2"
+                            Margin="5,0,5,2"
+                            VerticalAlignment="Bottom"
+                            Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"
+                            IsHitTestVisible="False"
+                            Visibility="Collapsed" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="PointerFeedback" Property="Opacity" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="PointerFeedback" Property="BorderThickness" Value="2" />
+                        </Trigger>
+                        <Trigger Property="helpers:ToolbarSelection.IsActive" Value="True">
+                            <Setter TargetName="ActiveTool" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ToolbarPaletteButtonStyle" TargetType="Button" BasedOn="{StaticResource ToolbarButtonStyle}">
+        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(AutomationProperties.Name)}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="Transparent">
+                        <ContentPresenter Style="{StaticResource ToolbarPressContent}" />
+                        <Border
+                            x:Name="PointerFeedback"
+                            Margin="1"
+                            BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"
+                            BorderThickness="1"
+                            CornerRadius="4"
+                            IsHitTestVisible="False"
+                            Visibility="Collapsed" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="PointerFeedback" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="PointerFeedback" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PointerFeedback" Property="BorderThickness" Value="2" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ToolbarSwatchButtonStyle" TargetType="Button" BasedOn="{StaticResource ToolbarPaletteButtonStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="Transparent" Padding="2,1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <ContentPresenter Margin="2,1" Style="{StaticResource ToolbarPressContent}" />
+                            <Viewbox Grid.Row="1" Height="14" StretchDirection="DownOnly">
+                                <TextBlock
+                                    x:Name="ColorLabel"
+                                    FlowDirection="{x:Static loc:WpfLanguage.TextDirection}"
+                                    FontSize="11"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helpers:PaletteSwatch.Label)}" />
+                            </Viewbox>
+                            <Border
+                                x:Name="SwatchOutline"
+                                Grid.RowSpan="2"
+                                BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"
+                                CornerRadius="4"
+                                IsHitTestVisible="False" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="SwatchOutline" Property="BorderThickness" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="SwatchOutline" Property="BorderThickness" Value="2" />
+                        </Trigger>
+                        <Trigger Property="Tag" Value="{x:Static Visibility.Visible}">
+                            <Setter TargetName="SwatchOutline" Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}" />
+                            <Setter TargetName="SwatchOutline" Property="BorderThickness" Value="2" />
+                            <Setter TargetName="ColorLabel" Property="FontWeight" Value="Bold" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="{x:Static Visibility.Visible}">
+                <Setter Property="AutomationProperties.ItemStatus" Value="{loc:Text Canvas.CurrentColor}" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="FloatingToolbarSurfaceStyle" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource FloatingToolbarSurfaceBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource FloatingToolbarStrokeBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="8" />
+    </Style>
+
+    <Style x:Key="FloatingToolbarFlyoutHeaderStyle" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource FloatingToolbarHeaderBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource FloatingToolbarStrokeBrush}" />
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="CornerRadius" Value="7,7,0,0" />
+    </Style>
+
+    <Style x:Key="FloatingToolbarButtonStyle" TargetType="Button" BasedOn="{StaticResource ToolbarButtonStyle}">
+        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(AutomationProperties.Name)}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="6">
+                        <Grid>
+                            <Border
+                                x:Name="StateLayer"
+                                Margin="1"
+                                BorderThickness="1"
+                                CornerRadius="5"
+                                IsHitTestVisible="False" />
+                            <ContentPresenter
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource ToolbarPressContent}" />
+                            <Border
+                                x:Name="ActiveTool"
+                                Width="2"
+                                Height="12"
+                                Margin="2,0,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource FloatingToolbarAccentBrush}"
+                                CornerRadius="1"
+                                IsHitTestVisible="False"
+                                Visibility="Collapsed" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="helpers:ToolbarSelection.IsActive" Value="True">
+                            <Setter TargetName="StateLayer" Property="Background" Value="{DynamicResource FloatingToolbarSelectedBrush}" />
+                            <Setter TargetName="ActiveTool" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="StateLayer" Property="Background" Value="{DynamicResource FloatingToolbarHoverBrush}" />
+                            <Setter TargetName="StateLayer" Property="BorderBrush" Value="{DynamicResource FloatingToolbarHoverStrokeBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="StateLayer" Property="Background" Value="{DynamicResource FloatingToolbarPressedBrush}" />
+                            <Setter TargetName="StateLayer" Property="BorderBrush" Value="{DynamicResource FloatingToolbarHoverStrokeBrush}" />
+                            <Setter TargetName="StateLayer" Property="BorderThickness" Value="2" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="AutomationProperties.Name" Value="">
+                <Setter Property="ToolTip" Value="{x:Null}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

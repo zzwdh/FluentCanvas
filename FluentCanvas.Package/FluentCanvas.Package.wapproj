@@ -28,7 +28,7 @@
   <PropertyGroup>
     <ProjectGuid>{C2E08DA0-0CB3-4F49-AD2E-E7B8BE59429B}</ProjectGuid>
     <TargetPlatformVersion>10.0.26100.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.19044.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <EntryPointProjectUniqueName>..\FluentCanvas\FluentCanvas.csproj</EntryPointProjectUniqueName>
     <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
@@ -124,8 +124,9 @@
   </Target>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
   <ItemGroup>
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260804001" />
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4948" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Condition="'$(FluentCanvasUseWindowsAppSdkComponents)' != 'true'" />
+    <PackageReference Include="Microsoft.WindowsAppSDK.WinUI" Condition="'$(FluentCanvasUseWindowsAppSdkComponents)' == 'true'" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentCanvas\FluentCanvas.csproj">

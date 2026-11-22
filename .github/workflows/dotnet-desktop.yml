@@ -1,9 +1,9 @@
 name: Build Windows MSIX
 on:
   push:
-    branches: [ master ]
+    branches: [ main, master, 'release/**' ]
   pull_request:
-    branches: [ master ]
+    branches: [ main, master, 'release/**' ]
   workflow_dispatch:
 
 jobs:
@@ -14,13 +14,20 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           global-json-file: global.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
       - name: Test document reliability
         run: dotnet run --project tests/Document.Tests/Document.Tests.csproj -c Release
       - name: Test settings and activation
         run: dotnet run --project tests/Lifecycle.Tests/Lifecycle.Tests.csproj -c Release
+      - name: Test WPF canvas input
+        run: dotnet run --project tests/CanvasInput.Tests/CanvasInput.Tests.csproj -c Release
+      - name: Test WPS add-in
+        run: node --test tests/wps-addin.test.cjs
       - name: Build and inspect x64 and ARM64 packages
         shell: pwsh
-        run: ./eng/Build-Packages.ps1 -Mode Local
+        run: ./eng/Build-Packages.ps1 -Mode Local -LockedRestore
       - uses: actions/upload-artifact@v4
         with:
           name: FluentCanvas-local-MSIX

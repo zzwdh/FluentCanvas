@@ -1,6 +1,7 @@
 using FluentCanvas;
 using FluentCanvas.Helpers;
 using FluentCanvas.Services;
+using Newtonsoft.Json;
 
 var root = Path.Combine(Path.GetTempPath(), "FluentCanvas-Lifecycle-" + Guid.NewGuid().ToString("N"));
 Directory.CreateDirectory(root);
@@ -14,15 +15,31 @@ void Check(bool value, string description)
 }
 try
 {
+    LocalizationTests.Run(Check);
+    ClassroomTests.Run(root, Check);
+    ErrorReportingTests.Run(root, Check);
     var store = new LegacySettingsService();
+    await SettingsPreferenceTests.RunAsync(root, Check);
     Check(!store.Load(), "Empty profile is recognized");
     store.Legacy = """{"canvas":{"inkWidth":7},"automation":null}""";
     Check(store.Load() && store.Model.Canvas.InkWidth == 7 && store.Model.Automation != null, "Reads legacy LocalSettings including old null sections");
+    Check(store.Model.Appearance.Language == "", "Existing profiles follow the Windows display language");
+
+    var oldPresentationSettings = JsonConvert.DeserializeObject<Settings>("""{"behavior":{"isSupportWPS":true}}""");
+    Check(!oldPresentationSettings.PowerPointSettings.IsSupportWPS,
+        "Legacy WPS preference does not opt in to the new desktop add-in");
+    oldPresentationSettings.PowerPointSettings.IsSupportWPS = true;
+    oldPresentationSettings.PowerPointSettings.PowerPointSupport = false;
+    var newPresentationSettings = JsonConvert.DeserializeObject<Settings>(JsonConvert.SerializeObject(oldPresentationSettings));
+    Check(newPresentationSettings.PowerPointSettings.IsSupportWPS && !newPresentationSettings.PowerPointSettings.PowerPointSupport,
+        "WPS and PowerPoint opt-in states are saved independently");
 
     store.Model.Canvas.InkWidth = 9;
+    store.Model.Appearance.Language = "ur";
     store.Save();
     var next = new LegacySettingsService { Legacy = store.Legacy };
     Check(next.Load() && next.Model.Canvas.InkWidth == 9, "Restart picks the last file save over stale LocalSettings");
+    Check(next.ReadStoredSettings().Appearance.Language == "ur", "Startup can read the saved interface language before creating a window");
     next.Model.Canvas.InkWidth = 12;
     next.Save();
 
@@ -40,6 +57,16 @@ try
 
     File.WriteAllText(path, "partial");
     Check(next.Load() && next.Model.Canvas.InkWidth == 9, "Corrupt primary recovers from last valid file");
+    next.Model.Canvas.InkWidth = 8;
+    next.Save();
+    File.WriteAllText(path, "partial");
+    Check(next.Load() && next.Model.Canvas.InkWidth == 9, "Saving recovered settings preserves the readable backup");
+    next.Model.Canvas.InkWidth = 11;
+    next.Save();
+    next.Model.Canvas.InkWidth = 12;
+    next.Save();
+    File.WriteAllText(path, "partial");
+    Check(next.Load() && next.Model.Canvas.InkWidth == 11, "Normal backup rotation resumes after recovery");
     File.WriteAllText(path + ".bak", "broken");
     Check(next.Load() && next.Model.Canvas.InkWidth == 7, "Corrupt files can still recover the legacy source");
     next.Legacy = null;
@@ -82,6 +109,7 @@ namespace FluentCanvas.Helpers
     internal static class StorageHelper
     {
         public static string UserDataFolder { get; set; }
+        public static string UserDataPath => UserDataFolder;
         public static string GetDefaultStorageRoot() => UserDataFolder;
         public static string NormalizeStorageLocation(string path) => path ?? UserDataFolder;
     }
@@ -89,6 +117,7 @@ namespace FluentCanvas.Helpers
     internal static class LogHelper
     {
         public enum LogType { Error }
+        public static void NewLog(string message) => Console.Error.WriteLine(message);
         public static void WriteLogToFile(string message, LogType type) => Console.Error.WriteLine(message);
     }
 }

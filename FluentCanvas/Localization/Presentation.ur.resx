@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>PowerPoint میں تشریحات کا صفحہ تبدیل نہیں ہو سکا۔ {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>پریزنٹیشن کی ترتیبات - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>{0} میں سلائیڈ شو ختم نہیں ہو سکا۔</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>اس پریزنٹیشن میں کچھ سلائیڈیں پوشیدہ ہیں۔ کیا انہیں دکھانا ہے؟</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>{0} سلائیڈوں کی پرانی تشریحات درآمد ہو گئیں۔</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>فائل کے نام اور سلائیڈ نمبر کے تحت محفوظ پرانی تشریحات ملیں۔ تصدیق کریں کہ یہ اسی پریزنٹیشن کی ہیں اور سلائیڈیں اب بھی اصل ترتیب میں ہیں۔ کیا انہیں اس پریزنٹیشن کے تشریحات والے فولڈر میں نقل کرنا ہے؟</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>پچھلا سلائیڈ شو سلائیڈ {0} پر رکا تھا۔ کیا اسی سلائیڈ پر جانا ہے؟</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>اس پریزنٹیشن میں سلائیڈیں خودکار طور پر یا مشق کے دوران محفوظ کیے گئے اوقات کے مطابق بدلتی ہیں۔ کیا سلائیڈیں دستی طور پر بدلنا چاہتے ہیں؟</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>PowerPoint میں سلائیڈ نیویگیشن نہیں کھل سکی۔</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>اگلی سلائیڈ</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>{0} میں اگلی سلائیڈ پر نہیں جا سکے۔</value></data>
+  <data name="No" xml:space="preserve"><value>نہیں</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>PowerPoint کی کارروائی ناکام رہی۔ {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>سلائیڈ شو میں مقام {0} · پریزنٹیشن کی سلائیڈ {1}</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>پچھلی سلائیڈ</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>{0} میں پچھلی سلائیڈ پر واپس نہیں جا سکے۔</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>سلائیڈ {0} کی محفوظ تشریحات نہیں پڑھی جا سکیں۔ اصل فائل برقرار ہے۔</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>PowerPoint کی تشریحات محفوظ نہیں ہو سکیں۔ یہ موجودہ سیشن میں دستیاب ہیں۔</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>PowerPoint کی تشریحات مقامی بازیابی فولڈر میں محفوظ ہو گئیں۔</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>PowerPoint کی تشریحات یا سلائیڈ شو کا مقام محفوظ نہیں ہو سکا۔ {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>موجودہ سلائیڈ شو کی ونڈو نہیں ملی۔</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>WPS سلائیڈ شو کی کارروائی مکمل نہیں کر سکا۔</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>WPS ایڈ اِن نے سلائیڈ شو کا حکم موصول ہونے کی تصدیق نہیں کی۔</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>WPS ایڈ اِن کو سلائیڈ شو کا حکم نہیں بھیجا جا سکا۔</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>ہاں</value></data>
+</root>

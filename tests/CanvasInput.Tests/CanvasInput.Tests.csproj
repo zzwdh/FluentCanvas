@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net11.0-windows</TargetFramework>
+    <RuntimeFrameworkVersion>$(FluentCanvasDesktopRuntimeVersion)</RuntimeFrameworkVersion>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- These linked touch fields are read by production drawing and pressure partials. -->
+    <NoWarn>$(NoWarn);CS0414</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../FluentCanvas/Helpers/AnimationsHelper.cs" Link="AnimationsHelper.cs" />
+    <Compile Include="../../FluentCanvas/Helpers/ShapeTool.cs" Link="ShapeTool.cs" />
+    <Compile Include="../../FluentCanvas/MainWindow_cs/MW_BoardControls.cs" Link="MW_BoardControls.cs" />
+    <Compile Include="../../FluentCanvas/MainWindow_cs/MW_PageNavigation.cs" Link="MW_PageNavigation.cs" />
+    <Compile Include="../../FluentCanvas/MainWindow_cs/MW_TouchEvents.cs" Link="MW_TouchEvents.cs" />
+    <Compile Include="../../FluentCanvas/MainWindow_cs/MW_TimeMachine.cs" Link="MW_TimeMachine.cs" />
+    <Compile Include="../../FluentCanvas.InkAnalyzerCore/InkAnalysisModels.cs" Link="InkAnalysisModels.cs" />
+    <Compile Include="../../FluentCanvas.InkAnalyzerCore/InkShapeCandidates.cs" Link="InkShapeCandidates.cs" />
+    <ProjectReference Include="../../FluentCanvas.CanvasCore/FluentCanvas.CanvasCore.csproj" />
+  </ItemGroup>
+</Project>

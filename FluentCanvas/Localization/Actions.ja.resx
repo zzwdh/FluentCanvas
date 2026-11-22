@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Ready" xml:space="preserve"><value>準備完了</value></data>
+  <data name="Hours" xml:space="preserve"><value>時間</value></data>
+  <data name="Minutes" xml:space="preserve"><value>分</value></data>
+  <data name="Seconds" xml:space="preserve"><value>秒</value></data>
+  <data name="Start" xml:space="preserve"><value>開始</value></data>
+  <data name="Reset" xml:space="preserve"><value>リセット</value></data>
+  <data name="Compact" xml:space="preserve"><value>コンパクト</value></data>
+  <data name="FullScreen" xml:space="preserve"><value>全画面</value></data>
+  <data name="TimeRemaining" xml:space="preserve"><value>残り時間</value></data>
+  <data name="TimeRemainingProgress" xml:space="preserve"><value>カウントダウンの進行状況</value></data>
+  <data name="Paused" xml:space="preserve"><value>一時停止中</value></data>
+  <data name="CountdownEndsAt" xml:space="preserve"><value>終了予定 {0:HH:mm:ss}</value></data>
+  <data name="TimeUp" xml:space="preserve"><value>時間です</value></data>
+  <data name="TimeUpAlarmFailed" xml:space="preserve"><value>時間です。アラーム音を再生できませんでした。</value></data>
+  <data name="TimeRemainingSpoken" xml:space="preserve"><value>残り {0} 時間 {1} 分 {2} 秒</value></data>
+  <data name="Pause" xml:space="preserve"><value>一時停止</value></data>
+  <data name="Resume" xml:space="preserve"><value>再開</value></data>
+  <data name="Expand" xml:space="preserve"><value>展開</value></data>
+  <data name="ExitFullScreen" xml:space="preserve"><value>全画面を終了</value></data>
+  <data name="RosterLoading" xml:space="preserve"><value>名簿を読み込み中…</value></data>
+  <data name="ParticipantCount" xml:space="preserve"><value>参加人数</value></data>
+  <data name="DrawCount" xml:space="preserve"><value>抽選人数</value></data>
+  <data name="StartDraw" xml:space="preserve"><value>抽選する</value></data>
+  <data name="EditRoster" xml:space="preserve"><value>名簿を編集</value></data>
+  <data name="DrawOne" xml:space="preserve"><value>1 人を抽選</value></data>
+  <data name="DrawResult" xml:space="preserve"><value>抽選結果</value></data>
+  <data name="RosterReadFailed" xml:space="preserve"><value>名簿を読み込めなかったため、番号で抽選します。</value></data>
+  <data name="RosterLoaded" xml:space="preserve"><value>名簿の登録人数は {0} 人です</value></data>
+  <data name="RosterUsingNumbers" xml:space="preserve"><value>番号で抽選</value></data>
+  <data name="InvalidRulesSkipped" xml:space="preserve"><value> · 無効な置換ルールを {0} 件スキップ</value></data>
+  <data name="Drawing" xml:space="preserve"><value>抽選中…</value></data>
+  <data name="SingleDrawResult" xml:space="preserve"><value>抽選結果：{0}</value></data>
+  <data name="MultipleDrawResult" xml:space="preserve"><value>{0} 人を抽選しました</value></data>
+  <data name="DrawAgain" xml:space="preserve"><value>もう一度抽選</value></data>
+  <data name="NamesPerLine" xml:space="preserve"><value>1 行に名前を 1 つ入力</value></data>
+  <data name="RulesPerLine" xml:space="preserve"><value>1 行に置換ルールを 1 つ入力</value></data>
+  <data name="Roster" xml:space="preserve"><value>名簿</value></data>
+  <data name="ImportRoster" xml:space="preserve"><value>名前をインポート</value></data>
+  <data name="ReplacementRules" xml:space="preserve"><value>置換ルール</value></data>
+  <data name="ImportReplacementRules" xml:space="preserve"><value>ルールをインポート</value></data>
+  <data name="ReplacementRuleExample" xml:space="preserve"><value>例：田中太郎--&gt;田中。右側を空欄にすると、その名前を抽選から外せます。</value></data>
+  <data name="RosterAndRules" xml:space="preserve"><value>名簿と置換ルール</value></data>
+  <data name="Save" xml:space="preserve"><value>保存</value></data>
+  <data name="Cancel" xml:space="preserve"><value>キャンセル</value></data>
+  <data name="RosterSaved" xml:space="preserve"><value>名簿を保存しました</value></data>
+  <data name="RosterEditFailed" xml:space="preserve"><value>名簿を編集できませんでした。{0}</value></data>
+  <data name="RosterImportFailed" xml:space="preserve"><value>インポートできませんでした。{0}</value></data>
+  <data name="InvalidReplacementRule" xml:space="preserve"><value>置換ルールを確認してください。各行を「元の名前--&gt;表示名」の形式で入力します。</value></data>
+  <data name="RosterSaveTooLarge" xml:space="preserve"><value>名簿ファイルは 1 つあたり 2 MB までです。</value></data>
+  <data name="RosterLocked" xml:space="preserve"><value>別のウィンドウで名簿を保存中です。しばらくしてからもう一度お試しください。</value></data>
+  <data name="RosterChanged" xml:space="preserve"><value>別のウィンドウで名簿が変更されました。編集画面を開き直して最新の内容を読み込んでください。</value></data>
+  <data name="RosterReadTooLarge" xml:space="preserve"><value>名簿ファイルが 2 MB を超えています。</value></data>
+  <data name="ReplacementRulesChanged" xml:space="preserve"><value>別のプロセスで置換ルールが変更されました。</value></data>
+  <data name="RosterRollbackFailed" xml:space="preserve"><value>名簿を保存できず、以前の置換ルールを復元できませんでした。編集画面を開き直して両方のファイルを確認してください。</value></data>
+  <data name="SavingBeforeClose" xml:space="preserve"><value>作品を保存中です。保存が終わってから閉じてください。</value></data>
+  <data name="CloseUnsavedWork" xml:space="preserve"><value>FluentCanvas を閉じますか？保存していない内容は失われます。</value></data>
+  <data name="ConfirmClose" xml:space="preserve"><value>FluentCanvas を閉じてよろしいですか？</value></data>
+  <data name="CancelClosing" xml:space="preserve"><value>FluentCanvas を閉じるのを取り消しますか？</value></data>
+  <data name="StartupEntryInUse" xml:space="preserve"><value>別の場所にインストールされたアプリが同名のスタートアップ項目を使用しています。</value></data>
+  <data name="AutoFoldInk" xml:space="preserve"><value>インクを消去し、ツールバーを端に収納しました。注釈モードに戻って「元に戻す」を選ぶと、インクを復元できます。</value></data>
+  <data name="InsertImageFailed" xml:space="preserve"><value>画像を挿入できませんでした。ファイルを確認してもう一度お試しください。</value></data>
+  <data name="InsertVideoFailed" xml:space="preserve"><value>動画を挿入できませんでした。ファイルを確認してもう一度お試しください。</value></data>
+  <data name="CanvasChangedDuringImport" xml:space="preserve"><value>インポート中にキャンバスが切り替わりました。目的のページでファイルを挿入し直してください。</value></data>
+  <data name="OpenToolFailed" xml:space="preserve"><value>ツールのウィンドウを開けませんでした。</value></data>
+  <data name="OpenDrawOneFailed" xml:space="preserve"><value>1 人を抽選するウィンドウを開けませんでした。</value></data>
+  <data name="OpenSettingsFailed" xml:space="preserve"><value>設定を開けませんでした。</value></data>
+  <data name="ScreenshotSaved" xml:space="preserve"><value>スクリーンショットを {0} に保存しました</value></data>
+  <data name="ScreenshotPathFailed" xml:space="preserve"><value>スクリーンショットを保存できませんでした。設定で保存先を確認してください。</value></data>
+  <data name="ScreenshotFailed" xml:space="preserve"><value>スクリーンショットを保存できませんでした。</value></data>
+  <data name="SlideCaptureObscured" xml:space="preserve"><value>スライドショーのウィンドウが非表示か別のウィンドウに隠れているため、画面をキャプチャできませんでした。</value></data>
+  <data name="SlideScreenshotFailed" xml:space="preserve"><value>スライドショーのスクリーンショットを保存できませんでした。保存先を確認してください。</value></data>
+  <data name="DocumentSaved" xml:space="preserve"><value>インクとオブジェクトを {0} に保存しました</value></data>
+  <data name="DocumentSaveFailed" xml:space="preserve"><value>作品を保存できませんでした。保存先を確認して、もう一度お試しください。</value></data>
+  <data name="CanvasChangedDuringBackup" xml:space="preserve"><value>バックアップ中にキャンバスが変更されました。もう一度消去してください。</value></data>
+  <data name="BackupFailed" xml:space="preserve"><value>バックアップに失敗しました</value></data>
+  <data name="BackupFailedPrompt" xml:space="preserve"><value>バックアップに失敗しました。キャンバスの内容は保持されています。</value></data>
+  <data name="CanvasChangedWhileOpening" xml:space="preserve"><value>作品を開いている間にキャンバスが切り替わりました。目的のページで作品を開き直してください。</value></data>
+  <data name="UnsavedBoardPrompt" xml:space="preserve"><value>ホワイトボードに保存していない変更があります。</value></data>
+  <data name="OpenDocument" xml:space="preserve"><value>作品を開く</value></data>
+  <data name="CanvasChangedDuringSave" xml:space="preserve"><value>保存中にキャンバスが変更されました。作品を開き直してください。</value></data>
+  <data name="DocumentOpenFailed" xml:space="preserve"><value>作品を開けませんでした。ファイルを確認してもう一度お試しください。</value></data>
+  <data name="AutoHide" xml:space="preserve"><value>自動的に隠す</value></data>
+  <data name="Pinned" xml:space="preserve"><value>ピン留め済み</value></data>
+  <data name="RemoveAsymptotes" xml:space="preserve"><value>漸近線を削除しますか？</value></data>
+  <data name="SavingBeforeRestart" xml:space="preserve"><value>作品を保存中です。保存が終わってから再起動してください。</value></data>
+  <data name="RestartFailed" xml:space="preserve"><value>再起動できませんでした。作品を保存してから FluentCanvas を開き直してください。</value></data>
+  <data name="PngImage" xml:space="preserve"><value>PNG 画像</value></data>
+  <data name="SelectionExportFailed" xml:space="preserve"><value>選択範囲をエクスポートできませんでした。範囲を小さくするか、保存先を確認してください。</value></data>
+  <data name="CloneToBoard" xml:space="preserve"><value>ボードにコピー</value></data>
+  <data name="CloneToNewPage" xml:space="preserve"><value>新しいページにコピー</value></data>
+  <data name="EasiNoteAutomaticallyClosed" xml:space="preserve"><value>EasiNote 5 を自動的に終了しました。</value></data>
+  <data name="Retry" xml:space="preserve"><value>再試行</value></data>
+  <data name="ClearWithoutBackup" xml:space="preserve"><value>バックアップせず消去</value></data>
+  <data name="SaveAndOpen" xml:space="preserve"><value>保存して開く</value></data>
+  <data name="OpenWithoutSaving" xml:space="preserve"><value>変更を破棄して開く</value></data>
+</root>

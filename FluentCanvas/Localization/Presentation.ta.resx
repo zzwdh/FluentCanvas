@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="AnnotationPageFailed" xml:space="preserve"><value>PowerPoint குறிப்புரைப் பக்கத்தை மாற்ற முடியவில்லை: {0}</value></data>
+  <data name="ConfirmationTitle" xml:space="preserve"><value>விளக்கக்காட்சி அமைப்புகள் - FluentCanvas</value></data>
+  <data name="EndShowFailed" xml:space="preserve"><value>{0} படவில்லைக் காட்சியை முடிக்க முடியவில்லை.</value></data>
+  <data name="HiddenSlidesPrompt" xml:space="preserve"><value>இந்த விளக்கக்காட்சியில் மறைக்கப்பட்ட படவில்லைகள் உள்ளன. அவற்றைக் காட்டவா?</value></data>
+  <data name="ImportedLegacy" xml:space="preserve"><value>{0} படவில்லைகளுக்கான பழைய குறிப்புரைகள் இறக்குமதி செய்யப்பட்டன.</value></data>
+  <data name="ImportLegacyPrompt" xml:space="preserve"><value>கோப்புப் பெயர் மற்றும் படவில்லை எண் அடிப்படையில் சேமித்த பழைய குறிப்புரைகளை FluentCanvas கண்டறிந்தது. அவை இந்த விளக்கக்காட்சிக்குரியவை என்றும் படவில்லைகளின் வரிசை மாறவில்லை என்றும் உறுதிசெய்யவும். அவற்றை இந்த விளக்கக்காட்சியின் குறிப்புரைக் கோப்புறைக்கு நகலெடுக்கவா?</value></data>
+  <data name="LastSlidePrompt" xml:space="preserve"><value>முந்தைய படவில்லைக் காட்சி {0} ஆம் படவில்லையில் முடிந்தது. அந்தப் படவில்லைக்குச் செல்லவா?</value></data>
+  <data name="ManualAdvancePrompt" xml:space="preserve"><value>இந்த விளக்கக்காட்சியில் படவில்லைகள் தானாக அல்லது ஒத்திகை நேரங்களுக்கு ஏற்ப மாறும். அவற்றை நீங்களே மாற்ற விரும்புகிறீர்களா?</value></data>
+  <data name="NavigationFailed" xml:space="preserve"><value>PowerPoint படவில்லை வழிசெலுத்தலைத் திறக்க முடியவில்லை.</value></data>
+  <data name="NextSlide" xml:space="preserve"><value>அடுத்த படவில்லை</value></data>
+  <data name="NextSlideFailed" xml:space="preserve"><value>{0} இல் அடுத்த படவில்லைக்குச் செல்ல முடியவில்லை.</value></data>
+  <data name="No" xml:space="preserve"><value>இல்லை</value></data>
+  <data name="OperationFailed" xml:space="preserve"><value>PowerPoint செயல் தோல்வியடைந்தது: {0}</value></data>
+  <data name="PositionDescription" xml:space="preserve"><value>படவில்லைக் காட்சி இடம் {0} · விளக்கக்காட்சியில் படவில்லை {1}</value></data>
+  <data name="PreviousSlide" xml:space="preserve"><value>முந்தைய படவில்லை</value></data>
+  <data name="PreviousSlideFailed" xml:space="preserve"><value>{0} இல் முந்தைய படவில்லைக்குச் செல்ல முடியவில்லை.</value></data>
+  <data name="ReadAnnotationFailed" xml:space="preserve"><value>படவில்லை {0} இன் சேமித்த குறிப்புரைகளைப் படிக்க முடியவில்லை. அசல் கோப்பு அப்படியே உள்ளது.</value></data>
+  <data name="SaveAnnotationFailed" xml:space="preserve"><value>PowerPoint குறிப்புரைகளைச் சேமிக்க முடியவில்லை. இந்த அமர்வில் அவை இன்னும் கிடைக்கும்.</value></data>
+  <data name="SavedToRecovery" xml:space="preserve"><value>PowerPoint குறிப்புரைகள் உள்ளூர் மீட்புக் கோப்புறையில் சேமிக்கப்பட்டன.</value></data>
+  <data name="SaveSlideFailed" xml:space="preserve"><value>PowerPoint குறிப்புரைகள் அல்லது படவில்லைக் காட்சி இடத்தைச் சேமிக்க முடியவில்லை: {0}</value></data>
+  <data name="SlideShowWindowUnavailable" xml:space="preserve"><value>தற்போதைய படவில்லைக் காட்சிச் சாளரத்தைக் கண்டறிய முடியவில்லை.</value></data>
+  <data name="WpsCommandFailed" xml:space="preserve"><value>படவில்லைக் காட்சி கட்டளையை WPS ஆல் முடிக்க முடியவில்லை.</value></data>
+  <data name="WpsCommandNotConfirmed" xml:space="preserve"><value>படவில்லைக் காட்சி கட்டளையை WPS செருகுநிரல் உறுதிப்படுத்தவில்லை.</value></data>
+  <data name="WpsCommandNotSent" xml:space="preserve"><value>படவில்லைக் காட்சி கட்டளையை WPS செருகுநிரலுக்கு அனுப்ப முடியவில்லை.</value></data>
+  <data name="WpsName" xml:space="preserve"><value>WPS Presentation</value></data>
+  <data name="Yes" xml:space="preserve"><value>ஆம்</value></data>
+</root>

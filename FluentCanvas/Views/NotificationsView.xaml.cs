@@ -1,33 +1,22 @@
 using FluentCanvas.Helpers;
-using FluentCanvas.Services;
+using System.Windows.Controls;
 using FluentCanvas.ViewModels;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace FluentCanvas.Views
 {
-    public partial class NotificationsView : FCViewBase, INotificationsView
+    public partial class NotificationsView : UserControl
     {
-        private readonly NotificationsViewModel viewModel;
-
         public NotificationsView()
         {
             InitializeComponent();
-
-            viewModel = Locator.Get<NotificationsViewModel>();
-            DataContext = viewModel;
-            viewModel.VisibilityChanged += OnVisibilityChanged;
+            DataContextChanged += (_, change) =>
+            {
+                if (change.OldValue is NotificationsViewModel previous)
+                    previous.VisibilityChanged -= OnVisibilityChanged;
+                if (change.NewValue is NotificationsViewModel current)
+                    current.VisibilityChanged += OnVisibilityChanged;
+            };
         }
-
-        public override string ViewName => nameof(NotificationsView);
-
-        public override void ShowView() => AnimationsHelper.ShowWithSlideFromBottomAndFade(GridNotifications);
-
-        public override void HideView() => AnimationsHelper.HideWithSlideAndFade(GridNotifications);
-
-        public Task ShowAsync(string notice, bool isShowImmediately = true)
-            => viewModel.ShowAsync(notice, isShowImmediately);
-
         private void OnVisibilityChanged(object sender, bool visible)
         {
             if (!Dispatcher.CheckAccess())
@@ -36,8 +25,8 @@ namespace FluentCanvas.Views
                 return;
             }
 
-            if (visible) ShowView();
-            else HideView();
+            if (visible) AnimationsHelper.ShowWithSlideFromBottomAndFade(GridNotifications);
+            else AnimationsHelper.HideWithSlideAndFade(GridNotifications);
         }
     }
 }
