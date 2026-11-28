@@ -126,7 +126,7 @@ public partial class MainWindow
         }
 
         long context = canvasContextVersion, version = canvasContentVersion;
-        object state = timeMachine.CurrentState;
+        ulong state = timeMachine.CurrentState;
         if (!await powerPointWriter.FlushAsync())
             return (UiText.Get("Settings.StoreSlidesUnsaved"), null);
         if (!beforeStoreUpdate) await screenshotWrites.WhenIdle();
@@ -134,7 +134,7 @@ public partial class MainWindow
         if (!IsCurrentCanvas(context, version, state) || activePowerPointSlide != presentation)
             return (UiText.Get("Settings.StoreBackupStateChanged"), null);
 
-        var pages = CanvasSessionBackup.Capture(Pages, HasUnsavedCanvasChanges,
+        using var pages = CanvasSessionBackup.Capture(Pages, HasUnsavedCanvasChanges,
             presentation != null ? desktopBeforePowerPoint : null, powerPointPages);
         if (pages.Count == 0) return (null, null);
         string location = Settings.Automation.AutoSavedStrokesLocation;

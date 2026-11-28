@@ -1,20 +1,18 @@
-/FluentCanvas/obj
-/FluentCanvas/bin
-/FluentCanvas.Package/obj
-/FluentCanvas.Package/bin
+# Build and test output
+[Bb]in/
+[Oo]bj/
+TestResults/
 /FluentCanvas.Package/AppPackages
-/FluentCanvas.InkAnalyzerCore/obj
-/FluentCanvas.InkAnalyzerCore/bin
-/FluentCanvas.CanvasCore/obj
-/FluentCanvas.CanvasCore/bin
+
+# Local IDE state
 .vs/
 *.user
+*.suo
 *.assets.cache
+*_wpftmp.csproj
 
 /artifacts/
+/native/fluent-canvas-core/target/
 /store-identity.json
-/tests/**/bin/
-/tests/**/obj/
 *.pfx
 *.p12
-*_wpftmp.csproj

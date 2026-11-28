@@ -1,4 +1,4 @@
-﻿[CmdletBinding(DefaultParameterSetName='Package')]
+[CmdletBinding(DefaultParameterSetName='Package')]
 param(
     [Parameter(Mandatory,ParameterSetName='Package')][string]$Msix,
     [Parameter(Mandatory,ParameterSetName='Bundle')][string]$Bundle,
@@ -37,7 +37,7 @@ $candidateHash = (Get-FileHash -LiteralPath $candidate -Algorithm SHA256).Hash
 $stagedCandidate = Join-Path $inputDir $(if ($Bundle) { 'candidate.msixbundle' } else { 'candidate.msix' })
 Copy-Item -LiteralPath $candidate -Destination $stagedCandidate
 Copy-Item -LiteralPath $Certificate -Destination (Join-Path $inputDir 'candidate.cer')
-Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'Test-SandboxGuest.ps1') -Destination $inputDir
+Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'Test-SandboxGuest.ps1'),(Join-Path $PSScriptRoot 'NativeInkEvidence.cs') -Destination $inputDir
 $resourceDir = Join-Path $repo 'FluentCanvas\Localization'
 $captionKeys = [ordered]@{
     Canvas = @('WindowTitle','MoreTools','Pen','Settings','SaveDocument','PreviousPage','Redo','Undo','EraseStrokes')

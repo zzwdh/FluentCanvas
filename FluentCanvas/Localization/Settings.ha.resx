@@ -183,4 +183,8 @@ Rufe Saituna don ci gaba da gyara farin allo.</value></data>
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>A yi amfani da wannan kwafin don haɗa fayiloli? Za a sabunta wurin da aka yi rajista zuwa {0}. Zaɓi manhajar da aka saba amfani da ita a Saitunan Windows.</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Manhajojin farawa na Windows</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>Kashe motsin taɓa gefen allo a yanayin cikakken allo</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>Bayanin manhaja da ra’ayi</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>Babban shafin aikin</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>Ba da rahoton matsala</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>An kasa buɗe shafin yanar gizo. Buɗe {0} a burauzarka.</value></data>
 </root>

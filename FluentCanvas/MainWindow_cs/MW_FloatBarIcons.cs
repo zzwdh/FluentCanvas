@@ -228,7 +228,7 @@ namespace FluentCanvas
 
         private void SymbolIconUndo_Click(object sender, RoutedEventArgs e)
         {
-            if (!timeMachine.CanUndo) return;
+            if (contentGesture == null && !timeMachine.CanUndo) return;
             BtnUndo_Click(null, null);
             HideSubPanels();
         }
@@ -435,9 +435,10 @@ namespace FluentCanvas
             CollapseBorderDrawShape();
 
             StopInkReplay();
+            CommitPendingCanvasEdits();
             var selected = inkCanvas.GetSelectedStrokes();
-            var source = selected.Count == 0 ? inkCanvas.Strokes : selected;
-            inkReplay = new InkReplaySession(source.Clone(), InkCanvasForInkReplay.Strokes);
+            var frozen = selected.Count == 0 ? timeMachine.FreezeInk() : timeMachine.FreezeSelection(selected);
+            inkReplay = new InkReplaySession(frozen, InkCanvasForInkReplay.Strokes);
             inkReplayStartedAt = Stopwatch.GetTimestamp();
             InkCanvasForInkReplay.Visibility = Visibility.Visible;
             inkCanvas.Visibility = Visibility.Collapsed;
@@ -457,6 +458,7 @@ namespace FluentCanvas
             if (inkReplay == null) return;
             CompositionTarget.Rendering -= InkReplay_Rendering;
             Closed -= InkReplayWindow_Closed;
+            inkReplay.Dispose();
             inkReplay = null;
             InkCanvasForInkReplay.Visibility = Visibility.Collapsed;
             InkCanvasForInkReplay.Strokes.Clear();
@@ -868,22 +870,28 @@ namespace FluentCanvas
         private void BtnUndo_Click(object sender, RoutedEventArgs e)
         {
             if (HasNewShapeInProgress && StopNewShape()) return;
+            if (contentGesture != null) gestureCancelled = true;
+            CommitPendingCanvasEdits();
             if (inkCanvas.GetSelectedStrokes().Count != 0)
             {
                 GridInkCanvasSelectionCover.Visibility = Visibility.Collapsed;
                 inkCanvas.Select(new StrokeCollection());
             }
+            if (!timeMachine.CanUndo) return;
             var item = timeMachine.Undo();
             ApplyHistoryToCanvas(item);
         }
 
         private void BtnRedo_Click(object sender, RoutedEventArgs e)
         {
+            if (contentGesture != null) gestureCancelled = true;
+            CommitPendingCanvasEdits();
             if (inkCanvas.GetSelectedStrokes().Count != 0)
             {
                 GridInkCanvasSelectionCover.Visibility = Visibility.Collapsed;
                 inkCanvas.Select(new StrokeCollection());
             }
+            if (!timeMachine.CanRedo) return;
             var item = timeMachine.Redo();
             ApplyHistoryToCanvas(item);
         }

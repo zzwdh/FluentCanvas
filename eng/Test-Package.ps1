@@ -52,8 +52,8 @@ try {
     if ($app.Executable -ne $startup.Executable -or $startup.StartupTask.TaskId -ne 'FluentCanvasStartup' -or $startup.StartupTask.Enabled -ne 'false') { throw 'Startup activation contract mismatch.' }
     $association = $app.Extensions.Extension | Where-Object Category -eq 'windows.fileTypeAssociation'
     if (Compare-Object @('.icart','.icstk') @($association.FileTypeAssociation.SupportedFileTypes.FileType)) { throw 'Document associations do not match.' }
-    $required = @($app.Executable,'resources.pri','FluentCanvas.dll','FluentCanvas.CanvasCore.dll','Sentry.dll','coreclr.dll','hostfxr.dll','hostpolicy.dll','PresentationFramework.dll',
-        'Microsoft.UI.Xaml.dll','Microsoft.UI.Xaml.winmd','Microsoft.Web.WebView2.Core.winmd','Microsoft.WindowsAppRuntime.dll','Microsoft.UI.Xaml.Controls.pri','LICENSE','docs/store/THIRD-PARTY.md','docs/store/PRIVACY.zh-CN.md')
+    $required = @($app.Executable,'resources.pri','FluentCanvas.dll','FluentCanvas.CanvasCore.dll','fluent_canvas_core.dll','Sentry.dll','coreclr.dll','hostfxr.dll','hostpolicy.dll','PresentationFramework.dll',
+        'Microsoft.UI.Xaml.dll','Microsoft.UI.Xaml.winmd','Microsoft.Web.WebView2.Core.winmd','Microsoft.WindowsAppRuntime.dll','Microsoft.UI.Xaml.Controls.pri','LICENSE','licenses/rust/COPYRIGHT-library.html','docs/store/THIRD-PARTY.md','docs/store/PRIVACY.zh-CN.md')
     $files = [Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
     foreach ($entry in $archive.Entries) { $null = $files.Add($entry.FullName.Replace('\','/')) }
     # Simplified Chinese is embedded in the main assembly. All other interface languages have satellites.

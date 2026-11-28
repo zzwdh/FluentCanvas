@@ -36,16 +36,16 @@ namespace FluentCanvas
             if (saveByUser) manualSavesInProgress++;
             try
             {
-                if (saveByUser) CommitPendingCanvasEdits();
-                var strokes = new StrokeCollection(EnumerateCommittedStrokes());
-                var snapshot = CanvasDocument.Capture(strokes, EnumerateCanvasElements());
+                CommitPendingCanvasEdits();
+                using var snapshot = CanvasDocument.Capture(timeMachine.FreezeInk(), EnumerateCanvasElements());
+                int strokeCount = inkCanvas.Strokes.Count;
                 var state = timeMachine.CurrentState;
                 long context = canvasContextVersion, version = canvasContentVersion;
                 string location = Settings.Automation.AutoSavedStrokesLocation;
                 bool isWhiteboard = activeCanvasPage != 0;
                 string folder = (saveByUser ? "User Saved - " : "Auto Saved - ")
                     + (isWhiteboard ? "BlackBoard Strokes" : "Annotation Strokes");
-                string page = isWhiteboard ? $" Page-{activeCanvasPage} StrokesCount-{strokes.Count}" : "";
+                string page = isWhiteboard ? $" Page-{activeCanvasPage} StrokesCount-{strokeCount}" : "";
                 string name = $"{DateTime.Now:yyyy-MM-dd HH-mm-ss-fff}{page}-{Guid.NewGuid():N}.icart";
 
                 string WriteSnapshot()
@@ -81,12 +81,12 @@ namespace FluentCanvas
         private bool ShouldArchiveCanvas => Settings.Automation.IsAutoSaveStrokesAtClear
             && (EnumerateCanvasElements().Any() || EnumerateCommittedStrokes().Count() > Settings.Automation.MinimumAutomationStrokeNumber);
 
-        private bool HasUnsavedCanvasChanges => timeMachine.HasUnsavedChanges ||
+        private bool HasUnsavedCanvasChanges => timeMachine.HasUnsavedChanges || contentGesture != null ||
             strokeManipulationHistory.Count > 0 || ElementsManipulationHistory?.Count > 0 ||
             DrawingAttributesHistory.Count > 0 || AddedStroke?.Count > 0 || ReplacedStroke?.Count > 0;
 
-        private bool IsCurrentCanvas(long context, long version, object state) =>
-            context == canvasContextVersion && version == canvasContentVersion && ReferenceEquals(state, timeMachine.CurrentState);
+        private bool IsCurrentCanvas(long context, long version, ulong state) =>
+            context == canvasContextVersion && version == canvasContentVersion && state == timeMachine.CurrentState;
 
         private void ArchiveCanvasForTransition()
         {
@@ -103,8 +103,9 @@ namespace FluentCanvas
             backingUpForClear = true;
             try
             {
+                CommitPendingCanvasEdits();
                 long context = canvasContextVersion, version = canvasContentVersion;
-                object state = timeMachine.CurrentState;
+                ulong state = timeMachine.CurrentState;
                 while (true)
                 {
                     bool saved = await SaveInkCanvasFileAsync(newNotice: false, showFailure: false);
@@ -152,6 +153,12 @@ namespace FluentCanvas
 
         internal async Task LoadInkCanvasFileAsync(string filePath)
         {
+            var slideAtRequest = activePowerPointSlide;
+            if (readingSlide && (!await slideLoad.WaitAsync() ||
+                activePowerPointSlide?.DeckKey != slideAtRequest?.DeckKey ||
+                activePowerPointSlide?.SlideId != slideAtRequest?.SlideId ||
+                activePowerPointSlide?.SessionId != slideAtRequest?.SessionId))
+                return;
             long context = canvasContextVersion;
             await documentOpenGate.WaitAsync();
             try

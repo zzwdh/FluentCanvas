@@ -1,4 +1,5 @@
 using System;
+using FluentCanvas.Helpers;
 using System.Windows;
 using System.Windows.Ink;
 using System.Windows.Input;
@@ -7,25 +8,6 @@ namespace FluentCanvas;
 
 public partial class MainWindow
 {
-    // Each digit is a single ink path, so labels participate in undo and document saving.
-    private static readonly (double X, double Y)[][] NumberLineDigits =
-    [
-        [(0.25, 0), (0.75, 0), (1, 0.2), (1, 0.8), (0.75, 1), (0.25, 1), (0, 0.8), (0, 0.2), (0.25, 0)],
-        [(0.15, 0.22), (0.55, 0), (0.55, 1)],
-        [(0, 0.2), (0.25, 0), (0.75, 0), (1, 0.2), (1, 0.35), (0, 1), (1, 1)],
-        [(0, 0.08), (0.35, 0), (0.75, 0), (1, 0.18), (1, 0.33), (0.75, 0.47), (0.38, 0.47),
-            (0.75, 0.47), (1, 0.65), (1, 0.82), (0.75, 1), (0.3, 1), (0, 0.91)],
-        [(0.78, 1), (0.78, 0), (0, 0.66), (1, 0.66)],
-        [(1, 0), (0.14, 0), (0, 0.46), (0.68, 0.46), (1, 0.63), (1, 0.82), (0.74, 1), (0.26, 1), (0, 0.88)],
-        [(0.95, 0.08), (0.58, 0), (0.2, 0.17), (0, 0.48), (0, 0.79), (0.27, 1), (0.73, 1), (1, 0.79),
-            (1, 0.62), (0.74, 0.45), (0.27, 0.45), (0, 0.58)],
-        [(0, 0), (1, 0), (0.28, 1)],
-        [(0.5, 0.47), (0.95, 0.28), (0.95, 0.15), (0.72, 0), (0.28, 0), (0.05, 0.15), (0.05, 0.28),
-            (0.5, 0.47), (1, 0.69), (1, 0.83), (0.75, 1), (0.25, 1), (0, 0.83), (0, 0.69), (0.5, 0.47)],
-        [(1, 0.42), (0.73, 0.55), (0.26, 0.55), (0, 0.38), (0, 0.2), (0.27, 0), (0.73, 0), (1, 0.2),
-            (1, 0.52), (0.8, 0.83), (0.42, 1), (0.05, 0.92)]
-    ];
-
     private void DrawNewSpatialShape(ShapeTool tool, Point start, Point end)
     {
         var ink = inkCanvas.DefaultDrawingAttributes;
@@ -52,57 +34,23 @@ public partial class MainWindow
         double minimumSpacing = Math.Max(showLabels ? 30 : 24, 2.5 * inkWidth);
         if (usableHalfWidth < minimumSpacing * 0.65) return strokes;
 
-        double y = start.Y;
-        double arrowHalfHeight = arrowLength * 0.34;
-        var tip = new Point(right, y);
-        strokes.Add(CreateSpatialShapeStroke(ink,
-        [
-            new Point(left, y), tip, new Point(right - arrowLength, y - arrowHalfHeight),
-            tip, new Point(right - arrowLength, y + arrowHalfHeight)
-        ]));
-
-        // Keep zero at the center and leave room for the arrow even when dragged right to left.
-        int ticksOnEachSide = Math.Clamp((int)(usableHalfWidth / minimumSpacing), 1, 9);
-        double spacing = usableHalfWidth / ticksOnEachSide;
-        double origin = left + width / 2;
-        double tickHalfHeight = Math.Max(4, inkWidth * 0.4);
-        double digitHeight = Math.Clamp(spacing * 0.44, 10, 16);
+        var leftPoint = new Point(left, start.Y);
+        var rightPoint = new Point(right, start.Y);
+        var vertical = new Point(left, start.Y + width);
+        int ticks = Math.Clamp((int)(usableHalfWidth / minimumSpacing), 1, 9);
+        var line = new ParametricInk(GeometryKind.NumberLine, leftPoint, rightPoint, vertical, inkWidth, width,
+            Ticks: ticks, Group: Guid.NewGuid());
+        strokes.Add(line.Create(ink));
         var labelInk = ink.Clone();
         labelInk.Width = labelInk.Height = Math.Clamp(inkWidth * 0.45, 0.9, 2.0);
-
-        for (int tick = -ticksOnEachSide; tick <= ticksOnEachSide; tick++)
+        for (int tick = -ticks; tick <= ticks; tick++)
         {
-            double x = origin + tick * spacing;
-            double halfHeight = tick == 0 ? tickHalfHeight * 1.45 : tickHalfHeight;
-            strokes.Add(CreateSpatialShapeStroke(ink,
-                [new Point(x, y - halfHeight), new Point(x, y + halfHeight)]));
-            if (showLabels)
-                AddNumberLineLabel(strokes, labelInk, tick, x, y + tickHalfHeight * 1.45 + inkWidth / 2 + 4, digitHeight);
+            strokes.Add((line with { Part = 10 + tick }).Create(ink));
+            if (!showLabels) continue;
+            if (tick < 0) strokes.Add((line with { Part = 50 + tick }).Create(labelInk));
+            strokes.Add((line with { Part = 30 + tick }).Create(labelInk));
         }
-
         return strokes;
-    }
-
-    private static void AddNumberLineLabel(StrokeCollection strokes, DrawingAttributes ink, int value,
-        double centerX, double top, double height)
-    {
-        double digitWidth = height * 0.58;
-        double left = centerX - digitWidth / 2;
-        if (value < 0)
-        {
-            double signY = top + height * 0.55;
-            double signWidth = digitWidth * 0.55;
-            double gap = digitWidth * 0.28;
-            left += (signWidth + gap) / 2;
-            strokes.Add(CreateSpatialShapeStroke(ink,
-                [new Point(left - gap - signWidth, signY), new Point(left - gap, signY)]));
-        }
-
-        var digit = NumberLineDigits[Math.Abs(value)];
-        var points = new Point[digit.Length];
-        for (int i = 0; i < digit.Length; i++)
-            points[i] = new Point(left + digit[i].X * digitWidth, top + digit[i].Y * height);
-        strokes.Add(CreateSpatialShapeStroke(ink, points));
     }
 
     private static StrokeCollection DrawSphere(DrawingAttributes ink, Point center, Point edge)

@@ -183,4 +183,8 @@
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>将文件关联入口切换到当前副本？登记位置将更新为 {0}。可在 Windows 设置中选择默认应用。</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Windows 启动应用</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>在全屏时禁用触屏边缘手势</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>关于与反馈</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>项目主页</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>提交 Issue</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>无法打开网页。请在浏览器中访问 {0}。</value></data>
 </root>

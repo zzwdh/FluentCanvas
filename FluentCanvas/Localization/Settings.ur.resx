@@ -183,4 +183,8 @@
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>فائلوں کی وابستگی کے لیے یہ کاپی استعمال کریں؟ رجسٹرڈ مقام {0} ہو جائے گا۔ Windows کی ترتیبات میں ڈیفالٹ ایپ منتخب کریں۔</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Windows کی اسٹارٹ اپ ایپس</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>فل اسکرین میں کناروں کے ٹچ اشارے بند کریں</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>ایپ کا تعارف اور آراء</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>پروجیکٹ کا مرکزی صفحہ</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>مسئلے کی اطلاع دیں</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>ویب صفحہ نہیں کھل سکا۔ اپنے براؤزر میں {0} کھولیں۔</value></data>
 </root>

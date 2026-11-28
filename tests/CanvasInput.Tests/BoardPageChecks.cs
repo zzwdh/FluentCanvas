@@ -59,7 +59,7 @@ namespace FluentCanvas
             WriteAt(40);
             slides[("deck", 2)] = Pages.ReadPage(0);
 
-            var backup = CanvasSessionBackup.Capture(Pages, History.HasUnsavedChanges, desktop, slides);
+            using var backup = CanvasSessionBackup.Capture(Pages, History.HasUnsavedChanges, desktop, slides);
             var expected = new Dictionary<string, int>
             {
                 ["桌面批注.icart"] = 10, ["白板第 1 页.icart"] = 30,
@@ -72,7 +72,9 @@ namespace FluentCanvas
                 {
                     string path = Path.Combine(directory.FullName, name);
                     document.Save(path);
-                    var saved = CanvasDocument.LoadSlideInk(path).Single().StylusPoints[0];
+                    var reopened = new InkCanvas();
+                    CanvasDocument.LoadInto(path, reopened, new TimeMachine());
+                    var saved = reopened.Strokes.Single().StylusPoints[0];
                     if (!expected.Remove(name, out int x) || Math.Abs(saved.X - x) > 0.1)
                         throw new InvalidOperationException($"Incorrect ink or unexpected backup for {name}.");
                 }
@@ -127,7 +129,7 @@ namespace FluentCanvas
                 throw new Exception("Attaching an already parented element should have failed.");
             }
             catch (Exception error) when (error is InvalidOperationException or ArgumentException) { }
-            Require(Canvas.Strokes.Single() == desktop && ReferenceEquals(History.CurrentState, savedDesktop.History.Entries[0]),
+            Require(Canvas.Strokes.Single() == desktop && History.CurrentState == savedDesktop.History.Page.State.Revision,
                 "A failed display must restore the original objects and undo cursor.");
             SwitchCanvasPage(2);
             BtnWhiteBoardDelete_Click(null, null);

@@ -4,6 +4,7 @@ FluentCanvas 基于 zhh135/FluentCanvas，保留原 Ink Canvas / Ink Canvas Arti
 
 | 组件 | 用途与归属 |
 | --- | --- |
+| Rust 标准库 | 原生墨迹核心使用 Rust 标准库。随包保留工具链提供的完整归属说明，位于 `licenses/rust/COPYRIGHT-library.html`。 |
 | iNKORE.UI.WPF.Modern 0.10.2.1 | WPF 界面，iNKORE Studios 和该项目全体贡献者。上游公开条款要求标注归属，并限制商业使用。包内元数据指向旧 LICENSE 路径。发布者须确认该版本的适用条款、分发方式与授权。 [项目及许可](https://github.com/iNKORE-NET/UI.WPF.Modern/blob/main/LICENSE.md) |
 | Sentry 7.0.1 | 错误监控 SDK，Sentry 及贡献者，MIT。[项目](https://github.com/getsentry/sentry-dotnet) |
 | Newtonsoft.Json 13.0.4 | 本地设置序列化，James Newton-King，MIT。[项目](https://github.com/JamesNK/Newtonsoft.Json) |

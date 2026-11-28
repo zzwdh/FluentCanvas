@@ -183,4 +183,8 @@
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>要將檔案關聯切換至目前的副本嗎？登錄位置將更新為 {0}。可在 Windows 設定中選擇預設應用程式。</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Windows 啟動應用程式</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>在全螢幕時停用觸控邊緣手勢</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>關於與意見回饋</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>專案首頁</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>回報問題</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>無法開啟網頁。請在瀏覽器中開啟 {0}。</value></data>
 </root>

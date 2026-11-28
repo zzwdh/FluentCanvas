@@ -1,4 +1,4 @@
-﻿using FluentCanvas.Helpers;
+using FluentCanvas.Helpers;
 using System.Windows;
 
 namespace FluentCanvas
@@ -19,7 +19,8 @@ namespace FluentCanvas
             }
             else if (Settings.Gesture.MatrixTransformCenterPoint == MatrixTransformCenterPointOptions.SelectedElementsCenterPoint)
             {
-                return FluentCanvasElementsHelper.GetAllElementsBoundsCenterPoint(inkCanvas);
+                var bounds = CurrentSelectionBounds();
+                return bounds.IsEmpty ? canvasCenterPoint : new Point(bounds.Left + bounds.Width / 2, bounds.Top + bounds.Height / 2);
             }
             return canvasCenterPoint;
         }

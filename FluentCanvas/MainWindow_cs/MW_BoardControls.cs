@@ -1,4 +1,4 @@
-﻿using FluentCanvas.Helpers;
+using FluentCanvas.Helpers;
 using FluentCanvas.Localization;
 using System;
 using System.Collections.Generic;
@@ -48,7 +48,6 @@ namespace FluentCanvas
             ElementsManipulationHistory = null;
             ElementsInitialHistory.Clear();
             DrawingAttributesHistory.Clear();
-            foreach (var flag in DrawingAttributesHistoryFlag.Values) flag.Clear();
             ReplacedStroke = null;
             AddedStroke = null;
         }
@@ -75,8 +74,13 @@ namespace FluentCanvas
             _currentCommitType = CommitReason.CodeInput;
             try
             {
-                if (page.Strokes.Count > 0) inkCanvas.Strokes.Add(page.Strokes);
-                foreach (var element in page.Elements) inkCanvas.Children.Add(element);
+                InkProjection.Restore(inkCanvas.Strokes, page.History.Page, page.Strokes.ToDictionary(NativeInkPage.Id), changed: null);
+                var scene = page.History.Page.ReadScene();
+                foreach (var element in page.Elements)
+                {
+                    if (scene != null && scene.TryGetValue(SceneObject.ObjectId(element), out var state)) state.Project(element);
+                    inkCanvas.Children.Add(element);
+                }
                 timeMachine.RestoreState(page.History);
             }
             finally { _currentCommitType = previous; }

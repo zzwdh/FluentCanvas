@@ -13,6 +13,18 @@ internal static class ShapeDraftVisualTests
     internal static void Run()
     {
         var canvas = new ShapeDraftInkCanvas { Background = Brushes.Transparent };
+        int builds = 0;
+        Point endpoint = default;
+        void Build(Point point) { builds++; endpoint = point; }
+        for (int i = 0; i <= 200; i++) canvas.QueueGeometry(new Point(i, i), Build);
+        if (builds != 0) throw new InvalidOperationException("Geometry was rebuilt for every input packet.");
+        canvas.FlushQueuedGeometry();
+        canvas.FlushQueuedGeometry();
+        canvas.QueueGeometry(new Point(250, 250), Build);
+        canvas.CancelQueuedGeometry();
+        canvas.FlushQueuedGeometry();
+        if (builds != 1 || endpoint != new Point(200, 200))
+            throw new InvalidOperationException("Geometry flush or cancellation lost the last input position.");
         var bounds = new Size(64, 64);
         canvas.Measure(bounds);
         canvas.Arrange(new Rect(bounds));

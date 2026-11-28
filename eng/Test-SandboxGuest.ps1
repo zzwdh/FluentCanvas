@@ -115,8 +115,8 @@ function InkCount($file) {
     $inputFile=[IO.File]::OpenRead($file)
     $zip=[IO.Compression.ZipArchive]::new($inputFile,[IO.Compression.ZipArchiveMode]::Read,$false)
     try {
-        $source=$zip.GetEntry('strokes.icstk').Open(); $mem=New-Object IO.MemoryStream
-        try {$source.CopyTo($mem);$mem.Position=0;return ([Windows.Ink.StrokeCollection]::new($mem)).Count} finally {$source.Dispose();$mem.Dispose()}
+        $source=$zip.GetEntry('ink.fcink').Open(); $mem=New-Object IO.MemoryStream
+        try {$source.CopyTo($mem);$mem.Position=0;return ([NativeInkEvidence]::Read($mem)).Count} finally {$source.Dispose();$mem.Dispose()}
     } finally {$zip.Dispose()}
 }
 function Capture($name) {
@@ -155,8 +155,8 @@ function Create-Classroom($docFolder) {
     $f = [IO.File]::Create($art)
     $zip = [IO.Compression.ZipArchive]::new($f,[IO.Compression.ZipArchiveMode]::Create,$true)
     try {
-        $ink = $zip.CreateEntry('strokes.icstk').Open()
-        try {$strokes.Save($ink)}finally{$ink.Dispose()}
+        $ink = $zip.CreateEntry('ink.fcink').Open()
+        try {[NativeInkEvidence]::WriteFixture($ink,$strokes)}finally{$ink.Dispose()}
         $pic = New-Object Drawing.Bitmap(900,470)
         $g=[Drawing.Graphics]::FromImage($pic);$g.Clear([Drawing.Color]::White)
         $g.TextRenderingHint=[Drawing.Text.TextRenderingHint]::AntiAliasGridFit
@@ -194,6 +194,7 @@ try {
     $os = [Environment]::OSVersion.VersionString
     Record 'Isolated Windows guest' PASS "$os, $env:PROCESSOR_ARCHITECTURE, $env:USERNAME"
     Add-Type -AssemblyName PresentationFramework,System.IO.Compression,System.Windows.Forms,System.Drawing,UIAutomationClient,UIAutomationTypes
+    Add-Type -Path (Join-Path $PSScriptRoot 'NativeInkEvidence.cs') -ReferencedAssemblies PresentationCore,WindowsBase,System.Core
     Add-Type @"
 using System;
 using System.Runtime.InteropServices;

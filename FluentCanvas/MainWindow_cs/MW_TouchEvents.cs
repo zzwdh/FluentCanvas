@@ -1,4 +1,4 @@
-﻿using FluentCanvas.Helpers;
+using FluentCanvas.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,8 +51,125 @@ namespace FluentCanvas
             return new TouchEraser(InkCanvasEditingMode.EraseByPoint, width);
         }
 
+        private CanvasGesturePreview contentGesture;
+        private CanvasGesturePreview committedPreview;
+        private bool gestureCancelled;
+
+        private void BeginContentGesture(IEnumerable<Stroke> strokes, IEnumerable<UIElement> elements, bool movesSelection)
+        {
+            committedPreview?.Dispose();
+            CommitPendingCanvasEdits();
+            contentGesture = new CanvasGesturePreview(inkCanvas.GesturePresenter, strokes, elements,
+                movesSelection ? inkCanvas.GetSelectionBounds() : Rect.Empty, movesSelection);
+            Deactivated += ContentGestureInterrupted;
+            inkCanvas.Unloaded += ContentGestureInterrupted;
+            PreviewKeyDown += ContentGestureKeyDown;
+            AddHandler(Mouse.LostMouseCaptureEvent, new MouseEventHandler(ContentGestureLostMouse), true);
+            AddHandler(UIElement.LostTouchCaptureEvent, new EventHandler<TouchEventArgs>(ContentGestureLostTouch), true);
+        }
+
+        private void PreviewBoardGesture(Matrix matrix, double scaleX, double scaleY)
+        {
+            if (gestureCancelled) return;
+            if (contentGesture == null) BeginContentGesture(inkCanvas.Strokes, EnumerateCanvasElements(), false);
+            contentGesture.Append(matrix, scaleX, scaleY);
+        }
+
+        private void ContentGestureInterrupted(object sender, EventArgs e) => CancelContentGesture();
+
+        private void ContentGestureKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape) CancelContentGesture();
+        }
+
+        private void ContentGestureLostMouse(object sender, MouseEventArgs e)
+        {
+            if (e.StylusDevice == null && e.LeftButton == MouseButtonState.Pressed &&
+                (Mouse.Captured is not DependencyObject target || Window.GetWindow(target) != this))
+                CancelContentGesture();
+        }
+
+        private void ContentGestureLostTouch(object sender, TouchEventArgs e)
+        {
+            if (dec.Contains(e.TouchDevice.Id) && e.GetTouchPoint(inkCanvas).Action != TouchAction.Up &&
+                (e.TouchDevice.Captured is not DependencyObject target || Window.GetWindow(target) != this))
+                CancelContentGesture();
+        }
+
+        private CanvasGesturePreview DetachContentGesture()
+        {
+            var gesture = contentGesture;
+            contentGesture = null;
+            Deactivated -= ContentGestureInterrupted;
+            inkCanvas.Unloaded -= ContentGestureInterrupted;
+            PreviewKeyDown -= ContentGestureKeyDown;
+            RemoveHandler(Mouse.LostMouseCaptureEvent, new MouseEventHandler(ContentGestureLostMouse));
+            RemoveHandler(UIElement.LostTouchCaptureEvent, new EventHandler<TouchEventArgs>(ContentGestureLostTouch));
+            return gesture;
+        }
+
+        private void CancelContentGesture()
+        {
+            if (contentGesture == null) return;
+            gestureCancelled = true;
+            DetachContentGesture().Dispose();
+            canvasContentVersion++;
+        }
+
+        private void FinishContentGesture()
+        {
+            if (contentGesture == null) return;
+            var gesture = DetachContentGesture();
+            bool handedOff = false;
+            try
+            {
+                gesture.RestoreMedia();
+                if (gesture.Strokes.Length == 0 && gesture.Elements.Length == 0) return;
+
+                var media = gesture.Elements.Select(element =>
+                {
+                    bool inserted = element is FrameworkElement shape &&
+                        ElementsInitialHistory.TryGetValue(shape.Name, out var initial) && initial is FluentCanvasElementsHelper.ElementData;
+                    var before = new MatrixTransform(element.RenderTransform?.Value ?? Matrix.Identity);
+                    var after = new MatrixTransform(gesture.FinalMediaMatrix(element));
+                    return new GestureMediaChange(element, before, after, inserted);
+                }).ToArray();
+                var reason = _currentCommitType;
+                _currentCommitType = CommitReason.CodeInput;
+                try
+                {
+                    timeMachine.CommitGesture(gesture, media);
+                    foreach (var change in media)
+                    {
+                        change.Apply(inkCanvas, undo: false);
+                        if (change.Element is FrameworkElement element) ElementsInitialHistory.Remove(element.Name);
+                    }
+                    UpdateTransformedCircles();
+                    canvasContentVersion++;
+                }
+                finally { _currentCommitType = reason; }
+                handedOff = gesture.BeginHandoff(() => committedPreview = null);
+                if (handedOff) committedPreview = gesture;
+            }
+            finally { if (!handedOff) gesture.Dispose(); }
+        }
+
+        private void UpdateTransformedCircles()
+        {
+            foreach (var circle in circles)
+            {
+                var points = circle.Stroke.StylusPoints;
+                var a = points[0].ToPoint();
+                var b = points[points.Count / 2].ToPoint();
+                circle.R = GetDistance(a, b) / 2;
+                circle.Centroid = new Point((a.X + b.X) / 2, (a.Y + b.Y) / 2);
+            }
+        }
+
         private void CancelPendingCanvasInput()
         {
+            committedPreview?.Dispose();
+            CancelContentGesture();
             CancelShapeDraft();
             touchInk?.Cancel();
             dec.Clear();
@@ -169,6 +286,8 @@ namespace FluentCanvas
         }
         private void inkCanvas_ManipulationStarting(object sender, ManipulationStartingEventArgs e)
         {
+            gestureCancelled = false;
+            e.ManipulationContainer = inkCanvas;
             e.Mode = ManipulationModes.All;
         }
 
@@ -205,25 +324,8 @@ namespace FluentCanvas
                     transform.Translate(delta.Translation.X, delta.Translation.Y);
                 if (transform.IsIdentity) return;
 
-                foreach (UIElement element in FluentCanvasElementsHelper.GetAllElements(inkCanvas))
-                    ApplyElementMatrixTransform(element, transform);
-
-                foreach (var stroke in inkCanvas.Strokes)
-                {
-                    TransformStrokeDuringBoardGesture(stroke, transform);
-                    if (!gesture.IsEnableTwoFingerZoom) continue;
-                    var attributes = stroke.DrawingAttributes;
-                    attributes.Width = Math.Clamp(attributes.Width * delta.Scale.X, DrawingAttributes.MinWidth, DrawingAttributes.MaxWidth);
-                    attributes.Height = Math.Clamp(attributes.Height * delta.Scale.Y, DrawingAttributes.MinHeight, DrawingAttributes.MaxHeight);
-                }
-                foreach (Circle circle in circles)
-                {
-                    circle.R = GetDistance(circle.Stroke.StylusPoints[0].ToPoint(), circle.Stroke.StylusPoints[circle.Stroke.StylusPoints.Count / 2].ToPoint()) / 2;
-                    circle.Centroid = new Point(
-                        (circle.Stroke.StylusPoints[0].X + circle.Stroke.StylusPoints[circle.Stroke.StylusPoints.Count / 2].X) / 2,
-                        (circle.Stroke.StylusPoints[0].Y + circle.Stroke.StylusPoints[circle.Stroke.StylusPoints.Count / 2].Y) / 2
-                    );
-                }
+                PreviewBoardGesture(transform, gesture.IsEnableTwoFingerZoom ? delta.Scale.X : 1,
+                    gesture.IsEnableTwoFingerZoom ? delta.Scale.Y : 1);
             }
         }
     }

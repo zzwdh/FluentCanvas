@@ -183,4 +183,8 @@
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>هل تريد استخدام هذه النسخة لاقترانات الملفات؟ سيُحدَّث الموقع المسجل إلى {0}. اختر التطبيق الافتراضي في إعدادات Windows.</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>تطبيقات بدء تشغيل Windows</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>تعطيل إيماءات اللمس عند الحواف في وضع ملء الشاشة</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>حول التطبيق والملاحظات</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>الصفحة الرئيسية للمشروع</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>الإبلاغ عن مشكلة</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>تعذر فتح صفحة الويب. افتح {0} في متصفحك.</value></data>
 </root>

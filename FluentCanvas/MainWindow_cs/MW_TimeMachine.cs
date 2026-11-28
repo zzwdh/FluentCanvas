@@ -1,11 +1,11 @@
-﻿using FluentCanvas.Helpers;
+using FluentCanvas.Helpers;
 using System.Collections.Generic;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Ink;
 using System.Windows.Input;
-using System.Diagnostics;
+
 using System.Windows.Media;
 
 namespace FluentCanvas
@@ -26,28 +26,65 @@ namespace FluentCanvas
         private long canvasContentVersion;
         private bool IsEraseByPoint => inkCanvas.EditingMode == InkCanvasEditingMode.EraseByPoint;
         private StrokeCollection ReplacedStroke;
+        private IndexedEraseInput eraseInput;
+        private IndexedInkErase indexedErase;
+        private Point? previousErasePoint;
+
+        internal void InitializeIndexedEraser()
+        {
+            eraseInput = new IndexedEraseInput(this, inkCanvas, BeginIndexedErase, AdvanceIndexedErase, FinishIndexedErase);
+        }
+
+        internal void BeginIndexedErase(double diameter, bool wholeStroke)
+        {
+            CommitPendingCanvasEdits();
+            previousErasePoint = null;
+            indexedErase = timeMachine.StartErase(inkCanvas.Strokes, diameter, wholeStroke);
+        }
+
+        internal void AdvanceIndexedErase(Point point)
+        {
+            if (previousErasePoint == point || indexedErase == null) return;
+            var reason = _currentCommitType;
+            _currentCommitType = CommitReason.CodeInput;
+            try { indexedErase.Sweep(previousErasePoint ?? point, point); previousErasePoint = point; }
+            catch
+            {
+                var interrupted = indexedErase;
+                indexedErase = null;
+                interrupted.RestoreProjection();
+                eraseInput?.Complete();
+                throw;
+            }
+            finally { _currentCommitType = reason; }
+        }
+
+        internal void FinishIndexedErase()
+        {
+            var finishing = indexedErase;
+            indexedErase = null;
+            previousErasePoint = null;
+            if (finishing == null) return;
+            try { finishing.Finish(timeMachine); }
+            catch
+            {
+                var reason = _currentCommitType;
+                _currentCommitType = CommitReason.CodeInput;
+                try { finishing.RestoreProjection(); }
+                finally { _currentCommitType = reason; }
+                throw;
+            }
+        }
         private StrokeCollection AddedStroke;
-        private readonly Dictionary<Stroke, (StylusPointCollection Before, StylusPointCollection After)> strokeManipulationHistory = new();
-        private Stroke transformingBoardStroke;
-        private Dictionary<Stroke, StylusPointCollection> StrokeInitialHistory = new Dictionary<Stroke, StylusPointCollection>();
+        private readonly HashSet<Stroke> strokeManipulationHistory = new();
+        private Stroke finishingPressure;
         private Dictionary<string, Tuple<object, TransformGroup>> ElementsManipulationHistory;
 
         // object maybe TransformGroup or ElementData
         private Dictionary<string, object> ElementsInitialHistory = new Dictionary<string, object>();
 
-        private Dictionary<Stroke, Tuple<DrawingAttributes, DrawingAttributes>> DrawingAttributesHistory = new Dictionary<Stroke, Tuple<DrawingAttributes, DrawingAttributes>>();
-        private Dictionary<Guid, List<Stroke>> DrawingAttributesHistoryFlag = new Dictionary<Guid, List<Stroke>>()
-        {
-            { DrawingAttributeIds.Color, new List<Stroke>() },
-            { DrawingAttributeIds.DrawingFlags, new List<Stroke>() },
-            { DrawingAttributeIds.IsHighlighter, new List<Stroke>() },
-            { DrawingAttributeIds.StylusHeight, new List<Stroke>() },
-            { DrawingAttributeIds.StylusTip, new List<Stroke>() },
-            { DrawingAttributeIds.StylusTipTransform, new List<Stroke>() },
-            { DrawingAttributeIds.StylusWidth, new List<Stroke>() }
-        };
+        private readonly HashSet<Stroke> DrawingAttributesHistory = new();
         private TimeMachine timeMachine = new TimeMachine();
-
 
         public UIElement GetElementByTimestamp(InkCanvas inkCanvas, string timestamp)
         {
@@ -66,171 +103,26 @@ namespace FluentCanvas
             var previous = _currentCommitType;
             _currentCommitType = CommitReason.CodeInput;
             try { ReplayHistoryEntry(transition); }
+            catch
+            {
+                // Roll the native cursor back if a WPF element refuses to attach, then
+                // restore the original view for any ink already projected by this edit.
+                var rollback = transition.Direction == HistoryDirection.Undo ? timeMachine.Redo() : timeMachine.Undo();
+                ReplayHistoryEntry(rollback, reconcile: true);
+                throw;
+            }
             finally { _currentCommitType = previous; }
         }
 
-        private void ReplayHistoryEntry(HistoryTransition transition)
+        private void ReplayHistoryEntry(HistoryTransition transition, bool reconcile = false)
         {
             var item = transition.Entry;
-            bool removeOriginal = transition.RemoveOriginal;
-            if (item.CommitType == TimeMachineHistoryType.UserInput)
-            {
-                if (!removeOriginal)
-                {
-                    foreach (var strokes in item.CurrentStroke)
-                    {
-                        if (!inkCanvas.Strokes.Contains(strokes))
-                            inkCanvas.Strokes.Add(strokes);
-                    }
-                }
-                else
-                {
-                    foreach (var strokes in item.CurrentStroke)
-                    {
-                        if (inkCanvas.Strokes.Contains(strokes))
-                            inkCanvas.Strokes.Remove(strokes);
-                    }
-                }
-            }
-            else if (item.CommitType == TimeMachineHistoryType.ShapeRecognition)
-            {
-                if (removeOriginal)
-                {
-
-                    foreach (var strokes in item.CurrentStroke)
-                    {
-                        if (inkCanvas.Strokes.Contains(strokes))
-                            inkCanvas.Strokes.Remove(strokes);
-                    }
-                    foreach (var strokes in item.ReplacedStroke)
-                    {
-                        if (!inkCanvas.Strokes.Contains(strokes))
-                            inkCanvas.Strokes.Add(strokes);
-                    }
-                }
-                else
-                {
-                    foreach (var strokes in item.CurrentStroke)
-                    {
-                        if (!inkCanvas.Strokes.Contains(strokes))
-                            inkCanvas.Strokes.Add(strokes);
-                    }
-                    foreach (var strokes in item.ReplacedStroke)
-                    {
-                        if (inkCanvas.Strokes.Contains(strokes))
-                            inkCanvas.Strokes.Remove(strokes);
-                    }
-                }
-            }
-            else if (item.CommitType == TimeMachineHistoryType.Manipulation)
-            {
-                if (!removeOriginal)
-                {
-                    if(item.StylusPointDictionary != null)
-                    {
-                        foreach (var currentStroke in item.StylusPointDictionary)
-                        {
-                            if (inkCanvas.Strokes.Contains(currentStroke.Key))
-                            {
-                                currentStroke.Key.StylusPoints = currentStroke.Value.Item2.Clone();
-                            }
-                        }
-                    }
-                    if(item.ElementsManipulationHistory != null)
-                    {
-                        foreach (var currentElement in item.ElementsManipulationHistory)
-                        {
-                            UIElement element = GetElementByTimestamp(inkCanvas, currentElement.Key);
-                            if (element != null && inkCanvas.Children.Contains(element))
-                            {
-                                element.RenderTransform = currentElement.Value.Item2.Clone();
-                            }
-                            else
-                            {
-                                if (currentElement.Value.Item1 is FluentCanvasElementsHelper.ElementData)
-                                {
-                                    FluentCanvasElementsHelper.ElementData elementData = currentElement.Value.Item1 as FluentCanvasElementsHelper.ElementData;
-                                    InkCanvas.SetLeft(elementData.FrameworkElement, elementData.SetLeftData);
-                                    InkCanvas.SetTop(elementData.FrameworkElement, elementData.SetTopData);
-                                    inkCanvas.Children.Add(elementData.FrameworkElement);
-                                    elementData.FrameworkElement.RenderTransform = currentElement.Value.Item2.Clone();
-                                }
-                            }
-                            ElementsInitialHistory.Remove(currentElement.Key);
-                        }
-                    }
-                }
-                else
-                {
-                    if(item.StylusPointDictionary != null)
-                    {
-                        foreach (var currentStroke in item.StylusPointDictionary)
-                        {
-                            if (inkCanvas.Strokes.Contains(currentStroke.Key))
-                            {
-                                currentStroke.Key.StylusPoints = currentStroke.Value.Item1.Clone();
-                            }
-                        }
-                    }
-                    if(item.ElementsManipulationHistory != null)
-                    {
-                        foreach (var currentElement in item.ElementsManipulationHistory)
-                        {
-                            UIElement element = GetElementByTimestamp(inkCanvas, currentElement.Key);
-                            if (element != null && inkCanvas.Children.Contains(element))
-                            {
-                                if (currentElement.Value.Item1 is TransformGroup transformGroup)
-                                {
-                                    element.RenderTransform = transformGroup.Clone();
-                                }
-                                else if (currentElement.Value.Item1 is FluentCanvasElementsHelper.ElementData)
-                                {
-                                    inkCanvas.Children.Remove(element);
-                                }
-                            }
-                            ElementsInitialHistory.Remove(currentElement.Key);
-                        }
-                    }
-                }
-            }
-            else if (item.CommitType == TimeMachineHistoryType.DrawingAttributes)
-            {
-                if (!removeOriginal)
-                {
-                    foreach (var currentStroke in item.DrawingAttributes)
-                    {
-                        if (inkCanvas.Strokes.Contains(currentStroke.Key))
-                        {
-                            currentStroke.Key.DrawingAttributes = currentStroke.Value.Item2.Clone();
-                        }
-                    }
-                }
-                else
-                {
-                    foreach (var currentStroke in item.DrawingAttributes)
-                    {
-                        if (inkCanvas.Strokes.Contains(currentStroke.Key))
-                        {
-                            currentStroke.Key.DrawingAttributes = currentStroke.Value.Item1.Clone();
-                        }
-                    }
-                }
-            }
-            else if (item.CommitType == TimeMachineHistoryType.Clear)
-            {
-                transition.ApplyClear(inkCanvas);
-            }
-            else if (item.CommitType == TimeMachineHistoryType.ElementInsert)
-            {
-                if (!removeOriginal)
-                {
-                    inkCanvas.Children.Add(item.Element);
-                }
-                else
-                {
-                    inkCanvas.Children.Remove(item.Element);
-                }
-            }
+            transition.ProjectInk(inkCanvas, reconcile);
+            transition.ProjectElements(inkCanvas);
+            if (item.GestureMedia != null)
+                foreach (var change in item.GestureMedia)
+                    if (change.Element is FrameworkElement element) ElementsInitialHistory.Remove(element.Name);
+            if (item.CommitType == TimeMachineHistoryType.Manipulation) UpdateTransformedCircles();
             canvasContentVersion++;
         }
 
@@ -246,7 +138,9 @@ namespace FluentCanvas
 
         private void StrokesOnStrokesChanged(object sender, StrokeCollectionChangedEventArgs e)
         {
+            committedPreview?.Dispose();
             canvasContentVersion++;
+            CancelContentGesture();
             if (e.Removed.Count > 0 && _currentCommitType != CommitReason.ShapeRecognition)
                 InvalidateInkRecognition();
             if (!isHidingSubPanelsWhenInking)
@@ -255,20 +149,21 @@ namespace FluentCanvas
                 HideSubPanels(); // 书写时自动隐藏二级菜单
             }
 
-            foreach (var stroke in e?.Removed)
+            // Preserve the preceding manipulation before an eraser removes or splits its render object.
+            if (_currentCommitType != CommitReason.CodeInput && e.Removed.Count > 0)
+                CommitPendingStrokeDrawingAttributes();
+
+            foreach (var stroke in e.Removed)
             {
-                CaptureDeferredStrokePoints(stroke, stroke.StylusPoints);
                 stroke.StylusPointsChanged -= Stroke_StylusPointsChanged;
                 stroke.StylusPointsReplaced -= Stroke_StylusPointsReplaced;
                 stroke.DrawingAttributesChanged -= Stroke_DrawingAttributesChanged;
-                StrokeInitialHistory.Remove(stroke);
             }
-            foreach (var stroke in e?.Added)
+            foreach (var stroke in e.Added)
             {
                 stroke.StylusPointsChanged += Stroke_StylusPointsChanged;
                 stroke.StylusPointsReplaced += Stroke_StylusPointsReplaced;
                 stroke.DrawingAttributesChanged += Stroke_DrawingAttributesChanged;
-                StrokeInitialHistory[stroke] = stroke.StylusPoints.Clone();
             }
             if (_currentCommitType is CommitReason.CodeInput or CommitReason.ShapeDrawing or CommitReason.ShapeRecognition) return;
             if ((e.Added.Count != 0 || e.Removed.Count != 0) && IsEraseByPoint)
@@ -279,89 +174,44 @@ namespace FluentCanvas
                 ReplacedStroke.Add(e.Removed);
                 return;
             }
-            if (e.Added.Count > 0) timeMachine.CommitStrokeUserInputHistory(e.Added);
+            if (e.Added.Count > 0 && e.Removed.Count > 0) timeMachine.CommitStrokeShapeHistory(e.Removed, e.Added);
+            else if (e.Added.Count > 0) timeMachine.CommitStrokeUserInputHistory(e.Added);
             else if (e.Removed.Count > 0) timeMachine.CommitStrokeEraseHistory(e.Removed);
         }
 
         private void Stroke_DrawingAttributesChanged(object sender, PropertyDataChangedEventArgs e)
         {
+            committedPreview?.Dispose();
             canvasContentVersion++;
             if (_currentCommitType == CommitReason.CodeInput) return;
-            var key = sender as Stroke;
-            var currentValue = key.DrawingAttributes.Clone();
-            DrawingAttributesHistory.TryGetValue(key, out var previousTuple);
-            var previousValue = previousTuple?.Item1 ?? currentValue.Clone();
-            var needUpdateValue = !DrawingAttributesHistoryFlag[e.PropertyGuid].Contains(key);
-            if (needUpdateValue)
-            {
-                DrawingAttributesHistoryFlag[e.PropertyGuid].Add(key);
-                Debug.Write(e.PreviousValue.ToString());
-            }
-            if (e.PropertyGuid == DrawingAttributeIds.Color && needUpdateValue)
-            {
-                previousValue.Color = (Color)e.PreviousValue;
-            }
-            if (e.PropertyGuid == DrawingAttributeIds.IsHighlighter && needUpdateValue)
-            {
-                previousValue.IsHighlighter = (bool)e.PreviousValue;
-            }
-            if (e.PropertyGuid == DrawingAttributeIds.StylusHeight && needUpdateValue)
-            {
-                previousValue.Height = (double)e.PreviousValue;
-            }
-            if (e.PropertyGuid == DrawingAttributeIds.StylusWidth && needUpdateValue)
-            {
-                previousValue.Width = (double)e.PreviousValue;
-            }
-            if (e.PropertyGuid == DrawingAttributeIds.StylusTip && needUpdateValue)
-            {
-                previousValue.StylusTip = (StylusTip)e.PreviousValue;
-            }
-            if (e.PropertyGuid == DrawingAttributeIds.StylusTipTransform && needUpdateValue)
-            {
-                previousValue.StylusTipTransform = (Matrix)e.PreviousValue;
-            }
-            if (e.PropertyGuid == DrawingAttributeIds.DrawingFlags && needUpdateValue)
-            {
-                previousValue.IgnorePressure = (bool)e.PreviousValue;
-            }
-            DrawingAttributesHistory[key] = new Tuple<DrawingAttributes, DrawingAttributes>(previousValue, currentValue);
+            CancelContentGesture();
+            DrawingAttributesHistory.Add((Stroke)sender);
         }
 
-        private void Stroke_StylusPointsReplaced(object sender, StylusPointsReplacedEventArgs e)
+        // Pressure simulation finishes after StrokeCollected and may resume after recognition.
+        // Amend the existing native stroke so undo still removes the complete pen input in one step.
+        internal void FinishCollectedStroke(Stroke stroke, int style, double elapsedMilliseconds)
         {
+            if (!inkCanvas.Strokes.Contains(stroke)) return;
+            FinishContentGesture();
+            if (strokeManipulationHistory.Contains(stroke)) ToCommitStrokeManipulationHistoryAfterMouseUp();
+            finishingPressure = stroke;
+            try { timeMachine.FinishCollectedStroke(stroke, style, elapsedMilliseconds); }
+            finally { finishingPressure = null; }
+        }
+
+        private void Stroke_StylusPointsReplaced(object sender, StylusPointsReplacedEventArgs e) =>
+            TrackGeometryChange((Stroke)sender);
+
+        private void Stroke_StylusPointsChanged(object sender, EventArgs e) => TrackGeometryChange((Stroke)sender);
+
+        private void TrackGeometryChange(Stroke stroke)
+        {
+            committedPreview?.Dispose();
             canvasContentVersion++;
-            var stroke = (Stroke)sender;
-            CaptureDeferredStrokePoints(stroke, e.PreviousStylusPoints);
-            StrokeInitialHistory[stroke] = e.NewStylusPoints.Clone();
-        }
-
-        private void TransformStrokeDuringBoardGesture(Stroke stroke, Matrix transform)
-        {
-            var previous = transformingBoardStroke;
-            if (dec.Count > 0) transformingBoardStroke = stroke;
-            try { stroke.Transform(transform, false); }
-            finally { transformingBoardStroke = previous; }
-        }
-
-        private void CaptureDeferredStrokePoints(Stroke stroke, StylusPointCollection points)
-        {
-            if (strokeManipulationHistory.TryGetValue(stroke, out var entry) && entry.After == null)
-                strokeManipulationHistory[stroke] = (entry.Before, points.Clone());
-        }
-
-        private void Stroke_StylusPointsChanged(object sender, EventArgs e)
-        {
-            canvasContentVersion++;
-            if (sender == null || _currentCommitType == CommitReason.CodeInput)
-            {
-                return;
-            }
-            var stroke = (Stroke)sender;
-            // Board gesture deltas modify the same point collection in place. Snapshot the
-            // final points at the gesture boundary, or before a removal or replacement.
-            strokeManipulationHistory[stroke] = (StrokeInitialHistory[stroke],
-                ReferenceEquals(stroke, transformingBoardStroke) ? null : stroke.StylusPoints.Clone());
+            if (_currentCommitType == CommitReason.CodeInput || stroke == finishingPressure) return;
+            CancelContentGesture();
+            strokeManipulationHistory.Add(stroke);
             if (dec.Count > 0 || isGridInkCanvasSelectionCoverMouseDown) return;
 
             var selectedStrokes = inkCanvas.GetSelectedStrokes();
@@ -374,22 +224,22 @@ namespace FluentCanvas
 
         private void ToCommitStrokeManipulationHistoryAfterMouseUp()
         {
+            FinishContentGesture();
             if (strokeManipulationHistory.Count == 0 && !(ElementsManipulationHistory?.Count > 0)) return;
 
-            Dictionary<Stroke, Tuple<StylusPointCollection, StylusPointCollection>> strokeSnapshots = null;
-            if (strokeManipulationHistory.Count > 0)
-            {
-                strokeSnapshots = new(strokeManipulationHistory.Count);
-                foreach (var (stroke, points) in strokeManipulationHistory)
-                    strokeSnapshots.Add(stroke, Tuple.Create(points.Before, points.After ?? stroke.StylusPoints.Clone()));
-            }
-            timeMachine.CommitStrokeManipulationHistory(strokeSnapshots, ElementsManipulationHistory);
-            if (strokeSnapshots != null)
-            {
-                foreach (var (stroke, points) in strokeSnapshots)
-                    StrokeInitialHistory[stroke] = points.Item2;
-                strokeManipulationHistory.Clear();
-            }
+            strokeManipulationHistory.UnionWith(DrawingAttributesHistory);
+            var changes = new List<GestureMediaChange>();
+            if (ElementsManipulationHistory != null)
+                foreach (var (key, pair) in ElementsManipulationHistory)
+                {
+                    var element = GetElementByTimestamp(inkCanvas, key);
+                    if (element == null) continue;
+                    changes.Add(new GestureMediaChange(element, pair.Item1 as Transform ?? Transform.Identity,
+                        pair.Item2, pair.Item1 is FluentCanvasElementsHelper.ElementData));
+                }
+            timeMachine.CommitTransformedObjects(strokeManipulationHistory, changes.ToArray());
+            DrawingAttributesHistory.Clear();
+            strokeManipulationHistory.Clear();
             if (ElementsManipulationHistory != null)
             {
                 foreach (var item in ElementsManipulationHistory)
@@ -400,6 +250,8 @@ namespace FluentCanvas
 
         private void CommitPendingStrokeErasure()
         {
+            eraseInput?.Complete();
+            FinishIndexedErase();
             if (ReplacedStroke == null && AddedStroke == null) return;
             timeMachine.CommitStrokeEraseHistory(ReplacedStroke, AddedStroke);
             ReplacedStroke = null;
@@ -409,11 +261,15 @@ namespace FluentCanvas
         private void CommitPendingCanvasEdits()
         {
             CommitPendingStrokeErasure();
+            CommitPendingStrokeDrawingAttributes();
+        }
+
+        private void CommitPendingStrokeDrawingAttributes()
+        {
             ToCommitStrokeManipulationHistoryAfterMouseUp();
             if (DrawingAttributesHistory.Count == 0) return;
             timeMachine.CommitStrokeDrawingAttributesHistory(DrawingAttributesHistory);
-            DrawingAttributesHistory = new();
-            foreach (var flag in DrawingAttributesHistoryFlag.Values) flag.Clear();
+            DrawingAttributesHistory.Clear();
         }
     }
 }

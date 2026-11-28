@@ -52,13 +52,46 @@ function Run([string]$exe, [string[]]$arguments) {
     & $exe @arguments
     if ($LASTEXITCODE) { throw "$exe failed with exit code $LASTEXITCODE" }
 }
+function Clear-PackageIntermediates([string]$buildRoot, [string]$stage) {
+    $buildDirectory = Get-Item -LiteralPath $buildRoot
+    $stageDirectory = Get-Item -LiteralPath $stage
+    if ($stageDirectory.Name -notmatch '^[0-9a-f]{32}$' -or
+        $stageDirectory.Parent.FullName -ne $buildDirectory.FullName) {
+        throw "Unexpected package staging directory: $stage"
+    }
+    foreach ($directory in $buildDirectory.Parent, $buildDirectory, $stageDirectory) {
+        if ($directory.Attributes -band [IO.FileAttributes]::ReparsePoint) {
+            throw "Skipping cleanup through a linked directory: $($directory.FullName)"
+        }
+    }
+    foreach ($leaf in 'managed-x64','managed-arm64','x64','arm64','inner','logos','submission','results') {
+        $path = Join-Path $stageDirectory.FullName $leaf
+        if (!(Test-Path -LiteralPath $path -PathType Container)) { continue }
+        $item = Get-Item -LiteralPath $path
+        if ($item.Parent.FullName -ne $stageDirectory.FullName -or
+            ($item.Attributes -band [IO.FileAttributes]::ReparsePoint)) {
+            throw "Unexpected package cleanup target: $path"
+        }
+        # Preserve diagnostic logs even when a build tool writes them into its intermediate tree.
+        $logs = Get-ChildItem -LiteralPath $path -File -Recurse -Force |
+            Where-Object Extension -in '.log','.binlog','.etl'
+        foreach ($log in $logs) {
+            $relative = [IO.Path]::GetRelativePath($stageDirectory.FullName, $log.FullName)
+            $savedLog = Join-Path $stageDirectory.FullName 'logs' $relative
+            [IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($savedLog)) | Out-Null
+            Copy-Item -LiteralPath $log.FullName -Destination $savedLog -ErrorAction Stop
+        }
+        Remove-Item -LiteralPath $item.FullName -Recurse -Force -ErrorAction Stop
+    }
+}
 $makeappx = Join-Path $WindowsSdkBin 'makeappx.exe'
 $makepri = Join-Path $WindowsSdkBin 'makepri.exe'
 $signtool = Join-Path $WindowsSdkBin 'signtool.exe'
 $env:DOTNET_CLI_TELEMETRY_OPTOUT = '1'
 $env:DOTNET_GENERATE_ASPNET_CERTIFICATE = 'false'
-$stage = Join-Path $root ('artifacts/build/' + [guid]::NewGuid().ToString('N'))
-$results = New-Item -ItemType Directory -Force (Join-Path $stage 'results')
+$buildRoot = Join-Path $root 'artifacts/build'
+$stage = (New-Item -ItemType Directory (Join-Path $buildRoot ([guid]::NewGuid().ToString('N')))).FullName
+$results = New-Item -ItemType Directory (Join-Path $stage 'results')
 $innerPackages = New-Item -ItemType Directory (Join-Path $stage 'inner')
 $architectures = @($Architecture | ForEach-Object { $_.ToLowerInvariant() } | Select-Object -Unique)
 Push-Location $root
@@ -101,6 +134,8 @@ try {
     $assetPri = Join-Path $stage 'resources.pri'
     $sources = foreach ($source in $RestoreSource) { '--source'; $source }
     $symbolDir = New-Item -ItemType Directory (Join-Path $stage 'symbols')
+    $rustSysroot = & rustc --print sysroot
+    if ($LASTEXITCODE) { throw 'Could not locate the Rust standard library notices.' }
     foreach ($arch in $architectures) {
         $platform = if ($arch -eq 'arm64') { 'ARM64' } else { 'x64' }
         $rid = "win-$arch"
@@ -144,6 +179,8 @@ try {
         Copy-Item -LiteralPath (Join-Path $root 'LICENSE') -Destination (Join-Path $layout 'LICENSE')
         $storeDocs = New-Item -ItemType Directory (Join-Path $layout 'docs/store')
         Copy-Item -LiteralPath "$root/docs/store/THIRD-PARTY.md","$root/docs/store/PRIVACY.zh-CN.md" -Destination $storeDocs.FullName
+        $rustNotices = New-Item -ItemType Directory -Force (Join-Path $layout 'licenses/rust')
+        Copy-Item -LiteralPath (Join-Path $rustSysroot 'share/doc/rust/COPYRIGHT-library.html') -Destination $rustNotices.FullName
         $resolved = Get-Content -LiteralPath (Join-Path $managedArtifacts 'obj/FluentCanvas/project.assets.json') -Raw | ConvertFrom-Json -AsHashtable
         $packages = @($resolved.libraries.Values | Where-Object type -eq 'package' | ForEach-Object { $_.path })
         $packages += "microsoft.netcore.app.runtime.$rid/$desktopRuntimeVersion","microsoft.windowsdesktop.app.runtime.$rid/$desktopRuntimeVersion"
@@ -157,6 +194,8 @@ try {
             }
         }
         $symbols = New-Item -ItemType Directory (Join-Path $symbolDir $arch)
+        $rustTarget = if ($arch -eq 'arm64') { 'aarch64-pc-windows-msvc' } else { 'x86_64-pc-windows-msvc' }
+        Copy-Item -LiteralPath (Join-Path $root "artifacts/cargo/$rustTarget/release/fluent_canvas_core.pdb") -Destination $symbols.FullName
         foreach ($pdb in Get-ChildItem -LiteralPath $layout -Filter 'FluentCanvas*.pdb') {
             Move-Item -LiteralPath $pdb.FullName -Destination $symbols.FullName
         }
@@ -182,8 +221,15 @@ try {
         Set-Content -LiteralPath (Join-Path $results 'SHA256SUMS.txt')
     $destination = Join-Path $OutputDirectory ("$version-" + ($architectures -join '-') + '-' + (Split-Path $stage -Leaf).Substring(0,8))
     New-Item -ItemType Directory -Path $destination -Force | Out-Null
-    Copy-Item -Path "$results/*" -Destination $destination
+    foreach ($artifact in Get-ChildItem -LiteralPath $results -File) {
+        Copy-Item -LiteralPath $artifact.FullName -Destination $destination -ErrorAction Stop
+    }
     Write-Host "Packages: $destination"
+    try {
+        Clear-PackageIntermediates $buildRoot $stage
+    } catch {
+        Write-Warning "Package output is ready. Cleanup stopped for ${stage}: $_"
+    }
 } finally {
     Pop-Location
 }

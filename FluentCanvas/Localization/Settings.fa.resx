@@ -183,4 +183,8 @@
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>از این نسخه برای پیوندهای پرونده استفاده شود؟ مکان ثبت‌شده به {0} تغییر می‌کند. برنامه پیش‌فرض را در تنظیمات Windows انتخاب کنید.</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>برنامه‌های راه‌اندازی Windows</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>غیرفعال کردن حرکت‌های لمسی لبه در حالت تمام‌صفحه</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>دربارهٔ برنامه و بازخورد</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>صفحهٔ اصلی پروژه</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>گزارش مشکل</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>صفحهٔ وب باز نشد. نشانی {0} را در مرورگر خود باز کنید.</value></data>
 </root>

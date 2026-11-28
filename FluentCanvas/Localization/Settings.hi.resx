@@ -183,4 +183,8 @@
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>फ़ाइल संबंधों के लिए इस प्रति का उपयोग करें? पंजीकृत स्थान {0} हो जाएगा। Windows सेटिंग में डिफ़ॉल्ट ऐप चुनें।</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Windows स्टार्टअप ऐप</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>पूर्ण स्क्रीन में स्क्रीन के किनारों के स्पर्श जेस्चर बंद करें</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>जानकारी और प्रतिक्रिया</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>प्रोजेक्ट का मुख्य पृष्ठ</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>समस्या की रिपोर्ट करें</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>वेब पेज नहीं खुल सका। अपने ब्राउज़र में {0} खोलें।</value></data>
 </root>

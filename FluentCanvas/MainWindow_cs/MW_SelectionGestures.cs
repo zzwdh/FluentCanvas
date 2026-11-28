@@ -114,15 +114,6 @@ namespace FluentCanvas
             CommitPendingStrokeDrawingAttributes();
         }
 
-        private void CommitPendingStrokeDrawingAttributes()
-        {
-            if (DrawingAttributesHistory.Count == 0) return;
-            timeMachine.CommitStrokeDrawingAttributesHistory(DrawingAttributesHistory);
-            DrawingAttributesHistory = new Dictionary<Stroke, Tuple<DrawingAttributes, DrawingAttributes>>();
-            foreach (var strokes in DrawingAttributesHistoryFlag.Values)
-                strokes.Clear();
-        }
-
         private void MatrixTransform(int type)
         {
             Matrix m = new Matrix();
@@ -142,49 +133,12 @@ namespace FluentCanvas
                     break;
             }
 
-            List<UIElement> selectedElements = FluentCanvasElementsHelper.GetSelectedElements(inkCanvas);
-            foreach (UIElement element in selectedElements)
-            {
-                ApplyElementMatrixTransform(element, m);
-            }
-
-            StrokeCollection targetStrokes = inkCanvas.GetSelectedStrokes();
-            foreach (Stroke stroke in targetStrokes)
-            {
-                stroke.Transform(m, false);
-            }
-
-            if (DrawingAttributesHistory.Count > 0)
-            {
-                timeMachine.CommitStrokeDrawingAttributesHistory(DrawingAttributesHistory);
-                DrawingAttributesHistory = new Dictionary<Stroke, Tuple<DrawingAttributes, DrawingAttributes>>();
-                foreach (var item in DrawingAttributesHistoryFlag)
-                {
-                    item.Value.Clear();
-                }
-            }
-            ToCommitStrokeManipulationHistoryAfterMouseUp();
-        }
-
-        private void ApplyElementMatrixTransform(UIElement element, Matrix matrix)
-        {
-            FrameworkElement frameworkElement = element as FrameworkElement;
-            Matrix previous = frameworkElement.RenderTransform?.Value ?? Matrix.Identity;
-
-            if (!ElementsInitialHistory.ContainsKey(frameworkElement.Name))
-                ElementsInitialHistory[frameworkElement.Name] = new TransformGroup { Children = { new MatrixTransform(previous) } };
-
-            previous.Append(matrix);
-            var transformGroup = new TransformGroup { Children = { new MatrixTransform(previous) } };
-            frameworkElement.RenderTransform = transformGroup;
-            canvasContentVersion++;
-
-            if (ElementsManipulationHistory == null)
-            {
-                ElementsManipulationHistory = new Dictionary<string, Tuple<object, TransformGroup>>();
-            }
-            ElementsManipulationHistory[frameworkElement.Name] =
-                new Tuple<object, TransformGroup>(ElementsInitialHistory[frameworkElement.Name], transformGroup);
+            var strokes = inkCanvas.GetSelectedStrokes();
+            var elements = inkCanvas.GetSelectedElements();
+            if (strokes.Count == 0 && elements.Count == 0) return;
+            BeginContentGesture(strokes, elements, true);
+            contentGesture.Append(m, 1, 1);
+            FinishContentGesture();
         }
 
         private void BtnFlipHorizontal_Click(object sender, RoutedEventArgs e)
@@ -234,6 +188,8 @@ namespace FluentCanvas
 
         private void GridInkCanvasSelectionCover_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            if (e.StylusDevice?.TabletDevice.Type == TabletDeviceType.Touch) return;
+            gestureCancelled = false;
             lastMousePoint = e.GetPosition(inkCanvas);
             isGridInkCanvasSelectionCoverMouseDown = true;
             if (ToggleButtonStrokeSelectionClone.IsChecked == true)
@@ -258,47 +214,29 @@ namespace FluentCanvas
                 StrokesSelectionClone = new StrokeCollection();
                 ElementsSelectionClone = new List<UIElement>();
             }
+            if (isGridInkCanvasSelectionCoverMouseDown && e.StylusDevice == null && e.ChangedButton == MouseButton.Left)
+                GridInkCanvasSelectionCover.CaptureMouse();
         }
 
         private void GridInkCanvasSelectionCover_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isGridInkCanvasSelectionCoverMouseDown == false) return;
+            if (!isGridInkCanvasSelectionCoverMouseDown || e.LeftButton != MouseButtonState.Pressed ||
+                e.StylusDevice?.TabletDevice.Type == TabletDeviceType.Touch) return;
             Point mousePoint = e.GetPosition(inkCanvas);
             Vector trans = new Vector(mousePoint.X - lastMousePoint.X, mousePoint.Y - lastMousePoint.Y);
             lastMousePoint = mousePoint;
             Matrix m = new Matrix();
             // add Translate
             m.Translate(trans.X, trans.Y);
-            // handle UIElement
-            List<UIElement> elements = new List<UIElement>();
-            if (ElementsSelectionClone.Count != 0)
-            {
-                elements = ElementsSelectionClone;
-            }
-            else
-            {
-                elements = FluentCanvasElementsHelper.GetSelectedElements(inkCanvas);
-            }
-            foreach (UIElement element in elements)
-            {
-                ApplyElementMatrixTransform(element, m);
-            }
-            // handle strokes
-            StrokeCollection strokes = inkCanvas.GetSelectedStrokes();
-            if (StrokesSelectionClone.Count != 0)
-            {
-                strokes = StrokesSelectionClone;
-            }
-            foreach (Stroke stroke in strokes)
-            {
-                stroke.Transform(m, false);
-            }
+            PreviewSelectionGesture(m, 1, 1);
             updateBorderStrokeSelectionControlLocation();
         }
 
         private void GridInkCanvasSelectionCover_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            if (e.StylusDevice?.TabletDevice.Type == TabletDeviceType.Touch) return;
             ToCommitStrokeManipulationHistoryAfterMouseUp();
+            if (Mouse.Captured == GridInkCanvasSelectionCover) GridInkCanvasSelectionCover.ReleaseMouseCapture();
             isGridInkCanvasSelectionCoverMouseDown = false;
             if (FluentCanvasElementsHelper.IsNotCanvasElementSelected(inkCanvas))
             {
@@ -329,24 +267,9 @@ namespace FluentCanvas
             Matrix m = new Matrix();
             m.ScaleAt(scale, scale, center.X, center.Y);
 
-            StrokeCollection strokes = inkCanvas.GetSelectedStrokes();
-            List<UIElement> elements = FluentCanvasElementsHelper.GetSelectedElements(inkCanvas);
-            // handle UIElement
-            foreach (UIElement element in elements)
-            {
-                ApplyElementMatrixTransform(element, m);
-            }
-            // handle strokes
-            foreach (Stroke stroke in strokes)
-            {
-                stroke.Transform(m, false);
-                try
-                {
-                    stroke.DrawingAttributes.Width *= scale;
-                    stroke.DrawingAttributes.Height *= scale;
-                }
-                catch { }
-            }
+            gestureCancelled = false;
+            PreviewSelectionGesture(m, scale, scale);
+            FinishContentGesture();
             updateBorderStrokeSelectionControlLocation();
         }
 
@@ -387,6 +310,7 @@ namespace FluentCanvas
         private void inkCanvas_SelectionChanged(object sender, EventArgs e)
         {
             if (isProgramChangeStrokeSelection) return;
+            CancelContentGesture();
             if (FluentCanvasElementsHelper.IsNotCanvasElementSelected(inkCanvas))
             {
                 GridInkCanvasSelectionCover.Visibility = Visibility.Collapsed;
@@ -405,13 +329,14 @@ namespace FluentCanvas
                 ToggleButtonStrokeSelectionClone.IsChecked = false;
                 updateBorderStrokeSelectionControlLocation();
             }
+            RefreshShapeHandles();
         }
         double BorderStrokeSelectionControlWidth = 695;
         double BorderStrokeSelectionControlHeight = 104;
 
         private void updateBorderStrokeSelectionControlLocation()
         {
-            Rect selectionBounds = inkCanvas.GetSelectionBounds();
+            Rect selectionBounds = CurrentSelectionBounds();
             double borderLeft = (selectionBounds.Left + selectionBounds.Right - BorderStrokeSelectionControlWidth) / 2;
             double borderTop = selectionBounds.Bottom + 15;
 
@@ -458,21 +383,15 @@ namespace FluentCanvas
 
         private void GridInkCanvasSelectionCover_ManipulationStarting(object sender, ManipulationStartingEventArgs e)
         {
+            gestureCancelled = false;
+            e.ManipulationContainer = inkCanvas;
             e.Mode = ManipulationModes.All;
         }
 
         private void GridInkCanvasSelectionCover_ManipulationCompleted(object sender, ManipulationCompletedEventArgs e)
         {
-            ToCommitStrokeManipulationHistoryAfterMouseUp();
-            if (DrawingAttributesHistory.Count > 0)
-            {
-                timeMachine.CommitStrokeDrawingAttributesHistory(DrawingAttributesHistory);
-                DrawingAttributesHistory = new Dictionary<Stroke, Tuple<DrawingAttributes, DrawingAttributes>>();
-                foreach (var item in DrawingAttributesHistoryFlag)
-                {
-                    item.Value.Clear();
-                }
-            }
+            CommitPendingStrokeDrawingAttributes();
+            updateBorderStrokeSelectionControlLocation();
         }
 
         StrokeCollection StrokesSelectionClone = new StrokeCollection();
@@ -480,61 +399,37 @@ namespace FluentCanvas
 
         private void GridInkCanvasSelectionCover_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
         {
-            try
-            {
-                if (dec.Count >= 1)
-                {
-                    ManipulationDelta md = e.DeltaManipulation;
-                    Vector trans = md.Translation;
-                    double rotate = md.Rotation;
-                    Vector scale = md.Scale;
-                    Point center = GetMatrixTransformCenterPoint(e.ManipulationOrigin, e.Source as FrameworkElement);
-                    Matrix m = new Matrix();
-                    // add Scale
-                    m.ScaleAt(scale.X, scale.Y, center.X, center.Y);
-                    StrokeCollection strokes = inkCanvas.GetSelectedStrokes();
-                    if (StrokesSelectionClone.Count != 0)
-                    {
-                        strokes = StrokesSelectionClone;
-                    }
-                    else if (Settings.Gesture.IsEnableTwoFingerRotationOnSelection)
-                    {
-                        // add Rotate
-                        m.RotateAt(rotate, center.X, center.Y);
-                    }
-                    // add Translate
-                    m.Translate(trans.X, trans.Y);
-                    List<UIElement> elements = new List<UIElement>();
-                    if (ElementsSelectionClone.Count != 0)
-                    {
-                        elements = ElementsSelectionClone;
-                    }
-                    else
-                    {
-                        elements = FluentCanvasElementsHelper.GetSelectedElements(inkCanvas);
-                    }
-                    // handle UIElements
-                    foreach (UIElement element in elements)
-                    {
-                        ApplyElementMatrixTransform(element, m);
-                    }
-                    // handle strokes
-                    foreach (Stroke stroke in strokes)
-                    {
-                        stroke.Transform(m, false);
-                        try
-                        {
-                            stroke.DrawingAttributes.Width *= md.Scale.X;
-                            stroke.DrawingAttributes.Height *= md.Scale.Y;
-                        }
-                        catch { }
-                    }
-                    updateBorderStrokeSelectionControlLocation();
-                }
-            }
-            catch { }
+            if (dec.Count == 0 || gestureCancelled) return;
+            var delta = e.DeltaManipulation;
+            var center = GetMatrixTransformCenterPoint(e.ManipulationOrigin, e.Source as FrameworkElement);
+            var matrix = Matrix.Identity;
+            matrix.ScaleAt(delta.Scale.X, delta.Scale.Y, center.X, center.Y);
+            if (StrokesSelectionClone.Count == 0 && Settings.Gesture.IsEnableTwoFingerRotationOnSelection)
+                matrix.RotateAt(delta.Rotation, center.X, center.Y);
+            matrix.Translate(delta.Translation.X, delta.Translation.Y);
+            PreviewSelectionGesture(matrix, delta.Scale.X, delta.Scale.Y);
+            updateBorderStrokeSelectionControlLocation();
         }
 
+        private void PreviewSelectionGesture(Matrix matrix, double scaleX, double scaleY)
+        {
+            if (gestureCancelled || matrix.IsIdentity) return;
+            if (contentGesture == null)
+            {
+                bool cloning = StrokesSelectionClone.Count > 0 || ElementsSelectionClone.Count > 0;
+                var strokes = cloning ? StrokesSelectionClone : inkCanvas.GetSelectedStrokes();
+                var elements = cloning ? ElementsSelectionClone : FluentCanvasElementsHelper.GetSelectedElements(inkCanvas);
+                BeginContentGesture(strokes, elements, !cloning);
+            }
+            contentGesture.Append(matrix, scaleX, scaleY);
+        }
+
+        private Rect CurrentSelectionBounds()
+        {
+            if (contentGesture is { MovesSelection: true } gesture)
+                return Rect.Transform(gesture.SelectionBounds, gesture.Matrix);
+            return inkCanvas.GetSelectionBounds();
+        }
         Point lastTouchPointOnGridInkCanvasCover = new Point(0, 0);
         private void GridInkCanvasSelectionCover_PreviewTouchDown(object sender, TouchEventArgs e)
         {

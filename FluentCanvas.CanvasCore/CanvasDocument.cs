@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,14 +29,29 @@ namespace FluentCanvas.Helpers
 
         internal static void Save(string path, InkCanvas canvas)
         {
-            Capture(canvas).Save(path);
+            using var snapshot = Capture(canvas);
+            snapshot.Save(path);
         }
 
         internal static Snapshot Capture(InkCanvas canvas) => Capture(canvas.Strokes, canvas.Children.Cast<UIElement>());
 
         internal static Snapshot Capture(StrokeCollection strokes, IEnumerable<UIElement> children)
         {
+            using var page = NativeInkPage.Create();
+            page.Append(strokes);
+            return Capture(FrozenInk.Capture(page), children);
+        }
+
+        internal static Snapshot Capture(FrozenInk ink, IEnumerable<UIElement> children)
+        {
+            try { return CaptureAssets(ink, children); }
+            catch { ink.Dispose(); throw; }
+        }
+
+        private static Snapshot CaptureAssets(FrozenInk ink, IEnumerable<UIElement> children)
+        {
             var description = new XElement(CanvasDocumentXml.Presentation + "InkCanvas");
+            ink.WritePageId(description);
             var assets = new List<Asset>();
             long pixels = 0;
             foreach (var child in children)
@@ -46,44 +63,58 @@ namespace FluentCanvas.Helpers
                     CheckImageSize(source.PixelWidth, source.PixelHeight, ref pixels);
                     name += ".png";
                     assets.Add(new Asset(name, source.IsFrozen ? source : (BitmapSource)source.GetCurrentValueAsFrozen(), null));
-                    description.Add(CanvasDocumentXml.WriteElement(image, name, image.Stretch));
+                    description.Add(CanvasDocumentXml.WriteElement(image, name, image.Stretch, ink.SceneFor(image)));
                 }
                 else if (child is MediaElement media && media.Source?.IsAbsoluteUri == true && media.Source.IsFile)
                 {
                     string mediaPath = media.Source.LocalPath;
                     name += Path.GetExtension(mediaPath).ToLowerInvariant();
                     assets.Add(new Asset(name, null, mediaPath, CanvasDocumentMedia.GetOwner(media)));
-                    description.Add(CanvasDocumentXml.WriteElement(media, name, media.Stretch));
+                    description.Add(CanvasDocumentXml.WriteElement(media, name, media.Stretch, ink.SceneFor(media)));
                 }
                 else throw new InvalidDataException("当前画布包含未完成的笔迹或无法保存的元素。");
             }
-            return new Snapshot(strokes.Clone(), description, assets);
+            return new Snapshot(ink, description, assets);
         }
 
         internal sealed record Asset(string Name, BitmapSource Image, string MediaPath, CanvasDocumentMedia MediaOwner = null);
 
-        internal sealed class Snapshot(StrokeCollection strokes, XElement description, List<Asset> assets)
+        private sealed record EncodedImage(byte[] Data, string Name);
+        private static readonly ConditionalWeakTable<BitmapSource, Lazy<EncodedImage>> encodedImages = new();
+
+        private static EncodedImage EncodePng(BitmapSource source)
         {
+            using var data = new MemoryStream();
+            var encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(source));
+            encoder.Save(data);
+            if (data.Length > MaxAssetBytes) throw TooLarge();
+            var bytes = data.ToArray();
+            return new(bytes, Assets + Convert.ToHexStringLower(SHA256.HashData(bytes)) + ".png");
+        }
+
+        internal sealed class Snapshot(FrozenInk ink, XElement description, List<Asset> assets) : IDisposable
+        {
+            public void Dispose() => ink.Dispose();
+
             internal void Save(string path)
             {
                 AtomicFile.Write(path, output =>
                 {
                     using var zip = new ZipArchive(output, ZipArchiveMode.Create, true);
-                    long total = 0;
+                    long total;
+                    using (var target = zip.CreateEntry(NativeInkDocument.EntryName, CompressionLevel.NoCompression).Open())
+                        total = Math.Max(ink.Length, NativeInkDocument.Write(target, ink));
+                    var written = new HashSet<string>(StringComparer.Ordinal);
+                    var names = new Dictionary<string, string>(StringComparer.Ordinal);
 
-                    void Add(string name, Stream data, long limit)
+                    void Add(string name, Stream data, long limit, CompressionLevel compression)
                     {
                         total = checked(total + data.Length);
                         if (data.Length > limit || total > MaxTotalBytes) throw TooLarge();
-                        using var target = zip.CreateEntry(name, CompressionLevel.Fastest).Open();
+                        using var target = zip.CreateEntry(name, compression).Open();
                         data.Position = 0;
                         data.CopyTo(target);
-                    }
-
-                    using (var ink = new MemoryStream())
-                    {
-                        strokes.Save(ink);
-                        Add("strokes.icstk", ink, MaxInkBytes);
                     }
 
                     foreach (var asset in assets)
@@ -92,21 +123,31 @@ namespace FluentCanvas.Helpers
                         {
                             using (var media = File.OpenRead(asset.MediaPath))
                             {
-                                ValidateMedia(media, Path.GetExtension(asset.Name));
-                                Add(asset.Name, media, MaxAssetBytes);
+                                if (media.Length > MaxAssetBytes) throw TooLarge();
+                                string extension = Path.GetExtension(asset.Name);
+                                ValidateMedia(media, extension);
+                                media.Position = 0;
+                                string name = Assets + Convert.ToHexStringLower(SHA256.HashData(media)) + extension;
+                                names.Add(asset.Name, name);
+                                if (written.Add(name)) Add(name, media, MaxAssetBytes, CompressionLevel.NoCompression);
                             }
                             GC.KeepAlive(asset.MediaOwner);
                             continue;
                         }
-                        using var data = new MemoryStream();
-                        var encoder = new PngBitmapEncoder();
-                        encoder.Frames.Add(BitmapFrame.Create(asset.Image));
-                        encoder.Save(data);
-                        Add(asset.Name, data, MaxAssetBytes);
+                        var image = encodedImages.GetValue(asset.Image, source => new(() => EncodePng(source))).Value;
+                        names.Add(asset.Name, image.Name);
+                        if (written.Add(image.Name))
+                        {
+                            using var data = new MemoryStream(image.Data, false);
+                            Add(image.Name, data, MaxAssetBytes, CompressionLevel.NoCompression);
+                        }
                     }
                     using var xml = new MemoryStream();
-                    description.Save(xml);
-                    Add("elements.xaml", xml, MaxXmlBytes);
+                    var manifest = new XElement(description);
+                    foreach (var source in manifest.Elements().Attributes("Source"))
+                        source.Value = names[source.Value];
+                    manifest.Save(xml);
+                    Add("elements.xaml", xml, MaxXmlBytes, CompressionLevel.Fastest);
                 });
             }
         }
@@ -155,50 +196,6 @@ namespace FluentCanvas.Helpers
             return header == 0;
         }
 
-        internal static MemoryStream ReadSlideInk(string path)
-        {
-            var data = ReadSlideInkData(path);
-            try
-            {
-                _ = new StrokeCollection(data);
-                data.Position = 0;
-                return data;
-            }
-            catch
-            {
-                data.Dispose();
-                throw;
-            }
-        }
-
-        internal static StrokeCollection LoadSlideInk(string path)
-        {
-            using var data = ReadSlideInkData(path);
-            return new StrokeCollection(data);
-        }
-
-        private static MemoryStream ReadSlideInkData(string path)
-        {
-            using var file = File.OpenRead(path);
-            MemoryStream data;
-            if (HasLegacySlideHeader(file))
-            {
-                if (file.Length > MaxInkBytes) throw TooLarge();
-                data = new MemoryStream((int)file.Length);
-                file.CopyTo(data);
-                data.Position = 0;
-            }
-            else
-            {
-                CheckDirectory(file);
-                using var zip = new ZipArchive(file, ZipArchiveMode.Read);
-                var entry = zip.GetEntry("strokes.icstk") ?? throw new InvalidDataException("幻灯片作品缺少笔迹。");
-                if (entry.Length > MaxInkBytes) throw TooLarge();
-                data = ReadEntry(entry);
-            }
-            return data;
-        }
-
         private static void ReadArchive(FileStream file, Import staged)
         {
             // Bound the central directory before ZipArchive allocates its entry collection.
@@ -210,7 +207,9 @@ namespace FluentCanvas.Helpers
             {
                 var name = entry.FullName;
                 long limit;
-                if (name.Equals("strokes.icstk", StringComparison.OrdinalIgnoreCase)) limit = MaxInkBytes;
+                if (name.Equals(NativeInkDocument.EntryName, StringComparison.OrdinalIgnoreCase))
+                    limit = NativeInkDocument.MaxFileBytes;
+                else if (name.Equals("strokes.icstk", StringComparison.OrdinalIgnoreCase)) limit = MaxInkBytes;
                 else if (name.Equals("elements.xaml", StringComparison.OrdinalIgnoreCase)) limit = MaxXmlBytes;
                 else if (name.Equals(Assets, StringComparison.OrdinalIgnoreCase)) limit = 0;
                 else if (name.StartsWith(Assets, StringComparison.OrdinalIgnoreCase) && IsAssetName(name.Substring(Assets.Length))) limit = MaxAssetBytes;
@@ -220,13 +219,31 @@ namespace FluentCanvas.Helpers
                 if (entry.Length > limit || total > MaxTotalBytes || entries.Count >= MaxEntries) throw TooLarge();
                 if (!entries.TryAdd(name, entry)) throw new InvalidDataException("作品中存在重名的文件，无法确定正确的资源。");
             }
-            if (!entries.TryGetValue("strokes.icstk", out var strokes) || !entries.TryGetValue("elements.xaml", out var xml))
+            bool native = entries.TryGetValue(NativeInkDocument.EntryName, out var nativeEntry);
+            bool legacy = entries.TryGetValue("strokes.icstk", out var strokes);
+            if (native == legacy || !entries.TryGetValue("elements.xaml", out var xml))
                 throw new InvalidDataException("作品缺少笔迹或元素清单。");
-            using (var ink = ReadEntry(strokes)) staged.Strokes = new StrokeCollection(ink);
+            if (native)
+            {
+                using var input = nativeEntry.Open();
+                var records = NativeInkDocument.Read(input, nativeEntry.Length, nativeEntry.Crc32);
+                if (total - nativeEntry.Length + records.Length > MaxTotalBytes) throw TooLarge();
+                staged.LoadNative(records);
+            }
+            else
+            {
+                using var ink = ReadEntry(strokes);
+                staged.Strokes = new StrokeCollection(ink);
+            }
             List<CanvasDocumentXml.Element> elements;
-            using (var description = ReadEntry(xml)) elements = CanvasDocumentXml.Read(description);
+            using (var description = ReadEntry(xml))
+            {
+                elements = CanvasDocumentXml.Read(description, out var pageId);
+                staged.SetPageId(pageId);
+            }
 
             long pixels = 0;
+            var images = new Dictionary<string, BitmapSource>(StringComparer.OrdinalIgnoreCase);
             foreach (var element in elements)
             {
                 if (!entries.TryGetValue(element.Asset, out var asset)) throw new InvalidDataException("作品缺少引用的图片或媒体文件。");
@@ -236,8 +253,22 @@ namespace FluentCanvas.Helpers
                 }
                 else
                 {
-                    using var image = ReadEntry(asset);
-                    staged.Elements.Add(new StagedElement(element, DecodeImage(image, ref pixels, false), null));
+                    if (!images.TryGetValue(asset.FullName, out var bitmap))
+                    {
+                        using var image = ReadEntry(asset);
+                        bitmap = DecodeImage(image, ref pixels, false);
+                        images.Add(asset.FullName, bitmap);
+                        if (asset.Name.Length == 68 && asset.Name.EndsWith(".png", StringComparison.Ordinal) &&
+                            image.GetBuffer().AsSpan(0, (int)image.Length).StartsWith(new byte[] {137,80,78,71,13,10,26,10}))
+                        {
+                            var data = image.ToArray();
+                            string canonical = Assets + Convert.ToHexStringLower(SHA256.HashData(data)) + ".png";
+                            if (canonical == asset.FullName)
+                                encodedImages.Add(bitmap, new(() => new(data, canonical)));
+                        }
+                    }
+                    else CheckImageSize(bitmap.PixelWidth, bitmap.PixelHeight, ref pixels);
+                    staged.Elements.Add(new StagedElement(element, bitmap, null));
                 }
             }
         }
@@ -318,7 +349,7 @@ namespace FluentCanvas.Helpers
 
         private static MemoryStream ReadEntry(ZipArchiveEntry entry)
         {
-            var result = new MemoryStream();
+            var result = new MemoryStream((int)Math.Min(entry.Length, 128 * 1024));
             CopyEntry(entry, result);
             result.Position = 0;
             return result;
@@ -334,12 +365,18 @@ namespace FluentCanvas.Helpers
             {
                 int read = input.Read(buffer, 0, (int)Math.Min(buffer.Length, remaining));
                 if (read == 0) throw new InvalidDataException("作品中的文件内容不完整。");
-                for (int i = 0; i < read; i++) crc = CrcTable[(byte)(crc ^ buffer[i])] ^ (crc >> 8);
+                crc = UpdateCrc(crc, buffer.AsSpan(0, read));
                 target.Write(buffer, 0, read);
                 remaining -= read;
             }
             if (input.ReadByte() != -1) throw TooLarge();
             if (~crc != entry.Crc32) throw new InvalidDataException("作品中的文件校验失败。");
+        }
+
+        internal static uint UpdateCrc(uint crc, ReadOnlySpan<byte> bytes)
+        {
+            foreach (byte value in bytes) crc = CrcTable[(byte)(crc ^ value)] ^ (crc >> 8);
+            return crc;
         }
 
         private static uint[] CreateCrcTable()
@@ -404,6 +441,16 @@ namespace FluentCanvas.Helpers
         internal sealed class Import : IDisposable
         {
             internal StrokeCollection Strokes;
+            private NativeInkPage nativePage;
+            internal void SetPageId(Guid? id)
+            {
+                if (id is Guid identity) nativePage?.SetPageId(identity);
+            }
+
+            internal void LoadNative(byte[] records)
+            {
+                nativePage = NativeInkPage.LoadDocument(records, out Strokes, undoable: true);
+            }
             internal readonly List<StagedElement> Elements = new();
             private CanvasDocumentMedia mediaFolder;
             private bool applied;
@@ -439,7 +486,12 @@ namespace FluentCanvas.Helpers
                     canvas.Strokes.Clear();
                     if (Strokes.Count > 0) canvas.Strokes.Add(Strokes);
                     foreach (var child in children) canvas.Children.Add(child);
-                    history.ImportTimeMachineHistory(entries.ToArray());
+                    if (nativePage == null) history.ImportTimeMachineHistory(entries.ToArray());
+                    else
+                    {
+                        history.ImportNativePage(nativePage, entries.ToArray());
+                        nativePage = null;
+                    }
                     history.MarkSaved();
                     applied = true;
                 }
@@ -455,6 +507,8 @@ namespace FluentCanvas.Helpers
 
             public void Dispose()
             {
+                nativePage?.Dispose();
+                nativePage = null;
                 if (!applied) mediaFolder?.Discard();
                 mediaFolder = null;
             }

@@ -10,9 +10,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="../../FluentCanvas/Helpers/AnimationsHelper.cs" Link="AnimationsHelper.cs" />
+    <Compile Include="../../FluentCanvas/Helpers/ShapeDraftInkCanvas.cs" Link="ShapeDraftInkCanvas.cs" />
     <Compile Include="../../FluentCanvas/Helpers/ShapeTool.cs" Link="ShapeTool.cs" />
     <Compile Include="../../FluentCanvas/MainWindow_cs/MW_BoardControls.cs" Link="MW_BoardControls.cs" />
     <Compile Include="../../FluentCanvas/MainWindow_cs/MW_PageNavigation.cs" Link="MW_PageNavigation.cs" />
+    <Compile Include="../../FluentCanvas/MainWindow_cs/MW_NewPlaneShapes.cs" Link="MW_NewPlaneShapes.cs" />
+    <Compile Include="../../FluentCanvas/MainWindow_cs/MW_NewSpatialShapes.cs" Link="MW_NewSpatialShapes.cs" />
+    <Compile Include="../../FluentCanvas/MainWindow_cs/MW_ShapeHandles.cs" Link="MW_ShapeHandles.cs" />
     <Compile Include="../../FluentCanvas/MainWindow_cs/MW_TouchEvents.cs" Link="MW_TouchEvents.cs" />
     <Compile Include="../../FluentCanvas/MainWindow_cs/MW_TimeMachine.cs" Link="MW_TimeMachine.cs" />
     <Compile Include="../../FluentCanvas.InkAnalyzerCore/InkAnalysisModels.cs" Link="InkAnalysisModels.cs" />

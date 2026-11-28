@@ -183,4 +183,8 @@ Feche as configurações para voltar a editar o quadro branco.</value></data>
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>Usar esta cópia para as associações de arquivos? O local registrado será alterado para {0}. Escolha o aplicativo padrão nas Configurações do Windows.</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Aplicativos de inicialização do Windows</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>Desativar gestos de toque nas bordas em tela cheia</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>Sobre o aplicativo e feedback</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>Página inicial do projeto</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>Relatar um problema</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>Não foi possível abrir a página da web. Acesse {0} no navegador.</value></data>
 </root>

@@ -183,4 +183,8 @@ Schließen Sie die Einstellungen, um das Whiteboard weiter zu bearbeiten.</value
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>Diese Kopie für Dateizuordnungen verwenden? Der registrierte Pfad wird auf {0} geändert. Wähle die Standard-App in den Windows-Einstellungen aus.</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Autostart-Apps in Windows</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>Rand-Touchgesten im Vollbild deaktivieren</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>Über die App und Feedback</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>Projektseite</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>Problem melden</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>Die Webseite konnte nicht geöffnet werden. Öffnen Sie {0} in Ihrem Browser.</value></data>
 </root>

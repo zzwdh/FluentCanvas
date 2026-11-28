@@ -19,11 +19,14 @@ FluentCanvas 是面向 Windows 的桌面批注和课堂白板软件，支持数�
 | 范围 | 维护入口 |
 | --- | --- |
 | 启动与窗口 | [Program](FluentCanvas/Program.cs) 分派画板和 WinUI 工具进程。[App](FluentCanvas/App.xaml.cs) 负责文件激活、托盘及主窗口的服务装配。通知和翻页视图绑定到各自窗口拥有的模型。 |
-| 画布与放映批注 | [CanvasCore](FluentCanvas.CanvasCore/) 管理触点会话、桌面与白板分页、笔迹历史、文档和会话备份。主窗口提供活动画布的捕获与显示操作，PowerPoint 与 WPS 的连接由 [Services](FluentCanvas/Services/) 管理。 |
+| 画板核心 | [Rust 核心](native/fluent-canvas-core/) 持有页面、笔迹、图片和媒体的标识与场景布局。笔迹和图片可以一起变换、撤销及重做。空间索引用于擦除命中，局部擦除保留切点压感。椭圆、圆弧、三角形和坐标轴以控制点保存，重开后可继续编辑。 |
+| Windows 画布与放映批注 | [CanvasCore](FluentCanvas.CanvasCore/) 将 WPF 输入转换为核心命令，将笔迹投影回画板，并处理图片、媒体与作品文件。桌面、白板和放映批注通过页面快照切换。PowerPoint 与 WPS 连接由 [Services](FluentCanvas/Services/) 管理。 |
 | 设置 | WinUI 设置窗口通过 [SettingsPipe](FluentCanvas/Services/SettingsPipe.cs) 向画板进程提交请求。[SettingsPreferenceEditor](FluentCanvas/Services/SettingsPreferenceEditor.cs) 校验并保存普通偏好，主窗口应用对应的界面变化。 |
 | 课堂工具 | [Classroom](FluentCanvas/Classroom/) 管理倒计时状态、名单抽取及文本文件读写。[WinUI 窗口](FluentCanvas/Views/) 负责输入、显示和窗口生命周期。 |
 
 [文档回归](tests/Document.Tests/)、[画布输入回归](tests/CanvasInput.Tests/)和[生命周期回归](tests/Lifecycle.Tests/)各有独立入口，可在 Windows 上用 `dotnet run --project tests/<项目名> -c Release` 运行。WPS 加载项使用 `node --test tests/wps-addin.test.cjs`。
+
+新保存的 `.icart` 使用 FCINK v2 分块无损保存笔迹，包括坐标、压感和倾角。作品内相同内容的图片或媒体共用一份资源，每个对象分别保存位置与变换。放映缓存按文稿及幻灯片保存同格式的 `.fcink` 文件。每个笔迹流带长度与 SHA-256 校验，保存期间可以继续书写。旧版 FluentCanvas 无法打开新版作品。
 
 ## 🔧 特性
 界面语言默认跟随 Windows。也可以在画板工具栏打开「工具 → 设置 → 外观 → 界面语言」，选择语言，保存当前作品后重新打开 FluentCanvas。画板与课堂工具使用相同的语言。

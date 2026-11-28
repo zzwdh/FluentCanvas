@@ -17,10 +17,12 @@ namespace FluentCanvas.Helpers
     {
         internal static readonly XNamespace Presentation = "http://schemas.microsoft.com/winfx/2006/xaml/presentation";
         private static readonly CultureInfo Invariant = CultureInfo.InvariantCulture;
-        private const string Layout = "Name Width Height InkCanvas.Left InkCanvas.Top InkCanvas.Right InkCanvas.Bottom Stretch Opacity RenderTransform RenderTransformOrigin Source";
+        private const string Layout = "Name Width Height InkCanvas.Left InkCanvas.Top InkCanvas.Right InkCanvas.Bottom Stretch Opacity RenderTransform RenderTransformOrigin Source ObjectId Panel.ZIndex";
 
         internal sealed class Element
         {
+            internal Guid Id;
+            internal int Z;
             internal bool IsMedia;
             internal string Asset, Name;
             internal double Width, Height, Left, Top, Right, Bottom, Opacity;
@@ -30,6 +32,8 @@ namespace FluentCanvas.Helpers
 
             internal void Apply(FrameworkElement target)
             {
+                SceneObject.Bind(target, Id);
+                Panel.SetZIndex(target,Z);
                 target.Name = Name;
                 target.Width = Width;
                 target.Height = Height;
@@ -45,7 +49,9 @@ namespace FluentCanvas.Helpers
             }
         }
 
-        internal static List<Element> Read(Stream stream)
+        internal static List<Element> Read(Stream stream) => Read(stream, out _);
+
+        internal static List<Element> Read(Stream stream, out Guid? pageId)
         {
             using var reader = XmlReader.Create(stream, new XmlReaderSettings
             {
@@ -55,9 +61,11 @@ namespace FluentCanvas.Helpers
             });
             var root = XDocument.Load(reader).Root;
             if (root?.Name != Presentation + "InkCanvas") throw Invalid();
-            ValidateNode(root, "Name Background Strokes EditingMode EditingModeInverted MoveEnabled ResizeEnabled Cursor ForceCursor IsManipulationEnabled IsHitTestVisible Opacity Visibility");
+            ValidateNode(root, "Name Background Strokes EditingMode EditingModeInverted MoveEnabled ResizeEnabled Cursor ForceCursor IsManipulationEnabled IsHitTestVisible Opacity Visibility PageId");
+            pageId = ReadId(root,"PageId");
             var result = new List<Element>();
             var names = new HashSet<string>(StringComparer.Ordinal);
+            var objectIds = new HashSet<Guid>();
             foreach (var node in root.Elements())
             {
                 if (node.Name == Presentation + "InkCanvas.DefaultDrawingAttributes")
@@ -72,6 +80,7 @@ namespace FluentCanvas.Helpers
                 ValidateNode(node, Layout + (media ? " LoadedBehavior UnloadedBehavior Position SpeedRatio Volume Balance IsMuted ScrubbingEnabled" : ""));
                 var element = new Element
                 {
+                    Id = ReadId(node,"ObjectId") ?? Guid.NewGuid(),
                     IsMedia = media,
                     Name = (string)node.Attribute("Name") ?? ("ele_" + Guid.NewGuid().ToString("N")),
                     Width = Dimension(node, "Width"), Height = Dimension(node, "Height"),
@@ -80,6 +89,8 @@ namespace FluentCanvas.Helpers
                     Opacity = Number(node, "Opacity", 1), Transform = ParseMatrix((string)node.Attribute("RenderTransform") ?? "Identity"),
                     Origin = Point.Parse((string)node.Attribute("RenderTransformOrigin") ?? "0,0")
                 };
+                var z = (string)node.Attribute("Panel.ZIndex");
+                if (!objectIds.Add(element.Id) || (z != null && !int.TryParse(z, NumberStyles.Integer, Invariant, out element.Z))) throw Invalid();
                 if (!names.Add(element.Name) || element.Opacity < 0 || element.Opacity > 1 ||
                     !double.IsFinite(element.Origin.X) || !double.IsFinite(element.Origin.Y)) throw Invalid();
                 if (!Enum.TryParse((string)node.Attribute("Stretch") ?? "Uniform", out element.Stretch) ||
@@ -242,20 +253,29 @@ namespace FluentCanvas.Helpers
             return ParseMatrix(matrix.ToString(Invariant));
         }
 
-        internal static XElement WriteElement(FrameworkElement item, string asset, Stretch stretch)
+        private static Guid? ReadId(XElement node,string name)
+        {
+            var value = (string)node.Attribute(name);
+            if (value == null) return null;
+            if (!Guid.TryParseExact(value,"D",out Guid id) || id == Guid.Empty) throw Invalid();
+            return id;
+        }
+
+        internal static XElement WriteElement(FrameworkElement item, string asset, Stretch stretch, SceneObject state)
         {
             var result = new XElement(Presentation + (item is MediaElement ? "MediaElement" : "Image"),
                 new XAttribute("Source", asset), new XAttribute("Stretch", stretch),
-                new XAttribute("Opacity", item.Opacity), new XAttribute("RenderTransform", item.RenderTransform.Value.ToString(Invariant)),
-                new XAttribute("RenderTransformOrigin", item.RenderTransformOrigin.ToString(Invariant)));
+                new XAttribute("ObjectId",state.Id.ToString("D")), new XAttribute("Panel.ZIndex",state.Z),
+                new XAttribute("Opacity", state.Opacity), new XAttribute("RenderTransform", state.Matrix.ToString(Invariant)),
+                new XAttribute("RenderTransformOrigin", new Point(state.OriginX,state.OriginY).ToString(Invariant)));
             if (!string.IsNullOrEmpty(item.Name)) result.Add(new XAttribute("Name", item.Name));
             void Add(string name, double value)
             {
                 if (double.IsFinite(value)) result.Add(new XAttribute(name, value));
             }
-            Add("Width", item.Width); Add("Height", item.Height);
-            Add("InkCanvas.Left", InkCanvas.GetLeft(item)); Add("InkCanvas.Top", InkCanvas.GetTop(item));
-            Add("InkCanvas.Right", InkCanvas.GetRight(item)); Add("InkCanvas.Bottom", InkCanvas.GetBottom(item));
+            Add("Width", state.Width); Add("Height", state.Height);
+            Add("InkCanvas.Left", state.Left); Add("InkCanvas.Top", state.Top);
+            Add("InkCanvas.Right", state.Right); Add("InkCanvas.Bottom", state.Bottom);
             return result;
         }
 

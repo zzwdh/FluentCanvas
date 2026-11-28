@@ -22,15 +22,27 @@ internal static class Program
     private static int passed;
 
     [STAThread]
-    private static int Main()
+    private static int Main(string[] args)
     {
         root = Directory.CreateTempSubdirectory("FluentCanvas-DocumentTests-").FullName;
         try
         {
+            if (args.Length >= 2 && args[0] == "--measure-set")
+            {
+                DocumentCompressionChecks.Measure(root, args[1], args.Skip(2).ToArray());
+                return 0;
+            }
             Run("Portable artwork with two same-named images, transforms, Chinese and long paths", RoundTrip);
             Run("Selection PNG keeps offset and rotated images aligned with ink", SelectionExportTests.Verify);
             Run("Ink replay preserves sample timing, pressure, tilt and stroke identity", InkReplayTests.Run);
+            Run("Native ink records retain precise samples, packet channels and brush metadata", NativeStrokeCodecTests.Run);
+            Run("Sparse brush and layer edits preserve live point and stroke identity", SparseInkTests.Run);
+            Run("Detached native page exports reopen with their original order and pressure", NativeDocumentRoundTrip);
+            Run("Native ink rejects damaged headers, records and ambiguous archives without changing the page", NativeDocumentFailures);
+            Run("Frozen ink streams across record boundaries while the original page changes", NativeDocumentStreaming);
+            Run("V2 lossless blocks, oversized strokes and shared image assets", () => DocumentCompressionChecks.Verify(root));
             Run("Staged shape preview stays outside the document, then commits in order", ShapeDraftVisualTests.Run);
+            Run("Parametric teaching shapes retain editable controls, snapping and PNG geometry", () => ParametricInkTests.Verify(root));
             Run("WPF XamlWriter legacy canvas and absolute source resolved from package", ReadLegacy);
             Run("Packaged media opens after deleting its original and can be re-saved", MediaRoundTrip);
             Run("Detached saves retain imported media and unused folders are reclaimed", ImportedMediaLifetime);
@@ -57,10 +69,11 @@ internal static class Program
             Run("Clear undo and redo restore ink and media in order", ClearMixedPage);
             Run("Background work reads a detached snapshot and preserves the saved baseline", BackgroundRoundTrip);
             Run("Direct media import decodes and copies on a worker", BackgroundMediaImport);
-            Run("PowerPoint deck and slide isolation, legacy import and write recovery", () => PowerPointInkStorageTests.Run(root));
+            Run("PowerPoint native ink, deck and slide isolation and write recovery", () => PowerPointInkStorageTests.Run(root));
             Run("Queued slideshow ink keeps failed snapshots and saves the newest state on close",
                 () => PowerPointInkStorageTests.VerifyQueuedWrites(root));
             Run("WPS bridge accepts fresh unambiguous show state and preserves the command mailbox", () => WpsBridgeTests.Run(root));
+            if (args.Contains("--measure-document")) MeasureInkSave();
             Console.WriteLine($"{passed} document regression groups passed.");
             return 0;
         }
@@ -71,6 +84,110 @@ internal static class Program
     private static void Run(string name, Action test) { test(); passed++; Console.WriteLine("PASS " + name); }
     private static void Check(bool result) { if (!result) throw new Exception("Assertion failed."); }
     private static string PathFor(string name) => Path.Combine(root, name);
+
+    private static void NativeDocumentRoundTrip()
+    {
+        var history = new TimeMachine();
+        var first = new Stroke(new StylusPointCollection { new StylusPoint(16, 24, 0.2f) });
+        var second = new Stroke(new StylusPointCollection { new StylusPoint(32, 48, 0.8f) });
+        history.CommitStrokeUserInputHistory(new StrokeCollection { first, second });
+        using var snapshot = CanvasDocument.Capture(history.FreezeInk(), Array.Empty<UIElement>());
+        history.Undo();
+        Check(history.MaterializeInk().Count == 0);
+
+        string path = PathFor("native-page.icart");
+        Task.Run(() => snapshot.Save(path)).GetAwaiter().GetResult();
+        using (var zip = ZipFile.OpenRead(path))
+        {
+            Check(zip.GetEntry("strokes.icstk") == null);
+            var ink = zip.GetEntry(NativeInkDocument.EntryName);
+            using var stream = ink.Open();
+            Check(NativeInkDocument.Read(stream, ink.Length, ink.Crc32).Length > 0);
+        }
+        var canvas = new InkCanvas();
+        CanvasDocument.LoadInto(path, canvas, history);
+        var reopened = history.MaterializeInk();
+        Check(reopened.Count == 2 && !history.HasUnsavedChanges);
+        Check(reopened[0].StylusPoints[0] == first.StylusPoints[0] && reopened[1].StylusPoints[0] == second.StylusPoints[0]);
+        history.Undo();
+        Check(history.MaterializeInk().Count == 0);
+        history.Redo();
+        Check(!history.HasUnsavedChanges && history.MaterializeInk().Count == 2);
+    }
+
+    private static void NativeDocumentFailures()
+    {
+        var history = new TimeMachine();
+        history.CommitStrokeUserInputHistory(new StrokeCollection { Sample.Clone() });
+        using var frozen = history.FreezeInk();
+        byte[] record = frozen.ExportInk();
+        using var encoded = new MemoryStream();
+        NativeInkDocument.Write(encoded, frozen);
+        byte[] valid = encoded.ToArray();
+
+        void Reject(string name, byte[] data, bool keepLegacy = false) => FailedOpen(name + ".icart", path =>
+        {
+            Build(path, "");
+            using var zip = ZipFile.Open(path, ZipArchiveMode.Update);
+            if (!keepLegacy) zip.GetEntry("strokes.icstk").Delete();
+            using var entry = zip.CreateEntry(NativeInkDocument.EntryName).Open();
+            entry.Write(data);
+        });
+
+        byte[] Damaged(int position)
+        {
+            var copy = (byte[])valid.Clone();
+            copy[position] ^= 1;
+            return copy;
+        }
+        static byte[] Wrap(byte[] records)
+        {
+            using var output = new MemoryStream();
+            NativeInkDocument.Write(output, records);
+            return output.ToArray();
+        }
+        Reject("bad-magic", Damaged(0));
+        Reject("future-version", Damaged(8));
+        Reject("bad-length", Damaged(12));
+        Reject("bad-digest", Damaged(valid.Length - 1));
+        Reject("truncated", valid[..^1]);
+        Reject("both-formats", valid, keepLegacy: true);
+        Reject("duplicate-stroke-id", Wrap([.. record, .. record]));
+        System.Buffers.Binary.BinaryPrimitives.WriteDoubleLittleEndian(record.AsSpan(16), double.NaN);
+        Reject("invalid-sample", Wrap(record));
+    }
+
+    private static void NativeDocumentStreaming()
+    {
+        var history = new TimeMachine();
+        var strokes = new StrokeCollection();
+        for (int j = 0; j < 20; j++)
+        {
+            var points = new StylusPointCollection();
+            for (int i = 0; i < 513; i++) points.Add(new StylusPoint(i, j, (i % 11) / 10f));
+            strokes.Add(new Stroke(points));
+        }
+        history.CommitStrokeUserInputHistory(strokes);
+        using var frozen = history.FreezeInk();
+        byte[] expected = frozen.ExportInk();
+        Check(expected.Length > 128 * 1024);
+        byte[] Encode()
+        {
+            using var stream = new MemoryStream();
+            NativeInkDocument.Write(stream, frozen);
+            stream.Position = 0;
+            return NativeInkDocument.Read(stream);
+        }
+        var first = Task.Run(Encode);
+        var second = Task.Run(Encode);
+        history.Undo();
+        using var blank = history.FreezeInk();
+        using var frame = new MemoryStream();
+        NativeInkDocument.Write(frame, blank);
+        frame.Position = 0;
+        Check(blank.Length == 0 && NativeInkDocument.Read(frame).Length == 0);
+        Check(first.Result.SequenceEqual(expected) && second.Result.SequenceEqual(expected));
+    }
 
     private static void HistoryBranches()
     {
@@ -98,6 +215,53 @@ internal static class Program
         Check(!history.HasUnsavedChanges);
         Check(ReferenceEquals(history.Undo().Entry.CurrentStroke[0], first));
         Check(!history.CanUndo);
+    }
+
+    private static void MeasureInkSave()
+    {
+        const int strokeCount = 450, samples = 96;
+        var strokes = new StrokeCollection();
+        for (int j = 0; j < strokeCount; j++)
+        {
+            var points = new StylusPointCollection(samples);
+            for (int i = 0; i < samples; i++)
+                points.Add(new StylusPoint(j + i * 0.8, j % 91 + 7 * Math.Sin(i * 0.13), (float)(0.5 + 0.4 * Math.Sin(i * 0.09))));
+            strokes.Add(new Stroke(points));
+        }
+        var history = new TimeMachine();
+        history.CommitStrokeUserInputHistory(strokes);
+
+        (double PrepMs, long PrepBytes, double WriteMs, long Size) Trial(bool native)
+        {
+            long allocated = GC.GetAllocatedBytesForCurrentThread();
+            var sw = System.Diagnostics.Stopwatch.StartNew();
+            using var frozen = native ? history.FreezeInk() : null;
+            byte[] raw = native ? null : history.ExportInk();
+            double prep = sw.Elapsed.TotalMilliseconds;
+            allocated = GC.GetAllocatedBytesForCurrentThread() - allocated;
+            sw.Restart();
+            using var output = new MemoryStream();
+            using (var zip = new ZipArchive(output, ZipArchiveMode.Create, true))
+            {
+                using var entry = zip.CreateEntry(native ? NativeInkDocument.EntryName : "strokes.icstk",
+                    native ? CompressionLevel.NoCompression : CompressionLevel.Fastest).Open();
+                if (native) NativeInkDocument.Write(entry, frozen);
+                else
+                {
+                    using var isf = new MemoryStream();
+                    NativeStrokeCodec.DecodePage(raw).Save(isf);
+                    isf.Position = 0;
+                    isf.CopyTo(entry);
+                }
+            }
+            return (prep, allocated, sw.Elapsed.TotalMilliseconds, output.Length);
+        }
+        foreach (bool native in new[] { false, true })
+        {
+            Trial(native);
+            var runs = Enumerable.Range(0, 7).Select(_ => Trial(native)).ToArray();
+            Console.WriteLine($"SAVE {(native ? "FCINK" : "ISF")} {strokeCount}x{samples}, median of 7: capture {runs.OrderBy(r => r.PrepMs).ElementAt(3).PrepMs:F3} ms, {runs.OrderBy(r => r.PrepBytes).ElementAt(3).PrepBytes} managed bytes; encode+zip {runs.OrderBy(r => r.WriteMs).ElementAt(3).WriteMs:F2} ms; {runs[0].Size} bytes.");
+        }
     }
 
     private static void ClearMixedPage()
@@ -140,7 +304,7 @@ internal static class Program
             Source = BitmapSource.Create(1, 1, 96, 96, PixelFormats.Bgra32, null, new byte[] { 1, 2, 3, 255 }, 4)
         };
         original.Children.Add(image);
-        var snapshot = CanvasDocument.Capture(original);
+        using var snapshot = CanvasDocument.Capture(original);
         stroke.StylusPoints[0] = new StylusPoint(300, 300);
         image.Width = 80;
         Task.Run(() => snapshot.Save(path)).GetAwaiter().GetResult();
@@ -263,8 +427,6 @@ internal static class Program
                 var canvas = new InkCanvas();
                 CanvasDocument.LoadInto(path, canvas, new TimeMachine());
                 Check(canvas.Strokes.Count == 1);
-                using var slide = CanvasDocument.ReadSlideInk(path);
-                Check(slide.ToArray().SequenceEqual(data.ToArray()));
             }
             finally { File.SetAttributes(path, FileAttributes.Normal); }
         }
@@ -306,7 +468,7 @@ internal static class Program
         GC.Collect();
         CanvasDocumentMedia.SweepUnused();
         Check(File.Exists(extracted));
-        snapshot.Save(PathFor("detached-media.icart"));
+        using (snapshot) snapshot.Save(PathFor("detached-media.icart"));
     }
 
     [MethodImpl(MethodImplOptions.NoInlining)]

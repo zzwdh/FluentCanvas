@@ -10,7 +10,7 @@ namespace FluentCanvas;
 // The production touch partial is compiled unchanged. Unrelated shell actions are replaced with local stubs.
 public partial class MainWindow
 {
-    private readonly InkCanvas inkCanvas = new() { Background = Brushes.Transparent, IsManipulationEnabled = true };
+    private readonly ShapeDraftInkCanvas inkCanvas = new() { Background = Brushes.Transparent, IsManipulationEnabled = true };
     private const int BoundsWidth = 100;
     private bool isHidingSubPanelsWhenInking;
     private readonly bool forceEraser = false;
@@ -33,6 +33,7 @@ public partial class MainWindow
         inkCanvas.PreviewTouchDown += inkCanvas_PreviewTouchDown;
         inkCanvas.PreviewTouchUp += inkCanvas_PreviewTouchUp;
         inkCanvas.StrokeCollected += inkCanvas_StrokeCollected;
+        timeMachine.BindInk(inkCanvas.Strokes);
         inkCanvas.Strokes.StrokesChanged += StrokesOnStrokesChanged;
         inkCanvas.TouchDown += Main_Grid_TouchDown;
         SetMultiTouch(true);
@@ -43,8 +44,21 @@ public partial class MainWindow
     internal void ResetCanvasInput() => CancelPendingCanvasInput();
     internal TimeMachine History => timeMachine;
     internal bool HasPendingPointHistory => strokeManipulationHistory.Count > 0;
-    internal void BeginBoardGesture() => dec.Add(100);
-    internal void TrackBoardTransform(Stroke stroke, Matrix transform) => TransformStrokeDuringBoardGesture(stroke, transform);
+    internal void BeginBoardGesture()
+    {
+        gestureCancelled = false;
+        dec.Add(100);
+    }
+    internal void PreviewBoard(Matrix delta, double scaleX = 1, double scaleY = 1) => PreviewBoardGesture(delta, scaleX, scaleY);
+    internal void PreviewSelection(Stroke[] strokes, UIElement[] elements, Matrix delta)
+    {
+        if (contentGesture == null) BeginContentGesture(strokes, elements, true);
+        contentGesture.Append(delta, 1, 1);
+    }
+    internal bool HasGesturePreview => contentGesture != null;
+    internal bool HasCommittedPreview => committedPreview != null;
+    internal void CancelPreview() => CancelContentGesture();
+    internal void TrackBoardTransform(Stroke stroke, Matrix transform) => stroke.Transform(transform, false);
 
     internal void FinishBoardGesture()
     {
@@ -87,7 +101,7 @@ public partial class MainWindow
     private void MouseTouchMove(Point point) { }
     private void CancelShapeDraft() { }
     private void InvalidateInkRecognition() { }
-    private void CommitPendingStrokeDrawingAttributes() { }
+
 
     internal void ApplyElementMatrixTransform(UIElement element, Matrix matrix)
     {

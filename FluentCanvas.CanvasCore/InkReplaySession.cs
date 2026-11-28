@@ -1,16 +1,36 @@
 #nullable enable
 
 using System;
+using System.Collections.Generic;
 using System.Windows.Ink;
 using System.Windows.Input;
 
 namespace FluentCanvas.Helpers;
 
-internal sealed class InkReplaySession(StrokeCollection source, StrokeCollection destination)
+internal sealed class InkReplaySession : IDisposable
 {
+    private readonly IEnumerator<Stroke> strokes;
+    private readonly StrokeCollection destination;
+    private readonly FrozenInk? snapshot;
+    private Stroke? current;
+
+    internal InkReplaySession(IEnumerable<Stroke> source, StrokeCollection destination)
+    {
+        strokes = source.GetEnumerator();
+        this.destination = destination;
+    }
+
+    internal InkReplaySession(FrozenInk snapshot, StrokeCollection destination)
+        : this(snapshot.ReadStrokes(), destination) => this.snapshot = snapshot;
+
+    public void Dispose()
+    {
+        strokes.Dispose();
+        snapshot?.Dispose();
+    }
+
     private static readonly TimeSpan SamplePause = TimeSpan.FromMilliseconds(10);
     private static readonly TimeSpan FinalHold = TimeSpan.FromMilliseconds(100);
-    private int strokeIndex;
     private int sampleIndex;
     private int samplesSincePause;
     private TimeSpan nextSampleAt;
@@ -21,14 +41,12 @@ internal sealed class InkReplaySession(StrokeCollection source, StrokeCollection
     {
         if (finishedAt is TimeSpan end) return elapsed - end >= FinalHold;
 
-        while (strokeIndex < source.Count)
+        while (current != null || strokes.MoveNext())
         {
-            var stroke = source[strokeIndex];
+            var stroke = current ??= strokes.Current;
             var points = stroke.StylusPoints;
             int start = sampleIndex;
-            // The geometry tool generates circles and ellipses with 629 samples. They have
-            // always replayed in larger groups than handwritten strokes.
-            int pauseThreshold = points.Count == 629 ? 50 : 1;
+            int pauseThreshold = stroke.ContainsPropertyData(NativeStrokeCodec.ShapeProperty) ? 50 : 1;
             while (sampleIndex < points.Count)
             {
                 bool shouldPause = samplesSincePause >= pauseThreshold;
@@ -56,7 +74,7 @@ internal sealed class InkReplaySession(StrokeCollection source, StrokeCollection
             }
 
             if (sampleIndex < points.Count) return false;
-            strokeIndex++;
+            current = null;
             sampleIndex = 0;
             preview = null;
         }

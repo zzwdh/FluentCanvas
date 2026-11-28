@@ -183,4 +183,8 @@ Cierra Configuración para volver a editar la pizarra.</value></data>
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>¿Usar esta copia para las asociaciones de archivos? La ubicación registrada cambiará a {0}. Elige la aplicación predeterminada en Configuración de Windows.</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Aplicaciones de inicio de Windows</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>Desactivar los gestos táctiles de borde en pantalla completa</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>Acerca de la aplicación y comentarios</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>Página del proyecto</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>Informar de un problema</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>No se pudo abrir la página web. Visita {0} en tu navegador.</value></data>
 </root>

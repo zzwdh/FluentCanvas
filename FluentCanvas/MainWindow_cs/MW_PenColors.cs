@@ -1,4 +1,4 @@
-﻿using FluentCanvas.Helpers;
+using FluentCanvas.Helpers;
 using FluentCanvas.Localization;
 using System;
 using System.Collections.Generic;
@@ -63,12 +63,7 @@ namespace FluentCanvas
             }
             if (DrawingAttributesHistory.Count > 0)
             {
-                timeMachine.CommitStrokeDrawingAttributesHistory(DrawingAttributesHistory);
-                DrawingAttributesHistory = new Dictionary<Stroke, Tuple<DrawingAttributes, DrawingAttributes>>();
-                foreach (var item in DrawingAttributesHistoryFlag)
-                {
-                    item.Value.Clear();
-                }
+                CommitPendingStrokeDrawingAttributes();
             }
             else
             {

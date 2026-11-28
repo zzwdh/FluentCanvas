@@ -183,4 +183,8 @@
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>ใช้สำเนานี้สำหรับการเชื่อมโยงไฟล์หรือไม่ ตำแหน่งที่ลงทะเบียนจะเปลี่ยนเป็น {0} เลือกแอปเริ่มต้นได้ในการตั้งค่า Windows</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>แอปที่เริ่มพร้อม Windows</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>ปิดรูปแบบการสัมผัสที่ขอบหน้าจอในโหมดเต็มหน้าจอ</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>เกี่ยวกับแอปและข้อเสนอแนะ</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>หน้าแรกของโครงการ</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>รายงานปัญหา</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>เปิดหน้าเว็บไม่ได้ โปรดเปิด {0} ในเบราว์เซอร์ของคุณ</value></data>
 </root>

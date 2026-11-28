@@ -7,6 +7,7 @@ using Microsoft.UI.Xaml.Automation.Peers;
 using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
@@ -15,6 +16,8 @@ namespace FluentCanvas.Views;
 
 internal static class WinUiSettings
 {
+    private const string ProjectHomepage = "https://github.com/zzwdh/FluentCanvas";
+
     internal static Window CreateWindow(string pipeName) => new SettingsWindow(pipeName).Window;
 
     private sealed class SettingsWindow
@@ -218,6 +221,10 @@ internal static class WinUiSettings
             actions.Children.Add(guide);
             help.Children.Add(actions);
 
+            var project = AddSection(UiText.Get("Settings.AboutAndFeedback"));
+            AddProjectLink(project, "ProjectHomepage", ProjectHomepage);
+            AddProjectLink(project, "ReportIssue", ProjectHomepage + "/issues/new");
+
             var session = AddSection(UiText.Get("Settings.App"));
             var sessionActions = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 8 };
             AddSessionAction(sessionActions, UiText.Get("Settings.RestartApp"), WinUiSetting.Restart);
@@ -269,6 +276,29 @@ internal static class WinUiSettings
             panel.Children.Add(new TextBlock { Text = title, FontSize = 20, FontWeight = Microsoft.UI.Text.FontWeights.SemiBold });
             settings.Children.Add(panel);
             return panel;
+        }
+
+        private void AddProjectLink(StackPanel panel, string key, string url)
+        {
+            string label = UiText.Get($"Settings.{key}");
+            var link = new HyperlinkButton { Content = label };
+            AutomationProperties.SetAutomationId(link, key);
+            AutomationProperties.SetName(link, label);
+            link.Click += (_, _) => OpenProjectLink(url);
+            panel.Children.Add(link);
+        }
+
+        private void OpenProjectLink(string url)
+        {
+            try
+            {
+                using var browser = Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+            }
+            catch (Exception failure)
+            {
+                LogHelper.WriteLogToFile($"Could not open {url}: {failure}", LogHelper.LogType.Error);
+                ShowError(UiText.Format("Settings.OpenProjectLinkFailed", url));
+            }
         }
 
         private void RenderHotkeys(StackPanel panel, GlobalHotkeySetting[] bindings)

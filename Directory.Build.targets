@@ -1,0 +1,28 @@
+<Project>
+  <!-- Build native content in the consuming project so cross-publish uses the executable's RID. -->
+  <ItemGroup>
+    <_CanvasCoreReference Include="@(ProjectReference->WithMetadataValue('Filename', 'FluentCanvas.CanvasCore'))" />
+  </ItemGroup>
+  <PropertyGroup>
+    <CanvasRustRid Condition="'$(RuntimeIdentifier)' != ''">$(RuntimeIdentifier)</CanvasRustRid>
+    <CanvasRustRid Condition="'$(CanvasRustRid)' == '' and '$(Platform)' == 'ARM64'">win-arm64</CanvasRustRid>
+    <CanvasRustRid Condition="'$(CanvasRustRid)' == '' and '$(Platform)' == 'x64'">win-x64</CanvasRustRid>
+    <CanvasRustRid Condition="'$(CanvasRustRid)' == ''">$(NETCoreSdkRuntimeIdentifier)</CanvasRustRid>
+    <CanvasRustTarget Condition="'$(CanvasRustRid)' == 'win-x64'">x86_64-pc-windows-msvc</CanvasRustTarget>
+    <CanvasRustTarget Condition="'$(CanvasRustRid)' == 'win-arm64'">aarch64-pc-windows-msvc</CanvasRustTarget>
+    <CanvasRustManifest>$(MSBuildThisFileDirectory)native\fluent-canvas-core\Cargo.toml</CanvasRustManifest>
+    <CanvasRustTargetDir>$(MSBuildThisFileDirectory)artifacts\cargo</CanvasRustTargetDir>
+    <CanvasRustLibrary>$(CanvasRustTargetDir)\$(CanvasRustTarget)\release\fluent_canvas_core.dll</CanvasRustLibrary>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="@(_CanvasCoreReference->'$(CanvasRustLibrary)')" Link="fluent_canvas_core.dll"
+             CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" Visible="false" />
+    <UpToDateCheckInput Include="$(MSBuildThisFileDirectory)native\fluent-canvas-core\src\**\*.rs;$(CanvasRustManifest);$(MSBuildThisFileDirectory)native\fluent-canvas-core\Cargo.lock;$(MSBuildThisFileDirectory)rust-toolchain.toml;$(MSBuildThisFileDirectory).cargo\config.toml" />
+  </ItemGroup>
+  <Target Name="BuildCanvasRustCore" BeforeTargets="PrepareForBuild"
+          Condition="'@(_CanvasCoreReference)' != '' and '$(DesignTimeBuild)' != 'true'">
+    <Error Condition="'$(CanvasRustTarget)' == ''" Text="Unsupported Fluent Canvas native runtime $(CanvasRustRid). Choose win-x64 or win-arm64." />
+    <Exec WorkingDirectory="$(MSBuildThisFileDirectory)native\fluent-canvas-core"
+          Command="cargo build --release --locked --target $(CanvasRustTarget) --target-dir &quot;$(CanvasRustTargetDir)&quot;" />
+  </Target>
+</Project>

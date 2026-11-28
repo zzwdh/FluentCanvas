@@ -1,4 +1,5 @@
 using System;
+using FluentCanvas.Helpers;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Ink;
@@ -31,11 +32,9 @@ public partial class MainWindow
             if (diameter.Length >= 2 * MinimumPlaneShapeLength)
             {
                 Point center = start + diameter / 2;
-                var points = SamplePlaneArc(center, diameter.Length / 2, Math.Atan2(diameter.Y, diameter.X), -Math.PI);
-                points[0] = end;
-                points[^1] = start;
-                points.Add(end);
-                strokes.Add(CreatePlaneStroke(points));
+                var v = end - center;
+                strokes.Add(new ParametricInk(GeometryKind.Chord, center, end, center + new Vector(-v.Y, v.X),
+                    -Math.PI).Create(inkCanvas.DefaultDrawingAttributes));
             }
             return strokes;
         }
@@ -75,7 +74,9 @@ public partial class MainWindow
                 return strokes;
         }
 
-        strokes.Add(CreatePlaneStroke(outline));
+        strokes.Add(outline.Length == 4
+            ? new ParametricInk(GeometryKind.Triangle, outline[0], outline[1], outline[2]).Create(inkCanvas.DefaultDrawingAttributes)
+            : CreatePlaneStroke(outline));
         return strokes;
     }
 
@@ -93,7 +94,7 @@ public partial class MainWindow
         if (shape == ShapeTool.Triangle)
         {
             double height = Math.Abs(Vector.CrossProduct(firstDirection, secondRay));
-            if (height >= MinimumPlaneShapeLength) strokes.Add(CreatePlaneStroke(new[] { anchor, start, end, anchor }));
+            if (height >= MinimumPlaneShapeLength) strokes.Add(new ParametricInk(GeometryKind.Triangle, anchor, start, end).Create(inkCanvas.DefaultDrawingAttributes));
             return strokes;
         }
 
@@ -117,26 +118,11 @@ public partial class MainWindow
         double sweep = Math.Clamp(sweepAngle ?? Math.Atan2(turn, dot), -Math.Tau, Math.Tau);
         if (Math.Abs(sweep) * radius < MinimumPlaneShapeLength) return strokes;
 
-        var arc = SamplePlaneArc(anchor, radius, Math.Atan2(firstRay.Y, firstRay.X), sweep);
-        if (shape == ShapeTool.Sector && Math.Abs(sweep) < Math.Tau)
-        {
-            arc.Insert(0, anchor);
-            arc.Add(anchor);
-        }
-        strokes.Add(CreatePlaneStroke(arc));
+        var right = anchor + firstDirection * radius;
+        var bottom = anchor + new Vector(-firstDirection.Y, firstDirection.X) * radius;
+        var kind = shape == ShapeTool.Sector ? GeometryKind.Sector : GeometryKind.Arc;
+        strokes.Add(new ParametricInk(kind, anchor, right, bottom, sweep).Create(inkCanvas.DefaultDrawingAttributes));
         return strokes;
-    }
-
-    private static List<Point> SamplePlaneArc(Point center, double radius, double startAngle, double sweep)
-    {
-        int segments = Math.Max(2, (int)Math.Ceiling(Math.Abs(sweep) / (Math.PI / 90)));
-        var points = new List<Point>(segments + 1);
-        for (int i = 0; i <= segments; i++)
-        {
-            double angle = startAngle + sweep * i / segments;
-            points.Add(new Point(center.X + radius * Math.Cos(angle), center.Y + radius * Math.Sin(angle)));
-        }
-        return points;
     }
 
     private Stroke CreatePlaneStroke(IEnumerable<Point> points)

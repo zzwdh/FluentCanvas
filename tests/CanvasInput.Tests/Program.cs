@@ -22,12 +22,15 @@ internal static class Program
             VerifyTouchEraserLifecycle();
             ShapeCandidateChecks.RunAsync().GetAwaiter().GetResult();
             BoardHistoryChecks.Run();
+            IndexedEraseChecks.Run();
+            MainWindow.VerifyShapeHandles();
             PageNavigationChecks.Run();
             MainWindow.VerifyBoardPages();
             MainWindow.VerifyPresentationBackup();
             VerifyPanelMotion();
-            Console.WriteLine("11 canvas regression groups passed.");
+            Console.WriteLine("14 canvas regression groups passed.");
             if (args.Contains("--measure-history")) BoardHistoryChecks.Measure();
+            if (args.Contains("--measure-erase")) IndexedEraseChecks.Measure();
             return 0;
         }
         catch (Exception error)

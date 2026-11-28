@@ -1,4 +1,5 @@
 using FluentCanvas.Localization;
+using FluentCanvas.Helpers;
 using System;
 using System.Windows;
 using System.Windows.Automation.Peers;
@@ -34,7 +35,9 @@ public partial class MainWindow
 
     private void BeginNewShape(Point position)
     {
-        iniP = position;
+        inkCanvas.CancelQueuedGeometry();
+        shapeSnapPoints = null;
+        iniP = SnapShapePoint(position);
         HidePanelsForInking();
         RefreshShapePlacementHint();
         if (newShapeFirstPoint.HasValue) UpdateNewShape(position);
@@ -42,6 +45,7 @@ public partial class MainWindow
 
     private void UpdateNewShape(Point position)
     {
+        position = SnapShapePoint(position);
         if (drawingShapeMode is ShapeTool.NumberLine or ShapeTool.NumberLineLabeled or ShapeTool.Sphere or ShapeTool.Tetrahedron)
         {
             DrawNewSpatialShape(drawingShapeMode, iniP, position);
@@ -52,7 +56,7 @@ public partial class MainWindow
         {
             Vector size = position - iniP;
             SetShapeDraft(Math.Abs(size.X) >= MinimumPlaneShapeLength && Math.Abs(size.Y) >= MinimumPlaneShapeLength
-                ? new StrokeCollection { CreatePlaneStroke(GenerateEllipseGeometry(iniP, position)) }
+                ? new StrokeCollection { ParametricInk.Ellipse(iniP, position).Create(inkCanvas.DefaultDrawingAttributes) }
                 : new StrokeCollection());
             return;
         }
@@ -85,6 +89,7 @@ public partial class MainWindow
 
     private void FinishNewShape(Point position)
     {
+        inkCanvas.CancelQueuedGeometry();
         UpdateNewShape(position);
         if (!IsThreePointShape || newShapeSecondPoint.HasValue)
         {
@@ -92,6 +97,7 @@ public partial class MainWindow
             return;
         }
 
+        position = SnapShapePoint(position);
         newShapeFirstPoint ??= iniP;
         if (shapeDraft is { Count: > 0 })
         {
@@ -128,7 +134,7 @@ public partial class MainWindow
     {
         if (!UsesNewShapeInput) return;
         e.Handled = true;
-        if (ReferenceEquals(newShapeTouch, e.TouchDevice)) UpdateNewShape(e.GetTouchPoint(inkCanvas).Position);
+        if (ReferenceEquals(newShapeTouch, e.TouchDevice)) QueueShapePreview(e.GetTouchPoint(inkCanvas).Position);
     }
 
     private void InkCanvas_PreviewShapeTouchUp(object sender, TouchEventArgs e)

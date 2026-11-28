@@ -183,4 +183,8 @@
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>ファイルの関連付けにこのコピーを使用しますか？登録先は {0} に更新されます。既定のアプリは Windows の設定で選択してください。</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Windows のスタートアップ アプリ</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>全画面表示中は画面端のタッチ ジェスチャを無効にする</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>アプリ情報とフィードバック</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>プロジェクトのホームページ</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>問題を報告</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>ウェブページを開けませんでした。ブラウザーで {0} を開いてください。</value></data>
 </root>

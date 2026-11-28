@@ -183,4 +183,8 @@
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>이 복사본을 파일 연결에 사용하시겠습니까? 등록 위치가 {0}(으)로 변경됩니다. Windows 설정에서 기본 앱을 선택하세요.</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Windows 시작 앱</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>전체 화면에서 가장자리 터치 제스처 끄기</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>앱 정보 및 피드백</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>프로젝트 홈페이지</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>문제 신고</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>웹 페이지를 열 수 없습니다. 브라우저에서 다음 주소를 여세요. {0}</value></data>
 </root>

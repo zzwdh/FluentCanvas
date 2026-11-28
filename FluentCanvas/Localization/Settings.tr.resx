@@ -183,4 +183,8 @@ Beyaz tahtayı düzenlemeye devam etmek için Ayarlar'ı kapatın.</value></data
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>Dosya ilişkilendirmeleri için bu kopya kullanılsın mı? Kayıtlı konum {0} olarak güncellenir. Varsayılan uygulamayı Windows Ayarları&apos;ndan seçin.</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Windows başlangıç uygulamaları</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>Tam ekranda kenar dokunma hareketlerini devre dışı bırak</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>Uygulama hakkında ve geri bildirim</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>Proje ana sayfası</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>Sorun bildir</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>Web sayfası açılamadı. Tarayıcınızda {0} adresini açın.</value></data>
 </root>

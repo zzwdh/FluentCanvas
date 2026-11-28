@@ -31,6 +31,10 @@ namespace FluentCanvas
         private PixelRectangle? desktopBoundsBeforePresentation;
         private DateTimeOffset lastPowerPointTransitionCapture;
         private bool closingPowerPointOwner;
+        private readonly PowerPointSlideLoad slideLoad = new();
+        private bool readingSlide => slideLoad.Pending;
+        private bool wasEnabledBeforeSlideRead;
+        private ulong placeholderRevision;
         private readonly Dictionary<(string Deck, int Slide), CanvasPage> powerPointPages = new();
 
         private bool promptingForHiddenSlides;
@@ -53,6 +57,7 @@ namespace FluentCanvas
                 closingPowerPointOwner = true;
                 presentationDisplayTimer.Stop();
                 slideShows.SetEnabled(false, false);
+                CancelSlideRead();
                 pptService.PresentationAvailable -= OnPowerPointPresentationAvailable;
                 slideShows.SlideLeaving -= CaptureLeavingPowerPointSlide;
                 slideShows.SlideChanged -= ApplyPowerPointSlide;
@@ -88,7 +93,7 @@ namespace FluentCanvas
         private PowerPointInkStorage CreatePowerPointInkStorage() =>
             new(StorageHelper.NormalizeStorageLocation(Settings.Automation.AutoSavedStrokesLocation), StorageHelper.UserDataPath);
 
-        private void OnPowerPointPresentationAvailable(Presentation presentation)
+        private async void OnPowerPointPresentationAvailable(Presentation presentation)
         {
             try
             {
@@ -96,24 +101,9 @@ namespace FluentCanvas
                 var slides = presentation.Slides.Cast<Slide>().ToArray();
                 string deck = pptService.GetDeckKey(presentation);
                 var storage = CreatePowerPointInkStorage();
-                if (settings.IsAutoSaveStrokesInPowerPoint && !string.IsNullOrWhiteSpace(presentation.Path))
+                if (settings.IsNotifyPreviousPage && (powerPointWriter.PendingLastSlide(deck) ?? await Task.Run(() => storage.ReadLastSlide(deck))) is int slideId)
                 {
-                    string legacyFolder = storage.GetLegacyFolder(deck, presentation.Name, slides.Length);
-                    if (legacyFolder != null)
-                    {
-                        ConfirmPowerPointChange(presentation,
-                            UiText.Get("Presentation.ImportLegacyPrompt"),
-                            () =>
-                            {
-                                int count = storage.ImportLegacy(deck, legacyFolder, slides.Select(slide => slide.SlideID).ToArray(),
-                                    candidateId => powerPointWriter.PendingInk(deck, candidateId) != null);
-                                ShowNotificationAsync(UiText.Format("Presentation.ImportedLegacy", count));
-                            });
-                    }
-                }
-
-                if (settings.IsNotifyPreviousPage && (powerPointWriter.PendingLastSlide(deck) ?? storage.ReadLastSlide(deck)) is int slideId)
-                {
+                    if (!pptService.IsCurrentPresentation(presentation)) return;
                     var slide = slides.FirstOrDefault(candidate => candidate.SlideID == slideId);
                     if (slide != null)
                     {
@@ -256,7 +246,7 @@ namespace FluentCanvas
 
         private static CanvasPage CreatePowerPointCanvas(StrokeCollection strokes)
         {
-            var history = new TimeMachine.Snapshot(Array.Empty<TimeMachineHistory>(), -1, new object(), null);
+            var history = TimeMachine.CreateBaseline(strokes);
             return new CanvasPage(strokes, Array.Empty<UIElement>(), history);
         }
 
@@ -264,8 +254,16 @@ namespace FluentCanvas
 
         private void RestoreDesktopCanvas(CanvasPage state) => Pages.ReplaceDesktop(state);
 
+        private void CancelSlideRead(bool installed = false)
+        {
+            if (!readingSlide) return;
+            slideLoad.End(installed);
+            SetCurrentValue(IsEnabledProperty, wasEnabledBeforeSlideRead);
+        }
+
         private void RestorePowerPointSlide(PowerPointSlide slide)
         {
+            CancelSlideRead();
             var key = (slide.DeckKey, slide.SlideId);
             if (powerPointPages.TryGetValue(key, out var state))
             {
@@ -273,50 +271,93 @@ namespace FluentCanvas
                 return;
             }
 
-            var strokes = new StrokeCollection();
-            if (slide.CanPersistInk && Settings.PowerPointSettings.IsAutoSaveStrokesInPowerPoint)
+            var blank = CreatePowerPointCanvas(new StrokeCollection());
+            RestoreDesktopCanvas(blank);
+            if (!slide.CanPersistInk || !Settings.PowerPointSettings.IsAutoSaveStrokesInPowerPoint)
             {
-                try
-                {
-                    if (powerPointWriter.PendingInk(key.DeckKey, key.SlideId) is { } pending)
-                    {
-                        using var input = new MemoryStream(pending);
-                        strokes = new StrokeCollection(input);
-                    }
-                    else
-                    {
-                        string path = powerPointInk.LatestSlidePath(slide.DeckKey, slide.SlideId);
-                        if (File.Exists(path))
-                            strokes = CanvasDocument.LoadSlideInk(path);
-                    }
-                }
-                catch (Exception ex) when (ex is IOException or InvalidDataException or ArgumentException or UnauthorizedAccessException)
-                {
-                    ShowNotificationAsync(UiText.Format("Presentation.ReadAnnotationFailed", slide.SlideIndex));
-                    LogHelper.WriteLogToFile($"PowerPoint annotation read: {ex}", LogHelper.LogType.Error);
-                }
+                powerPointPages[key] = blank;
+                return;
             }
-            // Reopened strokes belong to the base state. Start undo history here.
-            var loaded = CreatePowerPointCanvas(strokes);
-            powerPointPages[key] = loaded;
-            RestoreDesktopCanvas(loaded);
+
+            _ = LoadPowerPointSlideAsync(slide, blank, slideLoad.Begin());
         }
+
+        private async Task LoadPowerPointSlideAsync(PowerPointSlide slide, CanvasPage blank, Task<bool> read)
+        {
+            var key = (slide.DeckKey, slide.SlideId);
+            placeholderRevision = blank.History.Page.State.Revision;
+            bool IsDestinationCurrent()
+            {
+                if (!slideLoad.IsCurrent(read)) return false;
+                if (DesktopRevision == placeholderRevision) return true;
+                powerPointInk.PreserveUnreadSlide(key.DeckKey, key.SlideId);
+                return false;
+            }
+            wasEnabledBeforeSlideRead = IsEnabled;
+            bool installed = false;
+            SetCurrentValue(IsEnabledProperty, false);
+            try
+            {
+                byte[] records = await powerPointWriter.ReadSlideAsync(powerPointInk, key.DeckKey, key.SlideId);
+                if (!IsDestinationCurrent()) return;
+                if (records == null)
+                {
+                    powerPointPages[key] = blank;
+                    installed = true;
+                    return;
+                }
+
+                var loaded = await Task.Run(() =>
+                {
+                    var native = NativeInkPage.LoadDocument(records, out var visibleInk);
+                    try
+                    {
+                        return new CanvasPage(visibleInk, [], new TimeMachine.Snapshot([], native));
+                    }
+                    catch { native.Dispose(); throw; }
+                });
+                if (!IsDestinationCurrent())
+                {
+                    loaded.History.Page.Dispose();
+                    return;
+                }
+                RestoreDesktopCanvas(loaded);
+                powerPointPages[key] = loaded;
+                installed = true;
+            }
+            catch (Exception ex)
+            {
+                if (!IsDestinationCurrent()) return;
+                powerPointInk.PreserveUnreadSlide(key.DeckKey, key.SlideId);
+                powerPointPages[key] = blank;
+                ShowNotificationAsync(UiText.Format("Presentation.ReadAnnotationFailed", slide.SlideIndex));
+                LogHelper.WriteLogToFile($"PowerPoint annotation read: {ex}", LogHelper.LogType.Error);
+            }
+            finally
+            {
+                if (slideLoad.IsCurrent(read)) CancelSlideRead(installed);
+            }
+        }
+
+        private ulong? DesktopRevision => Pages.ActiveIndex == 0 ? timeMachine.CurrentState : Pages.ReadPage(0)?.History.Page.State.Revision;
 
         private void SaveActivePowerPointSlide()
         {
             var slide = activePowerPointSlide;
+            if (readingSlide)
+            {
+                if (DesktopRevision == placeholderRevision) return;
+                powerPointInk.PreserveUnreadSlide(slide.DeckKey, slide.SlideId);
+            }
             var key = (slide.DeckKey, slide.SlideId);
-            bool alreadyHadInk = powerPointPages.TryGetValue(key, out var previous) && previous.Strokes.Count > 0;
+            powerPointPages.TryGetValue(key, out var previous);
             var state = CaptureDesktopCanvas();
+            if (slide.CanPersistInk && Settings.PowerPointSettings.IsAutoSaveStrokesInPowerPoint &&
+                previous?.History.Page.State.Revision != state.History.Page.State.Revision &&
+                (state.Strokes.Count > 0 || previous?.Strokes.Count > 0))
+                powerPointWriter.SaveNativePage(powerPointInk, key.DeckKey, key.SlideId, state.History.FreezeInk());
             powerPointPages[key] = state;
-            if (!slide.CanPersistInk || !Settings.PowerPointSettings.IsAutoSaveStrokesInPowerPoint ||
-                (state.Strokes.Count == 0 && !alreadyHadInk))
-                return;
-            using var ink = new MemoryStream();
-            state.Strokes.Save(ink);
-            powerPointWriter.SaveSlide(powerPointInk, key.DeckKey, key.SlideId, ink.ToArray());
         }
-
         private void ReportPowerPointWrite(PowerPointInkWriter.Result result)
         {
             if (result.Error != null)
@@ -354,6 +395,7 @@ namespace FluentCanvas
             {
                 activePowerPointSlide = null;
                 lastPowerPointTransitionCapture = default;
+                CancelSlideRead();
                 RestorePresentationDisplay();
                 if (!closingPowerPointOwner)
                 {
@@ -375,7 +417,7 @@ namespace FluentCanvas
 
         private void CaptureLeavingPowerPointSlide()
         {
-            if (currentMode != 0 || activeCanvasPage != 0 ||
+            if (readingSlide || currentMode != 0 || activeCanvasPage != 0 ||
                 !Settings.PowerPointSettings.IsAutoSaveScreenShotInPowerPoint ||
                 (inkCanvas.Strokes.Count <= Settings.Automation.MinimumAutomationStrokeNumber && inkCanvas.Children.Count == 0))
                 return;

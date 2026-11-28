@@ -183,4 +183,8 @@ Fermez les paramètres pour reprendre la modification du tableau.</value></data>
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>Utiliser cette copie pour les associations de fichiers ? L’emplacement enregistré sera remplacé par {0}. Choisissez l’application par défaut dans les paramètres Windows.</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Applications de démarrage Windows</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>Désactiver les gestes tactiles sur les bords en plein écran</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>À propos et commentaires</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>Page d’accueil du projet</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>Signaler un problème</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>Impossible d’ouvrir la page web. Accédez à {0} dans votre navigateur.</value></data>
 </root>

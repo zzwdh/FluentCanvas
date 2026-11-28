@@ -29,7 +29,7 @@ namespace FluentCanvas
             get => activeShapeMode;
             set
             {
-                if (UsesNewShapeInput || shapeDraft != null || stagedShapeStrokes != null) CancelShapeDraft();
+                if (UsesNewShapeInput || inkCanvas?.HasQueuedGeometry == true || shapeDraft != null || stagedShapeStrokes != null) CancelShapeDraft();
                 activeShapeMode = value;
             }
         }
@@ -183,7 +183,25 @@ namespace FluentCanvas
                     inkCanvas.EditingMode = InkCanvasEditingMode.None;
                 }
             }
-            MouseTouchMove(e.GetTouchPoint(inkCanvas).Position);
+            QueueShapePreview(e.GetTouchPoint(inkCanvas).Position);
+        }
+
+        private Action<Point> buildShapePreview;
+
+        private void QueueShapePreview(Point position)
+        {
+            if (drawingShapeMode == ShapeTool.Pen) return;
+            // Arc direction accumulates across input packets even between rendered frames.
+            if (UsesNewShapeInput) TrackArcSweep(position);
+            inkCanvas.QueueGeometry(position, buildShapePreview ??= BuildShapePreview);
+        }
+
+        private void BuildShapePreview(Point point)
+        {
+            if (UsesNewShapeInput) UpdateNewShape(point);
+            else MouseTouchMove(drawingShapeMode is ShapeTool.Circle or ShapeTool.CenterEllipse or
+                ShapeTool.Coordinate1 or ShapeTool.Coordinate2 or ShapeTool.Coordinate3 or ShapeTool.Coordinate4 or ShapeTool.Coordinate5
+                ? SnapShapePoint(point) : point);
         }
 
         private double hyperbolaAsymptoteSlope;
@@ -289,37 +307,37 @@ namespace FluentCanvas
 
                     break;
                 case ShapeTool.Coordinate1:
-                    strokes.Add(GenerateArrowLineStroke(new Point(2 * iniP.X - (endP.X - 20), iniP.Y), new Point(endP.X, iniP.Y)));
-                    strokes.Add(GenerateArrowLineStroke(new Point(iniP.X, 2 * iniP.Y - (endP.Y + 20)), new Point(iniP.X, endP.Y)));
+                    strokes.Add(CreateCoordinateAxis(new Point(2 * iniP.X - (endP.X - 20), iniP.Y), new Point(endP.X, iniP.Y)));
+                    strokes.Add(CreateCoordinateAxis(new Point(iniP.X, 2 * iniP.Y - (endP.Y + 20)), new Point(iniP.X, endP.Y)));
                     SetShapeDraft(strokes);
 
                     break;
                 case ShapeTool.Coordinate2:
                     if (Math.Abs(iniP.X - endP.X) < 0.01) return;
-                    strokes.Add(GenerateArrowLineStroke(new Point(iniP.X + (iniP.X - endP.X) / Math.Abs(iniP.X - endP.X) * 25, iniP.Y), new Point(endP.X, iniP.Y)));
-                    strokes.Add(GenerateArrowLineStroke(new Point(iniP.X, 2 * iniP.Y - (endP.Y + 20)), new Point(iniP.X, endP.Y)));
+                    strokes.Add(CreateCoordinateAxis(new Point(iniP.X + (iniP.X - endP.X) / Math.Abs(iniP.X - endP.X) * 25, iniP.Y), new Point(endP.X, iniP.Y)));
+                    strokes.Add(CreateCoordinateAxis(new Point(iniP.X, 2 * iniP.Y - (endP.Y + 20)), new Point(iniP.X, endP.Y)));
                     SetShapeDraft(strokes);
 
                     break;
                 case ShapeTool.Coordinate3:
                     if (Math.Abs(iniP.Y - endP.Y) < 0.01) return;
-                    strokes.Add(GenerateArrowLineStroke(new Point(2 * iniP.X - (endP.X - 20), iniP.Y), new Point(endP.X, iniP.Y)));
-                    strokes.Add(GenerateArrowLineStroke(new Point(iniP.X, iniP.Y + (iniP.Y - endP.Y) / Math.Abs(iniP.Y - endP.Y) * 25), new Point(iniP.X, endP.Y)));
+                    strokes.Add(CreateCoordinateAxis(new Point(2 * iniP.X - (endP.X - 20), iniP.Y), new Point(endP.X, iniP.Y)));
+                    strokes.Add(CreateCoordinateAxis(new Point(iniP.X, iniP.Y + (iniP.Y - endP.Y) / Math.Abs(iniP.Y - endP.Y) * 25), new Point(iniP.X, endP.Y)));
                     SetShapeDraft(strokes);
 
                     break;
                 case ShapeTool.Coordinate4:
                     if (Math.Abs(iniP.X - endP.X) < 0.01 || Math.Abs(iniP.Y - endP.Y) < 0.01) return;
-                    strokes.Add(GenerateArrowLineStroke(new Point(iniP.X + (iniP.X - endP.X) / Math.Abs(iniP.X - endP.X) * 25, iniP.Y), new Point(endP.X, iniP.Y)));
-                    strokes.Add(GenerateArrowLineStroke(new Point(iniP.X, iniP.Y + (iniP.Y - endP.Y) / Math.Abs(iniP.Y - endP.Y) * 25), new Point(iniP.X, endP.Y)));
+                    strokes.Add(CreateCoordinateAxis(new Point(iniP.X + (iniP.X - endP.X) / Math.Abs(iniP.X - endP.X) * 25, iniP.Y), new Point(endP.X, iniP.Y)));
+                    strokes.Add(CreateCoordinateAxis(new Point(iniP.X, iniP.Y + (iniP.Y - endP.Y) / Math.Abs(iniP.Y - endP.Y) * 25), new Point(iniP.X, endP.Y)));
                     SetShapeDraft(strokes);
 
                     break;
                 case ShapeTool.Coordinate5:
-                    strokes.Add(GenerateArrowLineStroke(new Point(iniP.X, iniP.Y), new Point(iniP.X + Math.Abs(endP.X - iniP.X), iniP.Y)));
-                    strokes.Add(GenerateArrowLineStroke(new Point(iniP.X, iniP.Y), new Point(iniP.X, iniP.Y - Math.Abs(endP.Y - iniP.Y))));
+                    strokes.Add(CreateCoordinateAxis(new Point(iniP.X, iniP.Y), new Point(iniP.X + Math.Abs(endP.X - iniP.X), iniP.Y)));
+                    strokes.Add(CreateCoordinateAxis(new Point(iniP.X, iniP.Y), new Point(iniP.X, iniP.Y - Math.Abs(endP.Y - iniP.Y))));
                     d = (Math.Abs(iniP.X - endP.X) + Math.Abs(iniP.Y - endP.Y)) / 2;
-                    strokes.Add(GenerateArrowLineStroke(new Point(iniP.X, iniP.Y), new Point(iniP.X - d / 1.76, iniP.Y + d / 1.76)));
+                    strokes.Add(CreateCoordinateAxis(new Point(iniP.X, iniP.Y), new Point(iniP.X - d / 1.76, iniP.Y + d / 1.76)));
                     SetShapeDraft(strokes);
 
                     break;
@@ -358,37 +376,16 @@ namespace FluentCanvas
 
                     break;
                 case ShapeTool.Ellipse:
-                    pointList = GenerateEllipseGeometry(iniP, endP);
-                    point = new StylusPointCollection(pointList);
-                    stroke = new Stroke(point)
-                    {
-                        DrawingAttributes = inkCanvas.DefaultDrawingAttributes.Clone()
-                    };
-                    SetShapeDraft(stroke);
-
+                    SetShapeDraft(ParametricInk.Ellipse(iniP, endP).Create(inkCanvas.DefaultDrawingAttributes));
                     break;
                 case ShapeTool.Circle:
                     double R = GetDistance(iniP, endP);
-                    pointList = GenerateEllipseGeometry(new Point(iniP.X - R, iniP.Y - R), new Point(iniP.X + R, iniP.Y + R));
-                    point = new StylusPointCollection(pointList);
-                    stroke = new Stroke(point)
-                    {
-                        DrawingAttributes = inkCanvas.DefaultDrawingAttributes.Clone()
-                    };
-                    SetShapeDraft(stroke);
-
+                    SetShapeDraft(new ParametricInk(GeometryKind.Arc, iniP, new Point(iniP.X + R, iniP.Y),
+                        new Point(iniP.X, iniP.Y + R), Math.Tau).Create(inkCanvas.DefaultDrawingAttributes));
                     break;
                 case ShapeTool.CenterEllipse:
-                    double halfA = endP.X - iniP.X;
-                    double halfB = endP.Y - iniP.Y;
-                    pointList = GenerateEllipseGeometry(new Point(iniP.X - halfA, iniP.Y - halfB), new Point(iniP.X + halfA, iniP.Y + halfB));
-                    point = new StylusPointCollection(pointList);
-                    stroke = new Stroke(point)
-                    {
-                        DrawingAttributes = inkCanvas.DefaultDrawingAttributes.Clone()
-                    };
-                    SetShapeDraft(stroke);
-
+                    SetShapeDraft(new ParametricInk(GeometryKind.Arc, iniP, new Point(endP.X, iniP.Y),
+                        new Point(iniP.X, endP.Y), Math.Tau).Create(inkCanvas.DefaultDrawingAttributes));
                     break;
                 case ShapeTool.CenterEllipseWithFocalPoints:
                     a = Math.Abs(endP.X - iniP.X);
@@ -795,6 +792,7 @@ namespace FluentCanvas
 
         private void Main_Grid_TouchUp(object sender, TouchEventArgs e)
         {
+            if (!isLastTouchEraser) SetShapeReleasePoint(e.GetTouchPoint(inkCanvas).Position);
             inkCanvas_MouseUp(sender, null);
             if (dec.Count == 0)
             {
@@ -804,6 +802,12 @@ namespace FluentCanvas
         private StrokeCollection shapeDraft;
         private StrokeCollection stagedShapeStrokes;
         bool isWaitUntilNextTouchDown = false;
+
+        private void SetShapeReleasePoint(Point position)
+        {
+            if (!UsesNewShapeInput && !isWaitUntilNextTouchDown && (shapeDraft != null || inkCanvas.HasQueuedGeometry))
+                QueueShapePreview(position);
+        }
 
         private void SetShapeDraft(Stroke stroke) => SetShapeDraft(new StrokeCollection { stroke });
 
@@ -829,6 +833,8 @@ namespace FluentCanvas
 
         private void CancelShapeDraft()
         {
+            shapeSnapPoints = null;
+            inkCanvas?.CancelQueuedGeometry();
             ResetNewShapeInput();
             isMouseDown = false;
             isWaitUntilNextTouchDown = false;
@@ -839,6 +845,7 @@ namespace FluentCanvas
 
         private void CompleteShapeDraft()
         {
+            inkCanvas.FlushQueuedGeometry();
             var draft = shapeDraft;
             if (draft == null) return;
             if (draft.Count == 0 || isWaitUntilNextTouchDown)
@@ -889,6 +896,8 @@ namespace FluentCanvas
                 completed.Add(draft);
             }
             bool isCircle = drawingShapeMode == ShapeTool.Circle;
+            foreach (var stroke in completed)
+                if (stroke.StylusPoints.Count >= 50 && !stroke.ContainsPropertyData(NativeStrokeCodec.ShapeProperty)) stroke.AddPropertyData(NativeStrokeCodec.ShapeProperty, true);
             CancelShapeDraft();
             var previous = _currentCommitType;
             _currentCommitType = CommitReason.ShapeDrawing;
@@ -1009,6 +1018,9 @@ namespace FluentCanvas
             return stroke;
         }
 
+        private Stroke CreateCoordinateAxis(Point start, Point end) =>
+            ParametricInk.Arrow(start, end).Create(inkCanvas.DefaultDrawingAttributes);
+
         private Stroke GenerateArrowLineStroke(System.Windows.Point st, System.Windows.Point ed)
         {
             List<System.Windows.Point> pointList = new List<System.Windows.Point>();
@@ -1110,12 +1122,12 @@ namespace FluentCanvas
             if (UsesNewShapeInput)
             {
                 if (!IsTouchPromotedMouse(e) && newShapeTouch == null && (isMouseDown || newShapeFirstPoint.HasValue))
-                    UpdateNewShape(e.GetPosition(inkCanvas));
+                    QueueShapePreview(e.GetPosition(inkCanvas));
                 return;
             }
             if (isMouseDown)
             {
-                MouseTouchMove(e.GetPosition(inkCanvas));
+                QueueShapePreview(e.GetPosition(inkCanvas));
             }
         }
 
@@ -1130,20 +1142,12 @@ namespace FluentCanvas
                 FinishNewShape(e.GetPosition(inkCanvas));
                 return;
             }
+            if (isMouseDown && e != null) SetShapeReleasePoint(e.GetPosition(inkCanvas));
             isMouseDown = false;
             CommitPendingStrokeErasure();
             CompleteShapeDraft();
 
-            ToCommitStrokeManipulationHistoryAfterMouseUp();
-            if (DrawingAttributesHistory.Count > 0)
-            {
-                timeMachine.CommitStrokeDrawingAttributesHistory(DrawingAttributesHistory);
-                DrawingAttributesHistory = new Dictionary<Stroke, Tuple<DrawingAttributes, DrawingAttributes>>();
-                foreach (var item in DrawingAttributesHistoryFlag)
-                {
-                    item.Value.Clear();
-                }
-            }
+            CommitPendingStrokeDrawingAttributes();
         }
 
         private bool NeedUpdateIniP() => stagedShapeStrokes == null ||

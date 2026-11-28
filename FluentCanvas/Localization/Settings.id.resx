@@ -183,4 +183,8 @@ Tutup Pengaturan untuk melanjutkan pengeditan papan tulis.</value></data>
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>Gunakan salinan ini untuk asosiasi file? Lokasi terdaftar akan menjadi {0}. Pilih aplikasi default di Pengaturan Windows.</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Aplikasi startup Windows</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>Nonaktifkan gestur sentuh tepi saat layar penuh</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>Tentang aplikasi dan masukan</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>Halaman utama proyek</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>Laporkan masalah</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>Halaman web tidak dapat dibuka. Kunjungi {0} di peramban Anda.</value></data>
 </root>

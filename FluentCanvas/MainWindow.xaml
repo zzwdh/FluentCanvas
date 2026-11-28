@@ -420,6 +420,8 @@
                 PreviewTouchDown="GridInkCanvasSelectionCover_PreviewTouchDown"
                 PreviewTouchUp="GridInkCanvasSelectionCover_PreviewTouchUp"
                 Visibility="Visible" />
+            <Canvas x:Name="ShapeHandles" ClipToBounds="True"
+                    Visibility="{Binding ElementName=GridInkCanvasSelectionCover, Path=Visibility}" />
             <Border
                 x:Name="BorderStrokeSelectionControl"
                 Height="104"

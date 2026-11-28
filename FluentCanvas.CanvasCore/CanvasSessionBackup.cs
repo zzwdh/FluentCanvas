@@ -4,13 +4,32 @@ namespace FluentCanvas.Helpers;
 
 internal static class CanvasSessionBackup
 {
-    internal static List<(string Name, CanvasDocument.Snapshot Document)> Capture(CanvasPageBook pages,
+    internal sealed class BackupPages : List<(string Name, CanvasDocument.Snapshot Document)>, System.IDisposable
+    {
+        public void Dispose()
+        {
+            foreach (var item in this) item.Document.Dispose();
+        }
+    }
+
+    internal static BackupPages Capture(CanvasPageBook pages,
         bool livePageDirty, CanvasPage desktopBeforeSlideShow,
         IReadOnlyDictionary<(string Deck, int Slide), CanvasPage> slides)
     {
-        var result = new List<(string Name, CanvasDocument.Snapshot Document)>();
+        var result = new BackupPages();
+        try
+        {
+            Gather(result, pages, livePageDirty, desktopBeforeSlideShow, slides);
+            return result;
+        }
+        catch { result.Dispose(); throw; }
+    }
+
+    private static void Gather(BackupPages result, CanvasPageBook pages, bool livePageDirty,
+        CanvasPage desktopBeforeSlideShow, IReadOnlyDictionary<(string Deck, int Slide), CanvasPage> slides)
+    {
         void Add(string name, CanvasPage page) =>
-            result.Add((name, CanvasDocument.Capture(page.Strokes, page.Elements)));
+            result.Add((name, CanvasDocument.Capture(page.History.FreezeInk(), page.Elements)));
 
         for (int index = 0; index <= pages.WhiteboardCount; index++)
         {
@@ -33,6 +52,5 @@ internal static class CanvasSessionBackup
         {
             if (slide.History.HasUnsavedChanges) Add($"放映批注 {key.Slide} - {key.Deck}.icart", slide);
         }
-        return result;
     }
 }

@@ -6,7 +6,8 @@
 
 - Windows x64 或 ARM64 开发机，PowerShell 7.2 及以上。安装正式 .NET SDK **11.0.100**，运行 `dotnet --version` 确认。也可将对应架构的官方 SDK 压缩包解压到 `artifacts/sdk/dotnet-11.0.100`。PATH 上的 .NET 10 或更新版本的宿主可以自动查找这个目录。也可用 `-DotnetPath` 指定解压后的 `dotnet.exe`。
 - 安装 Windows SDK **10.0.26100 或更新**的 MakeAppx、MakePri、SignTool 和 mt.exe。可用 `-WindowsSdkBin` 指定含这四个工具的目录。本次使用 Windows SDK 10.0.28000.0。
-- 命令行打包脚本复用现有打包工程的资产清单和 AppxManifest 模板，可在只安装上述 SDK 的机器上构建。用 Visual Studio 打开解决方案时，.NET 11.0.100 对应 VS 2026 18.12，另需 Windows Application Packaging Project / Desktop Bridge 组件。本次验证的是命令行流程。[SDK 与运行时](https://dotnet.microsoft.com/download/dotnet/11.0) · [WPF 打包](https://learn.microsoft.com/windows/apps/desktop/modernize/dotnet/package-app)
+- 原生核心使用仓库 `rust-toolchain.toml` 固定的 Rust MSVC 工具链。安装 rustup 及 Visual Studio C++ 构建工具，为每个目标安装对应的 MSVC 链接器和库。在仓库根目录执行 `rustup target add x86_64-pc-windows-msvc aarch64-pc-windows-msvc`。常规构建和测试会把对应架构的 `fluent_canvas_core.dll` 复制到应用旁。打包脚本会把对应的原生 PDB 保存在本次构建的 `artifacts/build/<编号>/symbols/<架构>/`。
+- 命令行打包脚本复用现有打包工程的资产清单和 AppxManifest 模板。用 Visual Studio 打开解决方案时，.NET 11.0.100 对应 VS 2026 18.12，另需 Windows Application Packaging Project / Desktop Bridge 组件。[SDK 与运行时](https://dotnet.microsoft.com/download/dotnet/11.0) · [WPF 打包](https://learn.microsoft.com/windows/apps/desktop/modernize/dotnet/package-app)
 - 编译引用 `net11.0-windows10.0.19041.0`，MSIX 最低安装版本为 Windows 10 1809（内部版本 17763，含 LTSC 2019）。Windows 10 和 11 使用同一份包，两个 RID 分别是 `win-x64` 和 `win-arm64`。微软的 .NET 支持范围随各 Windows 版本与版本类别的生命周期变化。[.NET 支持矩阵](https://github.com/dotnet/core/blob/main/release-notes/11.0/supported-os.md) · [Windows App SDK 支持矩阵](https://learn.microsoft.com/windows/apps/windows-app-sdk/support)
 
 ## 本地测试包

@@ -183,4 +183,8 @@
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>फाइल संबद्धतेसाठी ही प्रत वापरायची का? नोंदणीकृत स्थान {0} असे होईल. Windows सेटिंग्जमध्ये डीफॉल्ट ॲप निवडा.</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Windows स्टार्टअप ॲप्स</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>पूर्ण स्क्रीनमध्ये कडांवरील स्पर्श जेश्चर बंद करा</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>ॲपची माहिती आणि अभिप्राय</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>प्रकल्पाचे मुख्य पृष्ठ</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>समस्या नोंदवा</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>वेब पृष्ठ उघडता आले नाही. तुमच्या ब्राउझरमध्ये {0} उघडा.</value></data>
 </root>

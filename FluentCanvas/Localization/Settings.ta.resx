@@ -183,4 +183,8 @@
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>கோப்பு இணைப்புகளுக்கு இந்த நகலைப் பயன்படுத்தவா? பதிவு செய்யப்பட்ட இடம் {0} என மாறும். இயல்புநிலைச் செயலியை Windows அமைப்புகளில் தேர்வுசெய்யவும்.</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Windows தொடக்கச் செயலிகள்</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>முழுத்திரையில் விளிம்புத் தொடு சைகைகளை முடக்கு</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>பயன்பாட்டு விவரங்களும் கருத்துகளும்</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>திட்டத்தின் முகப்புப் பக்கம்</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>சிக்கலைப் புகாரளிக்கவும்</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>வலைப்பக்கத்தைத் திறக்க முடியவில்லை. உங்கள் உலாவியில் {0} ஐத் திறக்கவும்.</value></data>
 </root>

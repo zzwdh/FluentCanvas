@@ -183,4 +183,8 @@ Vị trí bản sao lưu: {0}</value></data>
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>Dùng bản sao này để liên kết tệp? Vị trí đã đăng ký sẽ đổi thành {0}. Chọn ứng dụng mặc định trong Cài đặt Windows.</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Ứng dụng khởi động của Windows</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>Tắt cử chỉ chạm ở cạnh màn hình khi ở chế độ toàn màn hình</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>Giới thiệu và phản hồi</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>Trang chủ dự án</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>Báo cáo sự cố</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>Không thể mở trang web. Hãy mở {0} trong trình duyệt.</value></data>
 </root>

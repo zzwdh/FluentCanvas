@@ -183,4 +183,8 @@
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>Использовать эту копию для сопоставления файлов? Зарегистрированный путь изменится на {0}. Выберите приложение по умолчанию в параметрах Windows.</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Автозагрузка приложений в Windows</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>Отключать сенсорные жесты от края в полноэкранном режиме</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>О приложении и обратная связь</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>Главная страница проекта</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>Сообщить о проблеме</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>Не удалось открыть веб-страницу. Откройте {0} в браузере.</value></data>
 </root>

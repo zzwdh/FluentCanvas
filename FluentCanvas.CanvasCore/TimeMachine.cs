@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Ink;
@@ -8,25 +9,56 @@ using System.Windows.Media;
 
 namespace FluentCanvas.Helpers
 {
-    public class TimeMachine
+    public partial class TimeMachine
     {
-        private List<TimeMachineHistory> _currentStrokeHistory = new List<TimeMachineHistory>();
+        private NativeInkPage page = NativeInkPage.Create();
+        private List<TimeMachineHistory> entries = new();
 
-        private int _currentIndex = -1;
-        private object _origin = new();
-        private object _savedState;
+        private StrokeCollection projection;
 
-        internal bool CanUndo => _currentIndex >= 0;
-        internal bool CanRedo => _currentIndex < _currentStrokeHistory.Count - 1;
-        internal object CurrentState => CanUndo ? _currentStrokeHistory[_currentIndex] : _origin;
-        internal bool HasUnsavedChanges => !ReferenceEquals(CurrentState, _savedState ?? _origin);
+        internal void BindInk(StrokeCollection strokes) => projection = strokes;
 
-        internal sealed record Snapshot(TimeMachineHistory[] Entries, int Index, object Origin, object SavedState)
+        internal bool CanUndo => page.State.Cursor > 0;
+        internal bool CanRedo
         {
-            internal bool HasUnsavedChanges => !ReferenceEquals(Index < 0 ? Origin : Entries[Index], SavedState ?? Origin);
+            get
+            {
+                var state = page.State;
+                return state.Cursor < state.Count;
+            }
         }
 
-        internal void MarkSaved() => _savedState = CurrentState;
+        internal ulong CurrentState => page.State.Revision;
+        internal bool HasUnsavedChanges => page.State.Dirty;
+        internal void MarkSaved() => page.MarkSaved();
+        internal StrokeCollection MaterializeInk() => page.MaterializeInk();
+        internal byte[] ExportInk() => page.ExportInk();
+
+        // The snapshot has a native revision and the WPF objects used by element edits.
+        internal sealed record Snapshot(TimeMachineHistory[] Entries, NativeInkPage Page)
+        {
+            internal bool HasUnsavedChanges => Page.State.Dirty;
+            internal StrokeCollection MaterializeInk() => Page.MaterializeInk();
+            internal byte[] ExportInk() => Page.ExportInk();
+        }
+
+        internal static Snapshot CreateBaseline(StrokeCollection strokes)
+        {
+            var native = NativeInkPage.Create();
+            try
+            {
+                native.Apply(strokes.Select(NativeInkPage.Id).ToArray(), strokes, reset: true);
+                return new([], native);
+            }
+            catch
+            {
+                native.Dispose();
+                throw;
+            }
+        }
+
+        internal bool FinishCollectedStroke(Stroke stroke, int style, double elapsedMilliseconds) =>
+            page.FinishStroke(stroke, style, elapsedMilliseconds);
 
         public delegate void OnUndoStateChange(bool status);
 
@@ -36,15 +68,93 @@ namespace FluentCanvas.Helpers
 
         public event OnRedoStateChange OnRedoStateChanged;
 
-        private void Commit(TimeMachineHistory item)
+        private void Commit(TimeMachineHistory item, Action<NativeInkPage> nativeEdit = null)
         {
-            if (_currentIndex + 1 < _currentStrokeHistory.Count)
-            {
-                _currentStrokeHistory.RemoveRange(_currentIndex + 1, (_currentStrokeHistory.Count - 1) - _currentIndex);
-            }
-            _currentStrokeHistory.Add(item);
-            _currentIndex = _currentStrokeHistory.Count - 1;
+            int cursor = page.State.Cursor;
+            entries.EnsureCapacity(cursor + 1);
+            EditPage(page, item, projection, nativeEdit);
+            if (cursor < entries.Count) entries.RemoveRange(cursor, entries.Count - cursor);
+            entries.Add(item);
             NotifyUndoRedoState();
+        }
+
+        private static void EditPage(NativeInkPage target, TimeMachineHistory item, StrokeCollection visible, Action<NativeInkPage> custom = null)
+        {
+            SceneChange[] media = item.SceneChanges();
+            if (media == null)
+            {
+                if (custom == null) ApplyEdit(target,item,visible);
+                else custom(target);
+            }
+            else target.EditScene(media, () =>
+            {
+                if (custom == null) ApplyEdit(target,item,visible);
+                else custom(target);
+            });
+        }
+
+        private static void ApplyEdit(NativeInkPage target, TimeMachineHistory item, StrokeCollection visible)
+        {
+            switch (item.CommitType)
+            {
+                case TimeMachineHistoryType.UserInput:
+                    var added = item.CurrentStroke;
+                    if (visible != null && !EndsWith(visible, added))
+                    {
+                        target.ChangeLayers(visible, null, added);
+                        return;
+                    }
+                    target.Append(added);
+                    return;
+
+                case TimeMachineHistoryType.DrawingAttributes:
+                    target.UpdateRecords(item.ModifiedStrokes, item.CommitType == TimeMachineHistoryType.DrawingAttributes);
+                    return;
+
+                case TimeMachineHistoryType.Manipulation:
+                    target.UpdateRecords(item.ModifiedStrokes, item.CommitType == TimeMachineHistoryType.DrawingAttributes);
+                    return;
+
+                case TimeMachineHistoryType.Clear:
+                case TimeMachineHistoryType.ShapeRecognition:
+                    bool erase = item.CommitType == TimeMachineHistoryType.Clear;
+                    var removed = erase ? item.CurrentStroke : item.ReplacedStroke;
+                    var inserted = erase ? item.ReplacedStroke : item.CurrentStroke;
+                    if (visible == null && target.State.Count == 0 && removed?.Count > 0 && target.Position(NativeInkPage.Id(removed[0])) < 0)
+                        target.Apply(removed.Select(NativeInkPage.Id).ToArray(), removed, reset: true);
+                    target.ChangeLayers(visible, removed, inserted);
+                    return;
+
+                case TimeMachineHistoryType.ElementInsert:
+                    target.Append(null);
+                    return;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(item));
+            }
+        }
+
+        private static bool EndsWith(StrokeCollection visible, StrokeCollection added)
+        {
+            int offset = visible.Count - added.Count;
+            if (offset < 0) return false;
+            for (int i = 0; i < added.Count; i++)
+                if (!ReferenceEquals(visible[offset + i], added[i])) return false;
+            return true;
+        }
+
+        internal void ImportNativePage(NativeInkPage page, TimeMachineHistory[] sourceHistory)
+        {
+            // A failed WPF attach can retry with the same still-owned staging page.
+            int first = page.State.Cursor;
+            if (first > sourceHistory.Length) throw new ArgumentException("Imported history length mismatch.");
+            for (int i = first; i < sourceHistory.Length; i++)
+            {
+                if (sourceHistory[i].CommitType != TimeMachineHistoryType.ElementInsert)
+                    throw new ArgumentException("Missing imported ink transaction.");
+                EditPage(page,sourceHistory[i],null);
+            }
+            page.MarkSaved();
+            ReplaceState(page, new(sourceHistory));
         }
 
         public void CommitStrokeUserInputHistory(StrokeCollection stroke)
@@ -58,13 +168,18 @@ namespace FluentCanvas.Helpers
         }
 
         public void CommitStrokeManipulationHistory(
-            Dictionary<Stroke, Tuple<StylusPointCollection, StylusPointCollection>> stylusPointDictionary,
+            IEnumerable<Stroke> modifiedStrokes,
             Dictionary<string, Tuple<object, TransformGroup>> ElementsManipulationHistory)
         {
-            Commit(new TimeMachineHistory(stylusPointDictionary, ElementsManipulationHistory, TimeMachineHistoryType.Manipulation));
+            Commit(new TimeMachineHistory(modifiedStrokes, ElementsManipulationHistory, TimeMachineHistoryType.Manipulation));
         }
 
-        public void CommitStrokeDrawingAttributesHistory(Dictionary<Stroke, Tuple<DrawingAttributes, DrawingAttributes>> drawingAttributes)
+        internal void CommitTransformedObjects(IEnumerable<Stroke> modifiedStrokes, GestureMediaChange[] changes)
+        {
+            Commit(new TimeMachineHistory(modifiedStrokes, null, TimeMachineHistoryType.Manipulation) { GestureMedia = changes });
+        }
+
+        public void CommitStrokeDrawingAttributesHistory(IEnumerable<Stroke> drawingAttributes)
         {
             Commit(new TimeMachineHistory(drawingAttributes, TimeMachineHistoryType.DrawingAttributes));
         }
@@ -86,51 +201,71 @@ namespace FluentCanvas.Helpers
 
         public void ClearStrokeHistory() => ImportTimeMachineHistory(Array.Empty<TimeMachineHistory>());
 
-        internal HistoryTransition Undo()
+        internal HistoryTransition Undo() => MoveCursor(false);
+        internal HistoryTransition Redo() => MoveCursor(true);
+
+        private HistoryTransition MoveCursor(bool forward)
         {
-            var item = _currentStrokeHistory[_currentIndex];
-            _currentIndex--;
-            NotifyUndoRedoState();
-            return new HistoryTransition(item, HistoryDirection.Undo);
+            int index = page.State.Cursor - (forward ? 0 : 1);
+            var item = entries[index];
+            if (forward) page.Redo();
+            else page.Undo();
+            try
+            {
+                var delta = item.CommitType == TimeMachineHistoryType.ElementInsert ? [] : page.Delta(forward);
+                NotifyUndoRedoState();
+                return new(item, forward ? HistoryDirection.Redo : HistoryDirection.Undo, page, delta);
+            }
+            catch
+            {
+                if (forward) page.Undo();
+                else page.Redo();
+                throw;
+            }
         }
 
-        internal HistoryTransition Redo()
-        {
-            var item = _currentStrokeHistory[++_currentIndex];
-            NotifyUndoRedoState();
-            return new HistoryTransition(item, HistoryDirection.Redo);
-        }
-
-        internal Snapshot CaptureState() => new(_currentStrokeHistory.ToArray(), _currentIndex, _origin, _savedState);
+        internal Snapshot CaptureState() => new(entries.ToArray(), page.Copy());
 
         public bool ImportTimeMachineHistory(TimeMachineHistory[] sourceHistory)
         {
-            RestoreState(new Snapshot(sourceHistory, sourceHistory.Length - 1, new object(), null));
+            var imported = NativeInkPage.Create();
+            try
+            {
+                foreach (var item in sourceHistory) EditPage(imported, item, null);
+                ReplaceState(imported, new(sourceHistory));
+            }
+            catch
+            {
+                imported.Dispose();
+                throw;
+            }
             return true;
         }
 
         internal void RestoreState(Snapshot snapshot)
         {
-            var previous = _currentStrokeHistory;
-            int previousIndex = _currentIndex;
-            object previousOrigin = _origin;
-            object previousSavedState = _savedState;
-            _currentStrokeHistory = new List<TimeMachineHistory>(snapshot.Entries);
-            _currentIndex = snapshot.Index;
-            _origin = snapshot.Origin;
-            _savedState = snapshot.SavedState;
-            try
-            {
-                NotifyUndoRedoState();
-            }
+            var replacement = snapshot.Page.Copy();
+            try { ReplaceState(replacement, new(snapshot.Entries)); }
             catch
             {
-                _currentStrokeHistory = previous;
-                _currentIndex = previousIndex;
-                _origin = previousOrigin;
-                _savedState = previousSavedState;
+                replacement.Dispose();
                 throw;
             }
+        }
+
+        private void ReplaceState(NativeInkPage replacement, List<TimeMachineHistory> history)
+        {
+            var previousPage = page;
+            var previousEntries = entries;
+
+            (page, entries) = (replacement, history);
+            try { NotifyUndoRedoState(); }
+            catch
+            {
+                (page, entries) = (previousPage, previousEntries);
+                throw;
+            }
+            previousPage.Dispose();
         }
 
         private void NotifyUndoRedoState()
@@ -140,7 +275,7 @@ namespace FluentCanvas.Helpers
         }
     }
 
-    public class TimeMachineHistory
+    public partial class TimeMachineHistory
     {
         public TimeMachineHistoryType CommitType;
         internal bool IsRemoval { get; }
@@ -148,10 +283,10 @@ namespace FluentCanvas.Helpers
         public StrokeCollection ReplacedStroke;
         public UIElement Element;
         internal UIElement[] RemovedElements;
-        //这里说一下 Tuple 的 Value1 是初始值 ; Value 2 是改变值
-        public Dictionary<Stroke, Tuple<StylusPointCollection, StylusPointCollection>> StylusPointDictionary;
+        // WPF retains render identities and the element part of mixed edits.
+        internal Stroke[] ModifiedStrokes { get; }
         public Dictionary<string, Tuple<object, TransformGroup>> ElementsManipulationHistory;
-        public Dictionary<Stroke, Tuple<DrawingAttributes, DrawingAttributes>> DrawingAttributes;
+
         // UserInput
         public TimeMachineHistory(StrokeCollection currentStroke, TimeMachineHistoryType commitType, bool strokeHasBeenCleared)
         {
@@ -170,19 +305,19 @@ namespace FluentCanvas.Helpers
         }
         // StrokeManipulation, ElementManipulation
         public TimeMachineHistory(
-            Dictionary<Stroke, Tuple<StylusPointCollection, StylusPointCollection>> stylusPointDictionary,
+            IEnumerable<Stroke> modifiedStrokes,
             Dictionary<string, Tuple<object, TransformGroup>> elementsManipulationHistory,
             TimeMachineHistoryType commitType)
         {
             CommitType = commitType;
             ElementsManipulationHistory = elementsManipulationHistory;
-            StylusPointDictionary = stylusPointDictionary;
+            ModifiedStrokes = modifiedStrokes?.ToArray();
         }
         // trokeDrawingAttributes
-        public TimeMachineHistory(Dictionary<Stroke, Tuple<DrawingAttributes, DrawingAttributes>> drawingAttributes, TimeMachineHistoryType commitType)
+        public TimeMachineHistory(IEnumerable<Stroke> drawingAttributes, TimeMachineHistoryType commitType)
         {
             CommitType = commitType;
-            DrawingAttributes = drawingAttributes;
+            ModifiedStrokes = drawingAttributes.ToArray();
         }
         // Insert UIElement
         public TimeMachineHistory(UIElement element, TimeMachineHistoryType commitType, bool strokeHasBeenCleared)
@@ -192,36 +327,54 @@ namespace FluentCanvas.Helpers
             IsRemoval = strokeHasBeenCleared;
         }
 
-        internal void ApplyClear(InkCanvas canvas, bool remove)
+        internal SceneChange[] SceneChanges()
         {
-            var restored = remove ? ReplacedStroke : CurrentStroke;
-            var removed = remove ? CurrentStroke : ReplacedStroke;
-            if (restored != null)
-            {
-                foreach (var stroke in restored)
-                    if (!canvas.Strokes.Contains(stroke)) canvas.Strokes.Add(stroke);
-            }
-            if (removed != null)
-            {
-                foreach (var stroke in removed)
-                    if (canvas.Strokes.Contains(stroke)) canvas.Strokes.Remove(stroke);
-            }
-            if (RemovedElements == null) return;
-            foreach (var element in RemovedElements)
-            {
-                if (remove) canvas.Children.Remove(element);
-                else if (!canvas.Children.Contains(element)) canvas.Children.Add(element);
-            }
+            if (GestureMedia is { Length: > 0 }) return GestureMedia.Select(SceneChange.Move).ToArray();
+            if (RemovedElements is { Length: > 0 }) return RemovedElements.Select(SceneChange.Remove).ToArray();
+            if (Element != null) return [IsRemoval ? SceneChange.Remove(Element) : SceneChange.Insert(Element)];
+            return null;
         }
     }
 
     internal enum HistoryDirection { Undo, Redo }
 
-    internal readonly record struct HistoryTransition(TimeMachineHistory Entry, HistoryDirection Direction)
+    internal readonly record struct HistoryTransition(TimeMachineHistory Entry, HistoryDirection Direction, NativeInkPage Page, ulong[] Delta)
     {
         internal bool RemoveOriginal => Direction == HistoryDirection.Undo ? !Entry.IsRemoval : Entry.IsRemoval;
 
-        internal void ApplyClear(InkCanvas canvas) => Entry.ApplyClear(canvas, RemoveOriginal);
+        internal void ApplyClear(InkCanvas canvas, bool reconcile = false)
+        {
+            ProjectInk(canvas, reconcile);
+            ProjectElements(canvas);
+        }
+
+        internal void ProjectElements(InkCanvas canvas)
+        {
+            if (Entry.Element == null && Entry.RemovedElements is not { Length: > 0 } && Entry.GestureMedia is not { Length: > 0 }) return;
+            var scene = Page.ReadScene();
+            void Restore(UIElement element)
+            {
+                if (scene != null && scene.TryGetValue(SceneObject.ObjectId(element), out var state)) state.Attach(canvas,element);
+                else canvas.Children.Remove(element);
+            }
+            if (Entry.Element != null) Restore(Entry.Element);
+            if (Entry.RemovedElements != null) foreach (var element in Entry.RemovedElements) Restore(element);
+            if (Entry.GestureMedia != null) foreach (var change in Entry.GestureMedia) Restore(change.Element);
+        }
+
+        internal void ProjectInk(InkCanvas canvas, bool reconcile = false)
+        {
+            if (Entry.CommitType == TimeMachineHistoryType.ElementInsert) return;
+            var available = new Dictionary<ulong, Stroke>();
+            if (Entry.CurrentStroke != null)
+                foreach (var stroke in Entry.CurrentStroke) available[NativeInkPage.Id(stroke)] = stroke;
+            if (Entry.ReplacedStroke != null)
+                foreach (var stroke in Entry.ReplacedStroke) available[NativeInkPage.Id(stroke)] = stroke;
+            if (reconcile)
+                InkProjection.Restore(canvas.Strokes, Page, available, changed: null);
+            else
+                InkProjection.ApplyDelta(canvas.Strokes, Page, available, Delta);
+        }
     }
 
     public enum TimeMachineHistoryType

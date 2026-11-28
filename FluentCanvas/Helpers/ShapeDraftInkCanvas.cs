@@ -18,6 +18,11 @@ internal sealed class ShapeDraftInkCanvas : InkCanvas
     private StrokeCollection? stagedStrokes;
     private StrokeCollection? draftStrokes;
     private DispatcherOperation? pendingRender;
+    private Action<Point>? buildGeometry;
+    private Point geometryPosition;
+    internal bool HasQueuedGeometry => buildGeometry != null;
+
+    internal InkPresenter GesturePresenter => InkPresenter;
 
     public ShapeDraftInkCanvas()
     {
@@ -25,8 +30,36 @@ internal sealed class ShapeDraftInkCanvas : InkCanvas
         Unloaded += (_, _) =>
         {
             SystemParameters.StaticPropertyChanged -= OnSystemPropertyChanged;
+            CancelQueuedGeometry();
             SetShapePreview(null, null);
         };
+    }
+
+    internal void QueueGeometry(Point position, Action<Point> build)
+    {
+        geometryPosition = position;
+        if (buildGeometry == null) CompositionTarget.Rendering += OnGeometryFrame;
+        buildGeometry = build;
+    }
+
+    private void OnGeometryFrame(object? sender, EventArgs args)
+    {
+        FlushQueuedGeometry();
+        if (pendingRender?.Abort() == true) RenderShapePreview();
+    }
+
+    internal void CancelQueuedGeometry()
+    {
+        if (buildGeometry == null) return;
+        CompositionTarget.Rendering -= OnGeometryFrame;
+        buildGeometry = null;
+    }
+
+    internal void FlushQueuedGeometry()
+    {
+        var build = buildGeometry;
+        CancelQueuedGeometry();
+        build?.Invoke(geometryPosition);
     }
 
     internal void SetShapePreview(StrokeCollection? staged, StrokeCollection? draft)

@@ -1,4 +1,4 @@
-﻿using FluentCanvas.Localization;
+using FluentCanvas.Localization;
 using System.Windows;
 using System.Windows.Input;
 using FluentCanvas.Helpers;
@@ -207,7 +207,7 @@ namespace FluentCanvas
         }
 
         private void Undo_CanExecute(object sender, CanExecuteRoutedEventArgs e) =>
-            e.CanExecute = HasNewShapeInProgress || timeMachine.CanUndo;
+            e.CanExecute = HasNewShapeInProgress || contentGesture != null || timeMachine.CanUndo;
 
         private void Redo_CanExecute(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = timeMachine.CanRedo;
 

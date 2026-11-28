@@ -55,7 +55,9 @@ namespace FluentCanvas
             InitPowerPoint();
             timeMachine.OnRedoStateChanged += TimeMachine_OnRedoStateChanged;
             timeMachine.OnUndoStateChanged += TimeMachine_OnUndoStateChanged;
+            timeMachine.BindInk(inkCanvas.Strokes);
             inkCanvas.Strokes.StrokesChanged += StrokesOnStrokesChanged;
+            InitializeIndexedEraser();
 
             Microsoft.Win32.SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
             SystemParameters.StaticPropertyChanged += SystemParameters_StaticPropertyChanged;
@@ -120,6 +122,8 @@ namespace FluentCanvas
         {
             var inkCanvas1 = sender as InkCanvas;
             if (inkCanvas1 == null) return;
+            if (inkCanvas1.EditingMode != InkCanvasEditingMode.EraseByPoint && _currentCommitType != CommitReason.CodeInput)
+                CommitPendingStrokeErasure();
             if (Settings.Canvas.IsShowCursor)
             {
                 if (inkCanvas1.EditingMode == InkCanvasEditingMode.Ink || drawingShapeMode != ShapeTool.Pen)

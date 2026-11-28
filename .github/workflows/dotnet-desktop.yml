@@ -17,6 +17,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
+      - name: Prepare Rust targets and test the native core
+        shell: pwsh
+        run: |
+          rustup target add x86_64-pc-windows-msvc aarch64-pc-windows-msvc
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo test --locked --manifest-path native/fluent-canvas-core/Cargo.toml
       - name: Test document reliability
         run: dotnet run --project tests/Document.Tests/Document.Tests.csproj -c Release
       - name: Test settings and activation

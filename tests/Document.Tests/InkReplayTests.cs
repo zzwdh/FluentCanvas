@@ -43,7 +43,19 @@ internal static class InkReplayTests
             throw new InvalidOperationException("Replay dropped the original ink style or finished before the final hold elapsed.");
 
         var closedShapePreview = new StrokeCollection();
-        var closedShapeReplay = new InkReplaySession(new StrokeCollection { CreateStroke(629), original }, closedShapePreview);
+        var shape = CreateStroke(629);
+        shape.AddPropertyData(NativeStrokeCodec.ShapeProperty, true);
+        var history = new TimeMachine();
+        var handwriting = CreateStroke(629);
+        history.CommitStrokeUserInputHistory(new StrokeCollection { handwriting, shape, original });
+        using var frozen = history.FreezeSelection(new StrokeCollection { shape, original });
+        using var closedShapeReplay = new InkReplaySession(frozen, closedShapePreview);
+        using var full = history.FreezeInk();
+        using var ordinaryReplay = new InkReplaySession(full, output = new StrokeCollection());
+        history.Undo();
+        ordinaryReplay.Advance(TimeSpan.Zero);
+        if (output.Count != 1 || output[0].StylusPoints.Count != 1)
+            throw new InvalidOperationException("A long handwritten stroke was replayed as generated geometry.");
         closedShapeReplay.Advance(TimeSpan.Zero);
         if (closedShapePreview[0].StylusPoints.Count != 50)
             throw new InvalidOperationException("The circle and ellipse replay cadence changed.");

@@ -183,4 +183,8 @@
   <data name="FileAssociationsConfirm" xml:space="preserve"><value>ফাইল অ্যাসোসিয়েশনের জন্য এই কপিটি ব্যবহার করবেন? নিবন্ধিত অবস্থান {0} হবে। Windows সেটিংসে ডিফল্ট অ্যাপ বেছে নিন।</value></data>
   <data name="WindowsStartupSettings" xml:space="preserve"><value>Windows স্টার্টআপ অ্যাপ</value></data>
   <data name="DisableFullscreenEdgeGestures" xml:space="preserve"><value>পূর্ণ পর্দায় প্রান্তের স্পর্শ অঙ্গভঙ্গি বন্ধ করুন</value></data>
+  <data name="AboutAndFeedback" xml:space="preserve"><value>অ্যাপ পরিচিতি ও মতামত</value></data>
+  <data name="ProjectHomepage" xml:space="preserve"><value>প্রকল্পের মূল পৃষ্ঠা</value></data>
+  <data name="ReportIssue" xml:space="preserve"><value>সমস্যার প্রতিবেদন করুন</value></data>
+  <data name="OpenProjectLinkFailed" xml:space="preserve"><value>ওয়েব পৃষ্ঠা খোলা যায়নি। আপনার ব্রাউজারে {0} খুলুন।</value></data>
 </root>

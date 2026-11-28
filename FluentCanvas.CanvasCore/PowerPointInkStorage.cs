@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Security.Cryptography;
@@ -8,9 +10,18 @@ namespace FluentCanvas.Helpers
 {
     internal sealed class PowerPointInkStorage(string rootPath, string recoveryRoot)
     {
-        private const string LegacyRoot = "Auto Saved - Presentations";
-        private readonly string root = Path.Combine(rootPath, LegacyRoot);
+        private const string PresentationsFolder = "Auto Saved - Presentations";
+        private readonly string root = Path.Combine(rootPath, PresentationsFolder);
         private readonly string recovery = Path.Combine(recoveryRoot, "PowerPoint Recovery");
+
+        // Remember an unreadable original until an atomic replacement preserves it.
+        private readonly ConcurrentDictionary<string, object> unread = new(StringComparer.OrdinalIgnoreCase);
+
+        internal void PreserveUnreadSlide(string deck, int slide)
+        {
+            unread[SlidePath(deck, slide)] = new object();
+            unread[RecoveryFile(deck, SlideFileName(slide))] = new object();
+        }
 
         internal static string GetDeckKey(string fullName)
         {
@@ -38,56 +49,27 @@ namespace FluentCanvas.Helpers
         internal void SaveLastSlide(string deckKey, int slideId)
         {
             var bytes = Encoding.UTF8.GetBytes(slideId.ToString(CultureInfo.InvariantCulture));
-            WriteWithRecovery(deckKey, "Position", bytes);
+            WriteWithRecovery(deckKey, "Position", stream => stream.Write(bytes));
         }
 
-        internal bool WriteSlide(string deckKey, int slideId, byte[] bytes) =>
-            WriteWithRecovery(deckKey, SlideFileName(slideId), bytes);
+        internal bool WriteSlide(string deckKey, int slideId, FrozenInk ink) =>
+            WriteWithRecovery(deckKey, SlideFileName(slideId), stream => NativeInkDocument.Write(stream, ink));
 
-        internal string GetLegacyFolder(string deckKey, string name, int slideCount)
+        internal byte[] ReadSlide(string deckKey, int slideId)
         {
-            var legacyName = name + "_" + slideCount.ToString(CultureInfo.InvariantCulture);
-            if (!CanvasDocument.IsAssetName(legacyName) || File.Exists(LegacyMarker(deckKey))) return null;
-            var path = Path.Combine(root, legacyName);
-            return Directory.Exists(path) ? path : null;
-        }
-
-        internal int ImportLegacy(string deckKey, string legacyFolder, int[] slideIds, Func<int, bool> hasPendingInk = null)
-        {
-            int imported = 0;
-            var directory = Directory.CreateDirectory(DeckFolder(deckKey));
-            for (int index = 0; index < slideIds.Length; index++)
+            var path = LatestSlidePath(deckKey, slideId);
+            try
             {
-                int slideId = slideIds[index];
-                var destination = SlidePath(deckKey, slideId);
-                if (hasPendingInk?.Invoke(slideId) == true || File.Exists(LatestSlidePath(deckKey, slideId))) continue;
-
-                string basename = (index + 1).ToString("D4", CultureInfo.InvariantCulture);
-                var source = Path.Combine(legacyFolder, basename + ".icstk");
-                if (!File.Exists(source)) source = Path.Combine(legacyFolder, basename + ".icart");
-                if (!File.Exists(source)) continue;
-                using var ink = CanvasDocument.ReadSlideInk(source);
-                var temporary = Path.Combine(directory.FullName, "." + Guid.NewGuid().ToString("N") + ".tmp");
-                try
-                {
-                    using (var output = new FileStream(temporary, FileMode.CreateNew))
-                    {
-                        ink.WriteTo(output);
-                        output.Flush(flushToDisk: true);
-                    }
-                    File.Move(temporary, destination);
-                    imported++;
-                }
-                finally { File.Delete(temporary); }
+                using var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read | FileShare.Delete);
+                return NativeInkDocument.Read(stream, stream.Length);
             }
-            AtomicFile.Write(LegacyMarker(deckKey), _ => { });
-            return imported;
+            catch (FileNotFoundException) { return null; }
+            catch (DirectoryNotFoundException) { return null; }
         }
 
         private string DeckFolder(string deckKey) => Path.Combine(root, "by-document", deckKey);
-        private string LegacyMarker(string deckKey) => Path.Combine(DeckFolder(deckKey), "LegacyImported");
         private string RecoveryFile(string deckKey, string name) => Path.Combine(recovery, deckKey, name);
-        private static string SlideFileName(int slideId) => slideId.ToString(CultureInfo.InvariantCulture) + ".icstk";
+        private static string SlideFileName(int slideId) => slideId.ToString(CultureInfo.InvariantCulture) + ".fcink";
 
         private string LatestFile(string deckKey, string name)
         {
@@ -97,7 +79,9 @@ namespace FluentCanvas.Helpers
                 ? backup : primary;
         }
 
-        private bool WriteWithRecovery(string deckKey, string name, byte[] bytes)
+        private static string PreservedPath(string path) => path + "." + Guid.NewGuid().ToString("N") + ".bak";
+
+        private bool WriteWithRecovery(string deckKey, string name, Action<Stream> persist)
         {
             var primary = Path.Combine(DeckFolder(deckKey), name);
             var backup = RecoveryFile(deckKey, name);
@@ -108,14 +92,24 @@ namespace FluentCanvas.Helpers
                 return true;
             }
 
-            try { if (File.Exists(backup)) File.Delete(backup); }
+            try
+            {
+                if (unread.TryGetValue(backup, out var marker))
+                {
+                    if (File.Exists(backup)) File.Move(backup, PreservedPath(backup));
+                    unread.TryRemove(new KeyValuePair<string, object>(backup, marker));
+                }
+                else if (File.Exists(backup)) File.Delete(backup);
+            }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException) { }
             return false;
 
             void Write(string path)
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(path));
-                AtomicFile.Write(path, stream => stream.Write(bytes));
+                unread.TryGetValue(path, out var marker);
+                AtomicFile.Write(path, persist, marker == null ? null : PreservedPath(path));
+                if (marker != null) unread.TryRemove(new KeyValuePair<string, object>(path, marker));
             }
         }
     }

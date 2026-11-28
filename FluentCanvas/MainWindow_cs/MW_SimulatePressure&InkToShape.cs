@@ -1,4 +1,4 @@
-﻿using FluentCanvas.Helpers;
+using FluentCanvas.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -346,156 +346,8 @@ namespace FluentCanvas
 
                 if (contextVersion != canvasContextVersion || !inkCanvas.Strokes.Contains(e.Stroke)) return;
 
-                foreach (StylusPoint stylusPoint in e.Stroke.StylusPoints)
-                {
-                    //LogHelper.WriteLogToFile(stylusPoint.PressureFactor.ToString(), LogHelper.LogType.Info);
-                    // 检查是否是压感笔书写
-                    //if (stylusPoint.PressureFactor != 0.5 && stylusPoint.PressureFactor != 0)
-                    if ((stylusPoint.PressureFactor > 0.501 || stylusPoint.PressureFactor < 0.5) && stylusPoint.PressureFactor != 0)
-                    {
-                        return;
-                    }
-                    if (inkColor > 100)
-                    { // 荧光笔功能
-                        return;
-                    }
-                }
-                switch (Settings.Canvas.InkStyle)
-                {
-                    case 1:
-                        try
-                        {
-                            StylusPointCollection stylusPoints = new StylusPointCollection();
-                            int n = e.Stroke.StylusPoints.Count - 1;
-                            for (int i = 0; i <= n; i++)
-                            {
-                                double speed = GetPointSpeed(e.Stroke.StylusPoints[Math.Max(i - 1, 0)].ToPoint(), e.Stroke.StylusPoints[i].ToPoint(), e.Stroke.StylusPoints[Math.Min(i + 1, n)].ToPoint());
-                                StylusPoint point = new StylusPoint();
-                                if (speed >= 0.25)
-                                {
-                                    point.PressureFactor = (float)(0.5 - 0.3 * (Math.Min(speed, 1.5) - 0.3) / 1.2);
-                                }
-                                else if (speed >= 0.05)
-                                {
-                                    point.PressureFactor = (float)0.5;
-                                }
-                                else
-                                {
-                                    point.PressureFactor = (float)(0.5 + 0.4 * (0.05 - speed) / 0.05);
-                                }
-                                point.X = e.Stroke.StylusPoints[i].X;
-                                point.Y = e.Stroke.StylusPoints[i].Y;
-                                stylusPoints.Add(point);
-                            }
-                            e.Stroke.StylusPoints = stylusPoints;
-                        }
-                        catch
-                        {
-
-                        }
-                        break;
-                    case 0:
-                        try
-                        {
-                            StylusPointCollection stylusPoints = new StylusPointCollection();
-                            int n = e.Stroke.StylusPoints.Count - 1;
-                            double pressure = 0.1;
-                            int x = 10;
-                            if (n == 1) return;
-                            if (n >= x)
-                            {
-                                for (int i = 0; i < n - x; i++)
-                                {
-                                    StylusPoint point = new StylusPoint();
-
-                                    point.PressureFactor = (float)0.5;
-                                    point.X = e.Stroke.StylusPoints[i].X;
-                                    point.Y = e.Stroke.StylusPoints[i].Y;
-                                    stylusPoints.Add(point);
-                                }
-                                for (int i = n - x; i <= n; i++)
-                                {
-                                    StylusPoint point = new StylusPoint();
-
-                                    point.PressureFactor = (float)((0.5 - pressure) * (n - i) / x + pressure);
-                                    point.X = e.Stroke.StylusPoints[i].X;
-                                    point.Y = e.Stroke.StylusPoints[i].Y;
-                                    stylusPoints.Add(point);
-                                }
-                            }
-                            else
-                            {
-                                for (int i = 0; i <= n; i++)
-                                {
-                                    StylusPoint point = new StylusPoint();
-
-                                    point.PressureFactor = (float)(0.4 * (n - i) / n + pressure);
-                                    point.X = e.Stroke.StylusPoints[i].X;
-                                    point.Y = e.Stroke.StylusPoints[i].Y;
-                                    stylusPoints.Add(point);
-                                }
-                            }
-                            e.Stroke.StylusPoints = stylusPoints;
-                        }
-                        catch
-                        {
-
-                        }
-                        break;
-                    case 3: //根据 mode == 0 改写，目前暂未完成
-                        try
-                        {
-                            StylusPointCollection stylusPoints = new StylusPointCollection();
-                            int n = e.Stroke.StylusPoints.Count - 1;
-                            double pressure = 0.1;
-                            int x = 8;
-                            if (lastTouchDownTime < lastTouchUpTime)
-                            {
-                                double k = (lastTouchUpTime - lastTouchDownTime) / (n + 1); // 每个点之间间隔 k 毫秒
-                                x = (int)(1000 / k); // 取 1000 ms 内的点
-                            }
-
-                            if (n >= x)
-                            {
-                                for (int i = 0; i < n - x; i++)
-                                {
-                                    StylusPoint point = new StylusPoint();
-
-                                    point.PressureFactor = (float)0.5;
-                                    point.X = e.Stroke.StylusPoints[i].X;
-                                    point.Y = e.Stroke.StylusPoints[i].Y;
-                                    stylusPoints.Add(point);
-                                }
-                                for (int i = n - x; i <= n; i++)
-                                {
-                                    StylusPoint point = new StylusPoint();
-
-                                    point.PressureFactor = (float)((0.5 - pressure) * (n - i) / x + pressure);
-                                    point.X = e.Stroke.StylusPoints[i].X;
-                                    point.Y = e.Stroke.StylusPoints[i].Y;
-                                    stylusPoints.Add(point);
-                                }
-                            }
-                            else
-                            {
-                                for (int i = 0; i <= n; i++)
-                                {
-                                    StylusPoint point = new StylusPoint();
-
-                                    point.PressureFactor = (float)(0.4 * (n - i) / n + pressure);
-                                    point.X = e.Stroke.StylusPoints[i].X;
-                                    point.Y = e.Stroke.StylusPoints[i].Y;
-                                    stylusPoints.Add(point);
-                                }
-                            }
-                            e.Stroke.StylusPoints = stylusPoints;
-                        }
-                        catch
-                        {
-
-                        }
-                        break;
-                }
+                if (inkColor <= 100)
+                    FinishCollectedStroke(e.Stroke, Settings.Canvas.InkStyle, (double)lastTouchUpTime - lastTouchDownTime);
             }
             catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested) { }
             catch (Exception ex)
@@ -507,13 +359,6 @@ namespace FluentCanvas
         public double GetDistance(Point point1, Point point2)
         {
             return Math.Sqrt((point1.X - point2.X) * (point1.X - point2.X) + (point1.Y - point2.Y) * (point1.Y - point2.Y));
-        }
-
-        public double GetPointSpeed(Point point1, Point point2, Point point3)
-        {
-            return (Math.Sqrt((point1.X - point2.X) * (point1.X - point2.X) + (point1.Y - point2.Y) * (point1.Y - point2.Y))
-                + Math.Sqrt((point3.X - point2.X) * (point3.X - point2.X) + (point3.Y - point2.Y) * (point3.Y - point2.Y)))
-                / 20;
         }
 
         public Point[] FixPointsDirection(Point p1, Point p2)
